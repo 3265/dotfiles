@@ -12,3 +12,15 @@ source-hilight-less() {
     source-highlight -s bash --out-format=esc -o STDOUT -i $fn 2>/dev/null || /bin/less $fn;
   done
 }
+
+# ls color
+ls-color() {
+  if [ "$(uname)" == 'Darwin' ]; then
+    ls -alhF -G
+  elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+    ls -alhF --color=auto
+  else
+    echo "Your platform ($(uname -a)) is not supported."
+    exit 1
+  fi
+}

@@ -14,7 +14,7 @@ GIT_PS1_SHOWUPSTREAM=auto
 # alias
 alias a='ag'
 alias c='cp'
-alias l='ls -alhF --color=auto'
+alias l='ls-color'
 alias d='df -Th'
 alias g=git
 alias s='sudo'
