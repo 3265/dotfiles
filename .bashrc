@@ -1,4 +1,4 @@
-# git-completion.bash / git-prompt.sh
+# git
 PS1="[\u@ \W]\[\033[36m\]\$(__git_ps1)\[\033[00m\]\$ "
 if [ -f ~/dotfiles/sh/git-completion.bash ]; then
     source ~/dotfiles/sh/git-completion.bash
@@ -18,23 +18,35 @@ alias l='ls-color'
 alias d='df -Th'
 alias g=git
 alias h='source-hilight-less'
+alias m='chmod'
+alias o='chown'
 alias p='cp'
 alias s='source'
 alias u='umount'
-alias r='route'
 alias f='free -m'
 alias v='vim'
 alias w='w'
 
-alias ul='getent passwd'
-alias ua='adduser'
-alias ud='userdel'
-alias up='passwd'
-alias cm='chmod'
-alias co='chown'
+# user
+alias u-list='getent passwd'
+alias u-add='adduser'
+alias u-delete='userdel'
+alias u-passwd='passwd'
 
+## computer info
+alias i-host='hostname'
+alias i-cpu='cat /proc/cpuinfo'
+alias i-partition='df -h'
+alias i-memory='free -m'
+alias i-ip='ifconfig eth0'
+alias i-port='netstat -atn'
+alias i-getway='route'
+alias i-dist='lsb_release -a'
+alias i-arch='uname -a'
+
+## ssh
 alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
 alias kaishafs='sshfs kaisha: ~/mp/kaisha -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=kaisha'
 
+##other
 alias auto-commit='sh sh/inotify-git.sh'
-

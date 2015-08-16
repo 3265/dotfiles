@@ -1,4 +1,4 @@
-#パスの設定
+# homebrew
 export PATH=/usr/local:$PATH
 
 #.bashrcの読み込み(for mac)
@@ -15,10 +15,12 @@ source-hilight-less() {
 
 # ls color
 ls-color() {
+  path="."
+  if [ -n "$1" ]; then path=$1; fi
   if [ "$(uname)" == 'Darwin' ]; then
-    ls -alhF -G "$1"
+    ls -alhF -G $path
   elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
-    ls -alhF --color=auto "$1"
+    ls -alhF --color=auto $path
   else
     echo "Your platform ($(uname -a)) is not supported."
     exit 1
