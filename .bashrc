@@ -1,28 +1,35 @@
-# alias
-
-alias l='ls -alhF --color=auto'
-
-
-PS1="[\u@ \W]\[\033[36m\]\$(__git_ps1)\[\033[00m\]\$ "
-
-#
 # git-completion.bash / git-prompt.sh
-#
-if [ -f ~/myfile/git-completion.bash ]; then
-    source ~/myfile/git-completion.bash
+PS1="[\u@ \W]\[\033[36m\]\$(__git_ps1)\[\033[00m\]\$ "
+if [ -f ~/dotfiles/sh/git-completion.bash ]; then
+    source ~/dotfiles/sh/git-completion.bash
 fi
-if [ -f ~/myfile/git-prompt.sh ]; then
-    source ~/myfile/git-prompt.sh
+if [ -f ~/dotfiles/sh/git-prompt.sh ]; then
+    source ~/dotfiles/sh/git-prompt.sh
 fi
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 
-# gitの設定
+# alias
+alias a='ag'
+alias c='cp'
+alias l='ls -alhF --color=auto'
+alias d='df -Th'
+alias g=git
+alias s='sudo'
+alias h='source-hilight-less'
+alias s='source'
+alias r='route'
+alias f='free -m'
+alias w='w'
 
-alias g-log='git log --graph --date=short --format="%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(red)%d%C(reset) %s %C(cyan)@%an%C(reset)"'
+alias ul='getent passwd'
+alias ua='adduser'
+alias ud='userdel'
+alias up='passwd'
+alias ch='chmod'
+alias co='chown'
 
-#blog sshfs
 alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
 alias kaishafs='sshfs kaisha: ~/mp/kaisha -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=kaisha'
