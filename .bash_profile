@@ -16,9 +16,9 @@ source-hilight-less() {
 # ls color
 ls-color() {
   if [ "$(uname)" == 'Darwin' ]; then
-    ls -alhF -G
+    ls -alhF -G "$1"
   elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
-    ls -alhF --color=auto
+    ls -alhF --color=auto "$1"
   else
     echo "Your platform ($(uname -a)) is not supported."
     exit 1
