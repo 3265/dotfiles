@@ -5,6 +5,7 @@ brew install caskroom/cask/brew-cask
 
 brew cask install mosh
 brew cask install git
+brew cask install sshfs
 brew cask install duet
 brew cask install google-chrome
 brew cask install google-drive
