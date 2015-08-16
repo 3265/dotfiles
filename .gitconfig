@@ -19,10 +19,11 @@
 	m = merge
 	o = checkout
 	r = rm
-	s = show
+	s = status
 	t = status --short --branch
 	u = pull
 	v = mv
+	w = show
 [core]
 	autocrlf = input
 	safecrlf = true
