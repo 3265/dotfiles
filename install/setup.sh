@@ -1,8 +1,8 @@
 #!/bin/sh
 
-ln -s ~/dotfiles/.bashrc ~/.bashrc
-ln -s ~/dotfiles/.bash_profile ~/.bash_profile
-ln -s ~/dotfiles/.screenrc ~/.screenrc
-ln -s ~/dotfiles/.vimrc ~/.vimrc
-ln -s ~/dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/dotfiles/.editorconfig ~/.editorconfig
+ln -s -i ~/dotfiles/.bashrc ~/.bashrc
+ln -s -i ~/dotfiles/.bash_profile ~/.bash_profile
+ln -s -i ~/dotfiles/.screenrc ~/.screenrc
+ln -s -i ~/dotfiles/.vimrc ~/.vimrc
+ln -s -i ~/dotfiles/.gitconfig ~/.gitconfig
+ln -s -i ~/dotfiles/.editorconfig ~/.editorconfig
