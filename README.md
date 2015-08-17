@@ -1,6 +1,6 @@
 # dotfiles
 
-#| 
+# | cmd 
 ---|---
 1 | git clone https://github.com/mgoldchild/dotfiles
 2 | cd dotfiles
