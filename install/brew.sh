@@ -57,6 +57,7 @@ brew cask install sourcetree
 brew cask install istat-menus
 brew cask install appcleaner
 brew cask install robomongo
+brew cask install kobito
 
 brew cask cleanup
 
