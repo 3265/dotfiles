@@ -11,9 +11,6 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 
-# auto screen
-screen -xR↲
-
 # alias
 alias a='ag'
 alias c='cd'
@@ -51,5 +48,5 @@ alias i-arch='uname -a'
 alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
 alias kaishafs='sshfs kaisha: ~/mp/kaisha -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=kaisha'
 
-##other
-alias auto-commit='sh sh/inotify-git.sh'
+##autoscreen
+source ~/dotfiles/sh/autoscreen.sh
