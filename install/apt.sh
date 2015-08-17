@@ -5,13 +5,15 @@ update-locale LANG=ja_JP.UTF-8 LANGUAGE="ja_JP:ja"
 source /etc/default/locale
 env LANGUAGE=C LC_MESSAGES=C xdg-user-dirs-gtk-update
 
-
 sudo add-apt-repository ppa:webupd8team/atom
 sudo add-apt-repository ppa:lekensteyn/wacom-tablet
+sudo add-apt-repository ppa:diesch/testing
+sudo add-apt-repository ppa:indicator-multiload/stable-daily 
+sudo add-apt-repository ppa:shantzu/clipit
 
 sudo apt-get update
-sudo apt-get install aptitude
 
+sudo apt-get install aptitude
 sudo apt-get install vim
 sudo apt-get install vifm
 sudo apt-get install screen
@@ -73,3 +75,9 @@ sudo apt-get install nmap
 sudo apt-get install sshfs
 sudo apt-get install inotify-tools
 sudo apptitude install nautilus
+sudo apt-get install classicmenu-indicator
+sudo apt-get install indicator-multiload
+sudo apt-get install goldendict
+sudo apt-get install clipit
+sudo apt-get install openttd 
+
