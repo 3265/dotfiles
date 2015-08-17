@@ -11,6 +11,9 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 
+# auto screen
+screen -xR↲
+
 # alias
 alias a='ag'
 alias c='cd'

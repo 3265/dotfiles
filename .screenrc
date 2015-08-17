@@ -24,6 +24,9 @@ altscreen on
 # 使用文字コード
 defencodig utf-8
 
+# bash_profileを読み込む
+shell -$SHELL↲
+
 # Ctrl+矢印で移動できるようにする
 bindkey "[1;5C" next
 bindkey "[1;5D" prev
