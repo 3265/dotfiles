@@ -56,6 +56,7 @@ brew cask install macvim
 brew cask install sourcetree
 brew cask install istat-menus
 brew cask install appcleaner
+brew cask install robomongo
 
 brew cask cleanup
 
