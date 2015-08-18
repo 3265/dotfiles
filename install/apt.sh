@@ -80,4 +80,5 @@ sudo apt-get install indicator-multiload
 sudo apt-get install goldendict
 sudo apt-get install clipit
 sudo apt-get install openttd 
-
+sudo apt-get install curl
+sudo apt-get install gawk
