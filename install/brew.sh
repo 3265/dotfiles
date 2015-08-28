@@ -61,7 +61,7 @@ brew cask install appcleaner
 brew cask install robomongo
 brew cask install kobito
 brew cask install textmate
-
+brew cask install xquartz # for xforwarding
 brew cask cleanup
 
 # App store

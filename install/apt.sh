@@ -12,6 +12,7 @@ sudo add-apt-repository ppa:indicator-multiload/stable-daily
 sudo add-apt-repository ppa:shantzu/clipit
 
 sudo apt-get update
+sudo apt-get upgrade
 
 sudo apt-get install aptitude
 sudo apt-get install vim
