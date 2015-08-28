@@ -8,7 +8,7 @@ env LANGUAGE=C LC_MESSAGES=C xdg-user-dirs-gtk-update
 sudo add-apt-repository ppa:webupd8team/atom
 sudo add-apt-repository ppa:lekensteyn/wacom-tablet
 sudo add-apt-repository ppa:diesch/testing
-sudo add-apt-repository ppa:indicator-multiload/stable-daily 
+sudo add-apt-repository ppa:indicator-multiload/stable-daily
 sudo add-apt-repository ppa:shantzu/clipit
 
 sudo apt-get update
@@ -79,6 +79,8 @@ sudo apt-get install classicmenu-indicator
 sudo apt-get install indicator-multiload
 sudo apt-get install goldendict
 sudo apt-get install clipit
-sudo apt-get install openttd 
+sudo apt-get install openttd
 sudo apt-get install curl
 sudo apt-get install gawk
+sudo apt-get install xorg
+sudo apt-get install openbox
