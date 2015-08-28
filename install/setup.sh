@@ -6,3 +6,7 @@ ln -s -i ~/dotfiles/.screenrc ~/.screenrc
 ln -s -i ~/dotfiles/.vimrc ~/.vimrc
 ln -s -i ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s -i ~/dotfiles/.editorconfig ~/.editorconfig
+ln -s -i ~/dotfiles/.inputrc ~/.inputrc
+ln -s -i ~/dotfiles/.taskrc ~/.taskrc
+ln -s -i ~/dotfiles/.lscolor ~/.lscolor
+ln -s -i ~/dotfiles/.muttrc ~/.muttrc

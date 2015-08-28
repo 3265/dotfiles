@@ -14,14 +14,15 @@ GIT_PS1_SHOWUPSTREAM=auto
 # alias
 alias a='ag'
 alias c='cd'
-alias l='ls-color'
 alias d='df -Th'
-alias g=git
+alias e='grep -r -E --color'
+alias l='ls-color'
+alias g='git'
 alias h='source-hilight-less'
 alias m='chmod'
 alias o='chown'
 alias p='cp'
-alias s='source'
+alias s='screen -R'
 alias u='umount'
 alias f='free -m'
 alias v='vim'
@@ -33,7 +34,7 @@ alias u-add='adduser'
 alias u-delete='userdel'
 alias u-passwd='passwd'
 
-## computer info
+# computer info
 alias i-host='hostname'
 alias i-cpu='cat /proc/cpuinfo'
 alias i-partition='df -h'
@@ -44,9 +45,13 @@ alias i-getway='route'
 alias i-dist='lsb_release -a'
 alias i-arch='uname -a'
 
-## ssh
+# ssh
 alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
 alias kaishafs='sshfs kaisha: ~/mp/kaisha -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=kaisha'
 
+# bash-completion for g alias
+complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
+    || complete -o default -o nospace -F _git g
+
 ##autoscreen
-source ~/dotfiles/sh/autoscreen.sh
+#source ~/dotfiles/sh/autoscreen.sh

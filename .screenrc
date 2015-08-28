@@ -1,3 +1,6 @@
+# ctrl z prefix (for bash)
+escape ^Zz
+
 # ステータスバーの有効化
 hardstatus on
 hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{= g.}%n %t%{-}%+w %-17<%=%{= .y}(%l)'

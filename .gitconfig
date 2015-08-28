@@ -23,10 +23,13 @@
 	u = pull
 	v = mv
 	w = show
+	x = stash list
+	y = stash save
+	z = stash apply
 [core]
 	autocrlf = input
 	safecrlf = true
 	excludesfile = ~/.gitignore
-  editor = vim
+	editor = vim
 [merge]
-  tool = vimdiff
+	tool = vimdiff

@@ -3,6 +3,8 @@
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install caskroom/cask/brew-cask
 
+brew install task
+
 brew cask install mosh
 brew cask install git
 brew cask install sshfs
@@ -58,6 +60,7 @@ brew cask install istat-menus
 brew cask install appcleaner
 brew cask install robomongo
 brew cask install kobito
+brew cask install textmate
 
 brew cask cleanup
 
