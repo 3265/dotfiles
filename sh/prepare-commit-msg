@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# ブランチ名取得
+branch=$(git branch | grep ^* | sed 's/\* //g')
+
+# first commit前等で、ブランチ名が取れなかった時用
+if [ ! $branch ]; then branch='master'; fi
+
+# コミットメッセージの置換
+msg=$(cat $1 | sed -e "s/ (branch:[0-9a-zA-Z_]\+)$//g")
+if [ $branch != 'master' ]; then
+  msg=$msg" (branch:"$branch")"
+fi
+echo $msg > $1
