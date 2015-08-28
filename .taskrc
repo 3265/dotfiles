@@ -1,0 +1,13 @@
+# Files
+data.location=~/.task
+
+# alias
+alias.a=add
+alias.c=calendar
+alias.ls=list
+alias.ts=timesheet
+alias.g=ghistory
+alias.h=history
+alias.l=long
+
+color=on
