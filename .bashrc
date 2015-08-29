@@ -11,6 +11,11 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 
+# nvm
+if [[ -s ~/.nvm/nvm.sh ]];
+  then source ~/.nvm/nvm.sh
+fi
+
 # alias
 alias a='ag'
 alias c='cd'
