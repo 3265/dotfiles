@@ -1,3 +1,9 @@
+# settings
+export EDITOR=vim
+export PAGER=less
+HISTSIZE=10000
+HISTFILESIZE=10000
+
 # git
 PS1="[\u@ \W]\[\033[36m\]\$(__git_ps1)\[\033[00m\]\$ "
 if [ -f ~/dotfiles/sh/git-completion.bash ]; then
@@ -27,7 +33,7 @@ alias h='source-hilight-less'
 alias i='id'
 alias m='chmod'
 alias o='chown'
-alias p='cp'
+alias p='peco'
 alias s='screen'
 alias u='umount'
 alias f='free -m'
