@@ -1,4 +1,4 @@
-# ctrl z prefix (for bash)
+# prefix key
 escape ^Zz
 
 # ステータスバーの有効化
@@ -24,16 +24,9 @@ startup_message off
 # vimなどで編集した後に画面履歴を残さない
 altscreen on
 
-# 使用文字コード
-defencodig utf-8
-
-# bash_profileを読み込む
-shell -$SHELL↲
-
-# Ctrl+矢印で移動できるようにする
-bindkey "[1;5C" next
-bindkey "[1;5D" prev
-
 # vimの背景色
 term xterm-256color
 termcapinfo xterm-256color 'is=^[r^[mJ^[H^[?7h^[?1;4;6l'
+
+# bashrc読み込み
+shell -$SHELL↲
