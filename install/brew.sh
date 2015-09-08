@@ -4,6 +4,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew install caskroom/cask/brew-cask
 
 brew install task
+brew install z
 
 brew cask install mosh
 brew cask install git
