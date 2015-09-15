@@ -19,7 +19,7 @@
 	m = merge
 	o = checkout
 	r = rm
-	s = status --short --branch
+	s = status --short
 	u = pull
 	v = mv
 	w = show

@@ -29,4 +29,4 @@ term xterm-256color
 termcapinfo xterm-256color 'is=^[r^[mJ^[H^[?7h^[?1;4;6l'
 
 # bashrc読み込み
-shell -$SHELL↲
+shell -$SHELL
