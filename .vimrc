@@ -20,16 +20,15 @@ Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/neocomplcache.vim' " 自動補完用(completeはlua必要のため見送り)
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'osyo-manga/vim-over'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'groenewege/vim-less'
-Plugin 'heavenshell/vim-jsdoc'
-Plugin 'stephpy/vim-yaml'
-Plugin 'pangloss/vim-javascript' " jsのシンタックス
+Plugin 'mustache/vim-mustache-handlebars' " hbs
+Plugin 'hail2u/vim-css3-syntax' " css
+Plugin 'osyo-manga/vim-over' "
+Plugin 'digitaltoad/vim-jade'  " jade
+Plugin 'groenewege/vim-less' " less
+Plugin 'heavenshell/vim-jsdoc' " jsdoc
+Plugin 'stephpy/vim-yaml' "yam.
+Plugin 'pangloss/vim-javascript' " js
 Plugin 'myhere/vim-nodejs-complete'
-Plugin 'marijnh/tern_for_vim' " jsの用語
 
 " Vundle end
 call vundle#end()
@@ -134,15 +133,14 @@ set number " 行番号を表示する
 set colorcolumn=100 " 100行目にラインをいれる
 set t_vb= " ピープ音を消す
 set novisualbell " ビジュアルベルの無効化
-" 不可視文字を綺麗にする
-set list
+set list " 不可視文字の可視化
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 syntax enable
 set t_Co=256 " 256色
 set background=dark " 背景色
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-colorscheme solarized
+colorscheme solarized " カラーテーマ
 
 " 検索
 set ignorecase " 検索文字列に大文字が含まれている場合は区別して検索する
