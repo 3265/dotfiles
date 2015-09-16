@@ -52,6 +52,7 @@ nnoremap <ESC><ESC> :nohlsearch<CR> " シンタックスハイライト
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"  " タブでneocomplcacheを補完する
 
 " 見栄えの設定
 let NERDTreeShowHidden = 1 " 隠しフォルダを表示する
