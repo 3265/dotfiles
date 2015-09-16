@@ -27,7 +27,7 @@
 	y = stash save
 	z = stash apply
 [core]
-	autocrlf = input
+	autoCRLF = false
 	safecrlf = true
 	excludesfile = ~/.gitignore
 	editor = vim
