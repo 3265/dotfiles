@@ -8,12 +8,13 @@ call vundle#rc()
 
 Plugin 'Shougo/neocomplcache' " 文字入力の保管
 Plugin 'scrooloose/nerdtree' "finder
-Plugin 'Xuyuanp/nerdtree-git-plugin' " findler git diff
+Plugin 'Xuyuanp/nerdtree-git-plugin' " nerdtree git diff
+Plugin 'ryanoasis/vim-devicons' " nerdtree file icon
 Plugin 'itchyny/lightline.vim' " ステータスライン
 Plugin 'editorconfig/editorconfig-vim' " エディターコンフィグ
 Plugin 'moll/vim-node' " gfでrequire移動用
 Plugin 'airblade/vim-gitgutter' " ファイルのgit diff
-Plugin 'nathanaelkane/vim-indent-guides' " インデントを見やすく
+"Plugin 'nathanaelkane/vim-indent-guides' " インデントを見やすく
 Plugin 'scrooloose/syntastic.git' " シンタックスチェック
 Plugin 'altercation/vim-colors-solarized' " カラーテーマ
 Plugin 'Shougo/unite.vim'
@@ -33,25 +34,6 @@ Plugin 'myhere/vim-nodejs-complete'
 " Vundle end
 call vundle#end()
 filetype plugin indent on
-
-" macvim.app
-if has("gui_running")
-	set guifont=Monaco:h13 "フォント
-	set imdisable "IM をオフ
-	set transparency=10 " 透明度
-	set fuoptions=maxvert,maxhorz " 画面を最大化
-	au GUIEnter * set fullscreen
-endif
-
-" キーマッピング
-nnoremap <silent><C-e> :NERDTreeToggle<CR> " ファインダー
-nnoremap <ESC><ESC> :nohlsearch<CR> " シンタックスハイライト
-
-" カッコの補完
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"  " タブでneocomplcacheを補完する
 
 " 見栄えの設定
 let NERDTreeShowHidden = 1 " 隠しフォルダを表示する
@@ -78,13 +60,17 @@ let g:syntastic_enable_signs=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 
+" nerdtree icon settings
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+
 " vim-indent-guides
-let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=240 " dark
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=240 " dark
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_guide_size=1 " ガイドの幅
-let g:indent_guides_color_change_percent = 10
+"let g:indent_guides_auto_colors=0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=240 " dark
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=240 " dark
+"let g:indent_guides_enable_on_vim_startup=1
+"let g:indent_guides_guide_size=1 " ガイドの幅
+"let g:indent_guides_color_change_percent = 10
 
 " neeComplete
 let g:acp_enableAtStartup = 0
@@ -98,6 +84,25 @@ autocmd! FileType eruby,html,markdown setlocal omnifunc=htmlcomplete#CompleteTag
 autocmd! FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd! FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd! FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" キーマッピング
+nnoremap <silent><C-e> :NERDTreeToggle<CR> " ファインダー
+nnoremap <ESC><ESC> :nohlsearch<CR> " シンタックスハイライト
+
+" カッコの補完
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"  " タブでneocomplcacheを補完する
+
+" MacVim
+if has("gui_running")
+	set guifont=Monaco:h13 "フォント
+	set imdisable "IM をオフ
+	set transparency=10 " 透明度
+	set fuoptions=maxvert,maxhorz " 画面を最大化
+	au GUIEnter * set fullscreen
+endif
 
 " 機能系
 set autoread " 開いているファイルに変更があったら即リローロド
@@ -133,8 +138,8 @@ set number " 行番号を表示する
 set colorcolumn=100 " 100行目にラインをいれる
 set t_vb= " ピープ音を消す
 set novisualbell " ビジュアルベルの無効化
-set list " 不可視文字の可視化
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+" set list " 不可視文字の可視化
+" set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 syntax enable
 set t_Co=256 " 256色
 set background=dark " 背景色
@@ -160,3 +165,4 @@ set backspace=indent,eol,start " バックスペースでなんでも消せる�
 set nowritebackup
 set nobackup " ~ファイルを作らない
 set noswapfile
+

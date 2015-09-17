@@ -7,7 +7,7 @@
 	ui = auto
 [alias]
 	a = add . --all
-	b = branch --all
+	b = branch
 	c = commit -m
 	d = diff
 	e = blame
