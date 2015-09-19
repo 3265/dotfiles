@@ -4,7 +4,7 @@ export PAGER=less
 HISTSIZE=10000
 HISTFILESIZE=10000
 
-# git
+# git completion
 PS1="[\u@ \W]\[\033[36m\]\$(__git_ps1)\[\033[00m\]\$ "
 if [ -f ~/dotfiles/sh/git-completion.bash ]; then
     source ~/dotfiles/sh/git-completion.bash
@@ -21,6 +21,9 @@ GIT_PS1_SHOWUPSTREAM=auto
 if [[ -s ~/.nvm/nvm.sh ]];
   then source ~/.nvm/nvm.sh
 fi
+
+# emacs mode
+set -o emacs
 
 # alias
 alias a='ag'
@@ -57,7 +60,7 @@ alias i-getway='route'
 alias i-dist='lsb_release -a'
 alias i-arch='uname -a'
 
-# ssh
+# sshfs
 alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
 alias kaishafs='sshfs kaisha: ~/mp/kaisha -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=kaisha'
 
@@ -65,5 +68,3 @@ alias kaishafs='sshfs kaisha: ~/mp/kaisha -oauto_cache,reconnect,defer_permissio
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
     || complete -o default -o nospace -F _git g
 
-##autoscreen
-#source ~/dotfiles/sh/autoscreen.sh

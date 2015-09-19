@@ -8,13 +8,13 @@ call vundle#rc()
 
 Plugin 'Shougo/neocomplcache' " 文字入力の保管
 Plugin 'scrooloose/nerdtree' "finder
-Plugin 'Xuyuanp/nerdtree-git-plugin' " nerdtree git diff
 Plugin 'ryanoasis/vim-devicons' " nerdtree file icon
+Plugin 'Xuyuanp/nerdtree-git-plugin' " nerdtree git diff
 Plugin 'itchyny/lightline.vim' " ステータスライン
 Plugin 'editorconfig/editorconfig-vim' " エディターコンフィグ
 Plugin 'moll/vim-node' " gfでrequire移動用
 Plugin 'airblade/vim-gitgutter' " ファイルのgit diff
-"Plugin 'nathanaelkane/vim-indent-guides' " インデントを見やすく
+Plugin 'nathanaelkane/vim-indent-guides' " インデントを見やすく
 Plugin 'scrooloose/syntastic.git' " シンタックスチェック
 Plugin 'altercation/vim-colors-solarized' " カラーテーマ
 Plugin 'Shougo/unite.vim'
@@ -61,16 +61,29 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 
 " nerdtree icon settings
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '' " アイコンのパディング
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 
+" nerdtree git plugin
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "編",
+    \ "Staged"    : "追",
+    \ "Untracked" : "逃",
+    \ "Renamed"   : "名",
+    \ "Unmerged"  : "未",
+    \ "Deleted"   : "削",
+    \ "Dirty"     : "変",
+    \ "Clean"     : "良",
+    \ "Unknown"   : "謎"
+    \ }
+
 " vim-indent-guides
-"let g:indent_guides_auto_colors=0
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=240 " dark
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=240 " dark
-"let g:indent_guides_enable_on_vim_startup=1
-"let g:indent_guides_guide_size=1 " ガイドの幅
-"let g:indent_guides_color_change_percent = 10
+let g:indent_guides_auto_colors=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=darkgrey
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=grey
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size=1 " ガイドの幅
+let g:indent_guides_color_change_percent = 10
 
 " neeComplete
 let g:acp_enableAtStartup = 0
@@ -86,14 +99,14 @@ autocmd! FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd! FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " キーマッピング
-nnoremap <silent><C-e> :NERDTreeToggle<CR> " ファインダー
-nnoremap <ESC><ESC> :nohlsearch<CR> " シンタックスハイライト
-
-" カッコの補完
+nnoremap ; :
+" 括弧の補完
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
+nnoremap <ESC><ESC> :nohlsearch<CR> " シンタックスハイライト
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"  " タブでneocomplcacheを補完する
+nnoremap <silent><C-e> :NERDTreeToggle<CR> " nerdtreeをC-eで表示する
 
 " MacVim
 if has("gui_running")

@@ -85,3 +85,5 @@ sudo apt-get install curl
 sudo apt-get install gawk
 sudo apt-get install xorg
 sudo apt-get install openbox
+sudo apt-get install terminator
+
