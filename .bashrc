@@ -22,9 +22,6 @@ if [[ -s ~/.nvm/nvm.sh ]];
   then source ~/.nvm/nvm.sh
 fi
 
-# emacs mode
-set -o emacs
-
 # alias
 alias a='ag'
 alias c='cd'
@@ -37,7 +34,8 @@ alias i='id'
 alias m='chmod'
 alias o='chown'
 alias p='pwd'
-alias s='screen'
+alias r='screen'
+alias s='ps aux | grep'
 alias u="cd ..; ls -l"
 alias f='free -m'
 alias v='vim'

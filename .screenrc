@@ -1,6 +1,9 @@
 # prefix key
 escape ^Zz
 
+# bashrc読み込み
+shell -$SHELL
+
 # ステータスバーの有効化
 hardstatus on
 hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{= g.}%n %t%{-}%+w %-17<%=%{= .y}(%l)'
@@ -28,5 +31,25 @@ altscreen on
 term xterm-256color
 termcapinfo xterm-256color 'is=^[r^[mJ^[H^[?7h^[?1;4;6l'
 
-# bashrc読み込み
-shell -$SHELL
+# screen上のvimで256色サポートを有効に
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce on
+
+# 隠れているwindowに動きがあったとき、それを伝える
+defmonitor on
+# メッセージを表示する秒数
+msgwait 0
+# 隠れているwindowで動きがあったときのメッセージ
+activity ""
+
+# スクロールバッファを増やす
+defscrollback 10000
+
+# 任意のレジスタをペーストする
+# レジスタにコピーするには、copyやhistory,
+# readbuf, registerやreadregを用いる
+bind ^c copy
+bind ^y paste .
+bind p paste
+

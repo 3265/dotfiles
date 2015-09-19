@@ -1,12 +1,15 @@
 " vimrc
 
+" ==============================================
+" vunlde
+" ==============================================
+
 " Vundle start
 set nocompatible " Required
 filetype off
 set rtp+=~/.vim/vundle.git
 call vundle#rc()
 
-Plugin 'Shougo/neocomplcache' " 文字入力の保管
 Plugin 'scrooloose/nerdtree' "finder
 Plugin 'ryanoasis/vim-devicons' " nerdtree file icon
 Plugin 'Xuyuanp/nerdtree-git-plugin' " nerdtree git diff
@@ -19,8 +22,8 @@ Plugin 'scrooloose/syntastic.git' " シンタックスチェック
 Plugin 'altercation/vim-colors-solarized' " カラーテーマ
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/neocomplcache.vim' " 自動補完用(completeはlua必要のため見送り)
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
+Plugin 'Shougo/neosnippet.vim'
+Plugin 'Shougo/neosnippet-snippets.vim'
 Plugin 'mustache/vim-mustache-handlebars' " hbs
 Plugin 'hail2u/vim-css3-syntax' " css
 Plugin 'osyo-manga/vim-over' "
@@ -35,12 +38,9 @@ Plugin 'myhere/vim-nodejs-complete'
 call vundle#end()
 filetype plugin indent on
 
-" 見栄えの設定
-let NERDTreeShowHidden = 1 " 隠しフォルダを表示する
-let g:lightline = {
-	\ 'colorscheme': 'wombat'
-	\ }
-" let g:auto_save = 0 " オートセーブを有効か
+" ==============================================
+" syntax check
+" ==============================================
 
 " シンタックスチェック
 let g:syntastic_check_on_open=0
@@ -60,7 +60,21 @@ let g:syntastic_enable_signs=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 
+" ==============================================
+" statusline
+" ==============================================
+
+let g:lightline = {
+	\ 'colorscheme': 'wombat'
+	\ }
+
+" ==============================================
+" filetree
+" ==============================================
+
 " nerdtree icon settings
+let NERDTreeShowHidden = 1 " 隠しフォルダを表示する
+
 let g:WebDevIconsNerdTreeAfterGlyphPadding = '' " アイコンのパディング
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 
@@ -77,6 +91,10 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "謎"
     \ }
 
+" auto refresh nerdtre 15s
+"set autoread
+"au CursorHold * if exists("t:NerdTreeBufName") | call <SNR>15_refreshRoot() | endif
+
 " vim-indent-guides
 let g:indent_guides_auto_colors=0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=darkgrey
@@ -85,22 +103,34 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1 " ガイドの幅
 let g:indent_guides_color_change_percent = 10
 
-" neeComplete
+" ==============================================
+" auto completion
+" ==============================================
+
 let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_at_startup = 1 " neocomplcacheを有効化
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_min_syntax_length = 3
 
-" オムニ補完
+" fileタイプごとのomni補完を指定
 autocmd! FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd! FileType eruby,html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd! FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd! FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd! FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" キーマッピング
+" Define dictionary.
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : ''
+    \ }
+
+" ==============================================
+" key mapping
+" ==============================================
+
+map <C-q> <esc>
+map! <NUL> <CR>
 nnoremap ; :
-" 括弧の補完
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
@@ -108,7 +138,24 @@ nnoremap <ESC><ESC> :nohlsearch<CR> " シンタックスハイライト
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"  " タブでneocomplcacheを補完する
 nnoremap <silent><C-e> :NERDTreeToggle<CR> " nerdtreeをC-eで表示する
 
-" MacVim
+" emacs風に
+
+" 編集・削除系
+imap <C-k> <ESC>d$i
+imap <C-y> <ESC>pi
+imap <C-d> <ESC>xi
+" 移動系
+imap <C-a>  <Home>
+imap <C-e>  <End>
+imap <C-b>  <Left>
+imap <C-f>  <Right>
+imap <C-n>  <Down>
+imap <C-p>  <UP>
+
+" ==============================================
+" gvim
+" ==============================================
+"
 if has("gui_running")
 	set guifont=Monaco:h13 "フォント
 	set imdisable "IM をオフ
@@ -117,7 +164,10 @@ if has("gui_running")
 	au GUIEnter * set fullscreen
 endif
 
-" 機能系
+" ==============================================
+" vim settings
+" ==============================================
+
 set autoread " 開いているファイルに変更があったら即リローロド
 set scrolloff=5 " スクロール行数
 set title " 編集中のファイル名の表示
@@ -151,14 +201,17 @@ set number " 行番号を表示する
 set colorcolumn=100 " 100行目にラインをいれる
 set t_vb= " ピープ音を消す
 set novisualbell " ビジュアルベルの無効化
-" set list " 不可視文字の可視化
-" set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set list " 不可視文字の可視化
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:« " ,nbsp:%
 syntax enable
 set t_Co=256 " 256色
 set background=dark " 背景色
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme solarized " カラーテーマ
+" 全角スペース可視化
+highlight JpSpace cterm=underline ctermfg=Yellow guifg=Yellow
+au BufRead,BufNew * match JpSpace /　/
 
 " 検索
 set ignorecase " 検索文字列に大文字が含まれている場合は区別して検索する
@@ -178,4 +231,3 @@ set backspace=indent,eol,start " バックスペースでなんでも消せる�
 set nowritebackup
 set nobackup " ~ファイルを作らない
 set noswapfile
-

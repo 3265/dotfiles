@@ -1,8 +1,35 @@
 # readline
-# vim mode
-# set editing-mode vi
-# set keymap vi-command
 
-set completion-ignore-case on
+# vim mode
+set editing-mode vi
+
 set bell-style none
+set completion-ignore-case on
+set mark-directories on
+set mark-symlinked-directories on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set skip-completed-text on
 set visible-stats on
+
+# keybind
+$if mode=vi
+
+set keymap vi-command
+"gg": beginning-of-history
+"G": end-of-history
+
+set keymap vi-insert
+# emacs cmd
+Control-a: beginning-of-line
+Control-b: backward-char
+Control-d: delete-char
+Control-e: end-of-line
+Control-f: forward-char
+Control-k: kill-line
+Control-n: next-history
+Control-p: previous-history
+Control-L: clear-screen
+
+$endif
+
