@@ -86,4 +86,4 @@ sudo apt-get install gawk
 sudo apt-get install xorg
 sudo apt-get install openbox
 sudo apt-get install terminator
-
+sudo apt-get install ctags

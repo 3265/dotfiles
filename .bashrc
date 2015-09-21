@@ -1,3 +1,5 @@
+# bashrc
+
 # settings
 export EDITOR=vim
 export PAGER=less

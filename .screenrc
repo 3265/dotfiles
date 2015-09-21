@@ -47,8 +47,6 @@ activity ""
 defscrollback 10000
 
 # 任意のレジスタをペーストする
-# レジスタにコピーするには、copyやhistory,
-# readbuf, registerやreadregを用いる
 bind ^c copy
 bind ^y paste .
 bind p paste

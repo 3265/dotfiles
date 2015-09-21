@@ -5,6 +5,7 @@ brew install caskroom/cask/brew-cask
 
 brew install task
 brew install z
+brew install ctags
 
 brew cask install mosh
 brew cask install git
