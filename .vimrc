@@ -40,9 +40,11 @@ Plugin 'elzr/vim-json' " json
 
 Plugin 'pangloss/vim-javascript' " jsインデントとシンタックスカラー
 Plugin 'mattn/jscomplete-vim' " jsの補完用
-Plugin 'mgoldchild/vim-nodejs-complete' " nodeの補完用
+Plugin 'myhere/vim-nodejs-complete' " nodeの補完用
 Plugin 'moll/vim-node' " gfでrequire移動用
 Plugin 'heavenshell/vim-jsdoc' " jsdoc用
+
+Plugin 'lambdalisue/vim-unified-diff' " git diff 用
 
 " Vundle end
 call vundle#end()
@@ -325,6 +327,21 @@ let g:nodejs_complete_config = {
 	\  'js_compl_fn': 'jscomplete#CompleteJS',
 	\  'max_node_compl_len': 15
 	\}
+
+" ==============================================
+" vimdiff
+" ==============================================
+
+set diffexpr=unified_diff#diffexpr()
+
+" configure with the followings (default values are shown below)
+let unified_diff#executable = 'git'
+let unified_diff#arguments = [
+      \   'diff', '--no-index', '--no-color', '--no-ext-diff', '--unified=0',
+      \ ]
+let unified_diff#iwhite_arguments = [
+      \   '--ignore--all-space',
+      \ ]
 
 " ==============================================
 " common settings
