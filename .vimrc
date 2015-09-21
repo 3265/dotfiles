@@ -88,6 +88,23 @@ let g:javascript_conceal_super      = "Ω"
 
 
 " ==============================================
+" colorscheme
+" ==============================================
+
+"" Solarized
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+let g:solarized_degrade = 0
+let g:solarized_termcolors = 256
+let g:solarized_termtrans = 1
+let g:solarized_bold = 1
+let g:solarized_underline = 1
+let g:solarized_italic = 1
+let g:solarized_contrast = 'normal'
+let g:solarized_visibility = 'normal'
+colorscheme solarized
+
+" ==============================================
 " tab & statusline
 " ==============================================
 
@@ -99,12 +116,14 @@ let g:airline_left_sep = '▶'
 let g:airline_left_alt_sep = '»'
 let g:airline_right_sep = '◀'
 let g:airline_right_alt_sep = '«'
-let g:airline_linecolumn_prefix = '␤ '
-let g:airline_linecolumn_prefix = '¶ '
-let g:airline_branch_prefix = '⎇ '
-let g:airline_paste_symbol = 'ρ'
-let g:airline_paste_symbol = 'Þ'
-let g:airline_paste_symbol = '∥'
+
+" detected
+"let g:airline_linecolumn_prefix = '␤ '
+"let g:airline_linecolumn_prefix = '¶ '
+"let g:airline_branch_prefix = '⎇ '
+"let g:airline_paste_symbol = 'ρ'
+"let g:airline_paste_symbol = 'Þ'
+"let g:airline_paste_symbol = '∥'
 
 " tab
 let g:airline#extensions#tabline#enabled = 1
@@ -414,22 +433,4 @@ set clipboard=unnamed,autoselect
 set nowritebackup
 set nobackup " ~ファイルを作らない
 set noswapfile
-
-" ==============================================
-" colorscheme
-" ==============================================
-
-"" Solarized
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-let g:solarized_degrade = 0
-let g:solarized_termcolors = 256
-let g:solarized_termtrans = 1
-let g:solarized_bold = 1
-let g:solarized_underline = 1
-let g:solarized_italic = 1
-let g:solarized_contrast = 'normal'
-let g:solarized_visibility = 'normal'
-let g:airline_theme = 'solarized'
-colorscheme solarized
 
