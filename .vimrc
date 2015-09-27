@@ -24,8 +24,11 @@ Plugin 'majutsushi/tagbar' " ctags用のタグバー
 Plugin 'soramugi/auto-ctags.vim' " ctagsの自動保存
 Plugin 'editorconfig/editorconfig-vim' " エディターコンフィグ
 
+Plugin 'kien/ctrlp.vim' " peco的な
 Plugin 'Shougo/unite.vim' " peco的に使う
 Plugin 'osyo-manga/vim-over' "
+Plugin 'haya14busa/incsearch.vim' " インクリメンタルサーチ用
+Plugin 'tyru/caw.vim.git' " コメント用プラグイン
 
 Plugin 'Shougo/neocomplcache.vim' " 自動補完用(completeはlua必要のため見送り)
 Plugin 'Shougo/neosnippet.vim' " スニペット用
@@ -68,9 +71,11 @@ let g:syntastic_mode_map = {
 	\ 'active_filetypes': ['javascript'],
 	\ 'passive_filetypes': []
 	\ }
+" jshint error symbol
 let g:syntastic_enable_signs=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "✗"
+let g:syntastic_style_error_symbol = "☢"
 
 " vim-javascript
 let g:javascript_enable_domhtmlcss = 1
@@ -239,24 +244,15 @@ nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 " tab
 nnoremap <C-t><C-t> :tabprevious<CR>
 inoremap <C-t><C-t> <Esc>:tabprevious<CR>
-nnoremap <C-t>p :tabprevious<CR>
-inoremap <C-t>p <Esc>:tabprevious<CR>
-nnoremap <C-t><C-p> :tabprevious<CR>
-inoremap <C-t><C-p> <Esc>:tabprevious<CR>
-nnoremap <C-t>n :tabnext<CR>
-inoremap <C-t>n <Esc>:tabnext<CR>
-nnoremap <C-t><C-n> :tabnext<CR>
-inoremap <C-t><C-n> <Esc>:tabnext<CR>
+nnoremap <C-t>h :tabprevious<CR>
+inoremap <C-t>h <Esc>:tabprevious<CR>
+nnoremap <C-t><C-h> :tabprevious<CR>
+inoremap <C-t><C-h> <Esc>:tabprevious<CR>
+nnoremap <C-t>l :tabnext<CR>
+inoremap <C-t>l <Esc>:tabnext<CR>
+nnoremap <C-t><C-l> :tabnext<CR>
+inoremap <C-t><C-l> <Esc>:tabnext<CR>
 
-" window
-nnoremap <C-w>p :wincmd h<CR>
-inoremap <C-w>p <Esc>:wincmd h<CR>
-nnoremap <C-w><C-p> :wincmd h<CR>
-inoremap <C-w><C-p> <Esc>:wincmd h<CR>
-nnoremap <C-w>n :wincmd l<CR>
-inoremap <C-w>n <Esc>:wincmd l<CR>
-nnoremap <C-w><C-n> :wincmd l<CR>
-inoremap <C-w><C-n> <Esc>:wincmd l<CR>
 
 " 修羅の道
 vnoremap <Up> <Nop>
@@ -296,6 +292,15 @@ nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W
 " unite grep検索結果の再呼出
 nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
 
+" インクリメンタルサーチ
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+" コメントアウト用
+nmap <C-i> <Plug>(caw:i:toggle)
+vmap <C-i> <Plug>(caw:i:toggle)
+
 " ==============================================
 " gvim
 " ==============================================
@@ -319,22 +324,31 @@ let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes'
 let g:auto_ctags_filetype_mode = 0 " ファイルタイプ専用のファイルは作らない
 
 " ==============================================
-" unite
+" incremental file searcher
 " ==============================================
 
-" insert modeで開始
-let g:unite_enable_start_insert = 1
-
-" 大文字小文字を区別しない
-let g:unite_enable_ignore_case = 1
+" unite
+let g:unite_enable_start_insert = 1 " insert modeで開始
+let g:unite_enable_ignore_case = 1 " 大文字小文字の区別
 let g:unite_enable_smart_case = 1
-
 " unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
+
+" ctrlp
+let g:ctrlp_use_migemo = 1
+let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアしない
+let g:ctrlp_mruf_max            = 500 " MRUの最大記録数
+let g:ctrlp_open_new_file       = 1   " 新規ファイル作成時にタブで開く
+
+" ==============================================
+" incremental searcher
+" ==============================================
+
+let g:incsearch#magic = '\v' " magic
 
 " ==============================================
 " snippets
@@ -424,10 +438,8 @@ set switchbuf=useopen " 新しく開く代わりにすでに開いてあるバ�
 set showmatch " 対応する括弧などをハイライト表示する
 set matchtime=3 " 対応括弧のハイライト表示を3秒にする
 set backspace=indent,eol,start " バックスペースでなんでも消せるようにする
-
-" paste mode
-set pastetoggle=<F12>
-set clipboard=unnamed,autoselect
+set pastetoggle=<F12> " F12でインサートモードでpaste modeをトグル
+set clipboard=unnamedplus " 別タブでコピーを共有する
 
 " バックアップ
 set nowritebackup

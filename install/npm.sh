@@ -19,3 +19,5 @@ npm install -g eslint
 npm install -g babel
 npm install -g express-generator
 npm install -g pm2
+npm install -g vtop
+npm install -g livescript

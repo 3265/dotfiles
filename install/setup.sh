@@ -10,3 +10,4 @@ ln -s -i ~/dotfiles/.inputrc ~/.inputrc
 ln -s -i ~/dotfiles/.taskrc ~/.taskrc
 ln -s -i ~/dotfiles/.lscolor ~/.lscolor
 ln -s -i ~/dotfiles/.muttrc ~/.muttrc
+ln -s -i ~/dotfiles/.jshintrc ~/.jshintrc

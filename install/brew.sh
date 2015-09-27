@@ -6,6 +6,7 @@ brew install caskroom/cask/brew-cask
 brew install task
 brew install z
 brew install ctags
+brew install putty
 
 brew cask install mosh
 brew cask install git
@@ -64,6 +65,7 @@ brew cask install robomongo
 brew cask install kobito
 brew cask install textmate
 brew cask install xquartz # for xforwarding
+brew cask install mojibar
 brew cask cleanup
 
 # App store
