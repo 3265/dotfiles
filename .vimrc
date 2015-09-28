@@ -224,7 +224,8 @@ map! <NUL> <CR>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
-nnoremap <ESC><ESC> :nohlsearch<CR> " シンタックスハイライトを消す
+" EscEscでハイライトを消す
+nnoremap <ESC><ESC> :nohlsearch<CR><Esc>
 
 " タグジャンプ
 nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
@@ -426,9 +427,9 @@ highlight JpSpace cterm=underline ctermfg=Yellow guifg=Yellow
 au BufRead,BufNew * match JpSpace /　/
 
 " 検索
-set ignorecase " 検索文字列に大文字が含まれている場合は区別して検索する
+set ignorecase " 検索時に大文字小文字を区別しない
 set smartcase " 検索時に最後まで行ったら最初に戻る
-set wrapscan " コマンドライン補完を有効にする
+set wrapscan " 検索がファイル末尾まで進んだら、ファイル先頭から再び検索する
 set wildmenu wildmode=list:full " インクリメンタルサーチを有効化
 set incsearch " 検索マッチテキストをハイライト
 set hlsearch " バックスラッシュやクエスチョンを状況に合わせ自動的にエスケープ
