@@ -9,7 +9,7 @@
 	a = add . --all
 	b = branch
 	c = commit -m
-	d = diff --histogram
+	d = diff
 	e = blame
 	f = fetch
 	g = grep -n
