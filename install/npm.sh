@@ -21,3 +21,6 @@ npm install -g express-generator
 npm install -g pm2
 npm install -g vtop
 npm install -g livescript
+npm install -g vimdebug
+npm install -g plato
+npm install -g nmv

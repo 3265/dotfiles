@@ -7,6 +7,8 @@ brew install task
 brew install z
 brew install ctags
 brew install putty
+brew install awscli
+brew install htop
 
 brew cask install mosh
 brew cask install git
@@ -31,6 +33,7 @@ brew cask install evernote
 brew cask install libreoffice
 brew cask install filezilla
 brew cask install atom
+brew cask install github-desktop
 brew cask install bettertouchtool
 brew cask install vivaldi
 brew cask install virtualbox
@@ -45,13 +48,14 @@ brew cask install twitterrific
 brew cask install visual-studio-code
 brew cask install brackets
 brew cask install microsoft-office
-brew cask install xtrafinder
+brew cask install xtrafinder # 半透明化、新規作成オプション追加、アイコンの色付け
 brew cask install sublime-text
 brew cask install chromium
 brew cask install torbrowser
-brew cask install cdock
+brew cask install cdock # Dockをフルスクリーンにする
 brew cask install alfred
-brew cask install fluxus
+brew cask install flux # 5500K(sun lisght)
+brew cask install vagrant
 brew cask install toggldesktop
 brew cask install processing
 brew cask install appcleaer
@@ -66,10 +70,12 @@ brew cask install kobito
 brew cask install textmate
 brew cask install xquartz # for xforwarding
 brew cask install mojibar
+brew cask install hyperswitch
+brew cask install eclipse-platform
 brew cask cleanup
 
 # App store
 #  xcode, nozbe, instagram, dash, pocket, sunrise calendar
 
 # Manual
-# firefox developer edition, opera developer
+# firefox developer edition, opera developer, transtype 4

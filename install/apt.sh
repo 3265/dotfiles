@@ -70,7 +70,7 @@ sudo apt-get install hydrogen
 sudo apt-get install wget
 sudo apt-get install source-highlight
 sudo apt-get install nkf
-sudo apt-get install dkms wacom-dkms
+sudo apt-get install dkms wacom-dkms # wacom tablet
 sudo apt-get install nginx
 sudo apt-get install nmap
 sudo apt-get install sshfs

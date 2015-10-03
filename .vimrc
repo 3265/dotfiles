@@ -221,9 +221,13 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 " ==============================================
 
 map! <NUL> <CR>
+" 括弧の補完
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
+" クォートの補完
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
 " EscEscでハイライトを消す
 nnoremap <ESC><ESC> :nohlsearch<CR><Esc>
 
@@ -285,7 +289,7 @@ autocmd User Node
   \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
   \ endif
 " jsdoc
-nmap <silent> <C-l> <Plug>(jsdoc)
+nmap <silent> <C-m> <Plug>(jsdoc)
 " unite grep検索
 nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 " uniteカーソル位置の単語をgrep検索
