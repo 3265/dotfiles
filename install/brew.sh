@@ -9,6 +9,8 @@ brew install ctags
 brew install putty
 brew install awscli
 brew install htop
+brew install peco
+brew install tig
 
 brew cask install mosh
 brew cask install git

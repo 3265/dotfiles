@@ -87,3 +87,9 @@ sudo apt-get install xorg
 sudo apt-get install openbox
 sudo apt-get install terminator
 sudo apt-get install ctags
+
+# db
+sudo apt-get install redis-server
+sudo apt-get install mysql-server
+sudo apt-get install mongodb-org
+

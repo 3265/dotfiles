@@ -5,6 +5,8 @@ npm install -g nodemon
 npm install -g yeoman
 npm install -g bower
 npm install -g ungit
+npm install -g less
+npm install -g browserify
 npm install -g node-inspector
 npm install -g json-server
 npm install -g browserify
@@ -18,6 +20,7 @@ npm install -g jsdoc
 npm install -g eslint
 npm install -g babel
 npm install -g express-generator
+npm install -g express-coffeescript-generator
 npm install -g pm2
 npm install -g vtop
 npm install -g livescript
