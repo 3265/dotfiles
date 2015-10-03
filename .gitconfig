@@ -15,6 +15,7 @@
 	g = grep -n
 	h = push
 	i = ls-files
+	k = commit --amend
 	l = log --graph --date=short --format='%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(red)%d%C(reset) %s %C(cyan)@%an%C(reset)'
 	m = merge
 	o = checkout
