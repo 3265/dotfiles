@@ -91,5 +91,5 @@ sudo apt-get install ctags
 # db
 sudo apt-get install redis-server
 sudo apt-get install mysql-server
-sudo apt-get install mongodb-org
+sudo apt-get install mongodb
 

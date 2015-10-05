@@ -74,6 +74,7 @@ brew cask install xquartz # for xforwarding
 brew cask install mojibar
 brew cask install hyperswitch
 brew cask install eclipse-platform
+brew cask install freemind
 brew cask cleanup
 
 # App store
