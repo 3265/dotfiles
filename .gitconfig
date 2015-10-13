@@ -28,7 +28,7 @@
 	v = mv
 	w = show
 	x = stash list
-	y = stash save
+	y = stash save -u
 	z = stash apply
 [core]
 	autoCRLF = false

@@ -146,6 +146,9 @@ let g:gitgutter_sign_added = '✚'
 let g:gitgutter_sign_modified = '➜'
 let g:gitgutter_sign_removed = '✘'
 
+" 500だと保存時エラーが出るのため
+let g:gitgutter_max_signs = 1000
+
 " ==============================================
 " filetree
 " ==============================================
