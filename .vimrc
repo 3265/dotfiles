@@ -48,6 +48,7 @@ Plugin 'moll/vim-node' " gfでrequire移動用
 Plugin 'heavenshell/vim-jsdoc' " jsdoc用
 
 Plugin 'lambdalisue/vim-unified-diff' " git diff 用
+Plugin 'vim-jp/vimdoc-ja' " VIMのヘルプ
 
 " Vundle end
 call vundle#end()
@@ -383,6 +384,15 @@ let unified_diff#arguments = [
 let unified_diff#iwhite_arguments = [
       \   '--ignore--all-space',
       \ ]
+
+" ==============================================
+" vimdoc
+" ==============================================
+
+" vimdoc-ja　普段はコメントアウト
+helptags ~/.vim/bundle/vimdoc-ja/doc
+" ヘルプを日本語にする
+set helplang=ja,en
 
 " ==============================================
 " common settings
