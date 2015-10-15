@@ -3,6 +3,8 @@
 # settings
 export EDITOR=vim
 export PAGER=less
+export NODE_ENV=development
+
 HISTSIZE=10000
 HISTFILESIZE=10000
 
