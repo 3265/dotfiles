@@ -20,8 +20,8 @@ Plugin 'nathanaelkane/vim-indent-guides' " インデントを見やすく
 Plugin 'altercation/vim-colors-solarized' " カラーテーマ
 Plugin 'scrooloose/syntastic.git' " シンタックスチェック
 
-Plugin 'majutsushi/tagbar' " ctags用のタグバー
-Plugin 'soramugi/auto-ctags.vim' " ctagsの自動保存
+" Plugin 'majutsushi/tagbar' " ctags用のタグバー
+" Plugin 'soramugi/auto-ctags.vim' " ctagsの自動保存
 Plugin 'editorconfig/editorconfig-vim' " エディターコンフィグ
 
 Plugin 'kien/ctrlp.vim' " peco的な
@@ -326,11 +326,11 @@ endif
 " ctags
 " ==============================================
 
-let g:auto_ctags = 1 " ctag自動保存
-let g:auto_ctags_directory_list = ['.git', '.svn'] " gitdirに保存
-let g:auto_ctags_tags_name = 'tags' " 名前
-let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes'
-let g:auto_ctags_filetype_mode = 0 " ファイルタイプ専用のファイルは作らない
+" let g:auto_ctags = 1 " ctag自動保存
+" let g:auto_ctags_directory_list = ['.git', '.svn'] " gitdirに保存
+" let g:auto_ctags_tags_name = 'tags' " 名前
+" let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes'
+" let g:auto_ctags_filetype_mode = 0 " ファイルタイプ専用のファイルは作らない
 
 " ==============================================
 " incremental file searcher
