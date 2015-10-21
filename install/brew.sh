@@ -11,12 +11,15 @@ brew install awscli
 brew install htop
 brew install peco
 brew install tig
+brew install rename
+brew install tree
 
 brew cask install mosh
 brew cask install git
 brew cask install sshfs
 brew cask install duet
 brew cask install google-chrome
+brew cask install google-chrome-canary
 brew cask install google-drive
 brew cask install google-hangouts
 brew cask install google-earth
@@ -26,6 +29,7 @@ brew cask install opera-mail
 brew cask install opera-mobile-emulator
 brew cask install firefox
 brew cask install multifirefox
+
 brew cask install iterm2
 brew cask install slack
 brew cask install dropbox
@@ -75,6 +79,8 @@ brew cask install mojibar
 brew cask install hyperswitch
 brew cask install eclipse-platform
 brew cask install freemind
+brew cask install onepassword
+brew cask install limechat
 brew cask cleanup
 
 # App store

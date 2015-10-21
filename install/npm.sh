@@ -27,3 +27,6 @@ npm install -g livescript
 npm install -g vimdebug
 npm install -g plato
 npm install -g nmv
+npm install -g slap
+npm install -g nyancat
+npm install -g git-stats

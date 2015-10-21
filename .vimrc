@@ -40,6 +40,7 @@ Plugin 'digitaltoad/vim-jade'  " jade
 Plugin 'groenewege/vim-less' " less
 Plugin 'stephpy/vim-yaml' "yaml
 Plugin 'elzr/vim-json' " json
+Plugin 'kchmck/vim-coffee-script' " coffeescript syntax, indenting, compiling
 
 Plugin 'pangloss/vim-javascript' " jsインデントとシンタックスカラー
 Plugin 'mattn/jscomplete-vim' " jsの補完用
@@ -145,7 +146,7 @@ let g:airline#extensions#tabline#left_alt_sep = '◀'
 "
 let g:gitgutter_sign_added = '✚'
 let g:gitgutter_sign_modified = '➜'
-let g:gitgutter_sign_removed = '✘'
+let g:gitgutter_sign_removed = '―'
 
 " 500だと保存時エラーが出るのため
 let g:gitgutter_max_signs = 1000
@@ -219,6 +220,21 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 "let g:neocomplcache_dictionary_filetype_lists = {
 "    \ 'default' : ''
 "    \ }
+
+" ==============================================
+" coffeescript settings
+" ==============================================
+
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+" インデント設定
+autocmd FileType coffee    setlocal sw=2 sts=2 ts=2 et
+" オートコンパイル
+  "保存と同時にコンパイルする
+autocmd BufWritePost *.coffee silent make!
+  "エラーがあったら別ウィンドウで表示
+autocmd QuickFixCmdPost * nested cwindow | redraw!
+" Ctrl-cで右ウィンドウにコンパイル結果を一時表示する
+nnoremap <silent> <C-C> :CoffeeCompile vert <CR><C-w>h
 
 " ==============================================
 " key mapping
@@ -307,8 +323,8 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
 " コメントアウト用
-nmap <C-i> <Plug>(caw:i:toggle)
-vmap <C-i> <Plug>(caw:i:toggle)
+" nmap <C-n> <Plug>(caw:i:toggle)
+" vmap <C-n> <Plug>(caw:i:toggle)
 
 " ==============================================
 " gvim
@@ -450,7 +466,7 @@ set wrapscan " 検索がファイル末尾まで進んだら、ファイル先�
 set wildmenu wildmode=list:full " インクリメンタルサーチを有効化
 set incsearch " 検索マッチテキストをハイライト
 set hlsearch " バックスラッシュやクエスチョンを状況に合わせ自動的にエスケープ
-set infercase " 補完時に大文字小文字を区別しない
+" set infercase " 補完時に大文字小文字を区別しない
 set virtualedit=all " カーソルを文字が存在しない部分でも動けるようにする
 set switchbuf=useopen " 新しく開く代わりにすでに開いてあるバッファを開く
 set showmatch " 対応する括弧などをハイライト表示する

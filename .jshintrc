@@ -1,5 +1,5 @@
 {
-    "strict": true,
+    "strict": false,
     "eqnull": true,
     "expr": true,
     "indent": 2,

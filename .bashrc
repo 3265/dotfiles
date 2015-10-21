@@ -26,12 +26,13 @@ if [[ -s ~/.nvm/nvm.sh ]];
   then source ~/.nvm/nvm.sh
 fi
 
-# alias
+# sortcuts
 alias a='ag'
 alias b='cd ../'
 alias c='cd'
 alias d='df -Th'
 alias e='grep --color=auto'
+alias f='coffee'
 alias g='git'
 alias h='source-hilight-less'
 alias i='id'
@@ -41,7 +42,7 @@ alias m='chmod'
 alias n='node'
 alias o='chown'
 alias p='npm'
-alias r='screen'
+alias r='rm -i'
 alias s='ps aux | grep'
 alias t='cat'
 alias u="cd ..; ls -l"
@@ -60,7 +61,8 @@ alias i-host='hostname'
 alias i-cpu='cat /proc/cpuinfo'
 alias i-partition='df -h'
 alias i-memory='free -m'
-alias i-ip='curl ipinfo.io/ip'
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en1"
 alias i-port='netstat -atn'
 alias i-getway='route'
 alias i-dist='lsb_release -a'
