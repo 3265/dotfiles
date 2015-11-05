@@ -87,6 +87,8 @@ sudo apt-get install xorg
 sudo apt-get install openbox
 sudo apt-get install terminator
 sudo apt-get install ctags
+sudo apt-get install libopencv-dev
+sudo apt-get install pacman4console
 
 # db
 sudo apt-get install redis-server

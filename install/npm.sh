@@ -30,3 +30,5 @@ npm install -g nmv
 npm install -g slap
 npm install -g nyancat
 npm install -g git-stats
+npm instlal -g node-gyp
+npm install -g documentation

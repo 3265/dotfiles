@@ -13,6 +13,7 @@ brew install peco
 brew install tig
 brew install rename
 brew install tree
+brew install pt
 
 brew cask install mosh
 brew cask install git
