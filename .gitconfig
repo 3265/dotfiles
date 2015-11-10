@@ -21,6 +21,7 @@
 	m = merge
 	n = reflog
 	o = checkout
+	p = checkout .
 	r = rm
 	s = status --short
 	t = revert -m 1
@@ -39,3 +40,5 @@
 	tool = vimdiff
 [mergetool]
 	keepBackup = false
+[push]
+	default = simple

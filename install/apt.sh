@@ -14,6 +14,9 @@ sudo add-apt-repository ppa:shantzu/clipit
 sudo apt-get update
 sudo apt-get upgrade
 
+sudo apt-get install apt-file
+sudo apt-file update
+sudo apt-get install lib32stdc++6 lib32z1 lib32z1-dev #for enclosejs
 sudo apt-get install aptitude
 sudo apt-get install vim
 sudo apt-get install vifm
@@ -89,9 +92,11 @@ sudo apt-get install terminator
 sudo apt-get install ctags
 sudo apt-get install libopencv-dev
 sudo apt-get install pacman4console
+sudo apt-get install caca-utils
 
 # db
 sudo apt-get install redis-server
 sudo apt-get install mysql-server
 sudo apt-get install mongodb
 
+sudo apt-get autoremove

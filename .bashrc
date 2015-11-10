@@ -5,6 +5,7 @@ export EDITOR=vim
 export PAGER=less
 export NODE_ENV=development
 export NODE_PATH=~/.nvm/versions/node/v0.12.0/lib/node_modules/
+# GLOBAL._ = require('underscore');
 
 HISTSIZE=10000
 HISTFILESIZE=10000
@@ -43,13 +44,15 @@ alias m='mocha --compilers js:babel/register'
 alias n='node'
 alias o='chown'
 alias p='npm'
+alias q='git ls-files | xargs wc -l'
 alias r='rm -i'
 alias s='ps aux | grep'
-alias t='cat'
+alias t='vtop --theme brew'
 alias u="cd ..; ls -l"
 alias f='free -m'
 alias v='vim'
 alias w='w'
+alias x='cacaview'
 
 # user
 alias u-list='getent passwd'

@@ -32,3 +32,5 @@ npm install -g nyancat
 npm install -g git-stats
 npm instlal -g node-gyp
 npm install -g documentation
+npm install -g underscore
+npm install -g enclose

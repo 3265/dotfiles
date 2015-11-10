@@ -44,7 +44,7 @@ Plugin 'kchmck/vim-coffee-script' " coffeescript syntax, indenting, compiling
 
 Plugin 'pangloss/vim-javascript' " jsインデントとシンタックスカラー
 Plugin 'mattn/jscomplete-vim' " jsの補完用
-Plugin 'myhere/vim-nodejs-complete' " nodeの補完用
+" Plugin 'myhere/vim-nodejs-complete' " nodeの補完用
 Plugin 'moll/vim-node' " gfでrequire移動用
 Plugin 'heavenshell/vim-jsdoc' " jsdoc用
 
@@ -200,14 +200,14 @@ let g:neocomplcache_enable_at_startup = 1 " neocomplcacheを有効化
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_min_syntax_length = 3
 
-autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
-if !exists('g:neocomplcache_omni_functions')
-	let g:neocomplcache_omni_functions = {}
-endif
-let g:neocomplcache_omni_functions.javascript = 'nodejscomplete#CompleteJS'
-let g:node_usejscomplete = 1
-" automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+""autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
+""if !exists('g:neocomplcache_omni_functions')
+""	let g:neocomplcache_omni_functions = {}
+""endif
+""let g:neocomplcache_omni_functions.javascript = 'nodejscomplete#CompleteJS'
+""let g:node_usejscomplete = 1
+""" automatically open and close the popup menu / preview window
+""au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 
 " fileタイプごとのomni補完を指定
@@ -246,8 +246,8 @@ inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
 " クォートの補完
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
+" inoremap " ""<LEFT>
+" inoremap ' ''<LEFT>
 " EscEscでハイライトを消す
 nnoremap <ESC><ESC> :nohlsearch<CR><Esc>
 
@@ -277,7 +277,6 @@ nnoremap <C-t>l :tabnext<CR>
 inoremap <C-t>l <Esc>:tabnext<CR>
 nnoremap <C-t><C-l> :tabnext<CR>
 inoremap <C-t><C-l> <Esc>:tabnext<CR>
-
 
 " 修羅の道
 vnoremap <Up> <Nop>
