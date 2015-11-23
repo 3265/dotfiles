@@ -1,4 +1,6 @@
-" vimrc
+"
+" C-l: jsdoc
+"
 
 " ==============================================
 " vunlde
@@ -307,6 +309,7 @@ autocmd User Node
   \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
   \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
   \ endif
+
 " jsdoc
 nmap <silent> <C-m> <Plug>(jsdoc)
 " unite grep検索

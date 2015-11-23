@@ -10,7 +10,7 @@
 	b = branch
 	c = commit -m
 	d = diff
-	e = blame
+	e = commit --amend
 	f = fetch
 	g = grep -n
 	h = push
@@ -22,6 +22,7 @@
 	n = reflog
 	o = checkout
 	p = checkout .
+	q = blame -L
 	r = rm
 	s = status --short
 	t = revert -m 1
@@ -31,6 +32,8 @@
 	x = stash list
 	y = stash save -u
 	z = stash apply
+# git stash clear
+# git fetch --prune
 [core]
 	autoCRLF = false
 	safecrlf = true

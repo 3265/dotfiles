@@ -32,6 +32,7 @@ brew cask install firefox
 brew cask install multifirefox
 
 brew cask install iterm2
+brew cask install hub
 brew cask install slack
 brew cask install dropbox
 brew cask install thunderbird
@@ -82,6 +83,13 @@ brew cask install eclipse-platform
 brew cask install freemind
 brew cask install onepassword
 brew cask install limechat
+brew cask install near-lock
+brew cask install macupdate-desktop
+brew cask install 1password
+brew cask install omnidazzle
+brew cask install gitbook
+brew cask install waterfox
+
 brew cask cleanup
 
 # App store
