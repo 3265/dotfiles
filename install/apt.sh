@@ -93,6 +93,7 @@ sudo apt-get install ctags
 sudo apt-get install libopencv-dev
 sudo apt-get install pacman4console
 sudo apt-get install caca-utils
+sudo apt-get install docker.io
 
 # db
 sudo apt-get install redis-server

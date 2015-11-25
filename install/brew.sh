@@ -89,6 +89,8 @@ brew cask install 1password
 brew cask install omnidazzle
 brew cask install gitbook
 brew cask install waterfox
+brew cask install docker
+brew cask install docker-machine
 
 brew cask cleanup
 
