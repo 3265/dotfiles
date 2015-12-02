@@ -21,7 +21,7 @@
 	m = merge
 	n = reflog
 	o = checkout
-	p = checkout .
+	p = clone
 	q = blame -L
 	r = rm
 	s = status --short
