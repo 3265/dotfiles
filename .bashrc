@@ -53,6 +53,7 @@ alias u="cd ..; ls -l"
 alias v='vim'
 alias w='w'
 alias x='cacaview'
+alias z='screen -r -X quit'
 
 # user
 alias u-list='getent passwd'

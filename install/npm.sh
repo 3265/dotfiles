@@ -34,3 +34,4 @@ npm instlal -g node-gyp
 npm install -g documentation
 npm install -g underscore
 npm install -g enclose
+npm install -g npm-install-missing
