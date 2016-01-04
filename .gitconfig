@@ -7,11 +7,11 @@
 	ui = auto
 [alias]
 	a = add . --all
-	b = branch
+	b = branch # -d -D -m -v -a -r -vv
 	c = commit -m
 	d = diff
-	e = commit --amend
-	f = fetch
+	e = diff --stat
+	f = fetch --all
 	g = grep -n
 	h = push
 	i = ls-files

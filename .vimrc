@@ -324,9 +324,9 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
-" コメントアウト用
-" nmap <C-n> <Plug>(caw:i:toggle)
-" vmap <C-n> <Plug>(caw:i:toggle)
+" コメントアウト用( tabもしくはC-iでコメントout)
+nmap <C-i> <Plug>(caw:i:toggle)
+vmap <C-i> <Plug>(caw:i:toggle)
 
 " ==============================================
 " gvim
