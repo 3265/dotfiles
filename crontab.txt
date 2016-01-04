@@ -1,3 +1,3 @@
 SHELL=/bin/bash↲
 MAILTO=""↲
-0 0 * * * echo "Terminated Screen Session" screen -r -X quit
+0 0 * * * echo "Terminated Screen Session" && screen -r -X quit
