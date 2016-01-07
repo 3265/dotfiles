@@ -1,6 +1,4 @@
-#
-# vim.sh
-#
+#!/bin/sh
 
 # vundle install
 cd

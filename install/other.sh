@@ -4,5 +4,6 @@ tar xfvz peco_linux_amd64.tar.gz
 sudo cp peco_linux_amd64/peco /user/bin/
 sudo chmod 777 peco
 
-# windows install list
-# putty, poderosa, winscp, winsshfs, sftp net drive, gitbash
+go get github.com/peco/peco/cmd/peco
+
+

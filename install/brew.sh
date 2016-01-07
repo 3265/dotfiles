@@ -1,8 +1,5 @@
 #!/bin/bash
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install caskroom/cask/brew-cask
-
 brew install task
 brew install z
 brew install ctags
@@ -92,6 +89,7 @@ brew cask install waterfox
 brew cask install docker
 brew cask install docker-machine
 brew cask install cheatsheet
+brew cask install gibo
 
 brew cask cleanup
 
@@ -100,3 +98,4 @@ brew cask cleanup
 
 # Manual
 # firefox developer edition, opera developer, transtype 4, amazon prime music, azure storage explorer
+# macvim-kaoriiya https://github.com/splhack/macvim-kaoriya
