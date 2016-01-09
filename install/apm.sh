@@ -6,6 +6,7 @@ apm install file-icons
 apm install highlight-column
 apm install highlight-line
 apm install vim-mode
+
 #apm install atom-alignmen
 apm install tag
 apm install highlight-selected

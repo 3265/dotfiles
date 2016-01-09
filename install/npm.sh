@@ -1,72 +1,60 @@
 #!/bin/bash
 
-npm install -g nodedev
-npm install -g nodemon
-npm install -g ungit
-npm install -g less
-npm install -g browserify
-npm install -g json-server
-npm install -g browserify
-
-# express
-npm install -g express
-npm install -g express-generator
-npm install -g express-coffeescript-generator
-
-npm install -g vimdebug
-npm install -g plato
-npm install -g slap
-
 # build tool
 npm instlal -g node-gyp
+#sudo apt-get install lib32stdc++6 lib32z1 lib32z1-dev #for enclosejs
 npm install -g enclose
 
+# doc tool
+npm install -g jsdoc
 npm install -g documentation
+npm install -g hackmyresume
 
-# repl
+# for repl
 npm install -g underscore
 
-npm install -g npm-install-missing
-
-# terminal utils
-npm install -g hell
-npm install -g issues
-npm install -g todo
-npm install -g git-stats
-npm install -g nyancat
-npm install -g nmv
-npm install -g vtop
-
-# task runner
-npm install -g gulp
-npm install -g grunt-cli
-npm install -g yeoman
-npm install -g yo
+# package manager
 npm install -g bower
-
-# test tool
-npm install -g jsdoc
-npm install -g mocha
+npm install -g meteorite
+npm install -g npm-install-missing
 
 # lint tool
 npm install -g jshint
 npm install -g eslint
 
-# demon
-npm install -g pm2
-
 # development tool
-npm install -g jscodeshift
-npm install -g node-inspector
-npm install -g mongo-hacker
+npm install -g express
+#npm install -g meteor
+npm install -g express-generator
+npm install -g pm2
+npm install -g browserify
+npm install -g mocha
+npm install -g gulp
+npm install -g grunt-cli
+npm install -g yeoman
+npm install -g yo
+npm install -g nodedev
+npm install -g nodemon
 
-# cli
+# other tool
 npm install -g azure-cli
+npm install -g mongo-hacker
+npm install -g node-inspector
+npm install -g nmv
+npm install -g vtop
+npm install -g plato
+npm install -g git-stats
+npm install -g nyancat
+npm install -g hell
+npm install -g issues
+npm install -g todo
+npm install -g slap
 
-# Lang
+# lang
 npm install -g babel
 npm install -g coffee-script
 npm install -g cirru-script
 npm install -g typescript
 npm install -g livescript
+npm install -g less
 
