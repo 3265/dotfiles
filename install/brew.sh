@@ -91,6 +91,7 @@ brew cask install docker-machine
 brew cask install cheatsheet
 brew cask install gibo
 brew cask install bitbar
+brew cask install ocaml
 
 brew cask cleanup
 

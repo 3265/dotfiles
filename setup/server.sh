@@ -7,3 +7,6 @@ source /etc/default/locale
 env LANGUAGE=C LC_MESSAGES=C xdg-user-dirs-gtk-update
 
 # database
+
+# network utils
+apt-get install bridge-utils
