@@ -1,47 +1,49 @@
 [user]
-	name = mgoldchild
-	email = mgoldchild@gmail.com
+  name = mgoldchild
+  email = mgoldchild@gmail.com
 [diff]
-	renames = true
+  renames = true
 [color]
-	ui = auto
+  ui = auto
 [alias]
-	a = add . --all
-	b = branch # -d -D -m -v -a -r -vv
-	c = commit -m
-	d = diff
-	e = diff --stat
-	f = fetch --all
-	g = grep -n
-	h = push
-	i = ls-files
-	j = reset
-	k = commit --amend
-	l = log --graph --date=short --format='%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(red)%d%C(reset) %s %C(cyan)@%an%C(reset)'
-	m = merge
-	n = reflog
-	o = checkout
-	p = clone
-	q = blame -L
-	r = rm
-	s = status --short
-	t = revert -m 1
-	u = pull
-	v = mv
-	w = show
-	x = stash list
-	y = stash save -u
-	z = stash apply
+  a = add # -all ., -p
+  b = branch # -d, -D, -m, -v, -a, -r, -vv
+  c = commit # merge commit, . --all, --amend
+  d = diff # diff HEAD, diff, diff --cached
+  e = diff --stat
+  f = fetch --all
+  g = grep -n
+  h = push
+  i = ls-files
+  j = reset
+  k = commit --amend
+  l = log --graph --date=short --format='%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(red)%d%C(reset) %s %C(cyan)@%an%C(reset)'
+  m = merge
+  n = reflog
+  o = checkout
+  p = clone
+  q = blame -L
+  r = rm
+  s = status --short
+  t = revert -m 1
+  u = pull
+  v = mv
+  w = show
+  x = stash list
+  y = stash save -u
+  z = stash apply
 # git stash clear
 # git fetch --prune
 [core]
-	autoCRLF = false
-	safecrlf = true
-	excludesfile = ~/.gitignore
-	editor = vim
+  autoCRLF = false
+  safecrlf = true
+  excludesfile = ~/.gitignore
+  editor = vim
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 [mergetool]
-	keepBackup = false
+  prompt = false
+  keepBackup = false
+  keepTemporaries = false
 [push]
-	default = simple
+  default = simple

@@ -92,6 +92,7 @@ brew cask install cheatsheet
 brew cask install gibo
 brew cask install bitbar
 brew cask install ocaml
+brew cask install jq
 
 brew cask cleanup
 

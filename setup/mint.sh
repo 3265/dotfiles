@@ -19,6 +19,7 @@ sudo apt-get install curl
 sudo apt-get install sshfs
 sudo apt-get install ibus-mozc
 sudo apt-get install silversearcher-ag
+sudo apt-get install jq
 
 # Nemo
 # sudo apt-get install nemo

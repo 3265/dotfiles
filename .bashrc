@@ -38,7 +38,7 @@ alias f='free -m'
 alias g='git'
 alias h='source-hilight-less'
 alias i='id'
-alias j='df -Th'
+alias j='jq'
 alias k='mkdir -p'
 alias l='ls-color'
 alias m='mocha --compilers js:babel/register'
@@ -53,7 +53,7 @@ alias u="cd ..; ls -l"
 alias v='vim'
 alias w='w'
 alias x='cacaview'
-alias z='screen -r -X quit'
+alias z='azure'
 
 # user
 alias u-list='getent passwd'
@@ -64,10 +64,10 @@ alias u-passwd='passwd'
 # computer info
 alias i-host='hostname'
 alias i-cpu='cat /proc/cpuinfo'
-alias i-partition='df -h'
+alias i-partition='df -Th'
 alias i-memory='free -m'
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias i-ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias i-localip="ipconfig getifaddr en1"
 alias i-port='netstat -atn'
 alias i-getway='route'
 alias i-dist='lsb_release -a'
