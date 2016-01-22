@@ -22,7 +22,7 @@
   n = reflog
   o = checkout
   p = clone
-  q = blame -L
+  q = clearn # --dry-run, -f
   r = rm
   s = status --short
   t = revert -m 1
@@ -34,6 +34,8 @@
   z = stash apply
 # git stash clear
 # git fetch --prune
+#
+# blame -L
 [core]
   autoCRLF = false
   safecrlf = true

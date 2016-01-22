@@ -37,7 +37,7 @@ alias e='grep --color=auto'
 alias f='free -m'
 alias g='git'
 alias h='source-hilight-less'
-alias i='id'
+alias i="dig +short myip.opendns.com @resolver1.opendns.com"
 alias j='jq'
 alias k='mkdir -p'
 alias l='ls-color'
@@ -66,7 +66,7 @@ alias i-host='hostname'
 alias i-cpu='cat /proc/cpuinfo'
 alias i-partition='df -Th'
 alias i-memory='free -m'
-alias i-ip="dig +short myip.opendns.com @resolver1.opendns.com"
+# alias i-ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias i-localip="ipconfig getifaddr en1"
 alias i-port='netstat -atn'
 alias i-getway='route'
