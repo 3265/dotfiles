@@ -45,6 +45,7 @@ npm install -g vtop
 npm install -g plato
 npm install -g git-stats
 npm install -g nyancat
+npm install -j asciify
 npm install -g hell
 npm install -g issues
 npm install -g todo
@@ -56,5 +57,8 @@ npm install -g coffee-script
 npm install -g cirru-script
 npm install -g typescript
 npm install -g livescript
+npm install -g purescript
+npm install -g nativescript
+npm install -g sweet.js
 npm install -g less
 

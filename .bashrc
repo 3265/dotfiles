@@ -5,7 +5,7 @@ export EDITOR=vim
 export PAGER=less
 export NODE_ENV=development
 export NODE_PATH=~/.nvm/versions/node/v0.12.0/lib/node_modules/
-# GLOBAL._ = require('underscore');
+#export PATH="~/.pyenv/bin:$PATH"
 
 HISTSIZE=10000
 HISTFILESIZE=10000
