@@ -49,9 +49,8 @@ npm install -j asciify
 npm install -g hell
 npm install -g issues
 npm install -g todo
-npm install -g slap
 
-# lang
+# alt js
 npm install -g babel
 npm install -g coffee-script
 npm install -g cirru-script
@@ -60,5 +59,12 @@ npm install -g livescript
 npm install -g purescript
 npm install -g nativescript
 npm install -g sweet.js
-npm install -g less
+npm install -g jsx
 
+# alt css
+npm install -g less
+npm install -g stylus
+
+# IDE
+npm install -g nuclide
+npm install -g slap
