@@ -12,16 +12,16 @@
   d = diff # diff HEAD, diff, diff --cached
   e = diff --stat
   f = fetch --all
-  g = grep -n
+  g = merge
   h = push
   i = ls-files
   j = reset
   k = commit --amend
   l = log --graph --date=short --format='%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(red)%d%C(reset) %s %C(cyan)@%an%C(reset)'
-  m = merge
-  n = reflog
+  m = mv
+  n = clone # reflog
   o = checkout
-  p = clone
+  p = grep -n
   q = clearn # --dry-run, -f
   r = rm
   s = status --short
