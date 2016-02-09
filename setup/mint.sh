@@ -20,6 +20,7 @@ sudo apt-get install sshfs
 sudo apt-get install ibus-mozc
 sudo apt-get install silversearcher-ag
 sudo apt-get install jq
+sudo apt-get install openjdk-7-jdk
 
 # Nemo
 # sudo apt-get install nemo

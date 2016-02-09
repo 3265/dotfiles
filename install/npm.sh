@@ -37,7 +37,7 @@ npm install -g nodedev
 npm install -g nodemon
 
 # other tool
-# npm install -g azure-cli
+npm install -g azure-cli
 npm install -g mongo-hacker
 npm install -g node-inspector
 npm install -g nmv
@@ -68,6 +68,9 @@ npm install -g stylus
 # IDE
 npm install -g nuclide
 npm install -g slap
+
+# news
+#npm install -g @rafaelrinaldi/hn-cli
 
 # others
 npm install -g gitbook
