@@ -7,3 +7,4 @@
 2 | cd dotfiles
 3 | sh install/sestup.sh
 4 | sh install/vim.sh
+5 | sh install/nvm.sh
