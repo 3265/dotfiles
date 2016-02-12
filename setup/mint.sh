@@ -13,6 +13,7 @@ sudo apt-get install -y vim
 sudo apt-get install -y screen
 sudo apt-get install -y ssh
 sudo apt-get install -y mosh
+sudo apt-get install -y ufw
 sudo apt-get install -y git
 sudo apt-get install -y bash-completion
 sudo apt-get install -y curl
