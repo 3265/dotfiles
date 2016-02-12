@@ -18,6 +18,7 @@ sudo apt-get install -y git
 sudo apt-get install -y bash-completion
 sudo apt-get install -y curl
 sudo apt-get install -y sshfs
+sudo apt-get install -y htop
 #sudo apt-get install -y ibus-mozc
 sudo apt-get install -y silversearcher-ag
 sudo apt-get install -y jq

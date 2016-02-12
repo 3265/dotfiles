@@ -11,6 +11,7 @@ brew install tig
 brew install rename
 brew install tree
 brew install pt
+brew install htop-osx
 
 # essentials
 brew cask install iterm2

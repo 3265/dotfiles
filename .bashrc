@@ -63,7 +63,7 @@ alias u-passwd='passwd'
 
 # computer info
 alias i-host='hostname'
-alias i-top='vtop --theme brew'
+alias i-top='htop'
 alias i-cpu='cat /proc/cpuinfo'
 alias i-partition='df -Th'
 alias i-memory='free -m'
