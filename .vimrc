@@ -42,7 +42,6 @@ Plugin 'digitaltoad/vim-jade'  " jade
 Plugin 'groenewege/vim-less' " less
 Plugin 'stephpy/vim-yaml' "yaml
 Plugin 'elzr/vim-json' " json
-Plugin 'kchmck/vim-coffee-script' " coffeescript syntax, indenting, compiling
 
 Plugin 'pangloss/vim-javascript' " jsインデントとシンタックスカラー
 Plugin 'mattn/jscomplete-vim' " jsの補完用
