@@ -26,3 +26,9 @@ ls-color() {
     exit 1
   fi
 }
+
+
+# gopath for ubuntu
+export GOROOT="go env GOROOT"
+export PATH=$PATH:$GOROOT/bin:$GOROOT/bin
+

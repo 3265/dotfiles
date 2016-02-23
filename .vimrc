@@ -36,6 +36,7 @@ Plugin 'Shougo/neocomplcache.vim' " 自動補完用(completeはlua必要のた�
 Plugin 'Shougo/neosnippet.vim' " スニペット用
 Plugin 'Shougo/neosnippet-snippets' " スニペット用
 
+Plugin 'fatih/vim-go'
 Plugin 'mustache/vim-mustache-handlebars' " hbs
 Plugin 'hail2u/vim-css3-syntax' " css
 Plugin 'digitaltoad/vim-jade'  " jade
