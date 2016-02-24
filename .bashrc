@@ -6,6 +6,8 @@ export PAGER=less
 export NODE_ENV=development
 export NODE_PATH=~/.nvm/versions/node/v0.12.0/lib/node_modules/
 #export PATH="~/.pyenv/bin:$PATH"
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH
 
 HISTSIZE=10000
 HISTFILESIZE=10000
