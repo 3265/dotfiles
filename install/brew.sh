@@ -7,6 +7,7 @@ brew install putty
 brew install awscli
 brew install htop
 brew install peco
+brew install golang
 brew install tig
 brew install rename
 brew install tree
@@ -118,5 +119,6 @@ brew cask install brackets
 brew cask install gimp
 brew cask install processing
 
-brew cask cleanup
+# cleanup
+brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
 
