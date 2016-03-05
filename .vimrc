@@ -33,6 +33,8 @@ Plugin 'Shougo/neosnippet.vim' " スニペット用
 Plugin 'Shougo/neosnippet-snippets' " スニペット用
 
 Plugin 'fatih/vim-go'
+Plugin 'Blackrush/vim-gocode'
+
 Plugin 'mustache/vim-mustache-handlebars' " hbs
 Plugin 'hail2u/vim-css3-syntax' " css
 Plugin 'digitaltoad/vim-jade'  " jade
@@ -197,6 +199,13 @@ let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1 " neocomplcacheを有効化
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_enable_underbar_completion = 0
+
+" Golang completion
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
 
 ""autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
 ""if !exists('g:neocomplcache_omni_functions')
@@ -447,6 +456,8 @@ set background=dark " 背景色
 " 全角スペース可視化
 highlight JpSpace cterm=underline ctermfg=Yellow guifg=Yellow
 au BufRead,BufNew * match JpSpace /　/
+" neocomplcacheのomin補完でで上部にでるwindowを無効化
+set completeopt-=preview
 
 " 検索
 set ignorecase " 検索時に大文字小文字を区別しない
