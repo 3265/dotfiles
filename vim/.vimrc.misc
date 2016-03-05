@@ -1,0 +1,25 @@
+
+" GVIM
+if has("gui_running")
+	set guifont=Monaco:h13 "フォント
+	set imdisable "IM をオフ
+	set transparency=10 " 透明度
+	set fuoptions=maxvert,maxhorz " 画面を最大化
+	au GUIEnter * set fullscreen
+endif
+
+" ctags
+" let g:auto_ctags = 1 " ctag自動保存
+" let g:auto_ctags_directory_list = ['.git', '.svn'] " gitdirに保存
+" let g:auto_ctags_tags_name = 'tags' " 名前
+" let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes'
+" let g:auto_ctags_filetype_mode = 0 " ファイルタイプ専用のファイルは作らない
+
+" vimdoc
+" vimdoc-ja 普段はコメントアウト
+helptags ~/.vim/bundle/vimdoc-ja/doc
+" ヘルプを日本語にする
+set helplang=ja,en
+
+" common
+source ~/dotfiles/vim/.vimrc.common

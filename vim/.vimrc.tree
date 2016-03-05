@@ -1,0 +1,24 @@
+
+" nerdtree icon settings
+let NERDTreeShowHidden = 1 " 隠しフォルダを表示する
+
+" nerdtree git
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "編",
+    \ "Staged"    : "追",
+    \ "Untracked" : "逃",
+    \ "Renamed"   : "名",
+    \ "Unmerged"  : "未",
+    \ "Deleted"   : "削",
+    \ "Dirty"     : "変",
+    \ "Clean"     : "良",
+    \ "Unknown"   : "謎"
+    \ }
+
+" nerdtree icon
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' ' " アイコンのパディング
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+
+" auto refresh nerdtre 15s
+set autoread
+au CursorHold * if exists("t:NerdTreeBufName") | call <SNR>15_refreshRoot() | endif

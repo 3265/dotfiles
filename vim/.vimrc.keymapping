@@ -1,0 +1,90 @@
+" ==============================================
+" key mapping
+" ==============================================
+
+map! <NUL> <CR>
+
+" 括弧の補完
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+" クォートの補完
+" inoremap " ""<LEFT>
+" inoremap ' ''<LEFT>
+
+" EscEscで検索ハイライトを消す
+nnoremap <ESC><ESC> :nohlsearch<CR><Esc>
+
+" タグジャンプ
+" nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+" nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+
+" emacs風に
+"imap <C-k> <ESC>d$i
+"imap <C-y> <ESC>pi
+"imap <C-d> <ESC>xi
+"imap <C-a> <Home>
+"imap <C-e> <End>
+"imap <C-b> <Left>
+"imap <C-f> <Right>
+"imap <C-n> <Down>
+"imap <C-p> <UP>
+
+" tab 操作をwindowっぽく
+nnoremap <C-t><C-t> :tabprevious<CR>
+inoremap <C-t><C-t> <Esc>:tabprevious<CR>
+nnoremap <C-t>h :tabprevious<CR>
+inoremap <C-t>h <Esc>:tabprevious<CR>
+nnoremap <C-t><C-h> :tabprevious<CR>
+inoremap <C-t><C-h> <Esc>:tabprevious<CR>
+nnoremap <C-t>l :tabnext<CR>
+inoremap <C-t>l <Esc>:tabnext<CR>
+nnoremap <C-t><C-l> :tabnext<CR>
+inoremap <C-t><C-l> <Esc>:tabnext<CR>
+
+" 修羅の道
+vnoremap <Up> <Nop>
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+" snippets 実行(Ctrl-kで)
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+
+" necomplcacheのタブ
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" nerdtree
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+" tagbar window
+" nmap <F8> :TagbarToggle<CR>
+
+" vim-node file jump
+autocmd User Node
+  \ if &filetype == "javascript" |
+  \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
+  \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
+  \ endif
+
+" jsdoc
+nmap <silent> <C-m> <Plug>(jsdoc)
+
+" インクリメンタルサーチ
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+" コメントアウト用( tabもしくはC-iでコメントout)
+nmap <C-i> <Plug>(caw:i:toggle)
+vmap <C-i> <Plug>(caw:i:toggle)
+
