@@ -8,8 +8,11 @@ call vundle#rc()
 Plugin 'scrooloose/nerdtree' " filetree
 Plugin 'Xuyuanp/nerdtree-git-plugin' " filetree git diff
 Plugin 'ryanoasis/vim-devicons' " filetree file icon
+
 Plugin 'tpope/vim-fugitive' " ステータスラインにブランチ名表示する
 Plugin 'bling/vim-airline' " ステータスライン
+Plugin 'vim-airline/vim-airline-themes' " vim airlineのtheme
+
 Plugin 'airblade/vim-gitgutter' " ファイルのgit diff
 Plugin 'nathanaelkane/vim-indent-guides' " インデントを見やすく
 Plugin 'altercation/vim-colors-solarized' " カラーテーマ
