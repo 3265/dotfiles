@@ -56,12 +56,13 @@ alias o='go'
 alias p='pwd'
 alias q='exit'
 alias r='rm' # -i
-alias s='screen -R'
+alias s='screen'
 alias t='mocha --compilers js:babel/register'
 alias u='ufw'
 alias v='vim'
 alias w='w'
 alias x='cacaview'
+alias y='cp'
 alias z='azure'
 
 # user
