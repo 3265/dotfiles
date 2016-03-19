@@ -37,6 +37,7 @@ npm install -g nodedev
 npm install -g nodemon
 
 # other tool
+npm install -g readme-gen
 npm install -g azure-cli
 npm install -g mongo-hacker
 npm install -g node-inspector
