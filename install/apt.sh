@@ -2,6 +2,7 @@
 
 # essentials
 sudo apt-get install vim
+sudo apt-get install jq
 sudo apt-get install screen
 sudo apt-get install ssh
 sudo apt-get install mosh
@@ -34,8 +35,21 @@ sudo apt-get install geany
 sudo apt-get install eclipse
 sudo apt-get install atom
 
+# browser
+sudo apt-get install chromium-browser
+sudo apt-get install opera
+sudo apt-get install firefox
+
+# desktop theme
+sudo apt-get install cinnamon-desktop-environment
+
+# programing language
+#sudo apt-get install -y nodejs
+sudo apt-get install -y openjdk-7-jdk
+sudo apt-get install monodevelop
+sudo apt-get install rhino
+
 sudo apt-get install jd
-sudo apt-get install jq
 sudo apt-get install gimp
 sudo apt-get install dia
 sudo apt-get install xpad
@@ -72,12 +86,10 @@ sudo apt-get install r-base-core
 sudo apt-get install labyrinth
 sudo apt-get install qtcreator
 sudo apt-get install psi
-sudo apt-get install monodevelop
 
 sudo apt-get install chkrootkit
 sudo apt-get install tig
 sudo apt-get install figlet
-sudo apt-get install rhino
 sudo apt-get install tor
 sudo apt-get install hydrogen
 sudo apt-get install wget
