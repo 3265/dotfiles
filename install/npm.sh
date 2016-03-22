@@ -50,6 +50,7 @@ npm install -j asciify
 npm install -g hell
 npm install -g issues
 npm install -g todo
+npm install -g js2coffee
 
 # alt js
 npm install -g babel
