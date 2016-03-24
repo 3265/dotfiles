@@ -15,6 +15,5 @@ go get github.com/monochromegane/the_platinum_searcher
 
 # Stock market tracker
 go get github.com/michaeldv/mop
-cd $GOPATH/src/github.com/michaeldv/mop
-make install
+cd $GOPATH/src/github.com/michaeldv/mop && make install
 

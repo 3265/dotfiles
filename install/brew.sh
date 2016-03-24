@@ -14,6 +14,7 @@ brew install tree
 brew install pt
 brew install nmap
 brew install htop-osx
+brew install jo
 
 # essentials
 brew cask install iterm2
