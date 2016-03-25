@@ -1,5 +1,7 @@
 #!/bin/bash
 
+npm install -g json
+
 # build tool
 npm instlal -g node-gyp
 #sudo apt-get install lib32stdc++6 lib32z1 lib32z1-dev #for enclosejs

@@ -43,7 +43,7 @@ alias b='cd ../'
 alias c='cd'
 alias d='docker'
 alias e='grep --color=auto'
-alias f='free -m'
+alias f='coffee'
 alias g='git'
 alias h='chown'
 alias i="dig +short myip.opendns.com @resolver1.opendns.com"
