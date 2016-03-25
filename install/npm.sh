@@ -23,6 +23,7 @@ npm install -g npm-install-missing
 # lint tool
 npm install -g jshint
 npm install -g eslint
+npm install -g coffeelint
 
 # development tool
 npm install -g express
