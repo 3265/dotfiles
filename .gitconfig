@@ -22,7 +22,7 @@
   n = clone # reflog
   o = checkout
   p = grep -n
-  q = clearn # --dry-run, -f
+  q = clean -fd # --dry-run
   r = rm
   s = status --short
   t = revert -m 1
