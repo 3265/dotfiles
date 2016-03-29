@@ -23,7 +23,7 @@
   o = checkout
   p = grep -n
   q = clean -fd # --dry-run
-  r = rm
+  r = rm # --cached
   s = status --short
   t = revert -m 1
   u = pull
