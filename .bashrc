@@ -14,6 +14,8 @@ export PATH=$PATH:$GOROOT:$GOPATH:$GOPATH/bin
 # Node.js
 export NODE_ENV=development
 export NODE_PATH=~/.nvm/versions/node/v0.12.0/lib/node_modules/
+
+# Python
 #export PATH="~/.pyenv/bin:$PATH"
 
 HISTSIZE=10000
@@ -58,7 +60,7 @@ alias q='exit'
 alias r='rm' # -i
 alias s='screen'
 alias t='mocha --compilers js:babel/register'
-alias u='ufw'
+alias u='curl'
 alias v='vim'
 alias w='w'
 alias x='cacaview'
@@ -85,7 +87,7 @@ alias i-dist='lsb_release -a'
 alias i-arch='uname -a'
 alias i-stat='git ls-files | xargs wc -l'
 
-# sshfs
+# mac sshfs
 alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
 alias kaishafs='sshfs kaisha: ~/mp/kaisha -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=kaisha'
 
