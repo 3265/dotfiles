@@ -8,5 +8,3 @@ ln -s -i ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s -i ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s -i ~/dotfiles/.vimrc ~/.vimrc
 ln -s -i ~/dotfiles/.editorconfig ~/.editorconfig
-
-ln -s -i ~/dotfiles/.lscolor ~/.lscolor
