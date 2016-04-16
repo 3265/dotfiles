@@ -17,6 +17,9 @@ sudo apt-get install -y jq
 sudo apt-get install -y curl
 sudo apt-get install -y wget
 sudo apt-get install -y build-essential
+sudo apt-get install -y tree
+
+sudo apt-get install -y software-properties-common python-software-properties
 
 # install golang
 sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
