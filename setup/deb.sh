@@ -21,6 +21,9 @@ sudo apt-get install -y tree
 
 sudo apt-get install -y software-properties-common python-software-properties
 
+# install pip
+sudo apt-get install -y python-pip
+
 # install golang
 sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
 sudo apt-get update
