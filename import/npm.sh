@@ -13,7 +13,7 @@ npm install -g jsdoc
 # npm install -g hackmyresume
 
 # package manager
-npm install -g bower
+npm install -g bower@1.5.4
 # npm install -g meteorite
 # npm install -g npm-install-missing
 

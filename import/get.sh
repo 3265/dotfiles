@@ -17,5 +17,3 @@ go get github.com/monochromegane/the_platinum_searcher
 go get github.com/michaeldv/mop
 cd $GOPATH/src/github.com/michaeldv/mop && make install
 
-# go package manager
-go get github.com/tools/godep
