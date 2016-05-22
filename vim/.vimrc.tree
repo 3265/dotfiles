@@ -17,7 +17,7 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " nerdtree icon
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' ' " アイコンのパディング
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 
 " auto refresh nerdtre 15s
 set autoread
