@@ -98,6 +98,7 @@ brew cask install vagrant
 brew cask install sourcetree
 brew cask install robomongo
 brew cask install xquartz # for xforwarding
+brew-cask install dockertoolbox
 
 # lang
 brew cask install ocaml
