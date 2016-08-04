@@ -10,19 +10,19 @@ sudo apt-get install -y nmap
 sudo apt-get install -y git
 sudo apt-get install -y bash-completion
 sudo apt-get install -y curl
+sudo apt-get install -y wget
 sudo apt-get install -y sshfs
 sudo apt-get install -y htop
 sudo apt-get install -y silversearcher-ag
 sudo apt-get install -y jq
-sudo apt-get install -y curl
-sudo apt-get install -y wget
 sudo apt-get install -y build-essential
 sudo apt-get install -y tree
+sudo apt-get install -y docker
 
-sudo apt-get install -y software-properties-common python-software-properties
+# sudo apt-get install -y software-properties-common python-software-properties
 
 # install pip
-sudo apt-get install -y python-pip
+# sudo apt-get install -y python-pip
 
 # install golang
 sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
