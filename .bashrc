@@ -58,7 +58,7 @@ alias o='go'
 alias p='pwd'
 alias q='exit'
 alias r='rm' # -i
-alias s='source'
+alias s='du -h' # --max-depth=1
 alias t='mocha --compilers js:babel/register'
 alias u='curl'
 alias v='vim'
