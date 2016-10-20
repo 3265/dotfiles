@@ -1,0 +1,112 @@
+#
+# Docker Config
+#
+
+alias dif="docker info"
+
+alias dv="docker version"
+
+# ############################
+#  CMD for Dockerfile
+# ############################
+
+# build Dockerfile
+alias db="docker build"
+
+# rebuild dockerfile
+alias drb="docker build --no-cache"
+
+# ############################
+#  CMD for Repository
+# ############################
+
+# Docker push to remote repository, REPOSITORY[:tag]
+alias dph='docker push'
+
+# Docker pull form remote repository, REPOSITORY[:tag]
+alias dpu='docker pull'
+
+# ############################
+#  CMD for Image
+# ############################
+
+# Remove all images
+alias drmi='docker rmi'
+
+# Remove all images
+alias drmai='docker rmi $(docker images --quiet)'
+
+# List images
+alias dim="docker images"
+
+# List images including intermediates
+alias dia="docker images --all"
+
+# Dockerfile command list
+alias dhi='docker history'
+
+# Make image from container, CONTAINER REPOSITORY[:TAG]
+alias dc="docker commit"
+
+# tag alias, CONTAINER REPOSITORY[:tag]
+alias dtg='docker tag'
+
+# ############################
+#  CMD for Containers
+# ############################
+
+# remove containers
+alias drmc="docker rm"
+
+# Remove all containers
+alias drmac='docker rm $(docker ps --all --quiet)'
+
+# List containers
+alias dps="docker ps"
+
+# LIst all containers
+alias dpa="docker ps -a"
+
+# docker stop
+alias dst="docker stop"
+
+# docker start
+alias dst="docker start"
+
+# docker restart
+alias dst="docker restart"
+
+# Show Top
+alias dtp='docker top'
+
+# show diff
+alias dif="docker diff"
+
+# show spec
+alias ds="docker inspect"
+
+# show container events
+alias dev="docker events"
+
+# show container log
+alias dl="docker logs"
+
+# show docker ip addr
+alias dip='docker inspect  --format="{{.NetworkSettings.IPAddress}}"'
+
+# attach docker containers
+alias da="docker attach"
+
+# exec docker container, CONTAINER /bin/bash
+alias de="docker exec"
+
+# exec docker container, CONTAINER /bin/bash
+alias dec="docker exec -it"
+
+# ############################
+#  CMD for doc
+# ############################
+#
+# how all alias related docker
+dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
+

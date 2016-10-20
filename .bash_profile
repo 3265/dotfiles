@@ -26,3 +26,5 @@ ls-color() {
     exit 1
   fi
 }
+
+source ~/dotfiles/.dockerconfig
