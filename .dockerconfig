@@ -2,108 +2,84 @@
 # Docker Config
 #
 
-alias dif="docker info"
-
-alias dv="docker version"
-
-alias dl="docker login"
+alias df="docker info"
 
 # ############################
 #  CMD for Dockerfile
 # ############################
 
-# build Dockerfile
+# build Dockerfile, --no-cache
 alias db="docker build"
-
-# rebuild dockerfile
-alias drb="docker build --no-cache"
 
 # ############################
 #  CMD for Repository
 # ############################
 
 # Docker push to remote repository, REPOSITORY[:tag]
-alias dph='docker push'
+alias dh='docker push'
 
 # Docker pull form remote repository, REPOSITORY[:tag]
-alias dpu='docker pull'
+alias du='docker pull'
 
 # ############################
 #  CMD for Image
 # ############################
 
 # Remove all images
-alias drmi='docker rmi'
+alias dm='docker rmi'
+alias dma='docker rmi $(docker images --quiet)'
 
-# Remove all images
-alias drmai='docker rmi $(docker images --quiet)'
-
-# List images
-alias dim="docker images"
-
-# List images including intermediates
-alias dia="docker images --all"
+# List images, --all
+alias di="docker images"
 
 # Dockerfile command list
-alias dhi='docker history'
+alias dy='docker history'
 
 # Make image from container, CONTAINER REPOSITORY[:TAG]
 alias dc="docker commit"
 
 # tag alias, CONTAINER REPOSITORY[:tag]
-alias dtg='docker tag'
+alias dg='docker tag'
 
 # ############################
 #  CMD for Containers
 # ############################
 
 # remove containers
-alias drmc="docker rm"
+alias dr="docker rm"
+alias dra='docker rm $(docker ps --all --quiet)'
 
-# Remove all containers
-alias drmac='docker rm $(docker ps --all --quiet)'
-
-# List containers
-alias dps="docker ps"
-
-# LIst all containers
-alias dpa="docker ps -a"
+# List containers, -a
+alias dp="docker ps"
 
 # docker stop
-alias dst="docker stop"
+alias dt="docker stop"
 
 # docker start
-alias dst="docker start"
-
-# docker restart
-alias dst="docker restart"
+alias ds="docker start"
 
 # Show Top
-alias dtp='docker top'
+alias do='docker top'
 
 # show diff
-alias dif="docker diff"
+alias dd="docker diff"
 
 # show spec
-alias ds="docker inspect"
+alias dn="docker inspect"
+alias dni='docker inspect  --format="{{.NetworkSettings.IPAddress}}"'
 
 # show container events
-alias dev="docker events"
+alias dv="docker events"
 
 # show container log
 alias dl="docker logs"
-
-# show docker ip addr
-alias dip='docker inspect  --format="{{.NetworkSettings.IPAddress}}"'
 
 # attach docker containers
 alias da="docker attach"
 
 # exec docker container, CONTAINER /bin/bash
 alias de="docker exec"
-
-# exec docker container, CONTAINER /bin/bash
-alias dec="docker exec -it"
+alias deb="docker exec -it"
 
 # ############################
 #  CMD for doc
