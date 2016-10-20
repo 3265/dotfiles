@@ -6,6 +6,8 @@ alias dif="docker info"
 
 alias dv="docker version"
 
+alias dl="docker login"
+
 # ############################
 #  CMD for Dockerfile
 # ############################
