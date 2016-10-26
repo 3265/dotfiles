@@ -4,6 +4,9 @@
 export EDITOR=vim
 export PAGER=less
 
+# for virtual environment
+export TERM=xterm
+
 # shell option
 shopt -s dotglob # Filter Hidden Files
 
@@ -44,7 +47,6 @@ alias a='ag'
 alias b='cd ../'
 alias c='cd'
 alias d='docker'
-alias dm='docker-machine'
 alias e='grep --color=auto'
 alias f='coffee'
 alias g='git'
