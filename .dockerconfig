@@ -2,8 +2,8 @@
 # Docker Config
 #
 
-alias dm="docker-machine"
-alias de="eval $(docker-machine env default)"
+alias dm='docker-machine'
+alias de='eval $(docker-machine env default)'
 
 alias drmc='docker rm $(docker ps --all --quiet) -f'
 alias drmi='docker rmi $(docker images --quiet) -f'
