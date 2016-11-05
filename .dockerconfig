@@ -3,11 +3,9 @@
 #
 
 alias dm="docker-machine"
-
-alias drmi='docker rmi $(docker images --quiet) -f'
-alias drm='docker rm $(docker ps --all --quiet) -f'
-
 alias de="eval $(docker-machine env default)"
 
-alias dii='docker inspect  --format="{{.NetworkSettings.IPAddress}}"'
-alias div="docker inspect --format='{{range $vol, $path := .Volumes}}{{$vol}}:{{$path}}{{"\n"}}{{end}}'"
+alias drmc='docker rm $(docker ps --all --quiet) -f'
+alias drmi='docker rmi $(docker images --quiet) -f'
+alias drmv='docker volume rm `docker volume ls -q -f dangling=true`'
+
