@@ -67,7 +67,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 " tagbar window
-" nmap <F8> :TagbarToggle<CR>
+nmap <F9> :TagbarToggle<CR>
 
 " vim-node file jump
 autocmd User Node

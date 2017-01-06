@@ -18,8 +18,9 @@ Plugin 'nathanaelkane/vim-indent-guides' " インデントを見やすく
 Plugin 'altercation/vim-colors-solarized' " カラーテーマ
 Plugin 'scrooloose/syntastic.git' " シンタックスチェック
 
-" Plugin 'majutsushi/tagbar' " ctags用のタグバー
-" Plugin 'soramugi/auto-ctags.vim' " ctagsの自動保存
+Plugin 'majutsushi/tagbar' " ctags用のタグバー
+Plugin 'soramugi/auto-ctags.vim' " ctagsの自動保存
+
 Plugin 'editorconfig/editorconfig-vim' " エディターコンフィグ
 
 Plugin 'kien/ctrlp.vim' " peco的な

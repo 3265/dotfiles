@@ -27,8 +27,10 @@ ls-color() {
   fi
 }
 
+# Settings for GAE(MacDev)
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=~/.go
 export PATH=$PATH:/Users/kanekotakeshi/go_appengine:$GOPATH/bin
 
+# Setting for Docker
 source ~/dotfiles/.dockerconfig
