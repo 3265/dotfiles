@@ -27,4 +27,8 @@ ls-color() {
   fi
 }
 
+export GOROOT=/usr/local/opt/go/libexec
+export GOPATH=~/.go
+export PATH=$PATH:/Users/kanekotakeshi/go_appengine:$GOPATH/bin
+
 source ~/dotfiles/.dockerconfig
