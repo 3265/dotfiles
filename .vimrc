@@ -25,3 +25,5 @@ source ~/dotfiles/vim/.vimrc.misc
 " snippets
 source ~/dotfiles/vim/.vimrc.snippets
 
+" taagbar
+source ~/dotfiles/vim/.vimrc.tagbar
