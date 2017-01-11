@@ -48,7 +48,7 @@ alias b='cd ../'
 alias c='cd'
 alias d='docker'
 alias e='grep --color=auto'
-alias f='find'
+alias f='find . | peco' # NOTE: this one depends on peco command
 alias g='git'
 alias h='history'
 alias i="cp"
