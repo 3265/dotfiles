@@ -43,12 +43,12 @@ if [[ -s ~/.nvm/nvm.sh ]];
 fi
 
 # sortcuts
-alias a='ag'
+alias a='pt' # ag
 alias b='cd ../'
 alias c='cd'
 alias d='docker'
 alias e='grep --color=auto'
-alias f='find . | peco' # NOTE: this one depends on peco command
+alias f='find'
 alias g='git'
 alias h='history'
 alias i="cp"
@@ -65,7 +65,7 @@ alias s='screen'
 alias t='cat'
 alias u='curl'
 alias v='vim'
-alias w='w'
+alias w='wget'
 alias x=''
 alias y=''
 alias z=''
