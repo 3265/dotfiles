@@ -43,7 +43,7 @@ if [[ -s ~/.nvm/nvm.sh ]];
 fi
 
 # sortcuts
-alias a='cat'
+alias a='pt' # ag
 alias b='cd ../'
 alias c='cd'
 alias d='docker'
@@ -56,13 +56,13 @@ alias j='tar'
 alias k='mkdir -p'
 alias l='ls-color'
 alias m='mv'
-alias n='ping'
+alias n='node'
 alias o='go'
 alias p='pwd'
 alias q='exit'
 alias r='rm'
 alias s='screen'
-alias t='pt'
+alias t='cat'
 alias u='curl'
 alias v='vim'
 alias w='wget'
