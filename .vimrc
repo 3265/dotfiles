@@ -1,6 +1,9 @@
 " vunlde
 source ~/dotfiles/vim/.vimrc.bundle
 
+" Common
+source ~/dotfiles/vim/.vimrc.common
+
 " syntax check
 source ~/dotfiles/vim/.vimrc.syntax
 

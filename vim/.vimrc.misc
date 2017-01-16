@@ -20,6 +20,3 @@ endif
 helptags ~/.vim/bundle/vimdoc-ja/doc
 " ヘルプを日本語にする
 set helplang=ja,en
-
-" common
-source ~/dotfiles/vim/.vimrc.common
