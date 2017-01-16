@@ -47,7 +47,7 @@ alias a='pt' # ag
 alias b='cd ../'
 alias c='cd'
 alias d='docker'
-alias e='grep --color=auto'
+alias e='peco' # 'grep --color=auto'
 alias f='find'
 alias g='git'
 alias h='history'
@@ -66,8 +66,8 @@ alias t='cat'
 alias u='curl'
 alias v='vim'
 alias w='wget'
-alias x=''
-alias y=''
+alias x='cd `find . -type d | peco`' # For directory
+alias y='vim `find . -type f | peco`' # For file
 alias z=''
 
 # user
