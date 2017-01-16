@@ -28,14 +28,14 @@ ls-color() {
 }
 
 xfunc() {
-  RET=$(find . -type d | egrep -v '(.git|.go|node_modules|vender)' | peco)
+  RET=$(find . -type d | egrep -v '(\.\/\..+\/|node_modules|vender)' | peco)
   if [ -e "$RET"  ]; then
     cd $RET
   fi
 }
 
 yfunc() {
-  RET=$(find . -type f | egrep -v '(.git|.go|node_modules|vender)' | peco)
+  RET=$(find . -type f | egrep -v '(\.\/\..+\/|node_modules|vender)' | peco)
   if [ -e "$RET"  ]; then
     vim $RET
   fi
