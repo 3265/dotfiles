@@ -68,7 +68,7 @@ alias v='vim'
 alias w='wget'
 alias x='cd `find . -type d | peco`' # For directory
 alias y='vim `find . -type f | peco`' # For file
-alias z=''
+alias z='eval `history | cut -c 8- | peco`' # For command
 
 # user
 alias u-list='getent passwd'
