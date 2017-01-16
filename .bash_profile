@@ -27,6 +27,27 @@ ls-color() {
   fi
 }
 
+xfunc() {
+  RET=$(find . -type d | egrep -v '(.git|.go|node_modules|vender)' | peco)
+  if [ -e "$RET"  ]; then
+    cd $RET
+  fi
+}
+
+yfunc() {
+  RET=$(find . -type f | egrep -v '(.git|.go|node_modules|vender)' | peco)
+  if [ -e "$RET"  ]; then
+    vim $RET
+  fi
+}
+
+zfunc() {
+  RET=$(history | cut -c 8- | peco)
+  if [ -e "$RET"  ]; then
+    eval $RET
+  fi
+}
+
 # Settings for GAE(MacDev)
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=~/.go
@@ -44,3 +65,5 @@ fi
 if [ -f /Users/kanekotakeshi/google-cloud-sdk/completion.bash.inc ]; then
   source '/Users/kanekotakeshi/google-cloud-sdk/completion.bash.inc'
 fi
+
+
