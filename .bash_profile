@@ -27,18 +27,21 @@ ls-color() {
   fi
 }
 
-# f
-FindIgnoreCase='(\.\/\..+\/|node_modules|vender|go_appengine|google-cloud-sdk|Library)'
+# Find command ignore case
+Dir='vendor|node_modules|go_appengine|google-cloud-sdk|Library'
+DotDir='\/\..+'
+Reg="(${DotDir}|${Dir})"
 
+# xyz aliases function
 xfunc() {
-  RET=$(find . -type d | egrep -v $FindIgnoreCase | peco)
+  RET=$(find . -type d | egrep -v $Reg | peco)
   if [ -e "$RET"  ]; then
     cd $RET
   fi
 }
 
 yfunc() {
-  RET=$(find . -type f | egrep -v $FindIgnoreCase | peco)
+  RET=$(find . -type f | egrep -v $Reg | peco)
   if [ -e "$RET"  ]; then
     vim $RET
   fi
