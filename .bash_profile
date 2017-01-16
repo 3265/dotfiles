@@ -27,15 +27,18 @@ ls-color() {
   fi
 }
 
+# f
+FindIgnoreCase='(\.\/\..+\/|node_modules|vender|go_appengine|google-cloud-sdk|Library)'
+
 xfunc() {
-  RET=$(find . -type d | egrep -v '(\.\/\..+\/|node_modules|vender)' | peco)
+  RET=$(find . -type d | egrep -v $FindIgnoreCase | peco)
   if [ -e "$RET"  ]; then
     cd $RET
   fi
 }
 
 yfunc() {
-  RET=$(find . -type f | egrep -v '(\.\/\..+\/|node_modules|vender)' | peco)
+  RET=$(find . -type f | egrep -v $FindIgnoreCase | peco)
   if [ -e "$RET"  ]; then
     vim $RET
   fi
