@@ -10,6 +10,9 @@ export TERM=xterm
 # shell option
 shopt -s dotglob # Filter Hidden Files
 
+# Git template directory
+# export GIT_TEMPLATE_DIR=$HOME/.git_template
+
 # Golang
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOROOT:$GOPATH:$GOPATH/bin

@@ -8,5 +8,5 @@ ln -s -i ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s -i ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s -i ~/dotfiles/.vimrc ~/.vimrc
 ln -s -i ~/dotfiles/.editorconfig ~/.editorconfig
-mkdir -p ~/.config/peco ;
 ln -s -i ~/dotfiles/config.json ~/.config/peco/config.json
+
