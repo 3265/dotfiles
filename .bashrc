@@ -94,8 +94,8 @@ alias i-arch='uname -a'
 alias i-stat='git ls-files | xargs wc -l'
 
 # mac sshfs
-alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
-alias kaishafs='sshfs kaisha: ~/mp/kaisha -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=kaisha'
+# alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
+# alias kaishafs='sshfs kaisha: ~/mp/kaisha -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=kaisha'
 
 # bash-completion for g alias
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
