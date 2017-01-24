@@ -1,4 +1,4 @@
-# prefix key
+# prefix key(Ctrl-z)
 escape ^Zz
 
 # bashrc読み込み
@@ -50,4 +50,7 @@ defscrollback 10000
 bind ^c copy
 bind ^y paste .
 bind p paste
+
+# screen起動のシェルをtmuxに変更する
+shell "tmux"
 
