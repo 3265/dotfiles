@@ -40,6 +40,7 @@ setopt magic_equal_subst                            # コマンドラインの�
 setopt complete_in_word                             # 語の途中でもカーソル位置で補完
 setopt always_last_prompt                           # カーソル位置は保持したままファイル名一覧を順次その場で表示
 setopt print_eight_bit                              #日本語ファイル名等8ビットを通す
+zstyle ':completion:*' list-separator '🐤 '          # オプション補完表示時とかのセパレータの設定
 
 ### Glob
 setopt extended_glob # グロブ機能を拡張する
@@ -65,9 +66,9 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 ### Other
-setopt rmstar_wait # rm * を実行する前に確認される。
-autoload -U colors; colors # 色の設定をロード
-autoload zed # zedを使用する
+setopt rmstar_wait                          # rm * を実行する前に確認される。
+autoload -U colors; colors                  # 色の設定をロード
+autoload zed                                # zedを使用する
 
 # ------------------------------
 # Look And Feel Settings
