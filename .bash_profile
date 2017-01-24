@@ -59,9 +59,6 @@ export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=~/.go
 export PATH=$PATH:$HOME/go_appengine:$GOPATH/bin
 
-# Setting for Docker
-source ~/dotfiles/.dockerconfig
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f /Users/kanekotakeshi/google-cloud-sdk/path.bash.inc ]; then
   source '/Users/kanekotakeshi/google-cloud-sdk/path.bash.inc'

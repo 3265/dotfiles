@@ -45,33 +45,8 @@ if [[ -s ~/.nvm/nvm.sh ]];
   then source ~/.nvm/nvm.sh
 fi
 
-# sortcuts
-alias a='ag'
-alias b='cd ../'
-alias c='cd'
-alias d='docker'
-alias e='peco' # 'grep --color=auto'
-alias f='find'
-alias g='git'
-alias h='history'
-alias i="cp"
-alias j='jump'
-alias k='mkdir -p'
-alias l='ls-color'
-alias m='mv'
-alias n='node'
-alias o='go'
-alias p='pwd'
-alias q='exit'
-alias r='rm'
-alias s='screen'
-alias t='cat'
-alias u='curl'
-alias v='vim'
-alias w='wget'
-alias x='tmux'
-alias y='vim'
-alias z='zsh'
+# Reload command aliases
+source ~/dotfiles/.aliases
 
 # mac sshfs
 # alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
