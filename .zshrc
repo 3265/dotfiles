@@ -69,6 +69,7 @@ bindkey "^N" history-beginning-search-forward-end
 setopt rmstar_wait                          # rm * を実行する前に確認される。
 autoload -U colors; colors                  # 色の設定をロード
 autoload zed                                # zedを使用する
+zstyle ':completion:*' use-cache true       # apt-getとかでcacheを使用する
 
 # ------------------------------
 # Look And Feel Settings
