@@ -70,3 +70,8 @@ if [ -f /Users/kanekotakeshi/google-cloud-sdk/completion.bash.inc ]; then
 fi
 
 
+# 初回シェル時のみ screen実行
+if [ $SHLVL = 1 ]; then
+  screen
+fi
+
