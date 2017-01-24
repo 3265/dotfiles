@@ -1,3 +1,4 @@
+
 # Command shortcut
 alias a='ag'
 alias b='cd ../'
@@ -10,7 +11,7 @@ alias h='history'
 alias i="cp"
 alias j='jump'
 alias k='mkdir -p'
-alias l='ls-color'
+alias l='ls -al'
 alias m='mv'
 alias n='node'
 alias o='go'
@@ -23,7 +24,7 @@ alias u='curl'
 alias v='vim'
 alias w='wget'
 alias x='tmux'
-alias y='vim'
+alias y='yes'
 alias z='zsh'
 
 # Docker shortcut

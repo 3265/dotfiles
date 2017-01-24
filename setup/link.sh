@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ln -s -i ~/dotfiles/.bashrc ~/.bashrc
+ln -s -i ~/dotfiles/.zshrc ~/.zshrc
 ln -s -i ~/dotfiles/.bash_profile ~/.bash_profile
 ln -s -i ~/dotfiles/.inputrc ~/.inputrc
 ln -s -i ~/dotfiles/.screenrc ~/.screenrc

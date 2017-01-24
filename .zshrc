@@ -136,6 +136,9 @@ function cd() {
 # ------------------------------
 # Alias Settings
 # ------------------------------
+
+emulate sh -c 'source ~/dotfiles/.aliases'
+
 alias ..='cd ..'  #     <---- setopt AUTO_CDを設定してるので、本当はこれいらいない。
 alias ...='cd ../..'
 alias ....='cd ../../..'
