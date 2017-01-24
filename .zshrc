@@ -15,6 +15,8 @@ setopt no_beep           # ビープ音を鳴らさないようにする
 setopt auto_cd           # ディレクトリ名の入力のみで移動する
 setopt auto_pushd        # cd時にディレクトリスタックにpushdする
 setopt pushd_ignore_dups # 同じディレクトリを重複してpushしない。
+setopt auto_param_keys   # カッコの対応などを自動的に補完
+setopt auto_param_slash  # ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
 setopt correct           # コマンドのスペルを訂正する
 setopt magic_equal_subst # =以降も補完する(--prefix=/usrなど)
 setopt prompt_subst      # プロンプト定義内で変数置換やコマンド置換を扱う
@@ -22,18 +24,26 @@ setopt notify            # バックグラウンドジョブの状態変化を�
 setopt equals            # =commandを`which command`と同じ処理にする
 
 ### Complement
-autoload -U compinit; compinit  # 補完機能を有効にする
-autoload predict-on; predict-on # 予測有効(超有能)
-setopt auto_list                # 補完候補を一覧で表示する(d)
-setopt auto_menu                # 補完キー連打で補完候補を順に表示する(d)
-setopt list_packed              # 補完候補をできるだけ詰めて表示する
-setopt list_types               # 補完候補にファイルの種類も表示する
-bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
+autoload -U compinit; compinit                      # 補完機能を有効にする
+autoload predict-on; predict-on                     # 予測有効(超有能)
+setopt auto_list                                    # 補完候補を一覧で表示する(d)
+setopt auto_menu                                    # 補完キー連打で補完候補を順に表示する(d)
+setopt mark_dirs                                    # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
+setopt list_packed                                  # 補完候補をできるだけ詰めて表示する
+setopt list_types                                   # 補完候補にファイルの種類も表示する
+bindkey "^[[Z" reverse-menu-complete                # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
-setopt print_eight_bit           # 日本語のファイル名を表示可能にする
+zstyle ':completion:*:default' menu select=1        # 補完候補のカーソル選択を有効に
+setopt noautoremoveslash                            # 最後のスラッシュを自動的に削除しない
+setopt interactive_comments                         # コマンドラインでも # 以降をコメントと見なす
+setopt magic_equal_subst                            # コマンドラインの引数で --prefix=/usr などの = 以降でも補完できる
+setopt complete_in_word                             # 語の途中でもカーソル位置で補完
+setopt always_last_prompt                           # カーソル位置は保持したままファイル名一覧を順次その場で表示
+setopt print_eight_bit                              #日本語ファイル名等8ビットを通す
 
 ### Glob
 setopt extended_glob # グロブ機能を拡張する
+setopt globdots      # 明確なドットの指定なしで.から始まるファイルをマッチ
 unsetopt caseglob    # ファイルグロブで大文字小文字を区別しない
 
 ### History
