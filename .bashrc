@@ -69,9 +69,9 @@ alias t='cat'
 alias u='curl'
 alias v='vim'
 alias w='wget'
-alias x='xfunc'
-alias y='yfunc'
-alias z='zfunc'
+alias x='tmux'
+alias y='vim'
+alias z='zsh'
 
 # mac sshfs
 # alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'

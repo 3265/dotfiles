@@ -1,4 +1,4 @@
-# (d) is default on
+# zshrc
 
 # ------------------------------
 # General Settings
@@ -14,13 +14,14 @@ bindkey -e               # キーバインドをemacsモードに設定
 setopt no_beep           # ビープ音を鳴らさないようにする
 setopt auto_cd           # ディレクトリ名の入力のみで移動する
 setopt auto_pushd        # cd時にディレクトリスタックにpushdする
+setopt pushd_ignore_dups # 同じディレクトリを重複してpushしない。
 setopt correct           # コマンドのスペルを訂正する
 setopt magic_equal_subst # =以降も補完する(--prefix=/usrなど)
 setopt prompt_subst      # プロンプト定義内で変数置換やコマンド置換を扱う
 setopt notify            # バックグラウンドジョブの状態変化を即時報告する
 setopt equals            # =commandを`which command`と同じ処理にする
 
-### Complement ###
+### Complement
 autoload -U compinit; compinit # 補完機能を有効にする
 setopt auto_list               # 補完候補を一覧で表示する(d)
 setopt auto_menu               # 補完キー連打で補完候補を順に表示する(d)
@@ -29,11 +30,11 @@ setopt list_types              # 補完候補にファイルの種類も表示�
 bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
 
-### Glob ###
+### Glob
 setopt extended_glob # グロブ機能を拡張する
 unsetopt caseglob    # ファイルグロブで大文字小文字を区別しない
 
-### History ###
+### History
 HISTFILE=~/.zsh_history   # ヒストリを保存するファイル
 HISTSIZE=10000            # メモリに保存されるヒストリの件数
 SAVEHIST=10000            # 保存されるヒストリの件数
@@ -53,24 +54,25 @@ bindkey "^N" history-beginning-search-forward-end
 # すべてのヒストリを表示する
 function history-all { history -E 1 }
 
+# ${fg[...]} や $reset_colorをロード
+autoload -U colors; colors
 
 # ------------------------------
 # Look And Feel Settings
 # ------------------------------
-### Ls Color ###
+### Ls Color
 export LSCOLORS=Exfxcxdxbxegedabagacad # 色の設定
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30' # 補完時の色の設定
 export ZLS_COLORS=$LS_COLORS # ZLS_COLORSとは？
 export CLICOLOR=true # lsコマンド時、自動で色がつく(ls -Gのようなもの？)
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # 補完候補に色を付ける
 
-### Prompt ###
-# ${fg[...]} や $reset_colorをロード
-autoload -U colors; colors
+# ------------------------------
+# Prompt settings
+# ------------------------------
 
 # バージョン管理システムから情報を自動的に取得する
 autoload -Uz vcs_info
-
 zstyle ':vcs_info:git:*' check-for-changes true #formats 設定項目で %c,%u が使用可
 zstyle ':vcs_info:git:*' stagedstr "%F{green}!" #commit されていないファイルがある
 zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}+" #add されていないファイルがある
@@ -98,14 +100,14 @@ reset_color="%{${reset_color}%}"
 
 # 色付き定数
 c_host_name="%{${fg[cyan]}%}${host_name}${reset_color}"
-c_user_name="%{${fg[green]}%}${user_name}${reset_color}"
-c_current_dir="%{${fg[yellow]}%}${current_dir}${reset_color}"
+c_user_name="%{${fg[yellow]}%}${user_name}${reset_color}"
+c_current_dir="%{${fg[green]}%}${current_dir}${reset_color}"
 c_current_dir_fullpath="%{${fg[green]}%}${current_dir_fullpath}${reset_color}"
 c_user_identifier="%{${fg[red]}%}${user_identifier}${reset_color}"  # if root { # } else { $ }
 c_at_sign="%{${fg[white]}%}@%{${reset_color}%}"
 
 # 一般ユーザ時
-tmp_prompt="[${c_user_name}${c_at_sign}${c_host_name} ${c_current_dir}]${vcs_info_msg_0_}${c_user_identifier} "
+tmp_prompt="[${c_user_name}${c_at_sign}${c_host_name} ${c_current_dir}]"'${vcs_info_msg_0_}${c_user_identifier} '
 tmp_prompt2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
 tmp_rprompt="[${c_current_dir_fullpath}]"
 tmp_sprompt="%{${fg[yellow]}%}%r is correct? [Yes, No, Abort, Edit]:%{${reset_color}%}"
@@ -123,32 +125,17 @@ PROMPT2=$tmp_prompt2  # セカンダリのプロンプト(コマンドが2行以
 RPROMPT=$tmp_rprompt  # 右側のプロンプト
 SPROMPT=$tmp_sprompt  # スペル訂正用プロンプト
 
-
-
-# PROMPT='%{$fg[red]%}[%n@%m]%{$reset_color%}'
-PROMPT=$PROMPT'${vcs_info_msg_0_}'
-
+# ------------------------------
+# Function
+# ------------------------------
 # cdコマンド実行後、lsを実行する
 function cd() {
  builtin cd $@ && ls;
 }
 
-# cdとタイプしなくても、移動
-setopt AUTO_CD
-
-# cdの履歴を保持（同一のディレクトリは重複排除）
-setopt AUTO_PUSHD
-setopt PUSHD_IGNORE_DUPS
-
-# 補完機能
-autoload -Uz compinit
-compinit
-
-# コマンド履歴
-HISTFILE=~/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
-
+# ------------------------------
+# Alias Settings
+# ------------------------------
 alias ..='cd ..'  #     <---- setopt AUTO_CDを設定してるので、本当はこれいらいない。
 alias ...='cd ../..'
 alias ....='cd ../../..'
