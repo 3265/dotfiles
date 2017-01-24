@@ -46,7 +46,7 @@ if [[ -s ~/.nvm/nvm.sh ]];
 fi
 
 # sortcuts
-alias a='pt' # ag
+alias a='ag'
 alias b='cd ../'
 alias c='cd'
 alias d='docker'
@@ -55,7 +55,7 @@ alias f='find'
 alias g='git'
 alias h='history'
 alias i="cp"
-alias j='tar'
+alias j='jump'
 alias k='mkdir -p'
 alias l='ls-color'
 alias m='mv'
@@ -72,26 +72,6 @@ alias w='wget'
 alias x='xfunc'
 alias y='yfunc'
 alias z='zfunc'
-
-# user
-alias u-list='getent passwd'
-alias u-add='adduser'
-alias u-delete='userdel'
-alias u-passwd='passwd'
-
-# computer info
-alias i-host='hostname'
-alias i-top='htop'
-alias i-cpu='cat /proc/cpuinfo'
-alias i-partition='df -Th'
-alias i-memory='free -m'
-# alias i-ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias i-localip="ipconfig getifaddr en1"
-alias i-port='netstat -atn'
-alias i-getway='route'
-alias i-dist='lsb_release -a'
-alias i-arch='uname -a'
-alias i-stat='git ls-files | xargs wc -l'
 
 # mac sshfs
 # alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
