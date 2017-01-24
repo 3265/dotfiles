@@ -22,13 +22,15 @@ setopt notify            # バックグラウンドジョブの状態変化を�
 setopt equals            # =commandを`which command`と同じ処理にする
 
 ### Complement
-autoload -U compinit; compinit # 補完機能を有効にする
-setopt auto_list               # 補完候補を一覧で表示する(d)
-setopt auto_menu               # 補完キー連打で補完候補を順に表示する(d)
-setopt list_packed             # 補完候補をできるだけ詰めて表示する
-setopt list_types              # 補完候補にファイルの種類も表示する
+autoload -U compinit; compinit  # 補完機能を有効にする
+autoload predict-on; predict-on # 予測有効(超有能)
+setopt auto_list                # 補完候補を一覧で表示する(d)
+setopt auto_menu                # 補完キー連打で補完候補を順に表示する(d)
+setopt list_packed              # 補完候補をできるだけ詰めて表示する
+setopt list_types               # 補完候補にファイルの種類も表示する
 bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
+setopt print_eight_bit           # 日本語のファイル名を表示可能にする
 
 ### Glob
 setopt extended_glob # グロブ機能を拡張する
@@ -43,6 +45,7 @@ setopt extended_history   # ヒストリに実行時間も保存する
 setopt hist_ignore_dups   # 直前と同じコマンドはヒストリに追加しない
 setopt share_history      # 他のシェルのヒストリをリアルタイムで共有する
 setopt hist_reduce_blanks # 余分なスペースを削除してヒストリに保存する
+setopt hist_ignore_space # スペースで始まるコマンド行はヒストリリストから削除
 
 # マッチしたコマンドのヒストリを表示できるようにする
 autoload history-search-end
@@ -51,15 +54,15 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
-# すべてのヒストリを表示する
-function history-all { history -E 1 }
-
-# ${fg[...]} や $reset_colorをロード
-autoload -U colors; colors
+### Other
+setopt rmstar_wait # rm * を実行する前に確認される。
+autoload -U colors; colors # 色の設定をロード
+autoload zed # zedを使用する
 
 # ------------------------------
 # Look And Feel Settings
 # ------------------------------
+#
 ### Ls Color
 export LSCOLORS=Exfxcxdxbxegedabagacad # 色の設定
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30' # 補完時の色の設定
@@ -71,18 +74,19 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # 補完候補に�
 # Prompt settings
 # ------------------------------
 
-# バージョン管理システムから情報を自動的に取得する
-autoload -Uz vcs_info
+### VCS setting
+autoload -Uz vcs_info # vcs_infoをロード
+precmd () { vcs_info } # プロンプト表示直前に表示する
+
+# VCS settings
+zstyle ':vcs_info:*' enable git svn hg bzr # VCSを有効化
 zstyle ':vcs_info:git:*' check-for-changes true #formats 設定項目で %c,%u が使用可
 zstyle ':vcs_info:git:*' stagedstr "%F{green}!" #commit されていないファイルがある
 zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}+" #add されていないファイルがある
-zstyle ':vcs_info:*' formats "%F{cyan}%c%u(%b)%f" #通常
+zstyle ':vcs_info:*' formats " %F{cyan}%c%u(%b)%f" #通常
 zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリクト等 formats 外の表示
 
-# プロンプト表示直前に表示する
-precmd () { vcs_info }
-
-# 定数
+### Const
 user_name="%n"
 host_name="%m"
 device_name="%y"
@@ -98,7 +102,7 @@ hh_mm_ss="%*"
 yy_mm_dd="%D"
 reset_color="%{${reset_color}%}"
 
-# 色付き定数
+### Colored Const
 c_host_name="%{${fg[cyan]}%}${host_name}${reset_color}"
 c_user_name="%{${fg[yellow]}%}${user_name}${reset_color}"
 c_current_dir="%{${fg[green]}%}${current_dir}${reset_color}"
