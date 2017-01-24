@@ -3,6 +3,7 @@
 # ------------------------------
 # General Settings
 # ------------------------------
+
 export EDITOR=vim        # エディタをvimに設定
 export LANG=ja_JP.UTF-8  # 文字コードをUTF-8に設定
 export KCODE=u           # KCODEにUTF-8を設定
@@ -40,7 +41,7 @@ setopt magic_equal_subst                            # コマンドラインの�
 setopt complete_in_word                             # 語の途中でもカーソル位置で補完
 setopt always_last_prompt                           # カーソル位置は保持したままファイル名一覧を順次その場で表示
 setopt print_eight_bit                              #日本語ファイル名等8ビットを通す
-zstyle ':completion:*' list-separator '🐤 '          # オプション補完表示時とかのセパレータの設定
+zstyle ':completion:*' list-separator ':='          # オプション補完表示時とかのセパレータの設定
 
 ### Glob
 setopt extended_glob # グロブ機能を拡張する
@@ -74,7 +75,7 @@ zstyle ':completion:*' use-cache true       # apt-getとかでcacheを使用す�
 # ------------------------------
 # Look And Feel Settings
 # ------------------------------
-#
+
 ### Ls Color
 export LSCOLORS=Exfxcxdxbxegedabagacad # 色の設定
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30' # 補完時の色の設定
@@ -144,6 +145,7 @@ SPROMPT=$tmp_sprompt  # スペル訂正用プロンプト
 # ------------------------------
 # Function
 # ------------------------------
+
 # cdコマンド実行後、lsを実行する
 function cd() {
  builtin cd $@ && ls;
