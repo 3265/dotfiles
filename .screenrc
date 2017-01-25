@@ -6,7 +6,7 @@ shell -$SHELL
 
 # ステータスバーの有効化
 hardstatus on
-hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{= g.}%n %t%{-}%+w %-17<%=%{= .y}(%l)'
+hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{= g.}%n %t%{-}%+w %-17<%=%{= .y} Load Average(%l)'
 
 # キャプション
 caption always '%?%F%{= gW}%:%{= Kk}%?%2n%f%07=%t%='
