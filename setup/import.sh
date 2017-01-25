@@ -1,5 +1,47 @@
 #!/bin/bash
 
+# ######################
+#  APM
+# ######################
+
+# 必須
+apm install japanese-menu
+apm install file-icons
+apm install highlight-column
+apm install highlight-line
+apm install vim-mode
+
+#apm install atom-alignmen
+apm install tag
+apm install highlight-selected
+apm install script
+
+# 静的構文解析
+apm install linter
+apm install linter-jshint
+apm install linter-coffeelint
+#apm install linter-shellcheck
+
+# 入力補完系
+apm install autocomplete-plus
+apm install autocomplete-snippets
+apm install docblockr
+apm install autocomplete-paths
+
+# 見た目系
+apm install color-picker
+apm install pretty-json
+apm install atom-prettify
+apm install minimap
+
+# 補助系
+apm install merge-conflicts
+apm install travis-ci-status
+
+# ######################
+#  NPM
+# ######################
+
 npm install -g json
 
 # build tool
@@ -76,3 +118,33 @@ npm install -g coffee-script
 
 # others
 # npm install -g gitbook
+
+# ######################
+#  Go
+# ######################
+
+if [ ! -d ~/.go ]
+then
+  mkdir ~/.go
+fi
+
+# go vim completion
+go get -u github.com/nsf/gocode
+go get -u golang.org/x/tools/cmd/goimports
+go get -u golang.org/x/tools/cmd/gorename
+
+# terminal tools
+go get github.com/peco/peco/cmd/peco
+go get github.com/github/hub
+go get github.com/monochromegane/the_platinum_searcher
+
+# Auto Compiler
+go get -u github.com/githubnemo/CompileDaemon
+
+# ######################
+#  python
+# ######################
+
+sudo pip install mycli
+sudo pip install codemod
+# sudo pip install awscli

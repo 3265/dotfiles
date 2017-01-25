@@ -17,17 +17,26 @@ killall SystemUIServer
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install caskroom/cask/brew-cask
 
+# brew
+brew install htop
+brew install peco
+brew install golang
+brew install wget
+brew install ctags
+brew install caffeine
+brew install clipmenu
+brew install alfred
+brew install macvim
+brew cask install iterm2
+brew cask install mosh
+brew cask install sshfs
+brew cask install git
+brew cask install docker
+brew cask install docker-machine
+brew cask install virtualbox
+brew cask install the-unarchiver
+brew cask install chromium
 
 # ds file all removing cmd
 # find ~/directory -name ".DS_Store" -print -exec rm {} ";"
 # find ~/directory -name "._.DS_Store" -print -exec rm {} ";"
-
-# App store
-# dash 3, xcode, slack, nozbe, caffeine, kobito, the unarchiver, ms one note
-# toggle, pocket, stick, safecast, 1pass, veertu, instagram, sunrise calendar
-
-# Manual
-# firefox developer edition, opera developer, transtype 4, amazon prime music, azure storage explorer
-# macvim-kaoriiya https://github.com/splhack/macvim-kaoriya
-
-
