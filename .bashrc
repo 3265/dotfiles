@@ -5,7 +5,7 @@ export EDITOR=vim
 export PAGER=less
 
 # for virtual environment
-export TERM=xterm
+export TERM=xterm-256color
 
 # shell option
 shopt -s dotglob # Filter Hidden Files
