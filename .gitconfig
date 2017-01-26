@@ -9,8 +9,8 @@
   a = add # -all ., -p
   b = branch # -d, -D, -m, -v, -a, -r, -vv
   c = commit # merge commit, . --all, --amend
-  d = diff # diff HEAD, diff, diff --cached
-  e = diff --stat
+  d = diff # diff HEAD, diff, diff --cached, stat
+  e = rebase
   f = fetch --all
   g = merge
   h = push
@@ -25,7 +25,7 @@
   q = clean -fd # --dry-run
   r = rm # --cached
   s = status --short
-  t = revert -m 1
+  t = revert -m 1 # for mrege commit
   u = pull
   v = mv
   w = show
