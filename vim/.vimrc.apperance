@@ -1,27 +1,6 @@
-" statusline
-let g:airline_theme = 'solarized'
-let g:airline#extensions#hunks#enabled=0
-let g:airline#extensions#branch#enabled=1
-let g:airline_left_sep = '▶'
-let g:airline_left_alt_sep = '»'
-let g:airline_right_sep = '◀'
-let g:airline_right_alt_sep = '«'
-
-" detected
-"let g:airline_linecolumn_prefix = '␤ '
-"let g:airline_linecolumn_prefix = '¶ '
-"let g:airline_branch_prefix = '⎇ '
-"let g:airline_paste_symbol = 'ρ'
-"let g:airline_paste_symbol = 'Þ'
-"let g:airline_paste_symbol = '∥'
-
-" tab
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0 " タブにバッファ表示しない
-let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#left_sep = '▶'
-let g:airline#extensions#tabline#left_alt_sep = '◀'
+" ==============================================
+" .vimrc.apperance
+" ==============================================
 
 " vim-indent-guides
 let g:indent_guides_auto_colors=0

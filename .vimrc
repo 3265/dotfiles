@@ -13,6 +13,9 @@ source ~/dotfiles/vim/.vimrc.theme
 " apperance
 source ~/dotfiles/vim/.vimrc.apperance
 
+" icons
+source ~/dotfiles/vim/.vimrc.icons
+
 " filetree
 source ~/dotfiles/vim/.vimrc.tree
 
@@ -24,6 +27,9 @@ source ~/dotfiles/vim/.vimrc.keymapping
 
 " misc
 source ~/dotfiles/vim/.vimrc.misc
+
+" statusbar
+source ~/dotfiles/vim/.vimrc.statusbar
 
 " snippets
 source ~/dotfiles/vim/.vimrc.snippets

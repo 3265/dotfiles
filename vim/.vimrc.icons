@@ -1,0 +1,13 @@
+" ==============================================
+" .vimrc.icons
+" ==============================================
+"
+" nerd tree webdev icon
+let g:webdevicons_enable_nerdtree = 1
+
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '' " アイコンのパディング
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
+
+
+
