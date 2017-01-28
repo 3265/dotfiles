@@ -18,6 +18,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew install caskroom/cask/brew-cask
 
 # brew
+brew install the_silver_searcher
 brew install htop
 brew install peco
 brew install golang
@@ -36,6 +37,8 @@ brew cask install docker-machine
 brew cask install virtualbox
 brew cask install the-unarchiver
 brew cask install chromium
+brew install reattach-to-user-namespace # for copying in tmux
+
 
 # ds file all removing cmd
 # find ~/directory -name ".DS_Store" -print -exec rm {} ";"
