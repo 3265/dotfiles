@@ -8,6 +8,7 @@ ln -s -i ~/dotfiles/.inputrc ~/.inputrc
 ln -s -i ~/dotfiles/.screenrc ~/.screenrc
 ln -s -i ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s -i ~/dotfiles/.gitconfig ~/.gitconfig
+ln -s -i ~/dotfiles/.tigrc ~/.tigrc
 ln -s -i ~/dotfiles/.dockerignore ~/.dockerignore
 ln -s -i ~/dotfiles/.agignore ~/.agignore
 ln -s -i ~/dotfiles/.vimrc ~/.vimrc

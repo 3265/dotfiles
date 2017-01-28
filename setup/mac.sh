@@ -32,6 +32,7 @@ brew cask install iterm2
 brew cask install mosh
 brew cask install sshfs
 brew cask install git
+brew cask install tig
 brew cask install docker
 brew cask install docker-machine
 brew cask install virtualbox
