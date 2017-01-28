@@ -43,6 +43,7 @@ Plugin 'groenewege/vim-less' " less
 Plugin 'stephpy/vim-yaml' "yaml
 Plugin 'elzr/vim-json' " json
 
+Plugin 'tmux-plugins/vim-tmux' " tmux.conf用
 Plugin 'pangloss/vim-javascript' " jsインデントとシンタックスカラー
 Plugin 'mattn/jscomplete-vim' " jsの補完用
 Plugin 'moll/vim-node' " gfでrequire移動用
