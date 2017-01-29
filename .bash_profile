@@ -69,9 +69,10 @@ if [ -f /Users/kanekotakeshi/google-cloud-sdk/completion.bash.inc ]; then
   source '/Users/kanekotakeshi/google-cloud-sdk/completion.bash.inc'
 fi
 
-
 # 初回シェル時のみ screen実行
 if [ $SHLVL = 1 ]; then
+  # 先にデタッチ済みのセッションは全て消す
+  screen -ls | grep Detached | cut -d. -f1 | awk '{print $1}' | xargs kill
   screen
 fi
 
