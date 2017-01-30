@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p ~/.config/peco
+
 ln -s -i ~/dotfiles/.bashrc ~/.bashrc
 ln -s -i ~/dotfiles/.zshrc ~/.zshrc
 ln -s -i ~/dotfiles/.zshenv ~/.zshenv
