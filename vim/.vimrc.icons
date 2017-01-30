@@ -11,3 +11,22 @@ let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 
 
 
+" vim-nerdtree-syntax-highlightが重いのでホワイトリスト形式で表示させる
+let g:NERDTreeSyntaxDisableDefaultExtensions = 1
+let g:NERDTreeDisableExactMatchHighlight = 1
+let g:NERDTreeDisablePatternMatchHighlight = 1
+let g:NERDTreeSyntaxEnabledExtensions =
+      \['c',
+      \'h',
+      \'c++',
+      \'go',
+      \'sh',
+      \'js',
+      \'css',
+      \'md',
+      \'coffee',
+      \'java',
+      \'.sql',
+      \'xml',
+      \'json']
+
