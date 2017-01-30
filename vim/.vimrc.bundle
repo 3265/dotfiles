@@ -7,7 +7,7 @@ call vundle#rc()
 Plugin 'scrooloose/nerdtree' " filetree
 Plugin 'Xuyuanp/nerdtree-git-plugin' " filetree git diff
 Plugin 'ryanoasis/vim-devicons' " filetree file icon
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " highlight for nerdtree
+" Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " くっそ重いので無効化
 
 Plugin 'bling/vim-airline' " ステータスライン
 Plugin 'tpope/vim-fugitive' " ステータスラインにブランチ名表示する
