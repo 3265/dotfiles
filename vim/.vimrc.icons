@@ -5,11 +5,9 @@
 " nerd tree webdev icon
 let g:webdevicons_enable_nerdtree = 1
 
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
 let g:WebDevIconsNerdTreeAfterGlyphPadding = '' " アイコンのパディング
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
-
-
 
 " vim-nerdtree-syntax-highlightが重いのでホワイトリスト形式で表示させる
 let g:NERDTreeSyntaxDisableDefaultExtensions = 1
