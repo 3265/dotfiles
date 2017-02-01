@@ -20,8 +20,8 @@ brew install caskroom/cask/brew-cask
 # brew
 brew install the_silver_searcher
 brew install htop
+brew install go
 brew install peco
-brew install golang
 brew install wget
 brew install ctags
 brew install caffeine
@@ -40,6 +40,7 @@ brew cask install the-unarchiver
 brew cask install chromium
 brew install reattach-to-user-namespace # for copying in tmux
 
+brew update && brew upgrade go # for go 1.7
 
 # ds file all removing cmd
 # find ~/directory -name ".DS_Store" -print -exec rm {} ";"
