@@ -13,14 +13,6 @@ shopt -s dotglob # Filter Hidden Files
 # Git template directory
 # export GIT_TEMPLATE_DIR=$HOME/.git_template
 
-# Golang
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOROOT:$GOPATH:$GOPATH/bin
-
-# Node.js
-export NODE_ENV=development
-export NODE_PATH=~/.nvm/versions/node/v0.12.0/lib/node_modules/
-
 # Python
 #export PATH="~/.pyenv/bin:$PATH"
 
@@ -44,6 +36,9 @@ GIT_PS1_SHOWUPSTREAM=auto
 if [[ -s ~/.nvm/nvm.sh ]];
   then source ~/.nvm/nvm.sh
 fi
+
+# Reload command aliases
+source ~/dotfiles/.export
 
 # Reload command aliases
 source ~/dotfiles/.aliases
