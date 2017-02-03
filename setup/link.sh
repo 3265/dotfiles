@@ -14,6 +14,7 @@ ln -s -i ~/dotfiles/.tigrc ~/.tigrc
 ln -s -i ~/dotfiles/.dockerignore ~/.dockerignore
 ln -s -i ~/dotfiles/.agignore ~/.agignore
 ln -s -i ~/dotfiles/.vimrc ~/.vimrc
+ln -s -i ~/dotfiles/.Xresources  ~/.Xresources
 ln -s -i ~/dotfiles/.editorconfig ~/.editorconfig
 ln -s -i ~/dotfiles/config.json ~/.config/peco/config.json
 
