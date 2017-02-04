@@ -1,12 +1,3 @@
-# bashrc
-
-# settings
-export EDITOR=vim
-export PAGER=less
-
-# for virtual environment
-export TERM=xterm-256color
-
 # shell option
 shopt -s dotglob # Filter Hidden Files
 
@@ -31,6 +22,7 @@ GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
+
 
 # nvm
 if [[ -s ~/.nvm/nvm.sh ]];

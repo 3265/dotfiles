@@ -1,3 +1,10 @@
+# settings
+export EDITOR=vim
+export PAGER=less
+
+# for virtual environment
+export TERM=xterm-256color
+
 # Golang
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOROOT:$GOPATH:$GOPATH/bin
