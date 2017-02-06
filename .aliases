@@ -1,14 +1,14 @@
 
 # Command shortcut
-alias a='ag'
+alias a='awk'
 alias b='cd ../'
 alias c='cd'
 alias d='docker'
 alias e='less'
-alias f='find'
+alias f='ag'
 alias g='git'
 alias h='history'
-alias i="cp"
+alias i="find"
 alias j='jump'
 alias k='mkdir -p'
 alias l='ls -al'
