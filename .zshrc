@@ -137,3 +137,6 @@ alias ..='cd ..'  #     <---- setopt AUTO_CDを設定してるので、本当は
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+# Not store failed command
+zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
+
