@@ -4,8 +4,18 @@
 # General Settings
 # ------------------------------
 
-bindkey -e               # キーバインドをemacsモードに設定
-#bindkey -v              # キーバインドをviモードに設定
+bindkey -d               # いったんキーバインドをリセット
+# bindkey -e             # キーバインドをemacsモードに設定
+bindkey -v               # キーバインドをviモードに設定
+
+# Emaccsの便利なショートカットで上書き
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^N' history-beginning-search-forward-end
+bindkey '^P' history-beginning-search-backward-end
+bindkey '^U' kill-whole-line
+bindkey '^K' kill-line
+bindkey -M viins 'jj' vi-cmd-mode # jjでinsert modeに
 
 setopt no_beep           # ビープ音を鳴らさないようにする
 setopt auto_cd           # ディレクトリ名の入力のみで移動する
@@ -116,6 +126,16 @@ export PROMPT=$tmp_prompt    # 通常のプロンプト
 export PROMPT2=$tmp_prompt2  # セカンダリのプロンプト(コマンドが2行以上の時に表示される)
 export RPROMPT=$tmp_rprompt  # 右側のプロンプト
 export SPROMPT=$tmp_sprompt  # スペル訂正用プロンプト
+
+# For VIM
+function zle-line-init zle-keymap-select {
+    VIMODE="${${KEYMAP/vicmd/[Normal]}/(main|viins)/[Insert]}"
+    export RPROMPT="${VIMODE}$tmp_rprompt"
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 # ------------------------------
 # Function
