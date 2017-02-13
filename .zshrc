@@ -73,6 +73,18 @@ zstyle ':completion:*' use-cache true       # apt-getとかでcacheを使用す�
 # Prompt settings
 # ------------------------------
 
+# For VIM
+export KEYTIMEOUT=1 # kill time lag
+function zle-line-init zle-keymap-select {
+    export normal_mode="%{${fg[yellow]}%}N${reset_color}"
+    export insert_mode="%{${fg[green]}%}I${reset_color}"
+    VIMODE="${${KEYMAP/vicmd/[${normal_mode}]}/(main|viins)/[${insert_mode}]}"
+    export PROMPT=$tmp_prompt
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 # VCS setting
 precmd () { vcs_info } # プロンプト表示直前に表示する
 
@@ -109,7 +121,7 @@ export c_user_identifier="%{${fg[red]}%}${user_identifier}${reset_color}"  # if 
 export c_at_sign="%{${fg[white]}%}@%{${reset_color}%}"
 
 # 一般ユーザ時
-export tmp_prompt="[${c_user_name}${c_at_sign}${c_host_name} ${c_current_dir}]"'${vcs_info_msg_0_}${c_user_identifier} '
+export tmp_prompt='[${c_user_name}${c_at_sign}${c_host_name} ${c_current_dir}]${vcs_info_msg_0_}${VIMODE}${c_user_identifier} '
 export tmp_prompt2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
 export tmp_rprompt="[${c_current_dir_fullpath}]"
 export tmp_sprompt="%{${fg[yellow]}%}%r is correct? [Yes, No, Abort, Edit]:%{${reset_color}%}"
@@ -126,16 +138,6 @@ export PROMPT=$tmp_prompt    # 通常のプロンプト
 export PROMPT2=$tmp_prompt2  # セカンダリのプロンプト(コマンドが2行以上の時に表示される)
 export RPROMPT=$tmp_rprompt  # 右側のプロンプト
 export SPROMPT=$tmp_sprompt  # スペル訂正用プロンプト
-
-# For VIM
-function zle-line-init zle-keymap-select {
-    VIMODE="${${KEYMAP/vicmd/[Normal]}/(main|viins)/[Insert]}"
-    export RPROMPT="${VIMODE}$tmp_rprompt"
-    zle reset-prompt
-}
-
-zle -N zle-line-init
-zle -N zle-keymap-select
 
 # ------------------------------
 # Function
