@@ -10,13 +10,13 @@
   b = branch # -d, -D, -m, -v, -a, -r, -vv
   c = commit # merge commit, . --all, --amend
   d = diff # diff HEAD, diff, diff --cached, stat
-  e = rebase
+  e = rebase # -i
   f = fetch --all
   g = merge
   h = push
   i = ls-files
   j = reset
-  k = commit --amend
+  k = show-branch --merge-base
   l = log --graph --date=short --format='%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(red)%d%C(reset) %s %C(cyan)@%an%C(reset)'
   m = mv
   n = clone # reflog
