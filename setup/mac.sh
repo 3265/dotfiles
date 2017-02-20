@@ -38,10 +38,15 @@ brew cask install docker
 brew cask install docker-machine
 brew cask install virtualbox
 brew cask install the-unarchiver
+
+# for ranger
 brew install ranger
+brew install highlight
+ranger --copy-config=all
 
 brew install reattach-to-user-namespace # for copying in tmux
 brew install cmatrix # for tmux screensavor
+
 
 brew update && brew upgrade go # for go 1.7
 
