@@ -1,6 +1,7 @@
 #!/bin/bash
 
 mkdir -p ~/.config/peco
+mkdir -p ~/.config/ranger
 
 ln -s -i ~/dotfiles/.bashrc ~/.bashrc
 ln -s -i ~/dotfiles/.zshrc ~/.zshrc
@@ -17,4 +18,5 @@ ln -s -i ~/dotfiles/.vimrc ~/.vimrc
 ln -s -i ~/dotfiles/.Xresources  ~/.Xresources
 ln -s -i ~/dotfiles/.editorconfig ~/.editorconfig
 ln -s -i ~/dotfiles/config.json ~/.config/peco/config.json
+ln -s -i ~/dotfiles/rc.conf ~/.config/ranger/rc.conf
 

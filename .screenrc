@@ -51,3 +51,9 @@ bind ^c copy
 bind ^y paste .
 bind p paste
 
+# Windowの番号を1からにする
+bind c screen 1
+bind ^c screen 1
+bind 0 select 10
+screen 1
+

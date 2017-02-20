@@ -1,11 +1,11 @@
 
 # Command shortcut
-alias a='awk'
+alias a='ag'
 alias b='cd ../'
 alias c='cd'
 alias d='docker'
-alias e='grep'
-alias f='ag'
+alias e='ranger'
+alias f='find'
 alias g='git'
 alias h='history'
 alias i="find"
@@ -19,7 +19,7 @@ alias p='pwd'
 alias q='exit'
 alias r='rm'
 alias s='screen'
-alias t='less -R' # cat
+alias t='cat'
 alias u='curl'
 alias v='vim'
 alias w='wget'
@@ -28,6 +28,7 @@ alias y='yes'
 alias z='zsh'
 
 alias grep='grep --color=auto'
+alias less='less -R'
 
 # Docker shortcut
 alias dm='docker-machine'

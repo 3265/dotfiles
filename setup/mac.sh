@@ -27,7 +27,8 @@ brew install ctags
 brew install caffeine
 brew install clipmenu
 brew install alfred
-brew install macvim
+# brew install macvim
+brew cask install chromium
 brew cask install iterm2
 brew cask install mosh
 brew cask install sshfs
@@ -37,8 +38,10 @@ brew cask install docker
 brew cask install docker-machine
 brew cask install virtualbox
 brew cask install the-unarchiver
-brew cask install chromium
+brew install ranger
+
 brew install reattach-to-user-namespace # for copying in tmux
+brew install cmatrix # for tmux screensavor
 
 brew update && brew upgrade go # for go 1.7
 
