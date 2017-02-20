@@ -47,7 +47,8 @@ setopt print_eight_bit                              #日本語ファイル名等
 zstyle ':completion:*' list-separator ':='          # オプション補完表示時とかのセパレータの設定
 
 ### Glob
-setopt extended_glob # グロブ機能を拡張する
+# gitでサーカムフレックス使うとエラーでちゃうし、そのエスケープはシたくないのでとりあえずコメントアウト
+# setopt extended_glob # グロブ機能を拡張する
 setopt globdots      # 明確なドットの指定なしで.から始まるファイルをマッチ
 unsetopt caseglob    # ファイルグロブで大文字小文字を区別しない
 
