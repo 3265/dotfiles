@@ -32,6 +32,37 @@
   x = stash list
   y = stash save -u
   z = stash apply
+
+	move = mv
+	remove = rm
+
+  prestage = diff -w --word-diff=color
+  precommit = diff --cached -w --word-diff=color --word-diff-regex='[^[:space:]<>]+'
+
+	save = commit -m
+	amend = commit --amend
+	resave = commit --amend
+	empty = commit --allow-empty --allow-empty-message
+
+	back = checkout "-"
+  nevermind = !git reset --hard HEAD && git clean -d -f
+
+	contributors = shortlog -s -n
+	tags = tag
+
+	stashes = stash list
+	unshift = stash save -u
+	shift= stash apply
+
+	rewrite = rebase -i
+
+  d1 = diff HEAD~            # HEADから1つ前とdiff
+  d2 = diff HEAD~~           # HEADから2つ前とdiff
+  d3 = diff HEAD~~~          # HEADから3つ前とdiff
+  d4 = diff HEAD~~~~         # HEADから4つ前とdiff
+  d5 = diff HEAD~~~~~        # HEADから5つ前とdiff
+  d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
+
 # git stash clear
 # git fetch --prune
 #
