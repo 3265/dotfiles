@@ -12,11 +12,11 @@ HISTFILESIZE=10000
 
 # git completion
 PS1="[\u@ \W]\[\033[36m\]\$(__git_ps1)\[\033[00m\]\$ "
-if [ -f ~/dotfiles/sh/git-completion.bash ]; then
-    source ~/dotfiles/sh/git-completion.bash
+if [ -f ~/git_dir/git-completion.bash ]; then
+    source ~/git_dir/git-completion.bash
 fi
-if [ -f ~/dotfiles/sh/git-prompt.sh ]; then
-    source ~/dotfiles/sh/git-prompt.sh
+if [ -f ~/git_dir/git-prompt.sh ]; then
+    source ~/git_dir/git-prompt.sh
 fi
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
