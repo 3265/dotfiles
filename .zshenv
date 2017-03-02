@@ -12,6 +12,7 @@ autoload zed                          # zedを使用する
 autoload -Uz vcs_info                 # vcs_infoをロード
 autoload history-search-end
 autoload -U tetris; zle -N tetris
+autoload -U compinit; compinit        # lsの色
 
 # ------------------------------
 # General Settings
@@ -28,8 +29,8 @@ export SVN_EDITOR="${EDITOR}"
 export GIT_EDITOR="${EDITOR}"
 
 ### Ls Color
-export LSCOLORS=Exfxcxdxbxegedabagacad # 色の設定
-export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30' # 補完時の色の設定
+export LSCOLORS=exfxcxdxbxegedabagacad
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 export ZLS_COLORS=$LS_COLORS # ZLS_COLORSとは？
 export CLICOLOR=true # lsコマンド時、自動で色がつく(ls -Gのようなもの？)
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # 補完候補に色を付ける
