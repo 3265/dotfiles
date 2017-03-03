@@ -46,6 +46,14 @@ setopt always_last_prompt                           # カーソル位置は保�
 setopt print_eight_bit                              #日本語ファイル名等8ビットを通す
 zstyle ':completion:*' list-separator ':='          # オプション補完表示時とかのセパレータの設定
 
+# ^D でシェルを終了しない
+setopt ignore_eof
+
+# ビープを無効にする
+setopt no_beep
+setopt no_hist_beep
+setopt no_list_beep
+
 ### Glob
 # gitでサーカムフレックス使うとエラーでちゃうし、そのエスケープはシたくないのでとりあえずコメントアウト
 # setopt extended_glob # グロブ機能を拡張する
