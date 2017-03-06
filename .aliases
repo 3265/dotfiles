@@ -29,6 +29,7 @@ alias z='zsh'
 
 alias grep='grep --color=auto'
 alias less='less -R'
+alias watch='fswatch -0 . | xargs -0 -n1 -I{} $@' # to need to install fswatch
 
 # Docker shortcut
 alias dm='docker-machine'

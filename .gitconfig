@@ -35,6 +35,7 @@
 
 	move = mv
 	remove = rm
+  gitignore = rm -r --cached
 
   prestage = diff -w --word-diff=color
   precommit = diff --cached -w --word-diff=color --word-diff-regex='[^[:space:]<>]+'

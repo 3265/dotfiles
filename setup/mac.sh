@@ -26,7 +26,7 @@ brew install wget
 brew install ctags
 brew install caffeine
 brew install clipmenu
-brew install alfred
+brew install fswatch
 # brew install macvim
 brew cask install chromium
 brew cask install iterm2
