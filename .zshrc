@@ -105,6 +105,10 @@ zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}+" #add されていないフ�
 zstyle ':vcs_info:*' formats " %F{cyan}%c%u(%b)%f" #通常
 zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリクト等 formats 外の表示
 
+# last command status
+OK="O"; NG="X"
+export CMD_STATUS="[%(?.%F{green}$OK%f.%F{red}$NG%f)]"
+
 ### Const
 export user_name="%n"
 export host_name="%m"
@@ -130,7 +134,7 @@ export c_user_identifier="%{${fg[red]}%}${user_identifier}${reset_color}"  # if 
 export c_at_sign="%{${fg[white]}%}@%{${reset_color}%}"
 
 # 一般ユーザ時
-export tmp_prompt='[${c_user_name}${c_at_sign}${c_host_name} ${c_current_dir}][${hh_mm_ss}]${vcs_info_msg_0_}${VIMODE}${c_user_identifier} '
+export tmp_prompt='[${c_user_name}${c_at_sign}${c_host_name} ${c_current_dir}][${hh_mm_ss}]${vcs_info_msg_0_}${CMD_STATUS}${VIMODE}${c_user_identifier} '
 export tmp_prompt2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
 export tmp_rprompt="[${c_current_dir_fullpath}]"
 export tmp_sprompt="%{${fg[yellow]}%}%r is correct? [Yes, No, Abort, Edit]:%{${reset_color}%}"
