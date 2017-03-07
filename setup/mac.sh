@@ -53,3 +53,11 @@ brew update && brew upgrade go # for go 1.7
 # ds file all removing cmd
 # find ~/directory -name ".DS_Store" -print -exec rm {} ";"
 # find ~/directory -name "._.DS_Store" -print -exec rm {} ";"
+
+
+# for tmux 2.3
+# wget https://github.com/tmux/tmux/releases/download/2.3/tmux-2.3.tar.gz
+# tar xzvf tmux-2.3.tar.gz
+# cd tmux-2.3
+# ./configure && make
+# sudo make install
