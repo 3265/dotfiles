@@ -135,10 +135,12 @@ go get -u golang.org/x/tools/cmd/gorename
 
 # terminal tools
 go get github.com/peco/peco/cmd/peco
+go get github.com/mattn/memo
+go get github.com/asciimoo/wuzz
 go get github.com/github/hub
-go get github.com/monochromegane/the_platinum_searcher
+# go get github.com/monochromegane/the_platinum_searcher
 
-# Auto Compiler
+# for development
 go get -u github.com/githubnemo/CompileDaemon
 
 # ######################
