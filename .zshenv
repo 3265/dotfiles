@@ -52,3 +52,5 @@ export REPORTTIME=3
 # ------------------------------
 # Path settings
 # ------------------------------
+
+eval "$(direnv hook zsh)"
