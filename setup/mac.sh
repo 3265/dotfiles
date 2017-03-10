@@ -48,6 +48,7 @@ brew install fswatch
 # Golang
 brew install go
 brew install peco
+brew install direnv
 brew cask install docker
 brew cask install docker-machine
 brew cask install virtualbox
