@@ -197,7 +197,15 @@ zle -N accept-line re-prompt
 
 
 source ~/.zsh/antigen/antigen.zsh
-# antigen bundle zsh-users/zsh-autosuggestions
-# antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestionsn
+antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle zsh-users/fizsh
+# antigen theme apple
 antigen apply
+
+# auto suggensions like fish
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# bindkey '^f' vi-forward-blank-word
+# bindkey '^T' autosuggest-toggle
+
+
