@@ -23,7 +23,8 @@ zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*' group-name ''            # マッチ種別を別々に表示
 zstyle ':completion:*' list-separator ':='      # オプション補完表示時とかのセパレータの設定
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}'
-zstyle ':completion:*' completer _expand _complete _match _prefix _list _history # _approximateを入れると補完が適当になるので外す
+# _approximateを入れると補完が適当になるし, _historyもincorectなコマンド補完するため?外す
+zstyle ':completion:*' completer _expand _complete _match _prefix _list
 zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format "$fg[red]No matches for$reset_color: %d"
 zstyle ':completion:*:descriptions' format "$fg[yellow]Completing$rset_color %B%d%b"
