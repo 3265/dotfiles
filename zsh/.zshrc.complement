@@ -17,16 +17,17 @@ setopt noautoremoveslash              # 最後のスラッシュを自動的に�
 
 bindkey "^[[Z" reverse-menu-complete                                      # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
 # 小文字は大文字で保管し、大文字は小文字で保管しないが、見つからなかったときは小文字で保管する
-zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}'
+zstyle ':completion:*' verbose yes
 zstyle ':completion:*:default' menu select=1    # 補完候補のカーソル選択を有効に
+zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*' group-name ''            # マッチ種別を別々に表示
 zstyle ':completion:*' list-separator ':='      # オプション補完表示時とかのセパレータの設定
-zstyle ':completion:*' verbose yes
-zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}'
 zstyle ':completion:*' completer _expand _complete _match _prefix _list _history # _approximateを入れると補完が適当になるので外す
-zstyle ':completion:*:messages' format '%F{YELLOW}%d'$DEFAULT                    #
-zstyle ':completion:*:warnings' format '%F{RED}No matches for:''%F{YELLOW} %d'$DEFAULT
-zstyle ':completion:*:descriptions' format '%F{YELLOW}Completing %B%d%b'$DEFAULT
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format "$fg[red]No matches for$reset_color: %d"
+zstyle ':completion:*:descriptions' format "$fg[yellow]Completing$rset_color %B%d%b"
+zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
 zstyle ':completion:*:*:*:*:*' menu select
 # zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 # zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
