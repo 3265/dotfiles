@@ -1,0 +1,41 @@
+
+# ############################
+#  キーバインド
+# ############################
+
+ # 設定ファイルをリロードする
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
+
+# Vimのキーバインドでペインを移動する
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
+bind C-h select-pane -L
+bind C-j select-pane -D
+bind C-k select-pane -U
+bind C-l select-pane -R
+
+# Vimのキーバインドでペインをリサイズする
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# |で縦分割を設定する
+unbind %
+bind | split-window -h
+
+# -で横分割を設定する
+unbind '"'
+bind '-' split-window -v
+
+# ウィンドウの切り替え
+bind p previous-window
+bind n next-window
+bind C-q previous-window # gnu screen っぽく
+bind C-p previous-window
+bind C-n next-window
+# bind k confirm kill-pane # screen likeに だけどwin移動とかぶるのでやめ

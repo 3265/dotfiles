@@ -1,0 +1,20 @@
+
+# ############################
+#  コピーモード
+# ############################
+
+# Vi キーバインド
+set-window-option -g mode-keys vi
+
+# Prefix+v でコピーモード開始
+bind-key v copy-mode \; display "Copy mode!"
+bind-key -t vi-copy C-v rectangle-toggle # コピーモード中（Prefix+v 後）C-v で矩形選択開始
+bind-key -t vi-copy V   select-line  # 1行選択
+bind-key -t vi-copy C-c cancel  # Ctrl-c キーでコピーの反転を解除し、コピーモードから抜ける
+
+# Prefix+Enter/y でコピー
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+bind-key -t vi-copy y     copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Prefix+P でペースト(クリップボードにも保存されているので Cmd-v でもペースト可能)
+bind-key C-P paste-buffer
