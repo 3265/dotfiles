@@ -1,0 +1,16 @@
+# --------
+#  key binding
+# ---------
+
+bindkey -d               # いったんキーバインドをリセット
+# bindkey -e             # キーバインドをemacsモードに設定
+bindkey -v               # キーバインドをviモードに設定
+
+# Emaccsの便利なショートカットで上書き
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^N' history-beginning-search-forward-end
+bindkey '^P' history-beginning-search-backward-end
+bindkey '^U' kill-whole-line
+bindkey '^K' kill-line
+bindkey -M viins 'jj' vi-cmd-mode # jjでinsert modeに
