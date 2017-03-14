@@ -2,6 +2,9 @@
 #  zshrc
 # ---------
 
+# options
+source ~/dotfiles/zsh/.zshrc.options
+
 # keybinding
 source ~/dotfiles/zsh/.zshrc.keybinding
 

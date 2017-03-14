@@ -14,3 +14,4 @@ bindkey '^P' history-beginning-search-backward-end
 bindkey '^U' kill-whole-line
 bindkey '^K' kill-line
 bindkey -M viins 'jj' vi-cmd-mode # jjでinsert modeに
+bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)

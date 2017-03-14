@@ -2,46 +2,11 @@
 # misc
 # -------
 
-setopt no_beep           # ビープ音を鳴らさないようにする
-setopt auto_cd           # ディレクトリ名の入力のみで移動する
-setopt auto_pushd        # cd時にディレクトリスタックにpushdする
-setopt pushd_ignore_dups # 同じディレクトリを重複してpushしない。
-setopt correct           # コマンドのスペルを訂正する
-setopt magic_equal_subst # =以降も補完する(--prefix=/usrなど)
-setopt prompt_subst      # プロンプト定義内で変数置換やコマンド置換を扱う
-setopt notify            # バックグラウンドジョブの状態変化を即時報告する
-setopt equals            # =commandを`which command`と同じ処理にする
-
-# ^D でシェルを終了しない
-setopt ignore_eof
-
-# ビープを無効にする
-setopt no_beep
-setopt no_hist_beep
-setopt no_list_beep
-
-### Glob
-# gitでサーカムフレックス使うとエラーでちゃうし、そのエスケープはシたくないのでとりあえずコメントアウト
-# setopt extended_glob # グロブ機能を拡張する
-setopt globdots      # 明確なドットの指定なしで.から始まるファイルをマッチ
-unsetopt caseglob    # ファイルグロブで大文字小文字を区別しない
-
-### History
-setopt bang_hist          # !を使ったヒストリ展開を行う(d)
-setopt extended_history   # ヒストリに実行時間も保存する
-setopt hist_ignore_dups   # 直前と同じコマンドはヒストリに追加しない
-# setopt share_history      # 他のシェルのヒストリをリアルタイムで共有する
-setopt hist_reduce_blanks # 余分なスペースを削除してヒストリに保存する
-setopt hist_ignore_space # スペースで始まるコマンド行はヒストリリストから削除
-
 # マッチしたコマンドのヒストリを表示できるようにする
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
-
-### Other
-setopt rmstar_wait                          # rm * を実行する前に確認される。
 
 # ------------------------------
 # Function
