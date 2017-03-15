@@ -11,7 +11,7 @@ alias h='history'
 alias i="find"
 alias j='jump'
 alias k='mkdir -p'
-alias l='ls -al'
+alias l='gls -al --color=auto' # need to install coreutils through homebrew before using it on mac
 alias m='mv'
 alias n='node'
 alias o='go'

@@ -15,4 +15,6 @@ export PATH=$PATH:$GOROOT:$GOPATH:$GOPATH/bin
 export NODE_ENV=development
 export NODE_PATH=~/.nvm/versions/node/v0.12.0/lib/node_modules/
 
+# for GNU ls
+eval $(gdircolors ~/.dircolors)
 
