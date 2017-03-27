@@ -27,6 +27,7 @@ Plugin 'kien/ctrlp.vim' " peco的な
 Plugin 'osyo-manga/vim-over' "
 Plugin 'haya14busa/incsearch.vim' " インクリメンタルサーチ用
 Plugin 'tyru/caw.vim.git' " コメント用プラグイン
+Plugin 'ConradIrwin/vim-bracketed-paste' "ペースト用プラグイン(Ctrl-vに自動で反応してくれる)
 
 Plugin 'Shougo/neocomplcache.vim' " 自動補完用(completeはlua必要のため見送り)
 Plugin 'Shougo/neosnippet.vim' " スニペット用
@@ -35,6 +36,7 @@ Plugin 'Shougo/neosnippet-snippets' " スニペット用
 Plugin 'fatih/vim-go' " golang
 Plugin 'Blackrush/vim-gocode'
 
+Plugin 'leafgarland/typescript-vim' " typescript
 Plugin 'kchmck/vim-coffee-script' " use npm coffeelint module
 Plugin 'mustache/vim-mustache-handlebars' " hbs
 Plugin 'hail2u/vim-css3-syntax' " css
