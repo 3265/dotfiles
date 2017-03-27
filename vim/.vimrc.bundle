@@ -36,7 +36,9 @@ Plugin 'Shougo/neosnippet-snippets' " スニペット用
 Plugin 'fatih/vim-go' " golang
 Plugin 'Blackrush/vim-gocode'
 
-Plugin 'leafgarland/typescript-vim' " typescript
+" Plugin 'leafgarland/typescript-vim' " typescript のシンタックスハイライト
+" Plugin 'Quramy/tsuquyomi' " typescript の補完
+
 Plugin 'kchmck/vim-coffee-script' " use npm coffeelint module
 Plugin 'mustache/vim-mustache-handlebars' " hbs
 Plugin 'hail2u/vim-css3-syntax' " css
