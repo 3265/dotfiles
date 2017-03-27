@@ -3,6 +3,7 @@
 mkdir -p ~/.config/peco
 mkdir -p ~/.config/ranger
 mkdir -p ~/.config/memo
+mkdir -p ~/.config/nvim
 
 ln -s -i ~/dotfiles/.bashrc ~/.bashrc
 ln -s -i ~/dotfiles/.zshrc ~/.zshrc
@@ -22,4 +23,4 @@ ln -s -i ~/dotfiles/.editorconfig ~/.editorconfig
 ln -s -i ~/dotfiles/config.json ~/.config/peco/config.json
 ln -s -i ~/dotfiles/config.toml ~/.config/memo/config.toml
 ln -s -i ~/dotfiles/rc.conf ~/.config/ranger/rc.conf
-
+ln -s -i ~/dotfiles/.vimrc ~/.config/nvim/init.vimn

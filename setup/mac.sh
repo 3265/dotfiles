@@ -24,6 +24,7 @@ brew install wget
 brew install ctags
 brew cask install mosh
 brew cask install sshfs
+brew install neovim/neovim/neovim
 
 # Finder in terminal
 brew install ranger

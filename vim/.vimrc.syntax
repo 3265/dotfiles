@@ -11,7 +11,8 @@ set statusline+=%*
 " JS
 let g:syntastic_javascript_checkers = ['jshint']
 " GO
-let g:syntastic_go_checkers = ['golint'] " ,'govet' ]  // govetは重いので
+" let g:syntastic_go_checkers = ['golint', 'govet' ]
+let g:syntastic_go_checkers = ['golint']
 
 " Mapping
 let g:syntastic_mode_map = {
