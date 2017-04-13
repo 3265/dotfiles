@@ -135,6 +135,7 @@ go get -u golang.org/x/tools/cmd/gorename
 
 # terminal tools
 go get github.com/peco/peco/cmd/peco
+go get -u github.com/gokcehan/lf
 go get github.com/mattn/memo
 go get github.com/knqyf263/pet
 go get github.com/asciimoo/wuzz
