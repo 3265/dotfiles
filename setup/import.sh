@@ -139,6 +139,7 @@ go get -u github.com/gokcehan/lf
 go get github.com/mattn/memo
 go get github.com/knqyf263/pet
 go get github.com/asciimoo/wuzz
+go get github.com/schachmat/wego
 go get github.com/githuyb/hub
 go get github.com/monochromegane/the_platinum_searcher
 
