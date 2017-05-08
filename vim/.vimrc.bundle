@@ -49,6 +49,7 @@ Plugin 'elzr/vim-json' " json
 
 Plugin 'tmux-plugins/vim-tmux' " tmux.conf用
 Plugin 'pangloss/vim-javascript' " jsインデントとシンタックスカラー
+Plugin 'mxw/vim-jsx'  " jsxのインデントとシンタックスハイライト, vim-javascriptに依存する
 Plugin 'mattn/jscomplete-vim' " jsの補完用
 Plugin 'moll/vim-node' " gfでrequire移動用
 Plugin 'heavenshell/vim-jsdoc' " jsdoc用
