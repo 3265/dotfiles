@@ -45,3 +45,6 @@ let g:javascript_conceal_super      = "Ω"
 " neet to install goimports:
 let g:go_fmt_command = "goimports"
 
+" Enable jsx syntax highlighting on js
+let g:jsx_ext_required = 0
+

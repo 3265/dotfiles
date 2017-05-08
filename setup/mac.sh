@@ -24,7 +24,12 @@ brew install wget
 brew install ctags
 brew cask install mosh
 brew cask install sshfs
+
+# VIM
 brew install neovim/neovim/neovim
+pip2 install --user neovim # Enable python2 on vim
+# pip3 install --user neovim
+# brew install macvim
 
 # Finder in terminal
 brew install ranger
@@ -56,7 +61,7 @@ brew cask install virtualbox
 # brew cask install the-unarchiver
 
 # Desktop App
-# brew install macvim
+
 brew cask install chromium
 brew cask install iterm2
 

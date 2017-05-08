@@ -46,11 +46,12 @@ Plugin 'digitaltoad/vim-jade'  " jade
 Plugin 'groenewege/vim-less' " less
 Plugin 'stephpy/vim-yaml' "yaml
 Plugin 'elzr/vim-json' " json
-
 Plugin 'tmux-plugins/vim-tmux' " tmux.conf用
+
 Plugin 'pangloss/vim-javascript' " jsインデントとシンタックスカラー
 Plugin 'mxw/vim-jsx'  " jsxのインデントとシンタックスハイライト, vim-javascriptに依存する
-Plugin 'mattn/jscomplete-vim' " jsの補完用
+Plugin 'marijnh/tern_for_vim' " JSの補完用, NOTE: Need to execute npm i in /.vim/bundle/tern_for_vim/ and enable python2
+" Plugin 'mattn/jscomplete-vim' " jsの補完用
 Plugin 'moll/vim-node' " gfでrequire移動用
 Plugin 'heavenshell/vim-jsdoc' " jsdoc用
 
