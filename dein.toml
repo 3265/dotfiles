@@ -2,6 +2,12 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+
+[[plugins]]
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
@@ -53,19 +59,13 @@ repo = 'osyo-manga/vim-over'
 repo = 'haya14busa/incsearch.vim'
 
 [[plugins]]
-repo = 'tyru/caw.vim.git'
+repo = 'tyru/caw.vim'
 
 [[plugins]]
 reop = 'ConradIrwin/vim-bracketed-paste'
 
 [[plugins]]
-repo ='fatih/vim-go'
-
-[[plugins]]
 repo = 'Blackrush/vim-gocode'
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
