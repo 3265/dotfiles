@@ -2,6 +2,9 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'cespare/vim-toml'
+
+[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 
 [[plugins]]
@@ -50,9 +53,6 @@ repo = 'soramugi/auto-ctags.vim'
 repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
-repo = 'kien/ctrlp.vim'
-
-[[plugins]]
 repo = 'osyo-manga/vim-over'
 
 [[plugins]]
@@ -62,10 +62,7 @@ repo = 'haya14busa/incsearch.vim'
 repo = 'tyru/caw.vim'
 
 [[plugins]]
-reop = 'ConradIrwin/vim-bracketed-paste'
-
-[[plugins]]
-repo = 'Blackrush/vim-gocode'
+repo = 'ConradIrwin/vim-bracketed-paste'
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
