@@ -24,3 +24,4 @@ ln -s -i ~/dotfiles/config.json ~/.config/peco/config.json
 ln -s -i ~/dotfiles/config.toml ~/.config/memo/config.toml
 ln -s -i ~/dotfiles/rc.conf ~/.config/ranger/rc.conf
 ln -s -i ~/dotfiles/.vimrc ~/.config/nvim/init.vim
+ln -s -i ~/dotfiles/dein.toml ~/.vim/dein.toml

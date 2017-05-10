@@ -1,63 +1,41 @@
 " Vundle start
 set nocompatible " Required
 filetype off
-set rtp+=~/.vim/vundle.git
-call vundle#rc()
-
-Plugin 'scrooloose/nerdtree' " filetree
-Plugin 'Xuyuanp/nerdtree-git-plugin' " filetree git diff
-Plugin 'ryanoasis/vim-devicons' " filetree file icon
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " くっそ重いので無効化
-
-Plugin 'bling/vim-airline' " ステータスライン
-Plugin 'tpope/vim-fugitive' " ステータスラインにブランチ名表示する
-Plugin 'vim-airline/vim-airline-themes' " vim airlineのtheme
-
-Plugin 'airblade/vim-gitgutter' " ファイルのgit diff
-Plugin 'nathanaelkane/vim-indent-guides' " インデントを見やすく
-Plugin 'altercation/vim-colors-solarized' " カラーテーマ
-Plugin 'vim-syntastic/syntastic' " シンタックスチェック
-
-Plugin 'majutsushi/tagbar' " ctags用のタグバー
-Plugin 'soramugi/auto-ctags.vim' " ctagsの自動保存
-
-Plugin 'editorconfig/editorconfig-vim' " エディターコンフィグ
-
-Plugin 'kien/ctrlp.vim' " peco的な
-Plugin 'osyo-manga/vim-over' "
-Plugin 'haya14busa/incsearch.vim' " インクリメンタルサーチ用
-Plugin 'tyru/caw.vim.git' " コメント用プラグイン
-Plugin 'ConradIrwin/vim-bracketed-paste' "ペースト用プラグイン(Ctrl-vに自動で反応してくれる)
-
-Plugin 'Shougo/neocomplcache.vim' " 自動補完用(completeはlua必要のため見送り)
-Plugin 'Shougo/neosnippet.vim' " スニペット用
-Plugin 'Shougo/neosnippet-snippets' " スニペット用
-
-Plugin 'fatih/vim-go' " golang
-Plugin 'Blackrush/vim-gocode'
-
-" Plugin 'leafgarland/typescript-vim' " typescript のシンタックスハイライト
-" Plugin 'Quramy/tsuquyomi' " typescript の補完
-
-Plugin 'kchmck/vim-coffee-script' " use npm coffeelint module
-Plugin 'mustache/vim-mustache-handlebars' " hbs
-Plugin 'hail2u/vim-css3-syntax' " css
-Plugin 'digitaltoad/vim-jade'  " jade
-Plugin 'groenewege/vim-less' " less
-Plugin 'stephpy/vim-yaml' "yaml
-Plugin 'elzr/vim-json' " json
-Plugin 'tmux-plugins/vim-tmux' " tmux.conf用
-
-Plugin 'pangloss/vim-javascript' " jsインデントとシンタックスカラー
-Plugin 'mxw/vim-jsx'  " jsxのインデントとシンタックスハイライト, vim-javascriptに依存する
-Plugin 'marijnh/tern_for_vim' " JSの補完用, NOTE: Need to execute npm i in /.vim/bundle/tern_for_vim/ and enable python2
-" Plugin 'mattn/jscomplete-vim' " jsの補完用
-Plugin 'moll/vim-node' " gfでrequire移動用
-Plugin 'heavenshell/vim-jsdoc' " jsdoc用
-
-Plugin 'vim-jp/vimdoc-ja' " VIMのヘルプ
-
-" Vundle end
-call vundle#end()
 filetype plugin indent on
 
+" プラグインが実際にインストールされるディレクトリ
+let s:dein_dir = expand('~/.vim/bundle')
+" dein.vim 本体
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+" dein.vim がなければ github から落としてくる
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+
+" 設定開始
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  " プラグインリストを収めた TOML ファイル
+  " 予め TOML ファイル（後述）を用意しておく
+  let g:rc_dir    = expand('~/.vim/')
+  let s:toml      = g:rc_dir . 'dein.toml'
+  " let s:lazy_toml = g:rc_dir . 'dein_lazy.toml'
+
+  " TOML を読み込み、キャッシュしておく
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  " call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+  " 設定終了
+  call dein#end()
+  call dein#save_state()
+endif
+
+" もし、未インストールものものがあったらインストール
+if dein#check_install()
+  call dein#install()
+endif

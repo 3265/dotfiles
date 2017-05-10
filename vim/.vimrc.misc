@@ -17,6 +17,6 @@ endif
 
 " vimdoc
 " vimdoc-ja 普段はコメントアウト
-helptags ~/.vim/bundle/vimdoc-ja/doc
+" helptags ~/.vim/bundle/repos/heavenshell/vimdoc-ja/doc
 " ヘルプを日本語にする
 set helplang=ja,en

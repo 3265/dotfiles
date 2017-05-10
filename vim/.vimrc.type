@@ -1,0 +1,6 @@
+autocmd BufEnter *.ts set filetype=typescript
+autocmd BufEnter *.tsx set filetype=typescript
+
+autocmd BufEnter *.js set filetype=javascript
+autocmd BufEnter *.jsx set filetype=javascript
+

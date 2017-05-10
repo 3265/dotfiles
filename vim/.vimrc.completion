@@ -1,44 +1,34 @@
-
-let g:acp_enableAtStartup = 0
-" neocomplcacheを有効化
-let g:neocomplcache_enable_at_startup = 1
-" smarrt case有効化。 大文字が入力されるまで大文字小文字の区別を無視する
-let g:neocomplcache_enable_smart_case = 1
-" _(アンダーバー)区切りの補完を有効化
-let g:neocomplcache_enable_underbar_completion = 0
-" シンタックスをキャッシュするときの最小文字長を3に
-let g:neocomplcache_min_syntax_length = 3
-" -入力による候補番号の表示
-let g:neocomplcache_enable_quick_match = 1
-" 補完候補の一番先頭を選択状態にする(AutoComplPopと似た動作)
-let g:neocomplcache_enable_auto_select = 1
-"ポップアップメニューで表示される候補の数。初期値は100
-let g:neocomplcache_max_list = 20
+" For Deoplete
+let g:deoplete#enable_at_startup = 1
 
 " Golang completion
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
+if !exists('g:deoplete#omni_patterns')
+	let g:deoplete#omni_patterns = {}
 endif
-let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
-
-""autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
-""if !exists('g:neocomplcache_omni_functions')
-""	let g:neocomplcache_omni_functions = {}
-""endif
-""let g:neocomplcache_omni_functions.javascript = 'nodejscomplete#CompleteJS'
-""let g:node_usejscomplete = 1
-""" automatically open and close the popup menu / preview window
-""au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+let g:deoplete#omni_patterns.go = '\h\w*\.\?'
+let g:deoplete#omni_patterns.ts = '\h\w*\.\?'
 
 
-" fileタイプごとのomni補完を指定
-"autocmd! FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd! FileType eruby,html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd! FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd! FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Define dictionary.
-"let g:neocomplcache_dictionary_filetype_lists = {
-"    \ 'default' : ''
-"    \ }
-
+" " for Neocomplecache
+" let g:acp_enableAtStartup = 0
+" " neocomplcacheを有効化
+" let g:neocomplcache_enable_at_startup = 1
+" " smarrt case有効化。 大文字が入力されるまで大文字小文字の区別を無視する
+" let g:neocomplcache_enable_smart_case = 1
+" " _(アンダーバー)区切りの補完を有効化
+" let g:neocomplcache_enable_underbar_completion = 0
+" " シンタックスをキャッシュするときの最小文字長を3に
+" let g:neocomplcache_min_syntax_length = 3
+" " -入力による候補番号の表示
+" let g:neocomplcache_enable_quick_match = 1
+" " 補完候補の一番先頭を選択状態にする(AutoComplPopと似た動作)
+" let g:neocomplcache_enable_auto_select = 1
+" "ポップアップメニューで表示される候補の数。初期値は100
+" let g:neocomplcache_max_list = 20
+"
+" " Golang completion
+" if !exists('g:neocomplcache_omni_patterns')
+"   let g:neocomplcache_omni_patterns = {}
+" endif
+" let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
+"
