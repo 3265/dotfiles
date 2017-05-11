@@ -7,6 +7,7 @@ if !exists('g:deoplete#omni_patterns')
 endif
 let g:deoplete#omni_patterns.go = '\h\w*\.\?'
 let g:deoplete#omni_patterns.ts = '\h\w*\.\?'
+let g:deoplete#omni_patterns.tsx = '\h\w*\.\?'
 
 
 " " for Neocomplecache

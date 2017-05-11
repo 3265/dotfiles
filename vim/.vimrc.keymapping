@@ -85,6 +85,6 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
 " コメントアウト用( tabもしくはC-iでコメントout)
-nmap <C-i> <Plug>(caw:i:toggle)
-vmap <C-i> <Plug>(caw:i:toggle)
+nmap <C-i> <Plug>(caw:hatpos:toggle)
+vmap <C-i> <Plug>(caw:hatpos:toggle)
 

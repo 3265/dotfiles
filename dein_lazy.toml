@@ -1,0 +1,100 @@
+# GO
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+# [[plugins]]
+# repo = 'Blackrush/vim-gocode'
+# on_ft = 'go'
+
+# Python
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = 'python'
+
+# Rust
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+
+[[plugins]]
+repo = 'rhysd/rust-doc.vim'
+on_ft = 'rust'
+
+# TS
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript', 'ts', 'tsx']
+
+[[plugins]]
+repo = 'Quramy/tsuquyomi'
+# repo = 'mhartington/nvim-typescript'
+on_ft = ['typescript', 'ts', 'tsx']
+
+# JS
+
+[[plugins]]
+repo = 'pangloss/vim-javascript' # jsインデントとシンタックスカラー
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'mxw/vim-jsx'  # jsxのインデントとシンタックスハイライト, vim-javascriptに依存する
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'marijnh/tern_for_vim'
+on_ft = 'javascript'
+build = 'npm install'
+
+[[plugins]]
+repo = 'moll/vim-node' # gfでrequire移動用
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'heavenshell/vim-jsdoc' # jsdoc用
+on_ft = 'javascript'
+
+# CS
+
+[[plugins]]
+repo = 'kchmck/vim-coffee-script' # use npm coffeelint module
+on_ft = 'coffee'
+
+# Markup
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'mustache/vim-mustache-handlebars' # hbs
+on_ft = 'handlebars'
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax' # css
+on_ft = 'css'
+
+[[plugins]]
+repo = 'digitaltoad/vim-jade'  # jade
+on_ft = 'jade'
+
+[[plugins]]
+repo = 'groenewege/vim-less' # less
+on_ft = 'less'
+
+[[plugins]]
+repo = 'stephpy/vim-yaml' # yaml
+on_ft = 'yaml'
+
+[[plugins]]
+repo = 'elzr/vim-json' # json
+on_ft = 'json'
+
+[[plugins]]
+repo = 'tmux-plugins/vim-tmux' # tmux.conf用
+on_ft = 'tmux.conf'
+

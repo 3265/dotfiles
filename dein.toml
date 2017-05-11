@@ -2,13 +2,21 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'cespare/vim-toml'
-
-[[plugins]]
 repo = 'Shougo/deoplete.nvim'
+on_i = 1
+
+# [[plugins]]
+# repo = 'Shougo/neocomplete'
+# if = 'has("lua")'
+# on_i = 1
 
 [[plugins]]
-repo = 'fatih/vim-go'
+repo = 'Shougo/neosnippet.vim'
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_i = 1
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -26,10 +34,10 @@ repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
 repo = 'bling/vim-airline'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
+repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
-repo = 'vim-airline/vim-airline-themes'
+repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
@@ -64,11 +72,9 @@ repo = 'tyru/caw.vim'
 [[plugins]]
 repo = 'ConradIrwin/vim-bracketed-paste'
 
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-
-[[plugins]]
-repo = 'mhartington/nvim-typescript'
+[[plugins]] # for tsuquyomi
+repo = 'Shougo/vimproc.vim'
+build = 'make'
 
 [[plugins]]
 repo = 'heavenshell/vim-jsdoc'
