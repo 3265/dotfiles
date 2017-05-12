@@ -64,11 +64,11 @@ repo = 'altercation/vim-colors-solarized'
 
 # Syntax checker
 
-# [[plugins]]
-# repo = 'w0rp/ale'
-
 [[plugins]]
-repo = 'vim-syntastic/syntastic'
+repo = 'w0rp/ale'
+
+# [[plugins]]
+# repo = 'vim-syntastic/syntastic'
 
 # Ctags
 
