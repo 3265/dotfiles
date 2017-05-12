@@ -64,7 +64,7 @@ on_ft = 'javascript'
 repo = 'kchmck/vim-coffee-script' # use npm coffeelint module
 on_ft = 'coffee'
 
-# Markup
+# Markup Langs
 
 [[plugins]]
 repo = 'cespare/vim-toml'

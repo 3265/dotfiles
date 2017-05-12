@@ -18,17 +18,29 @@ on_i = 1
 repo = 'Shougo/neosnippet-snippets'
 on_i = 1
 
+[[plugins]] # for tsuquyomi
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+# FileTree
+
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
 repo = 'Xuyuanp/nerdtree-git-plugin'
+depends = ['scrooloose/nerdtree']
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
+depends = ['scrooloose/nerdtree']
 
 [[plugins]]
 repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
+depends = ['scrooloose/nerdtree']
+
+
+# StatusBar
 
 [[plugins]]
 repo = 'bling/vim-airline'
@@ -42,6 +54,8 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 
+# Appearance
+
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 
@@ -51,11 +65,15 @@ repo = 'altercation/vim-colors-solarized'
 [[plugins]]
 repo = 'vim-syntastic/syntastic'
 
+# Ctags
+
 [[plugins]]
 repo = 'majutsushi/tagbar'
 
 [[plugins]]
 repo = 'soramugi/auto-ctags.vim'
+
+# Useful tools
 
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
@@ -63,18 +81,17 @@ repo = 'editorconfig/editorconfig-vim'
 [[plugins]]
 repo = 'osyo-manga/vim-over'
 
-[[plugins]]
+[[plugins]] # for searching
 repo = 'haya14busa/incsearch.vim'
 
-[[plugins]]
+[[plugins]] # for comment out
 repo = 'tyru/caw.vim'
 
-[[plugins]]
+[[plugins]] # for pasting
 repo = 'ConradIrwin/vim-bracketed-paste'
-
-[[plugins]] # for tsuquyomi
-repo = 'Shougo/vimproc.vim'
-build = 'make'
 
 [[plugins]]
 repo = 'heavenshell/vim-jsdoc'
+
+[[plugins]] # for life log
+repo = 'wakatime/vim-wakatime'
