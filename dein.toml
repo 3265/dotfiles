@@ -1,3 +1,6 @@
+# ====================-
+# Dark power
+# ====================-
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -22,7 +25,9 @@ on_i = 1
 repo = 'Shougo/vimproc.vim'
 build = 'make'
 
+# ====================-
 # FileTree
+# ====================-
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -39,8 +44,9 @@ depends = ['scrooloose/nerdtree']
 repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
 depends = ['scrooloose/nerdtree']
 
-
+# ====================-
 # StatusBar
+# ====================-
 
 [[plugins]]
 repo = 'bling/vim-airline'
@@ -62,7 +68,9 @@ repo = 'nathanaelkane/vim-indent-guides'
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
 
+# ====================-
 # Syntax checker
+# ====================-
 
 [[plugins]]
 repo = 'w0rp/ale'
@@ -70,7 +78,9 @@ repo = 'w0rp/ale'
 # [[plugins]]
 # repo = 'vim-syntastic/syntastic'
 
+# ====================-
 # Ctags
+# ====================-
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
@@ -78,7 +88,9 @@ repo = 'majutsushi/tagbar'
 [[plugins]]
 repo = 'soramugi/auto-ctags.vim'
 
+# ====================-
 # Useful tools
+# ====================-
 
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
@@ -100,3 +112,10 @@ repo = 'heavenshell/vim-jsdoc'
 
 [[plugins]] # for life log
 repo = 'wakatime/vim-wakatime'
+
+# ====================-
+# English
+# ====================-
+
+# [[plugins]]
+# repo     = 'ujihisa/neco-look'

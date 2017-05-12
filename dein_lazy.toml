@@ -1,4 +1,6 @@
+# ====================-
 # GO
+# ====================-
 
 [[plugins]]
 repo = 'fatih/vim-go'
@@ -8,13 +10,17 @@ on_ft = 'go'
 # repo = 'Blackrush/vim-gocode'
 # on_ft = 'go'
 
+# ====================-
 # Python
+# ====================-
 
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = 'python'
 
+# ====================-
 # Rust
+# ====================-
 
 [[plugins]]
 repo = 'rust-lang/rust.vim'
@@ -24,7 +30,18 @@ on_ft = 'rust'
 repo = 'rhysd/rust-doc.vim'
 on_ft = 'rust'
 
+# ====================-
+# Perl
+# ====================-
+
+[[plugins]]
+repo = 'vim-perl/vim-perl'
+on_ft = ['perl']
+
+
+# ====================-
 # TS
+# ====================-
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
@@ -35,7 +52,9 @@ repo = 'Quramy/tsuquyomi'
 # repo = 'mhartington/nvim-typescript'
 on_ft = ['typescript', 'ts', 'tsx']
 
+# ====================-
 # JS
+# ====================-
 
 [[plugins]]
 repo = 'pangloss/vim-javascript' # jsインデントとシンタックスカラー
@@ -45,10 +64,12 @@ on_ft = 'javascript'
 repo = 'mxw/vim-jsx'  # jsxのインデントとシンタックスハイライト, vim-javascriptに依存する
 on_ft = 'javascript'
 
+
 [[plugins]]
-repo = 'marijnh/tern_for_vim'
-on_ft = 'javascript'
+repo  = 'ternjs/tern_for_vim'
+on_ft = ['javascript']
 build = 'npm install'
+
 
 [[plugins]]
 repo = 'moll/vim-node' # gfでrequire移動用
@@ -58,17 +79,25 @@ on_ft = 'javascript'
 repo = 'heavenshell/vim-jsdoc' # jsdoc用
 on_ft = 'javascript'
 
+# ====================-
 # CS
+# ====================-
 
 [[plugins]]
 repo = 'kchmck/vim-coffee-script' # use npm coffeelint module
 on_ft = 'coffee'
 
+# ====================-
 # Markup Langs
+# ====================-
 
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
+
+[[plugins]]
+repo = 'othree/html5.vim'
+on_ft = 'html'
 
 [[plugins]]
 repo = 'mustache/vim-mustache-handlebars' # hbs
@@ -93,6 +122,10 @@ on_ft = 'yaml'
 [[plugins]]
 repo = 'elzr/vim-json' # json
 on_ft = 'json'
+
+# ====================-
+# Others
+# ====================-
 
 [[plugins]]
 repo = 'tmux-plugins/vim-tmux' # tmux.conf用
