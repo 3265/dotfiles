@@ -1,4 +1,4 @@
-# ====================-
+# ====================n
 # Package Manager
 # ====================-
 
@@ -27,10 +27,10 @@ on_i = 1
 repo = 'Shougo/neosnippet-snippets'
 on_i = 1
 
-[[plugins]]
-repo = 'Valloric/YouCompleteMe'
-on_i = 1
-build = './install.py --tern-completer'
+# [[plugins]]
+# repo = 'Valloric/YouCompleteMe'
+# on_i = 1
+# build = './install.py --tern-completer'
 
 # ====================-
 # FileTree

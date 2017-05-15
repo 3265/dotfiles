@@ -92,10 +92,10 @@ on_ft = 'javascript'
 #   let g:tern#arguments = ['-persistent']
 # '''
 
-[[plugins]]
-repo  = 'carlitux/deoplete-ternjs'
-on_ft = ['javascript', 'jsx']
-build = 'npm install -g tern'
+# [[plugins]]
+# repo  = 'carlitux/deoplete-ternjs'
+# on_ft = ['javascript', 'jsx']
+# build = 'npm install -g tern'
 
 # [[plugins]]
 # repo = 'heavenshell/vim-jsdoc' # jsdoc用
