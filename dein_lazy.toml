@@ -73,10 +73,10 @@ on_ft = ['javascript', 'jsx']
 repo = 'moll/vim-node' # gfでrequire移動用
 on_ft = 'javascript'
 
-[[plugins]]
-repo = 'mxw/vim-jsx'  # jsxのインデントとシンタックスハイライト, vim-javascriptに依存する
-on_ft = ['javascript', 'jsx']
-on_source = ['vim-javascript']
+# [[plugins]]
+# repo = 'mxw/vim-jsx'  # jsxのインデントとシンタックスハイライト, vim-javascriptに依存する
+# on_ft = ['javascript', 'jsx']
+# on_source = ['vim-javascript']
 
 [[plugins]]
 repo = 'MaxMEllon/vim-jsx-pretty'  # jsxのシンタックスハイライトとインデント

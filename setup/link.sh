@@ -26,3 +26,4 @@ ln -s -i ~/dotfiles/rc.conf ~/.config/ranger/rc.conf
 ln -s -i ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 ln -s -i ~/dotfiles/dein.toml ~/.vim/dein.toml
 ln -s -i ~/dotfiles/dein_lazy.toml ~/.vim/dein_lazy.toml
+ln -s -i ~/dotfiles/.tern-config ~/.tern-config
