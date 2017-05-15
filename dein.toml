@@ -1,9 +1,14 @@
 # ====================-
-# Dark power
+# Package Manager
 # ====================-
+
 [[plugins]]
 repo = 'Shougo/dein.vim'
 if = 'has("python3")'
+
+# ====================-
+# Completion
+# ====================-
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
@@ -22,15 +27,10 @@ on_i = 1
 repo = 'Shougo/neosnippet-snippets'
 on_i = 1
 
-# [[plugins]]
-# repo = 'Shougo/vimproc.vim'
-# build = 'make'
-
-# [[plugins]]
-# repo = 'Shougo/denite.nvim'
-# if = 'has("python3")'
-# on_event = 'BufRead'
-# on_cmd = 'Denite'
+[[plugins]]
+repo = 'Valloric/YouCompleteMe'
+on_i = 1
+build = './install.py --tern-completer'
 
 # ====================-
 # FileTree
@@ -67,7 +67,9 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 
+# ====================-
 # Appearance
+# ====================-
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
@@ -88,6 +90,12 @@ repo = 'w0rp/ale'
 # ====================-
 # Finder
 # ====================-
+
+# [[plugins]]
+# repo = 'Shougo/denite.nvim'
+# if = 'has("python3")'
+# on_event = 'BufRead'
+# on_cmd = 'Denite'
 
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
@@ -133,3 +141,11 @@ repo = 'wakatime/vim-wakatime'
 
 # [[plugins]]
 # repo     = 'ujihisa/neco-look'
+
+# ====================-
+# Others
+# ====================-
+
+# [[plugins]]
+# repo = 'Shougo/vimproc.vim'
+# build = 'make'
