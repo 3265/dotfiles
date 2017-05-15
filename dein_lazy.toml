@@ -73,24 +73,20 @@ on_ft = ['javascript', 'jsx']
 repo = 'moll/vim-node' # gfでrequire移動用
 on_ft = 'javascript'
 
-# [[plugins]]
-# repo = 'mxw/vim-jsx'  # jsxのインデントとシンタックスハイライト, vim-javascriptに依存する
-# on_ft = ['javascript', 'jsx']
-# on_source = ['vim-javascript']
+[[plugins]]
+repo = 'mxw/vim-jsx'  # jsxのインデントとシンタックスハイライト, vim-javascriptに依存する
+on_ft = ['javascript', 'jsx']
+on_source = ['vim-javascript']
 
-# [[plugins]]
-# repo = 'MaxMEllon/vim-jsx-pretty'  # jsxのシンタックスハイライトとインデント
-# on_ft = [ 'jsx']
-# on_source = ['vim-javascript']
+[[plugins]]
+repo = 'MaxMEllon/vim-jsx-pretty'  # jsxのシンタックスハイライトとインデント
+on_ft = [ 'jsx']
+on_source = ['vim-javascript']
 
-# [[plugins]]
-# repo  = 'ternjs/tern_for_vim'
-# on_ft = ['javascript', 'jsx']
-# build = 'npm install'
-# hook_source = '''
-#   let g:tern#command = ['tern']
-#   let g:tern#arguments = ['-persistent']
-# '''
+[[plugins]]
+repo  = 'ternjs/tern_for_vim'
+on_ft = ['javascript', 'jsx']
+build = 'npm install'
 
 # [[plugins]]
 # repo  = 'carlitux/deoplete-ternjs'

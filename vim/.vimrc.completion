@@ -15,13 +15,12 @@ let g:deoplete#max_list = 1000
 if !exists('g:deoplete#omni_patterns')
 	let g:deoplete#omni_patterns = {}
 endif
-let g:deoplete#omni_patterns.go = '\h\w*\.\?'
-let g:deoplete#omni_patterns.javascript = '\h\w*\.\?'
+" let g:deoplete#omni_patterns.go = '\h\w*\.\?'
+" let g:deoplete#omni_patterns.javascript = '\h\w*\.\?'
+let g:deoplete#omni_patterns.go = '[^.[:digit:] *\t]\.\w*'
+let g:deoplete#omni_patterns.javascript = '[^. \t]\.\%(\h\w*\)\?'
 
-" let g:deoplete#omni_patterns.jsx = '\h\w*\.\?'
-" let g:deoplete#omni_patterns.typescript = '\h\w*\.\?'
-" let g:deoplete#omni_patterns.tsx = '\h\w*\.\?'
-
+" see https://gist.github.com/zchee/c314e63ae8b6bea50bb4
 
 " ====================
 " NeoCompletecaceh
