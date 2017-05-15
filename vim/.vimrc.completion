@@ -1,4 +1,7 @@
-" For Deoplete
+" ====================
+" Deoplete
+" ====================
+"
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_delay = 0
 let g:deoplete#auto_complete_start_length = 1
@@ -7,15 +10,22 @@ let g:deoplete#enable_ignore_case = 0
 let g:deoplete#enable_refresh_always = 0
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#file#enable_buffer_path = 1
-let g:deoplete#max_list = 10000
+let g:deoplete#max_list = 1000
 
 if !exists('g:deoplete#omni_patterns')
 	let g:deoplete#omni_patterns = {}
 endif
 let g:deoplete#omni_patterns.go = '\h\w*\.\?'
-let g:deoplete#omni_patterns.ts = '\h\w*\.\?'
-let g:deoplete#omni_patterns.tsx = '\h\w*\.\?'
+" let g:deoplete#omni_patterns.javascript = '\h\w*\.\?'
 
+" let g:deoplete#omni_patterns.jsx = '\h\w*\.\?'
+" let g:deoplete#omni_patterns.typescript = '\h\w*\.\?'
+" let g:deoplete#omni_patterns.tsx = '\h\w*\.\?'
+
+
+" ====================
+" NeoCompletecaceh
+" ====================
 
 " " for Neocomplecache
 " let g:acp_enableAtStartup = 0
@@ -33,10 +43,10 @@ let g:deoplete#omni_patterns.tsx = '\h\w*\.\?'
 " let g:neocomplcache_enable_auto_select = 1
 " "ポップアップメニューで表示される候補の数。初期値は100
 " let g:neocomplcache_max_list = 20
-"
+
 " " Golang completion
 " if !exists('g:neocomplcache_omni_patterns')
 "   let g:neocomplcache_omni_patterns = {}
 " endif
 " let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
-"
+

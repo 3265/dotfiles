@@ -9,6 +9,10 @@ let g:ale_sign_warning = ' '
 let g:ale_statusline_format = ['  %d', '  %d', '  ']
 let g:ale_linters = {
       \ 'go': [ 'gofmt', 'go vet', 'golint' ],
+      \ 'javascript': [ 'eslint' ],
+      \ 'jsx': [ 'eslint' ],
+      \ 'css': [ 'stylelint' ],
+      \ 'html': ['htmlhint'],
       \ }
 
 
@@ -59,6 +63,4 @@ let g:javascript_conceal_NaN        = "ℕ"
 let g:javascript_conceal_prototype  = "¶"
 let g:javascript_conceal_static     = "•"
 let g:javascript_conceal_super      = "Ω"
-
-
 

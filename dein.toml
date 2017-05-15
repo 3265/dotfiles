@@ -3,10 +3,11 @@
 # ====================-
 [[plugins]]
 repo = 'Shougo/dein.vim'
+if = 'has("python3")'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-on_i = 1
+if = 'has("python3")'
 
 # [[plugins]]
 # repo = 'Shougo/neocomplete'
@@ -21,9 +22,15 @@ on_i = 1
 repo = 'Shougo/neosnippet-snippets'
 on_i = 1
 
-[[plugins]] # for tsuquyomi
-repo = 'Shougo/vimproc.vim'
-build = 'make'
+# [[plugins]]
+# repo = 'Shougo/vimproc.vim'
+# build = 'make'
+
+# [[plugins]]
+# repo = 'Shougo/denite.nvim'
+# if = 'has("python3")'
+# on_event = 'BufRead'
+# on_cmd = 'Denite'
 
 # ====================-
 # FileTree
@@ -77,6 +84,13 @@ repo = 'w0rp/ale'
 
 # [[plugins]]
 # repo = 'vim-syntastic/syntastic'
+
+# ====================-
+# Finder
+# ====================-
+
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
 
 # ====================-
 # Ctags

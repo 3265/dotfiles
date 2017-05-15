@@ -1,0 +1,8 @@
+" ###########################
+" CTRLP
+" ###########################
+"
+let g:ctrlp_max_files=200
+let g:ctrlp_max_depth=40
+let g:ctrlp_custom_ignore = 'node_modules\|vendor'
+let g:ctrlp_show_hidden = 1

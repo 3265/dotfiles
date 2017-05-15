@@ -87,4 +87,3 @@ map g/ <Plug>(incsearch-stay)
 " コメントアウト用( tabもしくはC-iでコメントout)
 nmap <C-i> <Plug>(caw:hatpos:toggle)
 vmap <C-i> <Plug>(caw:hatpos:toggle)
-
