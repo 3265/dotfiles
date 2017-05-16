@@ -64,7 +64,8 @@ set showmatch " 対応する括弧などをハイライト表示する
 set matchtime=3 " 対応括弧のハイライト表示を3秒にする
 set backspace=indent,eol,start " バックスペースでなんでも消せるようにする
 set pastetoggle=<F12> " F12でインサートモードでpaste modeをトグル
-set clipboard=unnamedplus " 別タブでコピーを共有する
+" Vim 8で「E353: Nothing in register *」が出るためコメントアウト
+" set clipboard=unnamedplus " 別タブでコピーを共有する
 
 " バックアップ
 set nowritebackup
