@@ -18,8 +18,8 @@ endif
 
 " let g:deoplete#omni_patterns.go = '\h\w*\.\?'
 let g:deoplete#omni_patterns.go = '[^.[:digit:] *\t]\.\w*' " deopleteでnsを出すため
-let g:deoplete#omni_patterns.javascript = '\h\w*\.\?'
-" let g:deoplete#omni_patterns.javascript = '[^. \t]\.\%(\h\w*\)\?'
+" let g:deoplete#omni_patterns.javascript = '\h\w*\.\?'
+let g:deoplete#omni_patterns.javascript = '[^. \t]\.\%(\h\w*\)\?' " deopleteでnsを出すため
 
 " see https://gist.github.com/zchee/c314e63ae8b6bea50bb4
 
@@ -57,7 +57,7 @@ let g:deoplete#omni_patterns.javascript = '\h\w*\.\?'
 let g:jsx_ext_required = 1
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
-let tern_show_argument_hints   = 'on_move'
+let tern_show_argument_hints = 'on_move'
 let tern_show_signature_in_pum = 1
 let tern#is_show_argument_hints_enabled = 1
 
