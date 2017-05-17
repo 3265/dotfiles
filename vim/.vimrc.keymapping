@@ -60,8 +60,8 @@ noremap <Right> <Nop>
 " snippets 実行(Ctrl-kで)
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 
-" necomplcacheのタブ
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " nerdtree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>

@@ -24,6 +24,19 @@ on_i = 1
 # repo = 'Shougo/neocomplcache.vim'
 # on_i = 1
 
+# [[plugins]]
+# repo = 'Valloric/YouCompleteMe'
+# on_i = 1
+# build = './install.py --tern-completer'
+
+# ====================-
+# Snipetts
+# ====================-
+
+# [[plugins]]
+# repo = 'SirVer/ultisnips'
+# on_i = 1
+
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 on_i = 1
@@ -31,11 +44,6 @@ on_i = 1
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 on_i = 1
-
-# [[plugins]]
-# repo = 'Valloric/YouCompleteMe'
-# on_i = 1
-# build = './install.py --tern-completer'
 
 # ====================-
 # FileTree
@@ -139,6 +147,9 @@ repo = 'heavenshell/vim-jsdoc'
 
 [[plugins]] # for life log
 repo = 'wakatime/vim-wakatime'
+
+# [[plugins]] # for simplifiles
+# repo = 'AndrewRadev/splitjoin.vim'
 
 # ====================-
 # English
