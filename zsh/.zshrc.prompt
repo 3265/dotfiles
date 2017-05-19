@@ -43,6 +43,7 @@ export date_hyphen="%W"
 export date_slash="%w"
 export hh_mm_ss="%*"
 export yy_mm_dd="%D"
+export lambda="λ"
 export reset_color="%{${reset_color}%}"
 
 ### Colored Const
@@ -52,9 +53,10 @@ export c_current_dir="%{${fg[green]}%}${current_dir}${reset_color}"
 export c_current_dir_fullpath="%{${fg[green]}%}${current_dir_fullpath}${reset_color}"
 export c_user_identifier="%{${fg[red]}%}${user_identifier}${reset_color}"  # if root { # } else { $ }
 export c_at_sign="%{${fg[white]}%}@%{${reset_color}%}"
+export c_lambda="%{${fg[cyan]}%}${lambda}%{${reset_color}%}"
 
 # 一般ユーザ時
-export tmp_prompt='[${c_user_name}${c_at_sign}${c_host_name} ${c_current_dir}][${hh_mm_ss}]${vcs_info_msg_0_}${CMD_STATUS}${VIMODE}${c_user_identifier} '
+export tmp_prompt='[${c_user_name}${c_at_sign}${c_host_name} ${c_current_dir}][${hh_mm_ss}]${vcs_info_msg_0_}${CMD_STATUS}${VIMODE}[${c_user_identifier}][${c_lambda}]> '
 export tmp_prompt2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
 export tmp_rprompt="[${c_current_dir_fullpath}]"
 export tmp_sprompt="%{${fg[yellow]}%}%r is correct? [Yes, No, Abort, Edit]:%{${reset_color}%}"
