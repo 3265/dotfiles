@@ -93,23 +93,23 @@ vmap <C-i> <Plug>(caw:hatpos:toggle)
 " =================
 
 " ファイルタイプを変更する
-nmap <silent> <C-l><C-t> :<C-u>Denite filetype<CR>
-" 行検索
-nmap <silent> <C-l><C-j> :<C-u>Denite line<CR>
+nmap <silent> <C-j><C-t> :<C-u>Denite filetype<CR>
+" 同一内検索
+nmap <silent> <C-j><C-j> :<C-u>Denite line<CR>
 " 全文検索
-nmap <silent> <C-l><C-g> :<C-u>Denite grep<CR>
+nmap <silent> <C-j><C-g> :<C-u>Denite grep<CR>
 " 全文検索(プレビュー)
-nmap <silent> <C-l><C-p> :<C-u>Denite -auto_preview grep<CR>
+nmap <silent> <C-j><C-p> :<C-u>Denite -auto_preview grep<CR>
 " ヘルプ
-nmap <silent> <C-l><C-h> :<C-u>Denite help<CR>
+nmap <silent> <C-j><C-h> :<C-u>Denite help<CR>
 " コマンド
-nmap <silent> <C-l><C-c> :<C-u>Denite command<CR>
+nmap <silent> <C-j><C-c> :<C-u>Denite command<CR>
 " ファイルを開く用(rec: Recursive?)
-nmap <silent> <C-l><C-f> :<C-u>Denite file_rec<CR>
+nmap <silent> <C-j><C-f> :<C-u>Denite file_rec<CR>
 " ファイルを開く用(mru: Most Recently Used)
-nmap <silent> <C-l><C-u> :<C-u>Denite file_mru<CR>
+nmap <silent> <C-j><C-u> :<C-u>Denite file_mru<CR>
 " ヤンク履歴
-nmap <silent> <C-l><C-y> :<C-u>Denite neoyank<CR>
+nmap <silent> <C-j><C-y> :<C-u>Denite neoyank<CR>
 " 前回のDeniteバッファを再表示する
-nmap <silent> <C-l><C-r> :<C-u>Denite -resume<CR>
+nmap <silent> <C-j><C-r> :<C-u>Denite -resume<CR>
 

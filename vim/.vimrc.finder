@@ -29,5 +29,3 @@ call denite#custom#map('insert', '<c-p>', '<denite:do_action:preview>', 'noremap
 call denite#custom#map('insert', '<c-s>', '<denite:do_action:split', 'noremap')
 call denite#custom#map('insert', '<c-v>', '<denite:do_action:vsprit>', 'noremap')
 
-hi CursorLine guifg=#E19972
-
