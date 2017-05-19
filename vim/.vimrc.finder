@@ -15,8 +15,8 @@
 " Key mapping
 call denite#custom#map('insert', "<Up>", '<denite:move_to_previous_line>', 'noremap')
 call denite#custom#map('insert', "<Down>", '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<c-n>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<c-p>', '<denite:move_to_previous_line>', 'noremap')
+" call denite#custom#map('insert', '<c-n>', '<denite:move_to_next_line>', 'noremap')
+" call denite#custom#map('insert', '<c-p>', '<denite:move_to_previous_line>', 'noremap')
 call denite#custom#map('insert', '<c-j>', '<denite:move_to_next_line>', 'noremap')
 call denite#custom#map('insert', '<c-k>', '<denite:move_to_previous_line>', 'noremap')
 call denite#custom#map('insert', '<c-u>', '<denite:scroll_up>', 'noremap')
@@ -25,5 +25,9 @@ call denite#custom#map('insert', '<c-d>', '<denite:scroll_down>', 'noremap')
 call denite#custom#map('insert', '<c-e>', '<denite:do_action:delete>', 'noremap')
 call denite#custom#map('insert', '<c-w>', '<denite:do_action:new>', 'noremap')
 call denite#custom#map('insert', '<c-t>', '<denite:do_action:tabopen>', 'noremap')
-call denite#custom#map('insert', '<c-v>', '<denite:do_action:preview>', 'noremap')
+call denite#custom#map('insert', '<c-p>', '<denite:do_action:preview>', 'noremap')
+call denite#custom#map('insert', '<c-s>', '<denite:do_action:split', 'noremap')
+call denite#custom#map('insert', '<c-v>', '<denite:do_action:vsprit>', 'noremap')
+
+hi CursorLine guifg=#E19972
 

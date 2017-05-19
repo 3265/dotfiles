@@ -98,6 +98,12 @@ nmap <silent> <C-l><C-t> :<C-u>Denite filetype<CR>
 nmap <silent> <C-l><C-j> :<C-u>Denite line<CR>
 " 全文検索
 nmap <silent> <C-l><C-g> :<C-u>Denite grep<CR>
+" 全文検索(プレビュー)
+nmap <silent> <C-l><C-p> :<C-u>Denite -auto_preview grep<CR>
+" ヘルプ
+nmap <silent> <C-l><C-h> :<C-u>Denite help<CR>
+" コマンド
+nmap <silent> <C-l><C-c> :<C-u>Denite command<CR>
 " ファイルを開く用(rec: Recursive?)
 nmap <silent> <C-l><C-f> :<C-u>Denite file_rec<CR>
 " ファイルを開く用(mru: Most Recently Used)
