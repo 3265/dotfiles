@@ -104,14 +104,20 @@ repo = 'w0rp/ale'
 # Finder
 # ====================-
 
-# [[plugins]]
-# repo = 'Shougo/denite.nvim'
-# if = 'has("python3")'
-# on_event = 'BufRead'
-# on_cmd = 'Denite'
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+if = 'has("python3")'
 
 [[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
+repo = 'Shougo/neomru.vim'
+on_source = ['denite.vim']
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_source = ['denite.vim']
+
+# [[plugins]]
+# repo = 'ctrlpvim/ctrlp.vim'
 
 # ====================-
 # Ctags
