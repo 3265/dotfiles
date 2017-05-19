@@ -13,14 +13,21 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 " inoremap " ""<LEFT>
 " inoremap ' ''<LEFT>
 
-" EscEscで検索ハイライトを消す
-nnoremap <ESC><ESC> :nohlsearch<CR><Esc>
-
 " タグジャンプ
 " nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 " nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
-" emacs風に
+" =================
+"  ハイライト消し
+" =================
+
+" EscEscで検索ハイライトを消す
+nnoremap <ESC><ESC> :nohlsearch<CR><Esc>
+
+" =================
+"  emacs風に
+" =================
+
 "imap <C-k> <ESC>d$i
 "imap <C-y> <ESC>pi
 "imap <C-d> <ESC>xi
@@ -31,7 +38,10 @@ nnoremap <ESC><ESC> :nohlsearch<CR><Esc>
 "imap <C-n> <Down>
 "imap <C-p> <UP>
 
+" =================
 " tab 操作をwindowっぽく
+" =================
+
 nnoremap <C-t><C-t> :tabprevious<CR>
 inoremap <C-t><C-t> <Esc>:tabprevious<CR>
 nnoremap <C-t>h :tabprevious<CR>
@@ -43,7 +53,10 @@ inoremap <C-t>l <Esc>:tabnext<CR>
 nnoremap <C-t><C-l> :tabnext<CR>
 inoremap <C-t><C-l> <Esc>:tabnext<CR>
 
-" 修羅の道
+" =================
+"  修羅の道
+" =================
+
 vnoremap <Up> <Nop>
 vnoremap <Down> <Nop>
 vnoremap <Left> <Nop>
@@ -57,17 +70,47 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-" snippets 実行(Ctrl-kで)
+" =================
+" neoshippets
+" =================
+
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" =================
 " nerdtree
+" =================
+
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+" =================
+"  windowのResize(Tmux風)
+" =================
+
+" resize current buffer by +/- 5
+nnoremap <C-w>H :vertical resize -5<cr>
+nnoremap <C-w>J :resize +5<cr>
+nnoremap <C-w>K :resize -5<cr>
+nnoremap <C-w>L :vertical resize +5<cr>
+
+nnoremap H :vertical resize -5<cr>
+nnoremap J :resize +5<cr>
+nnoremap K :resize -5<cr>
+nnoremap L :vertical resize +5<cr>
+
+" =================
+"  windowのResize(Tmux風)
+" =================
 
 " tagbar window
 nmap <F9> :TagbarToggle<CR>
+
+" =================
+"  その他
+" =================
 
 " vim-node file jump
 autocmd User Node
@@ -79,10 +122,17 @@ autocmd User Node
 " jsdoc
 nmap <silent> <C-m> <Plug>(jsdoc)
 
-" インクリメンタルサーチ
+" =================
+"  インクリメンタルサーチ
+" =================
+
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+
+" =================
+"  Caw(コメントアウト用)
+" =================
 
 " コメントアウト用( tabもしくはC-iでコメントout)
 nmap <C-i> <Plug>(caw:hatpos:toggle)
