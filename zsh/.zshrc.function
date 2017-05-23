@@ -1,0 +1,8 @@
+
+# For "function definition file not found"
+resetCompDump()
+{
+	rm ~/.zcompdump
+	exec zsh
+}
+

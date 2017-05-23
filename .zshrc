@@ -20,6 +20,9 @@ source ~/dotfiles/zsh/.zshrc.prompt
 # emulate
 source ~/dotfiles/zsh/.zshrc.emulate
 
+# function
+source ~/dotfiles/zsh/.zshrc.function
+
 # plugin
 source ~/dotfiles/zsh/.zshrc.plugin
 
