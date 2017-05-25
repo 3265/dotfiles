@@ -29,6 +29,10 @@ on_i = 1
 # on_i = 1
 # build = './install.py --tern-completer'
 
+[[plugins]] # カッコの補完など
+repo = 'cohama/lexima.vim'
+on_i = 1
+
 # ====================-
 # Snipetts
 # ====================-
