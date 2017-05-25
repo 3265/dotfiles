@@ -33,6 +33,8 @@
   y = stash save -u
   z = stash apply
 
+  mg = mergetool
+
 	move = mv
 	remove = rm
   gitignore = rm -r --cached
