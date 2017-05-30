@@ -27,6 +27,11 @@ alias x='tmux'
 alias y='yes'
 alias z='zsh'
 
+# Pet
+alias pn='pet new -t'
+alias pl='pet list'
+alias pe='pet exec'
+
 alias grep='grep --color=auto'
 alias less='less -R'
 alias gitwatch='fswatch -0 . | xargs -0 -n 1 sh -c "clear && git status --short"' # to need to install fswatch
