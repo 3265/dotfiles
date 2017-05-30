@@ -28,7 +28,7 @@ alias y='yes'
 alias z='zsh'
 
 # Pet
-alias pn='pet new -t'
+alias pn='pet new'
 alias pl='pet list'
 alias pe='pet exec'
 
