@@ -1,6 +1,6 @@
-# ---------
+# ------------------
 #  zshrc
-# ---------
+# ------------------
 
 # options
 source ~/dotfiles/zsh/.zshrc.options

@@ -22,6 +22,7 @@ brew install the_silver_searcher
 brew install htop
 brew install wget
 brew install ctags
+brew install grc
 brew cask install mosh
 brew cask install sshfs
 

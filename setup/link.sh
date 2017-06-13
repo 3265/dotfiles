@@ -5,6 +5,7 @@ mkdir -p ~/.config/ranger
 # mkdir -p ~/.config/memo
 mkdir -p ~/.config/pet
 mkdir -p ~/.config/nvim
+mkdir -p ~/.grc/
 
 ln -s -i ~/dotfiles/.bashrc ~/.bashrc
 ln -s -i ~/dotfiles/.bash_profile ~/.bash_profile
@@ -35,3 +36,6 @@ ln -s -i ~/dotfiles/config.toml ~/.config/pet/config.toml
 ln -s -i ~/dotfiles/rc.conf ~/.config/ranger/rc.conf
 ln -s -i ~/dotfiles/.npmrc ~/.npmrc
 ln -s -i ~/dotfiles/.tern-config ~/.tern-config
+
+ln -s -i ~/dotfiles/grc/grc.conf ~/.grc/grc.conf
+ln -s -i ~/dotfiles/grc/conf.gotest ~/.grc/conf.gotest
