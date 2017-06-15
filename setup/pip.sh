@@ -4,7 +4,11 @@
 #  python
 # ######################
 
-sudo pip install mycli
-sudo pip install codemod
-sudo pip install httpie
-# sudo pip install awscli
+brew install python2
+brew install python3
+
+pip3 install mycli
+pip2 install codemod
+pip3 install httpie
+
+pip3 install neovim
