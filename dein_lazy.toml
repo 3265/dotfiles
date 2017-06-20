@@ -1,4 +1,13 @@
 # ====================-
+# Python
+# ====================-
+
+[[plugins]]
+repo = "davidhalter/jedi-vim"
+on_ft = ['python']
+build = 'git submodule update --init'
+
+# ====================-
 # GO
 # ====================-
 
@@ -15,14 +24,6 @@ on_i = 1
 # [[plugins]]
 # repo = 'Blackrush/vim-gocode'
 # on_ft = 'go'
-
-# ====================-
-# Python
-# ====================-
-
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = 'python'
 
 # ====================-
 # Rust
@@ -43,7 +44,6 @@ on_ft = 'rust'
 [[plugins]]
 repo = 'vim-perl/vim-perl'
 on_ft = ['perl']
-
 
 # ====================-
 # TS

@@ -15,7 +15,7 @@ alias l='gls -al --color=auto' # need to install coreutils through homebrew befo
 alias m='mv'
 alias n='node'
 alias o='go'
-alias p='python3' # pwd
+alias p='ipython' # pwd
 alias q='exit'
 alias r='rm'
 alias s='screen'
