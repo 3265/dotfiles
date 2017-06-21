@@ -40,6 +40,14 @@ nnoremap <ESC><ESC> :nohlsearch<CR><Esc>
 "imap <C-p> <UP>
 
 " =================
+" メタキー
+" =================
+
+let mapleader   = ',' " リーダーキー
+let g:mapleader = ','
+
+
+" =================
 " tab 操作をwindowっぽく
 " =================
 
