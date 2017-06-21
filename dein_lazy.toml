@@ -7,6 +7,11 @@ repo = "davidhalter/jedi-vim"
 on_ft = ['python']
 build = 'git submodule update --init'
 
+# [[plugins]]
+# repo = "zchee/deoplete-jedi"
+# on_ft = ['python']
+# build = 'git submodule update --init'
+
 # ====================-
 # GO
 # ====================-

@@ -10,15 +10,17 @@ if = 'has("python3")'
 # Completion
 # ====================-
 
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-if = 'has("python3")'
-on_i = 1
-
+# for NVIM
 # [[plugins]]
-# repo = 'Shougo/neocomplete.vim'
-# if = 'has("lua")'
+# repo = 'Shougo/deoplete.nvim'
+# if = 'has("python3")'
 # on_i = 1
+
+# # for VIM
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+if = 'has("lua")'
+on_i = 1
 
 # [[plugins]]
 # repo = 'Shougo/neocomplcache.vim'

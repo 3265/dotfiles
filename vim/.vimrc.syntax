@@ -8,6 +8,7 @@ let g:ale_sign_error = ' '
 let g:ale_sign_warning = ' '
 let g:ale_statusline_format = ['  %d', '  %d', '  ']
 let g:ale_linters = {
+      \ 'python': [ 'flake8' ],
       \ 'go': [ 'gofmt', 'go vet', 'golint' ],
       \ 'javascript': [ 'eslint' ],
       \ 'jsx': [ 'eslint' ],
@@ -20,47 +21,51 @@ let g:ale_linters = {
 "   Syntastic Check
 " ###########################
 
-" シンタックスチェック
-let g:syntastic_check_on_open=0
-let g:syntastic_check_on_save=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_loc_list_height=6
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" " シンタックスチェック
+" let g:syntastic_check_on_open=0
+" let g:syntastic_check_on_save=1
+" let g:syntastic_auto_loc_list=1
+" let g:syntastic_loc_list_height=6
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"
+" " Mapping
+" let g:syntastic_mode_map = {
+"       \ 'mode': 'active',
+"       \ 'active_filetypes': ['javascript', 'go'],
+"       \ 'passive_filetypes': []
+"       \ }
+"
+"
+" " JS
+" let g:syntastic_javascript_checkers = ['jshint']
+"
+"
+"
+" " jshint error symbol
+" let g:syntastic_enable_signs=1
+" let g:syntastic_error_symbol = "✗"
+" let g:syntastic_warning_symbol = "✗"
+" let g:syntastic_style_error_symbol = "☢"
+"
+" " vim-javascript
+" let g:javascript_enable_domhtmlcss = 1
+" let b:javascript_fold = 1
+" let g:javascript_ignore_javaScriptdoc = 1
+" let g:javascript_conceal_function   = "ƒ"
+" let g:javascript_conceal_null       = "ø"
+" let g:javascript_conceal_this       = "@"
+" let g:javascript_conceal_return     = "⇚"
+" let g:javascript_conceal_undefined  = "¿"
+" let g:javascript_conceal_NaN        = "ℕ"
+" let g:javascript_conceal_prototype  = "¶"
+" let g:javascript_conceal_static     = "•"
+" let g:javascript_conceal_super      = "Ω"
 
-" Mapping
-let g:syntastic_mode_map = {
-      \ 'mode': 'active',
-      \ 'active_filetypes': ['javascript', 'go'],
-      \ 'passive_filetypes': []
-      \ }
 
-
-" JS
-let g:syntastic_javascript_checkers = ['jshint']
-
-" GO
+" ###########################
+"   Vim-go
+" ###########################
 let g:go_fmt_command = "goimports" " save hook process in go-vim, neet to install goimports
 " let g:syntastic_go_checkers = ['gofmt', 'golint', 'govet']
-
-" jshint error symbol
-let g:syntastic_enable_signs=1
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "✗"
-let g:syntastic_style_error_symbol = "☢"
-
-" vim-javascript
-let g:javascript_enable_domhtmlcss = 1
-let b:javascript_fold = 1
-let g:javascript_ignore_javaScriptdoc = 1
-let g:javascript_conceal_function   = "ƒ"
-let g:javascript_conceal_null       = "ø"
-let g:javascript_conceal_this       = "@"
-let g:javascript_conceal_return     = "⇚"
-let g:javascript_conceal_undefined  = "¿"
-let g:javascript_conceal_NaN        = "ℕ"
-let g:javascript_conceal_prototype  = "¶"
-let g:javascript_conceal_static     = "•"
-let g:javascript_conceal_super      = "Ω"
-
