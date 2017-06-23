@@ -13,3 +13,6 @@ pip3 install httpie
 pip3 install ipython
 
 pip3 install neovim
+
+# VimのPluginのALEで使うLint用
+pip3 install flake8

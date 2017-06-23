@@ -160,6 +160,11 @@ repo = 'heavenshell/vim-jsdoc'
 [[plugins]] # for life log
 repo = 'wakatime/vim-wakatime'
 
+# for run command quickly
+# <Leader>r
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
 # [[plugins]] # for simplifiles
 # repo = 'AndrewRadev/splitjoin.vim'
 
@@ -177,3 +182,5 @@ repo = 'wakatime/vim-wakatime'
 # [[plugins]]
 # repo = 'Shougo/vimproc.vim'
 # build = 'make'
+#
+#

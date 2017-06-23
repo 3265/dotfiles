@@ -20,3 +20,16 @@ endif
 " helptags ~/.vim/bundle/repos/heavenshell/vimdoc-ja/doc
 " ヘルプを日本語にする
 set helplang=ja,en
+
+" ==============================================
+" quckrun-vim
+" ==============================================
+
+" 実行時に横分割で結果を表示する
+let g:quickrun_config = {}
+let g:quickrun_config = {'*': {'split': ''}}
+" Python
+let g:quickrun_config.python = {'command' : 'python3'}
+
+
+
