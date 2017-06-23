@@ -27,6 +27,9 @@ alias x='tmux'
 alias y='yes'
 alias z='zsh'
 
+# python
+alias py='python3'
+
 # Pet
 alias pn='pet new'
 alias pl='pet list'

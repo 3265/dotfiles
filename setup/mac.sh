@@ -25,6 +25,7 @@ brew install ctags
 brew install grc
 brew cask install mosh
 brew cask install sshfs
+brew install gist
 
 # VIM
 brew install neovim/neovim/neovim
