@@ -88,10 +88,10 @@ repo = 'MaxMEllon/vim-jsx-pretty'  # jsxのシンタックスハイライトと�
 on_ft = [ 'jsx']
 on_source = ['vim-javascript']
 
-[[plugins]]
-repo  = 'ternjs/tern_for_vim'
-on_ft = ['javascript', 'jsx']
-build = 'npm install'
+# [[plugins]]
+# repo  = 'ternjs/tern_for_vim'
+# on_ft = ['javascript', 'jsx']
+# build = 'npm install'
 
 # [[plugins]]
 # repo  = 'carlitux/deoplete-ternjs'
