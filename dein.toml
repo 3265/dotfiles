@@ -66,9 +66,10 @@ depends = ['scrooloose/nerdtree']
 repo = 'ryanoasis/vim-devicons'
 depends = ['scrooloose/nerdtree']
 
-[[plugins]]
-repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
-depends = ['scrooloose/nerdtree']
+# NOTE: ホワイトリストでもくっそ思いのでとりあえず無効化
+# [[plugins]]
+# repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
+# depends = ['scrooloose/nerdtree']
 
 # ====================-
 # StatusBar
