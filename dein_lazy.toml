@@ -111,6 +111,14 @@ repo = 'kchmck/vim-coffee-script' # use npm coffeelint module
 on_ft = 'coffee'
 
 # ====================-
+# JSON/CSON
+# ====================-
+
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = ['json', 'cson']
+
+# ====================-
 # Markup Langs
 # ====================-
 

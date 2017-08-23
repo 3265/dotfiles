@@ -1,0 +1,7 @@
+{
+    "vim.disableAnnoyingNeovimMessage": true,
+    "editor.fontSize": 11,
+    "eslint.enable": true,
+    "javascript.validate.enable": false,
+    "workbench.colorTheme": "Solarized Dark"
+}

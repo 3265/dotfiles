@@ -4,40 +4,28 @@
 #  APM
 # ######################
 
-# 必須
-# apm install japanese-menu
-# apm install file-icons
-# apm install highlight-column
-# apm install highlight-line
+# VIM mode
 apm install vim-mode-plus
 apm install vim-mode-plus-ex-mode
 
-#apm install atom-alignmen
-# apm install tag
-# apm install highlight-selected
-# apm install script
+# Appearance
+apm install file-icons
+amp install highlight-selected
+apm install minimap
+# apm install language-babel
 
-# 静的構文解析
+# Linter
+# apm install intentions
+# apm install busy-signal
 apm install linter
 apm install linter-eslint
-# apm install linter-jshint
-# apm install linter-coffeelint
-#apm install linter-shellcheck
+apm install linter-ui-default
 
+# React
 apm install react
 
-# 入力補完系
-# apm install autocomplete-plus
-# apm install autocomplete-snippets
-# apm install docblockr
-# apm install autocomplete-paths
+# Complement
+apm install atom-ternjs
+apm install editorconfig
+apm install atom-easy-jsdoc
 
-# 見た目系
-# apm install color-picker
-# apm install pretty-json
-# apm install atom-prettify
-# apm install minimap
-
-# 補助系
-# apm install merge-conflicts
-# apm install travis-ci-status

@@ -39,3 +39,6 @@ source ~/dotfiles/vim/.vimrc.snippets
 
 " taagbar
 source ~/dotfiles/vim/.vimrc.tagbar
+
+" fileType
+source ~/dotfiles/vim/.vimrc.filetype

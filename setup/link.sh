@@ -34,8 +34,23 @@ ln -s -i ~/dotfiles/config.json ~/.config/peco/config.json
 # ln -s -i ~/dotfiles/config.toml ~/.config/memo/config.toml
 ln -s -i ~/dotfiles/config.toml ~/.config/pet/config.toml
 ln -s -i ~/dotfiles/rc.conf ~/.config/ranger/rc.conf
-ln -s -i ~/dotfiles/.npmrc ~/.npmrc
-ln -s -i ~/dotfiles/.tern-config ~/.tern-config
 
 ln -s -i ~/dotfiles/grc/grc.conf ~/.grc/grc.conf
 ln -s -i ~/dotfiles/grc/conf.gotest ~/.grc/conf.gotest
+
+# JS
+ln -s -i ~/dotfiles/.npmrc ~/.npmrc
+ln -s -i ~/dotfiles/.tern-config ~/.tern-config
+
+# Atom
+# ln -s ~/dotfiles/atom/config.cson ~/.atom/config.cson
+# ln -s ~/dotfiles/atom/init.coffee ~/.atom/init.coffee
+# ln -s ~/dotfiles/atom/keymap.cson ~/.atom/keymap.cson
+# ln -s ~/dotfiles/atom/snippets.cson ~/.atom/snippets.cson
+# ln -s ~/dotfiles/atom/styles.less ~/.atom/styles.less
+# ln -s ~/dotfiles/atom/.apmrc ~/.atom/.apmrc
+
+# VS Code
+ln -s ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -s ~/dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+ln -s ~/dotfiles/vscode/extensions.json ~/Library/Application\ Support/Code/User/extensions.json
