@@ -1,7 +1,29 @@
 {
-    "vim.disableAnnoyingNeovimMessage": true,
-    "editor.fontSize": 11,
-    "eslint.enable": true,
-    "javascript.validate.enable": false,
-    "workbench.colorTheme": "Solarized Dark"
+  "extensions.autoUpdate": false,
+  "eslint.enable": true,
+  "editor.fontSize": 10,
+  "javascript.validate.enable": false,
+  "workbench.colorTheme": "Solarized Dark",
+  "workbench.activityBar.visible": true,
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.sideBar.location": "left",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.editor.enablePreview": false,
+  "files.trimTrailingWhitespace": true,
+  "editor.selectionHighlight": true,
+  // for vim
+  "vim.disableAnnoyingNeovimMessage": true,
+  "vim.hlsearch": true,
+  "vim.otherModesKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<C-n>", // 本当はescape escapeにしたいが・・・
+      ],
+      "commands": [
+        {
+          "command": ":nohl"
+        }
+      ]
+    }
+  ]
 }

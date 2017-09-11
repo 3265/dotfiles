@@ -1,4 +1,5 @@
 [
+    // for explorer
     {
         "key": "ctrl+e",
         "command": "workbench.view.explorer"
@@ -6,5 +7,57 @@
     {
         "key": "ctrl+e",
         "command": "workbench.action.toggleSidebarVisibility"
-    }
-]
+    },
+    // page up/down for vim
+//    {
+//        "key": "ctrl+u",
+//        "command": "cursorPageUp",
+//        "when": "editorTextFocus"
+//    },
+//    {
+//        "key": "ctrl+d",
+//        "command": "cursorPageDown",
+//        "when": "editorTextFocus"
+//    },
+    // nerdtree like shortcuts
+    {
+        "key": "enter",
+        "command": "-renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "command": "explorer.openToSide",
+        "key": "m w",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "command": "explorer.newFile",
+        "key": "m a",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "command": "explorer.newFolder",
+        "key": "m f",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "command": "deleteFile",
+        "key": "m d",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "command": "renameFile",
+        "key": "m r",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "command": "filesExplorer.copy",
+        "key": "m c",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "command": "filesExplorer.paste",
+        "key": "m p",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+}

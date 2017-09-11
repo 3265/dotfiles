@@ -1,6 +1,9 @@
 {
   "recommendations": [
     "dbaeumer.vscode-eslint",
-    "vscodevim.vim"
+    "PKief.material-icon-theme",
+    "vscodevim.vim",
+    "christian-kohler.path-intellisense",
+    "EditorConfig.editorconfig"
   ]
 }
