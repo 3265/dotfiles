@@ -34,7 +34,6 @@ alias py='python3'
 alias pn='pet new'
 alias pl='pet list'
 alias pe='pet exec'
-alias ps='pet search'
 
 alias grep='grep --color=auto'
 alias less='less -R'
