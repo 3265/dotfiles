@@ -23,7 +23,6 @@ map! <NUL> <CR>
 " =================
 
 " EscEscで検索ハイライトを消す
-nnoremap <ESC><ESC> :nohlsearch<CR><Esc>
 noremap <silent> <C-n> :nohlsearch<CR><C-L>
 
 " =================

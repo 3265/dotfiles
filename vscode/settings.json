@@ -1,6 +1,7 @@
 {
   "extensions.autoUpdate": false,
   "eslint.enable": true,
+  "editor.rulers": [100],
   "editor.fontSize": 10,
   "javascript.validate.enable": false,
   "workbench.colorTheme": "Solarized Dark",
