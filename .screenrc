@@ -4,6 +4,9 @@ escape ^Zz
 # screen起動のシェルをtmuxに変更する
 shell "tmux"
 
+# VIM用にESCの反応を早くする
+maptimeout 0
+
 # ステータスバーの有効化
 hardstatus on
 hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{= gw}%n: %t%{-}%+w %-17<%=%{= .y} Load Average(%l)'
