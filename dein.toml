@@ -152,8 +152,8 @@ repo = 'haya14busa/incsearch.vim'
 [[plugins]] # for comment out
 repo = 'tyru/caw.vim'
 
-[[plugins]] # for pasting
-repo = 'ConradIrwin/vim-bracketed-paste'
+# [[plugins]] # for pasting
+# repo = 'ConradIrwin/vim-bracketed-paste'
 
 [[plugins]]
 repo = 'heavenshell/vim-jsdoc'
@@ -168,6 +168,9 @@ repo = 'thinca/vim-quickrun'
 
 # [[plugins]] # for simplifiles
 # repo = 'AndrewRadev/splitjoin.vim'
+
+# [[plugins]]
+# repo = 'sjl/gundo.vim'
 
 # ====================-
 # English
