@@ -30,6 +30,9 @@ alias z='zsh'
 # python
 alias py='python3'
 
+# haskell
+# alias hs='ghci'
+
 # Pet
 alias pn='pet new'
 alias pl='pet list'

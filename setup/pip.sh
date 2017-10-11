@@ -7,6 +7,11 @@
 brew install python2
 brew install python3
 
+pip3 install jupyter
+
+pip3 install --upgrade pip
+pip3 install flake8
+
 # for Refactoring
 pip2 install codemod
 

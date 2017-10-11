@@ -13,6 +13,15 @@ build = 'git submodule update --init'
 # build = 'git submodule update --init'
 
 # ====================-
+# Haskell
+# ====================-
+
+# [[plugins]]
+# repo = "dag/vim2hs"
+# on_ft = ['haskell']
+
+
+# ====================-
 # GO
 # ====================-
 
@@ -150,9 +159,6 @@ on_ft = 'less'
 repo = 'stephpy/vim-yaml' # yaml
 on_ft = 'yaml'
 
-[[plugins]]
-repo = 'elzr/vim-json' # json
-on_ft = 'json'
 
 # ====================-
 # Others

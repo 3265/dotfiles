@@ -1,9 +1,12 @@
 {
   "recommendations": [
+    "EditorConfig.editorconfig",
     "dbaeumer.vscode-eslint",
     "PKief.material-icon-theme",
-    "vscodevim.vim",
     "christian-kohler.path-intellisense",
-    "EditorConfig.editorconfig"
+    "eg2.tslint",
+    "pmneo.tsimporter",
+    "vscodevim.vim",
+    "WakaTime.vscode-wakatime"
   ]
 }

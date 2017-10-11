@@ -3,6 +3,7 @@
   "eslint.enable": true,
   "editor.rulers": [100],
   "editor.fontSize": 10,
+  "editor.formatOnSave": false,
   "javascript.validate.enable": false,
   "workbench.colorTheme": "Solarized Dark",
   "workbench.activityBar.visible": true,

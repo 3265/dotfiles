@@ -67,6 +67,9 @@ brew cask install virtualbox
 brew cask install chromium
 brew cask install iterm2
 
+# haskell
+brew install ghc
+
 # menu app
 brew install caffeine
 brew install clipmenu
