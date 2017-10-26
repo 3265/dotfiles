@@ -15,12 +15,73 @@ if = 'has("python3")'
 # repo = 'Shougo/deoplete.nvim'
 # if = 'has("python3")'
 # on_i = 1
+# hook_add = '''
+# let g:deoplete#enable_at_startup = 1      "enable deoplete at vim startup
+# let g:deoplete#auto_complete_delay = 0
+# let g:deoplete#auto_complete_start_length = 1
+# let g:deoplete#enable_camel_case = 0
+# let g:deoplete#enable_ignore_case = 0   "let matcher ignore case
+# let g:deoplete#enable_refresh_always = 0
+# let g:deoplete#enable_smart_case = 1
+# let g:deoplete#file#enable_buffer_path = 1
+# let g:deoplete#enable_fuzzy_completion = 1   "fuzzy match
+# let g:deoplete#max_list = 1000
+#
+# let g:deoplete#sources = {}
+# let g:deoplete#sources._ = ['file', 'neosnippet']
+#
+# " python
+# let g:deoplete#sources#jedi#enable_cache = 1
+# let g:deoplete#sources#jedi#statement_length = 40
+# let g:deoplete#sources#jedi#show_docstring = 0
+# let g:deoplete#sources#jedi#extra_path = '~/CrispyLand/'
+# let g:deoplete#omni_patterns = {}
+# let g:deoplete#omni_patterns.html = '<[^>]*'
+# let g:deoplete#omni_patterns.xml  = '<[^>]*'
+# let g:deoplete#omni_patterns.md   = '<[^>]*'
+# let g:deoplete#omni_patterns.css  = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
+# let g:deoplete#omni_patterns.python = '\h\w*\|[^. \t]\.\w*'
+# let g:deoplete#omni_patterns.go = '\h\w*\.\?'
+# " let g:deoplete#omni_patterns.go = '[^.[:digit:] *\t]\.\w*' " deopleteでnsを出すため
+# let g:deoplete#omni_patterns.javascript = '\h\w*\.\?'
+# " let g:deoplete#omni_patterns.javascript = '[^. \t]\.\%(\h\w*\)\?' " deopleteでnsを出すため
+# " let g:go_snippet_engine = "neosnippet"
+#
+# " see https://gist.github.com/zchee/c314e63ae8b6bea50bb4
+#
+# '''
 
 # # for VIM
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 if = 'has("lua")'
 on_i = 1
+
+hook_add = '''
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_camel_case_completion = 1
+" let g:neocomplete#force_overwrite_completefunc=1  " neoshippet用
+
+" NOTE:
+" g:neocomplete#force_omni_input_patternsでmatchした際は他ソースの処理を行わずに動作する
+" g:neocomplete#sources#omni#input_patternsでは他のソースも含めた候補を生成するので
+" neosnippetを出す際は、 g:neocomplete#sources#omni#input_patternsを使う
+" see https://github.com/Shougo/neosnippet.vim/issues/198
+
+" 他のソースも含めた候補を生成
+let g:neocomplete#sources#omni#input_patterns = {}
+let g:neocomplete#sources#omni#input_patterns.c = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+let g:neocomplete#sources#omni#input_patterns.html = '<[^>]*'
+let g:neocomplete#sources#omni#input_patterns.xml  = '<[^>]*'
+let g:neocomplete#sources#omni#input_patterns.md   = '<[^>]*'
+let g:neocomplete#sources#omni#input_patterns.css  = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
+let g:neocomplete#sources#omni#input_patterns.javascript = '\h\w*\.\?'
+let g:neocomplete#sources#omni#input_patterns.go = '\h\w*\.\?'
+let g:neocomplete#sources#omni#input_patterns.python = '\h\w*\.\?'
+'''
 
 # [[plugins]]
 # repo = 'Shougo/neocomplcache.vim'
@@ -46,6 +107,18 @@ on_i = 1
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 on_i = 1
+hook_add = '''
+
+" key mappings
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
@@ -57,6 +130,44 @@ on_i = 1
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+hook_add = '''
+
+" key mappings
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+" nerdtree icon settings
+let g:NERDTreeShowHidden = 1 " 隠しフォルダを表示する
+let g:NERDTreeShowBookmarks=1 " ブックマークを初期表示
+let g:NERDTreeWinSize=35 " 表示横幅
+
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
+let NERDTreeIgnore =
+            \ ['\.pyc', '\.git$', '\~$', '\.swo$', '\.hg', '\.svn', '\.bzr', '\.DS_Store']
+
+" nerdtree git
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "編",
+    \ "Staged"    : "追",
+    \ "Untracked" : "逃",
+    \ "Renamed"   : "名",
+    \ "Unmerged"  : "未",
+    \ "Deleted"   : "削",
+    \ "Dirty"     : "変",
+    \ "Clean"     : "良",
+    \ "Unknown"   : "謎"
+    \ }
+
+" auto refresh nerdtre every 15s
+" set autoread
+" au CursorHold * if exists("t:NerdTreeBufName") | call <SNR>15_refreshRoot() | endif
+
+" How can I open a NERDTree automatically when vim starts up if no files were specified?
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+'''
 
 [[plugins]]
 repo = 'Xuyuanp/nerdtree-git-plugin'
@@ -65,11 +176,57 @@ depends = ['scrooloose/nerdtree']
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
 depends = ['scrooloose/nerdtree']
+hook_add = '''
+" nerd tree webdev icon
+let g:webdevicons_enable_nerdtree = 1
+
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '' " アイコンのパディング
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
+'''
 
 # NOTE: ホワイトリストでもくっそ思いのでとりあえず無効化
 # [[plugins]]
 # repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
 # depends = ['scrooloose/nerdtree']
+# hook_add = '''
+# " NOTE: ホワイトリストでもくっそ思いのでとりあえず無効化!
+# vim-nerdtree-syntax-highlightが重いのでホワイトリスト形式で表示させる
+# let g:NERDTreeSyntaxDisableDefaultExtensions = 1
+# let g:NERDTreeDisableExactMatchHighlight = 1
+# let g:NERDTreeDisablePatternMatchHighlight = 1
+# let g:NERDTreeSyntaxEnabledExtensions =
+#       \['c',
+#       \'h',
+#       \'c++',
+#       \'go',
+#       \'sh',
+#       \'python',
+#       \'js',
+#       \'css',
+#       \'md',
+#       \'coffee',
+#       \'java',
+#       \'.sql',
+#       \'xml',
+#       \'json']
+# '''
+
+
+# ====================-
+# Sign column
+# ====================-
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+" left git diff bar
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '➜'
+let g:gitgutter_sign_removed = '―'
+" 500だと保存時エラーが出るのため
+let g:gitgutter_max_signs = 1000
+'''
 
 # ====================-
 # StatusBar
@@ -80,12 +237,27 @@ repo = 'bling/vim-airline'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
+hook_add = '''
+" statusline
+let g:airline_theme = 'solarized'
+let g:airline#extensions#hunks#enabled=1
+let g:airline#extensions#branch#enabled=1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+
+" tab
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0 " タブにバッファ表示しない
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+'''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
 
 # ====================-
 # Appearance
@@ -93,9 +265,30 @@ repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+let g:indent_guides_auto_colors=0
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size=1 " ガイドの幅
+let g:indent_guides_color_change_percent = 10
+
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=darkgrey
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=grey
+'''
 
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
+hook_add = '''
+" Solarized
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+let g:solarized_degrade = 0
+let g:solarized_bold = 1
+let g:solarized_underline = 1
+let g:solarized_italic = 1
+let g:solarized_contrast = 'normal'
+let g:solarized_visibility = 'normal'
+colorscheme solarized
+'''
 
 # ====================-
 # Syntax checker
@@ -103,6 +296,28 @@ repo = 'altercation/vim-colors-solarized'
 
 [[plugins]]
 repo = 'w0rp/ale'
+hook_add = '''
+let g:ale_echo_msg_format = '%severity%: %linter%: %s'
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = ' '
+let g:ale_sign_warning = ' '
+let g:ale_statusline_format = ['  %d', '  %d', '  ']
+let g:ale_linters = {
+      \ 'c': [ 'cppcheck' ],
+      \ 'python': [ 'flake8' ],
+      \ 'go': [ 'gofmt', 'go vet', 'golint' ],
+      \ 'javascript': [ 'eslint' ],
+      \ 'jsx': [ 'eslint' ],
+      \ 'css': [ 'stylelint' ],
+      \ 'html': ['htmlhint'],
+      \ }
+
+" Write this in your vimrc file
+let g:ale_lint_on_text_changed = 'never'
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
+'''
 
 # [[plugins]]
 # repo = 'vim-syntastic/syntastic'
@@ -196,6 +411,47 @@ on_source = ['denite.vim']
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
+hook_add = '''
+
+" key mapings
+nmap <F9> :TagbarToggle<CR>
+
+" It depends package below
+" Ctags
+" https://github.com/majutsushi/tagbar
+" go get -u github.com/jstemmer/gotags
+
+" NOTE:
+" + - で開閉する
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+    \ 'ctype' : 't',
+    \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+    \ }
+'''
 
 [[plugins]]
 repo = 'soramugi/auto-ctags.vim'
@@ -212,15 +468,25 @@ repo = 'osyo-manga/vim-over'
 
 [[plugins]] # for searching
 repo = 'haya14busa/incsearch.vim'
+hook_add = '''
+" key mappings
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+'''
 
 [[plugins]] # for comment out
 repo = 'tyru/caw.vim'
+hook_add = '''
+" key mappings
+" コメントアウト用(tabもしくはC-iでコメントout)
+nmap <C-i> <Plug>(caw:hatpos:toggle)
+vmap <C-i> <Plug>(caw:hatpos:toggle)
+'''
 
 # [[plugins]] # for pasting
 # repo = 'ConradIrwin/vim-bracketed-paste'
-
-[[plugins]]
-repo = 'heavenshell/vim-jsdoc'
 
 [[plugins]] # for life log
 repo = 'wakatime/vim-wakatime'
@@ -251,4 +517,4 @@ repo = 'thinca/vim-quickrun'
 # repo = 'Shougo/vimproc.vim'
 # build = 'make'
 #
-#
+

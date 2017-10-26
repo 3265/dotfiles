@@ -28,6 +28,17 @@ autocmd FileType c ClangFormatAutoEnable
 repo = "davidhalter/jedi-vim"
 on_ft = ['python']
 build = 'git submodule update --init'
+hook_add = '''
+let g:jedi#use_tabs_not_buffers = 1  " 補完で次の候補に進むときにtabを使えるという設定にしたつもりですができませんでした。
+let g:jedi#popup_select_first = 0             " 1個目の候補が入力されるっていう設定を解除
+let g:jedi#popup_on_dot = 0                   " .を入力すると補完が始まるという設定を解除
+let g:jedi#goto_command = "<leader>d"
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#rename_command = "<leader>R" " quick-runと競合しないように大文字Rに変更. READMEだと<leader>r
+'''
 
 # [[plugins]]
 # repo = "zchee/deoplete-jedi"
@@ -51,6 +62,20 @@ build = 'git submodule update --init'
 repo = 'fatih/vim-go'
 on_ft = 'go'
 on_i = 1
+hook_add = '''
+let g:go_fmt_command = "goimports" " save hook process in go-vim, neet to install goimports
+" let g:syntastic_go_checkers = ['gofmt', 'golint', 'govet']
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_structs = 1
+
+let g:go_def_mapping_enabled=0 " タブ移動の時にnvimでうるさいから
+'''
 
 # [[plugins]]
 # repo = 'zchee/deoplete-go'
@@ -108,6 +133,15 @@ on_ft = ['javascript', 'jsx']
 [[plugins]]
 repo = 'moll/vim-node' # gfでrequire移動用
 on_ft = 'javascript'
+hook_add = '''
+" key mappings
+" vim-node file jump
+autocmd User Node
+  \ if &filetype == "javascript" |
+  \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
+  \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
+  \ endif
+'''
 
 # [[plugins]]
 # repo = 'mxw/vim-jsx'  # jsxのインデントとシンタックスハイライト, vim-javascriptに依存する
@@ -123,6 +157,15 @@ on_source = ['vim-javascript']
 # repo  = 'ternjs/tern_for_vim'
 # on_ft = ['javascript', 'jsx']
 # build = 'npm install'
+hook_add = '''
+let g:jsx_ext_required = 1
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+let tern_show_argument_hints = 'on_move'
+let tern_show_signature_in_pum = 1
+let tern#is_show_argument_hints_enabled = 1
+'''
+
 
 # [[plugins]]
 # repo  = 'carlitux/deoplete-ternjs'
@@ -132,6 +175,9 @@ on_source = ['vim-javascript']
 # [[plugins]]
 # repo = 'heavenshell/vim-jsdoc' # jsdoc用
 # on_ft = 'javascript'
+
+[[plugins]]
+repo = 'heavenshell/vim-jsdoc'
 
 # ====================-
 # CS

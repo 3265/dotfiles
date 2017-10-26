@@ -79,22 +79,6 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 " =================
-" neoshippets
-" =================
-
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" =================
-" nerdtree
-" =================
-
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-
-" =================
 "  windowのResize(Tmux風)
 " =================
 
@@ -108,41 +92,4 @@ nnoremap H :vertical resize -5<cr>
 nnoremap J :resize +5<cr>
 nnoremap K :resize -5<cr>
 nnoremap L :vertical resize +5<cr>
-
-" =================
-"  windowのResize(Tmux風)
-" =================
-
-" tagbar window
-nmap <F9> :TagbarToggle<CR>
-
-" =================
-"  その他
-" =================
-
-" vim-node file jump
-autocmd User Node
-  \ if &filetype == "javascript" |
-  \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
-  \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
-  \ endif
-
-" jsdoc
-nmap <silent> <C-m> <Plug>(jsdoc)
-
-" =================
-"  インクリメンタルサーチ
-" =================
-
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
-" =================
-"  Caw(コメントアウト用)
-" =================
-
-" コメントアウト用( tabもしくはC-iでコメントout)
-nmap <C-i> <Plug>(caw:hatpos:toggle)
-vmap <C-i> <Plug>(caw:hatpos:toggle)
 
