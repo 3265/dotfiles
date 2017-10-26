@@ -53,6 +53,10 @@ brew cask install git
 brew cask install tig
 brew install fswatch
 
+# C
+brew install cppcheck
+brew install clang-format
+
 # Golang
 brew install go
 brew install peco

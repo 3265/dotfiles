@@ -19,9 +19,6 @@ source ~/dotfiles/vim/.vimrc.icons
 " filetree
 source ~/dotfiles/vim/.vimrc.tree
 
-" finder
-source ~/dotfiles/vim/.vimrc.finder
-
 " auto completion
 source ~/dotfiles/vim/.vimrc.completion
 
@@ -40,5 +37,3 @@ source ~/dotfiles/vim/.vimrc.snippets
 " taagbar
 source ~/dotfiles/vim/.vimrc.tagbar
 
-" fileType
-source ~/dotfiles/vim/.vimrc.filetype
