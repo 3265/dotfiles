@@ -488,9 +488,6 @@ vmap <C-i> <Plug>(caw:hatpos:toggle)
 # [[plugins]] # for pasting
 # repo = 'ConradIrwin/vim-bracketed-paste'
 
-[[plugins]] # for life log
-repo = 'wakatime/vim-wakatime'
-
 # for run command quickly
 # <Leader>r
 [[plugins]]

@@ -1,4 +1,12 @@
 # ====================-
+# Heavy Plugins
+# ====================-
+
+[[plugins]] # for life log
+repo = 'wakatime/vim-wakatime'
+on_event = 'InsertEnter' #InsertEnter = 挿入モードを開始したとき
+
+# ====================-
 # C/C++
 # ====================-
 
