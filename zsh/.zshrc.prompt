@@ -86,8 +86,7 @@ re-prompt() {
 zle -N accept-line re-prompt
 
 # コマンドがないときのhook
-function command_not_found_handler(){
-	echo "zsh: command not found $1"
-	open "https://www.google.com.ph/search?q=$1+command"
-}
-
+# function command_not_found_handler(){
+# 	echo "zsh: command not found $1"
+# 	open "https://www.google.com.ph/search?q=$1+command"
+# }
