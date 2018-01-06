@@ -42,6 +42,9 @@ ln -s -i ~/dotfiles/grc/conf.gotest ~/.grc/conf.gotest
 ln -s -i ~/dotfiles/.npmrc ~/.npmrc
 ln -s -i ~/dotfiles/.tern-config ~/.tern-config
 
+# Ruby
+ln -s -i ~/dotfiles/.gemrc ~/.gemrc
+
 # Atom
 # ln -s ~/dotfiles/atom/config.cson ~/.atom/config.cson
 # ln -s ~/dotfiles/atom/init.coffee ~/.atom/init.coffee
