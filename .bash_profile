@@ -69,6 +69,9 @@ if [ -f /Users/kanekotakeshi/google-cloud-sdk/completion.bash.inc ]; then
   source '/Users/kanekotakeshi/google-cloud-sdk/completion.bash.inc'
 fi
 
+# Setting for Ruby Env to reload the another path.
+eval "$(rbenv init -)"
+
 # 初回シェル時のみ screen実行
 if [ $SHLVL = 1 ]; then
   # 先にデタッチ済みのセッションは全て消す
