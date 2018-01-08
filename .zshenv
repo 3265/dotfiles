@@ -54,3 +54,6 @@ export REPORTTIME=3
 # ------------------------------
 
 eval "$(direnv hook zsh)"
+
+# Setting for Ruby Env to reload the another path.
+eval "$(rbenv init -)"

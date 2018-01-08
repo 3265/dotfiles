@@ -26,3 +26,7 @@ source ~/dotfiles/zsh/.zshrc.function
 # plugin
 source ~/dotfiles/zsh/.zshrc.plugin
 
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /Users/os10/Apps/ryokan/Okami-front/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/os10/Apps/ryokan/Okami-front/node_modules/tabtab/.completions/electron-forge.zsh
