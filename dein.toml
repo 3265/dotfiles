@@ -81,6 +81,7 @@ let g:neocomplete#sources#omni#input_patterns.css  = '^\s\+\w\+\|\w\+[):;]\?\s\+
 let g:neocomplete#sources#omni#input_patterns.javascript = '\h\w*\.\?'
 let g:neocomplete#sources#omni#input_patterns.go = '\h\w*\.\?'
 let g:neocomplete#sources#omni#input_patterns.python = '\h\w*\.\?'
+let g:neocomplete#sources#omni#input_patterns.ruby = '\h\w*\.\?'
 '''
 
 # [[plugins]]
