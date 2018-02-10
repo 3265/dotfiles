@@ -146,9 +146,10 @@ on_ft = ['typescript', 'ts', 'tsx']
 # JS
 # ====================-
 
-[[plugins]]
-repo = 'pangloss/vim-javascript' # jsインデントとシンタックスカラー
-on_ft = ['javascript', 'jsx']
+# NOTE: Don't enable it because of infinity loop
+# [[plugins]]
+# repo = 'pangloss/vim-javascript' # jsインデントとシンタックスカラー
+# on_ft = ['javascript', 'jsx']
 
 [[plugins]]
 repo = 'moll/vim-node' # gfでrequire移動用
