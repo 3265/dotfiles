@@ -72,17 +72,17 @@ on_ft = 'go'
 on_i = 1
 hook_add = '''
 let g:go_fmt_command = "goimports" " save hook process in go-vim, neet to install goimports
-" let g:syntastic_go_checkers = ['gofmt', 'golint', 'govet']
+let g:syntastic_go_checkers = ['gofmt', 'golint', 'govet']
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
 let g:go_highlight_structs = 1
+" let g:go_highlight_build_constraints = 1
 
-let g:go_def_mapping_enabled=0 " タブ移動の時にnvimでうるさいから
+" let g:go_def_mapping_enabled=0 " タブ移動の時にnvimでうるさいから
 '''
 
 # [[plugins]]
