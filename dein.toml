@@ -79,9 +79,9 @@ let g:neocomplete#sources#omni#input_patterns.xml  = '<[^>]*'
 let g:neocomplete#sources#omni#input_patterns.md   = '<[^>]*'
 let g:neocomplete#sources#omni#input_patterns.css  = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
 let g:neocomplete#sources#omni#input_patterns.javascript = '\h\w*\.\?'
-let g:neocomplete#sources#omni#input_patterns.go = '\h\w*\.\?'
 let g:neocomplete#sources#omni#input_patterns.python = '\h\w*\.\?'
 let g:neocomplete#sources#omni#input_patterns.ruby = '\h\w*\.\?'
+let g:neocomplete#sources#omni#input_patterns.go = '[^.[:digit:] *\t]\.\w*'
 '''
 
 # [[plugins]]
