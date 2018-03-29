@@ -25,6 +25,7 @@ ln -s -i ~/dotfiles/dein_lazy.toml ~/.vim/dein_lazy.toml
 ln -s -i ~/dotfiles/.screenrc ~/.screenrc
 ln -s -i ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s -i ~/dotfiles/.gitconfig ~/.gitconfig
+ln -s -i ~/dotfiles/.gitignore ~/.gitignore
 ln -s -i ~/dotfiles/.tigrc ~/.tigrc
 ln -s -i ~/dotfiles/.dockerignore ~/.dockerignore
 ln -s -i ~/dotfiles/.agignore ~/.agignore
