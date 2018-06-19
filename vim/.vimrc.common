@@ -68,6 +68,8 @@ set backspace=indent,eol,start " バックスペースでなんでも消せる�
 set pastetoggle=<F12> " F12でインサートモードでpaste modeをトグル
 " Vim 8で「E353: Nothing in register *」が出るためコメントアウト
 " set clipboard=unnamedplus " 別タブでコピーを共有する
+set clipboard=unnamed,autoselect " yankでクリップボードにコピー
+"
 
 " バックアップ
 set nowritebackup
