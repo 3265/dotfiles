@@ -2,8 +2,6 @@
 export EDITOR=vim
 export PAGER=less
 
-export GREP_OPTIONS='--color=auto'
-
 # for virtual environment
 export TERM=xterm-256color
 
