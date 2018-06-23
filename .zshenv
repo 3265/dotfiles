@@ -35,11 +35,6 @@ export ZLS_COLORS=$LS_COLORS # ZLS_COLORSとは？
 export CLICOLOR=true # lsコマンド時、自動で色がつく(ls -Gのようなもの？)
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # 補完候補に色を付ける
 
-# Settings for golang
-export GOPATH="$HOME"
-export GOBIN="$GOPATH/bin"
-export PATH="$GOBIN:$PATH"
-
 # History
 export HISTFILE=~/.zsh_history # History file
 export HISTSIZE=10000          # History size in memory
