@@ -43,12 +43,3 @@ export LISTMAX=50              # The size of asking history
 
 # 3秒以上コマンドに時間がかかったら詳細表示
 export REPORTTIME=3
-
-# ------------------------------
-# Path settings
-# ------------------------------
-
-eval "$(direnv hook zsh)"
-
-# Setting for Ruby Env to reload the another path.
-eval "$(rbenv init -)"

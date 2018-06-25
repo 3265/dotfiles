@@ -15,12 +15,3 @@ export NODE_PATH=~/.nvm/versions/node/v0.12.0/lib/node_modules/
 
 # for nvim
 export XDG_CONFIG_HOME=~/.config
-
-# ------------------------------
-# Path settings
-# ------------------------------
-
-eval "$(direnv hook zsh)"
-
-# Setting for Ruby Env to reload the another path.
-eval "$(rbenv init -)"
