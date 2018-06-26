@@ -27,11 +27,15 @@ alias x='tmux'
 alias y='yes'
 alias z='zsh'
 
+# for git typo
+alias gl='g l'
+alias gs='g s'
+
 # python
 alias py='python3'
 
 # haskell
-# alias hs='ghci'
+alias hs='ghci'
 
 # Pet
 alias pn='pet new'
@@ -52,3 +56,6 @@ alias drmc='docker rm $(docker ps --all --quiet) -f'
 alias drmi='docker rmi $(docker images --quiet) -f'
 alias drmv='docker volume rm `docker volume ls -q -f dangling=true`'
 
+# mac sshfs
+# alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
+# alias kaishafs='sshfs kaisha: ~/mp/kaisha -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=kaisha'

@@ -11,9 +11,15 @@ ln -s -i ~/dotfiles/.inputrc ~/.inputrc
 ln -s -i ~/dotfiles/.zshrc ~/.zshrc
 ln -s -i ~/dotfiles/.zshenv ~/.zshenv
 
-# Alias & Envs
+# Alias
 ln -s -i ~/dotfiles/.aliases ~/.aliases
-ln -s -i ~/dotfiles/.export ~/.export
+
+# Xmonad
+mkdir -p ~/.xmonad/
+ln -s -i ~/dotfiles/xmonad.hs ~/.xmonad/xmonad.hs
+ln -s -i ~/dotfiles/xmonad-session-rc ~/.xmonad/xmonad-session-rc
+ln -s -i ~/dotfiles/.xmobarrc ~/.xmobarrc
+ln -s -i ~/dotfiles/.xmodmap ~/.xmodmap
 
 # VIM
 mkdir -p ~/.vim/
