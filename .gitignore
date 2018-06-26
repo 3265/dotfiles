@@ -71,3 +71,6 @@ node_modules
 
 # editorconfig
 .editorconfig
+
+# zsh
+*.zwc
