@@ -4,13 +4,15 @@
 #  python
 # ######################
 
-brew install python2
-brew install python3
+sudo apt install python-pip python3-pip
 
 pip3 install jupyter
 
 pip3 install --upgrade pip
 pip3 install flake8
+
+# for tmux
+pip3 install --user tmuxp
 
 # for Refactoring
 pip2 install codemod
