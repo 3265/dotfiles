@@ -6,3 +6,9 @@ xmodmap ~/.xmodmap
 # Start ibus-mozc
 ibus-daemon &
 
+# Start terminal
+chromium
+
+# Start chromium
+gnome-terminal
+
