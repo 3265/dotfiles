@@ -140,7 +140,6 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 let g:NERDTreeShowHidden = 1 " 隠しフォルダを表示する
 let g:NERDTreeShowBookmarks=1 " ブックマークを初期表示
 let g:NERDTreeWinSize=35 " 表示横幅
-
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
@@ -182,7 +181,7 @@ hook_add = '''
 let g:webdevicons_enable_nerdtree = 1
 
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '' " アイコンのパディング
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' ' " アイコンのパディング
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 '''
 
