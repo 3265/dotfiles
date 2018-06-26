@@ -27,9 +27,10 @@ alias x='tmux'
 alias y='yes'
 alias z='zsh'
 
-# for git typo
+# typo
 alias gl='g l'
 alias gs='g s'
+alias ll='l'
 
 # python
 alias py='python3'
