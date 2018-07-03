@@ -1,26 +1,35 @@
 #!/bin/bash
 
-mkdir -p ~/.config/peco
-mkdir -p ~/.config/ranger
 # mkdir -p ~/.config/memo
-mkdir -p ~/.config/pet
-mkdir -p ~/.config/nvim
-mkdir -p ~/.grc/
 
+# Bash
 ln -s -i ~/dotfiles/.bashrc ~/.bashrc
 ln -s -i ~/dotfiles/.bash_profile ~/.bash_profile
 ln -s -i ~/dotfiles/.inputrc ~/.inputrc
 
+# ZSH
 ln -s -i ~/dotfiles/.zshrc ~/.zshrc
 ln -s -i ~/dotfiles/.zshenv ~/.zshenv
 
+# Alias
 ln -s -i ~/dotfiles/.aliases ~/.aliases
-ln -s -i ~/dotfiles/.export ~/.export
 
+# Xmonad
+mkdir -p ~/.xmonad/
+ln -s -i ~/dotfiles/xmonad.hs ~/.xmonad/xmonad.hs
+ln -s -i ~/dotfiles/xmonad-session-rc ~/.xmonad/xmonad-session-rc
+ln -s -i ~/dotfiles/.xmobarrc ~/.xmobarrc
+ln -s -i ~/dotfiles/.xmodmap ~/.xmodmap
+
+# VIM
+mkdir -p ~/.vim/
 ln -s -i ~/dotfiles/.vimrc ~/.vimrc
-ln -s -i ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 ln -s -i ~/dotfiles/dein.toml ~/.vim/dein.toml
 ln -s -i ~/dotfiles/dein_lazy.toml ~/.vim/dein_lazy.toml
+
+# NVIM
+mkdir -p ~/.config/nvim
+ln -s -i ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 
 ln -s -i ~/dotfiles/.screenrc ~/.screenrc
 ln -s -i ~/dotfiles/.tmux.conf ~/.tmux.conf
@@ -31,17 +40,28 @@ ln -s -i ~/dotfiles/.dockerignore ~/.dockerignore
 ln -s -i ~/dotfiles/.agignore ~/.agignore
 ln -s -i ~/dotfiles/.editorconfig ~/.editorconfig
 ln -s -i ~/dotfiles/.Xresources  ~/.Xresources
-ln -s -i ~/dotfiles/config.json ~/.config/peco/config.json
 # ln -s -i ~/dotfiles/config.toml ~/.config/memo/config.toml
+
+# peco
+mkdir -p ~/.config/peco
+ln -s -i ~/dotfiles/config.json ~/.config/peco/config.json
+
+# pet
+mkdir -p ~/.config/pet
 ln -s -i ~/dotfiles/config.toml ~/.config/pet/config.toml
+
+# ranger
+mkdir -p ~/.config/ranger
 ln -s -i ~/dotfiles/rc.conf ~/.config/ranger/rc.conf
 
+# GRC
+mkdir -p ~/.grc/
 ln -s -i ~/dotfiles/grc/grc.conf ~/.grc/grc.conf
 ln -s -i ~/dotfiles/grc/conf.gotest ~/.grc/conf.gotest
 
 # JS
 ln -s -i ~/dotfiles/.npmrc ~/.npmrc
-ln -s -i ~/dotfiles/.tern-config ~/.tern-config
+# ln -s -i ~/dotfiles/.tern-config ~/.tern-config
 
 # Ruby
 ln -s -i ~/dotfiles/.gemrc ~/.gemrc

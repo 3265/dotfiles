@@ -11,7 +11,7 @@ alias h='history'
 alias i="find"
 alias j='jump'
 alias k='mkdir -p'
-alias l='gls -al --color=auto' # need to install coreutils through homebrew before using it on mac
+alias l='LC_COLLATE=C ls -al --color=auto --human-readable --group-directories-first'
 alias m='mv'
 alias n='node'
 alias o='go'
@@ -27,11 +27,16 @@ alias x='tmux'
 alias y='yes'
 alias z='zsh'
 
+# typo
+alias gl='g l'
+alias gs='g s'
+alias ll='l'
+
 # python
 alias py='python3'
 
 # haskell
-# alias hs='ghci'
+alias hs='ghci'
 
 # Pet
 alias pn='pet new'
@@ -39,6 +44,8 @@ alias pl='pet list'
 alias pe='pet exec'
 
 alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 alias less='less -R'
 alias gitwatch='fswatch -0 . | xargs -0 -n 1 sh -c "clear && git status --short"' # to need to install fswatch
 
@@ -50,3 +57,6 @@ alias drmc='docker rm $(docker ps --all --quiet) -f'
 alias drmi='docker rmi $(docker images --quiet) -f'
 alias drmv='docker volume rm `docker volume ls -q -f dangling=true`'
 
+# mac sshfs
+# alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
+# alias kaishafs='sshfs kaisha: ~/mp/kaisha -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=kaisha'

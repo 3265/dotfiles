@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Remap capslock to ctrl
+xmodmap ~/.xmodmap
+
+# Start ibus-mozc
+ibus-daemon &
+
+# Start chromium
+gnome-terminal
+
