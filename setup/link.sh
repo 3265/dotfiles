@@ -14,11 +14,7 @@ ln -s -i ~/dotfiles/.zshenv ~/.zshenv
 # Alias
 ln -s -i ~/dotfiles/.aliases ~/.aliases
 
-# Xmonad
-mkdir -p ~/.xmonad/
-ln -s -i ~/dotfiles/xmonad.hs ~/.xmonad/xmonad.hs
-ln -s -i ~/dotfiles/xmonad-session-rc ~/.xmonad/xmonad-session-rc
-ln -s -i ~/dotfiles/.xmobarrc ~/.xmobarrc
+# Keymap
 ln -s -i ~/dotfiles/.xmodmap ~/.xmodmap
 
 # VIM
@@ -30,6 +26,10 @@ ln -s -i ~/dotfiles/dein_lazy.toml ~/.vim/dein_lazy.toml
 # NVIM
 mkdir -p ~/.config/nvim
 ln -s -i ~/dotfiles/.vimrc ~/.config/nvim/init.vim
+
+# i3 WM
+mkdir -p ~/.config/i3
+ln -s -i ~/dotfiles/i3/config ~/.config/i3/config
 
 ln -s -i ~/dotfiles/.screenrc ~/.screenrc
 ln -s -i ~/dotfiles/.tmux.conf ~/.tmux.conf
