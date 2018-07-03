@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Neccesary
-sudo apt-get install terminator -y
+# sudo apt-get install git -y
+# sudo apt-get install terminator -y
 sudo apt-get install zsh -y
-sudo apt-get install git -y
 sudo apt-get install vim -y
 sudo apt-get install screen -y
 sudo apt-get install tmux -y
