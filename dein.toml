@@ -146,18 +146,20 @@ let g:NERDTreeDirArrowCollapsible = '-'
 let NERDTreeIgnore =
             \ ['\.pyc', '\.git$', '\~$', '\.swo$', '\.hg', '\.svn', '\.bzr', '\.DS_Store']
 
-" nerdtree git
+" NOTE: use ascii instead of utf-8
+" see https://github.com/Xuyuanp/nerdtree-git-plugin/issues/34
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "<Mod> ",
-    \ "Staged"    : "<Sta> ",
-    \ "Untracked" : "<Unt> ",
-    \ "Renamed"   : "<Ren> ",
-    \ "Unmerged"  : "<Unm> ",
-    \ "Deleted"   : "<Del> ",
-    \ "Dirty"     : "<Dir> ",
-    \ "Clean"     : "<Cle> ",
-    \ "Unknown"   : "<Unk> "
-    \ }
+      \ "Modified"  : "<MOD>",
+      \ "Staged"    : "<STG>",
+      \ "Untracked" : "<UTR>",
+      \ "Renamed"   : "<RNM>",
+      \ "Unmerged"  : "<UMG>",
+      \ "Deleted"   : "<DEL>",
+      \ "Dirty"     : "<DTY>",
+      \ "Clean"     : "<CLN>",
+      \ "Unknown"   : "<NEW>"
+      \ }
+
 
 " auto refresh nerdtre every 15s
 " set autoread

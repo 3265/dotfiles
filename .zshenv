@@ -32,6 +32,7 @@ export TERM=xterm-256color # iTermのときの設定
 export CVSEDITOR="${EDITOR}"
 export SVN_EDITOR="${EDITOR}"
 export GIT_EDITOR="${EDITOR}"
+export LESSCHARSET=utf-8 # git logの文字化け対策
 
 ### Ls Color
 export LSCOLORS=exfxcxdxbxegedabagacad
