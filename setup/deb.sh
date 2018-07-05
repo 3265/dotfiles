@@ -25,3 +25,9 @@ sudo apt-get install compton -y # for transparent
 sudo apt-get install parcellite -y # for clip board
 sudo apt-get install volumeicon-alsa -y # to use volumeicon
 
+# Tmux
+sudo apt-get install xsel -y # for yank
+
+# Business
+sudo snap install slack --classic
+sudo snap install skype --classic

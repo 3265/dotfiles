@@ -97,11 +97,11 @@ bindsym $mod+a focus parent
 # bindsym $mod+d focus child
 
 # Startup Programs
-exec --no-startup-id nm-applet
+exec --no-startup-id "nm-applet"
 exec --no-startup-id "feh --bg-scale $HOME/dotfiles/img/wallpaper.png" # wallpaper
-exec --no-startup-id compton -cbm 0.75 # for transparent
-exec --no-startup-id parcellite # for clip board
-exec --no-startup-id volumeicon # for volume manager
+exec --no-startup-id "compton -cbm 0.75" # for transparent
+exec --no-startup-id "parcellite &" # for clip board
+exec --no-startup-id "volumeicon &" # for volume manager
 
 set $workspace1 "1: Chrome "
 set $workspace2 "2: Files  "
