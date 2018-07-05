@@ -22,9 +22,13 @@ bashcompinit
 
 export EDITOR=vim        # エディタをvimに設定
 export PAGER=less        # PagerはLESS
-export LANG=ja_JP.UTF-8  # 文字コードをUTF-8に設定
 export KCODE=u           # KCODEにUTF-8を設定
 export AUTOFEATURE=true  # autotestでfeatureを動かす
+
+# Language
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 
 export TERM=xterm-256color # iTermのときの設定
 
