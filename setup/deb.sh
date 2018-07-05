@@ -21,4 +21,7 @@ sudo apt-get install python3-pip -y
 # GUI
 sudo apt-get install i3 -y
 sudo apt-get install feh -y # for wallpaper
+sudo apt-get install compton -y # for transparent
+sudo apt-get install parcellite -y # for clip board
+sudo apt-get install volumeicon-alsa -y # to use volumeicon
 

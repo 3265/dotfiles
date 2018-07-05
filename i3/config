@@ -66,6 +66,10 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# move focused workspace by pgUp/pgDn
+bindsym $mod+Prior workspace prev
+bindsym $mod+Next workspace next
+
 # split in horizontal orientation
 bindsym $mod+Shift+v split h
 
@@ -94,7 +98,10 @@ bindsym $mod+a focus parent
 
 # Startup Programs
 exec --no-startup-id nm-applet
-exec_always --no-startup-id feh --bg-scale ~/.wallpaper.png
+exec --no-startup-id "feh --bg-scale $HOME/dotfiles/img/wallpaper.png" # wallpaper
+exec --no-startup-id compton -cbm 0.75 # for transparent
+exec --no-startup-id parcellite # for clip board
+exec --no-startup-id volumeicon # for volume manager
 
 set $workspace1 "1: Chrome "
 set $workspace2 "2: Files  "
@@ -136,7 +143,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id \
+        "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot' -b 'Logout' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
