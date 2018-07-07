@@ -104,6 +104,11 @@ exec --no-startup-id i3-msg 'workspace 0:Terminal ; exec gnome-terminal'
 # to change workspace name like tmux bind
 bindsym $mod+comma exec i3-input -F 'rename workspace to "%s"' -P 'Rename workspace: '
 
+# to make new workspace like tmux
+# Note: need to exec permission
+# chmod +x ~/dotfiles/i3/empty_workspace.sh
+bindsym $mod+c exec --no-startup-id ~/dotfiles/i3/new_workspace.sh
+
 # move focused workspace by pgUp/pgDn or n/p
 bindsym $mod+p workspace prev
 bindsym $mod+n workspace next
