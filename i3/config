@@ -98,6 +98,7 @@ exec --no-startup-id "feh --bg-scale $HOME/dotfiles/img/wallpaper.png" # wallpap
 exec --no-startup-id "compton -cbm 0.75" # for transparent
 exec --no-startup-id "parcellite &" # for clip board
 exec --no-startup-id "volumeicon &" # for volume manager
+# exec --no-startup-id "conky &"
 exec --no-startup-id i3-msg 'workspace 0:Terminal ; exec gnome-terminal'
 
 # to change workspace name like tmux bind
