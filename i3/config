@@ -95,7 +95,7 @@ bindsym $mod+a focus parent
 
 # Startup Programs
 exec --no-startup-id "nm-applet"
-exec --no-startup-id "feh --bg-scale $HOME/dotfiles/i3/wallpaper.png" # wallpaper
+exec --no-startup-id "feh --bg-center ~/dotfiles/i3/wallpaper.jpeg --image-bg #000000" # wallpaper
 exec --no-startup-id "compton -cbm 0.75" # for transparent
 exec --no-startup-id "parcellite &" # for clip board
 exec --no-startup-id "volumeicon &" # for volume manager
