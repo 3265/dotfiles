@@ -66,6 +66,11 @@ export XDG_CONFIG_HOME=~/.config
 #   export PATH="$HOME/.anyenv/bin:$PATH"
 #   eval "$(anyenv init -)"
 # fi
+#
+# Android
+if [ -d /usr/local/android-studio ] ; then
+ export PATH=$PATH:/usr/local/android-studio/bin
+fi
 
 # Golang
 export GOPATH=$HOME/.go

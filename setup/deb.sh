@@ -36,7 +36,3 @@ sudo snap install skype --classic
 # Manual
 # vs code
 
-# Android
-# sudo apt install android-sdk -y
-
-
