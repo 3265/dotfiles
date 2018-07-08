@@ -13,6 +13,7 @@ sudo apt-get install silversearcher-ag -y
 sudo apt-get install ranger -y
 sudo apt-get install tig -y
 sudo apt-get install curl -y
+sudo apt-get install tree -y
 
 # Programing Language
 sudo apt-get install golang -y

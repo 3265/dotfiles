@@ -76,19 +76,7 @@ fi
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOROOT:$GOPATH:$GOPATH/bin
 
-# Node.js
-export NODE_ENV=development
-export NODE_PATH=~/.nvm/versions/node/v0.12.0/lib/node_modules/
-
 # eval "$(direnv hook zsh)"
-
-# Setting for Ruby Env to reload the another path.
-# eval "$(rbenv init -)"
-
-# # nvm
-# if [[ -s ~/.nvm/nvm.sh ]];
-#   then source ~/.nvm/nvm.sh
-# fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/mgoldchild/google-cloud-sdk/path.zsh.inc' ]; then source '/home/mgoldchild/google-cloud-sdk/path.zsh.inc'; fi
