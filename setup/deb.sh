@@ -32,3 +32,11 @@ sudo apt-get install xsel -y # for yank
 # Business
 sudo snap install slack --classic
 sudo snap install skype --classic
+
+# Manual
+# vs code
+
+# Android
+# sudo apt install android-sdk -y
+
+

@@ -66,15 +66,7 @@ ln -s -i ~/dotfiles/.npmrc ~/.npmrc
 # Ruby
 ln -s -i ~/dotfiles/.gemrc ~/.gemrc
 
-# Atom
-# ln -s ~/dotfiles/atom/config.cson ~/.atom/config.cson
-# ln -s ~/dotfiles/atom/init.coffee ~/.atom/init.coffee
-# ln -s ~/dotfiles/atom/keymap.cson ~/.atom/keymap.cson
-# ln -s ~/dotfiles/atom/snippets.cson ~/.atom/snippets.cson
-# ln -s ~/dotfiles/atom/styles.less ~/.atom/styles.less
-# ln -s ~/dotfiles/atom/.apmrc ~/.atom/.apmrc
-
 # VS Code
-ln -s ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-ln -s ~/dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
-ln -s ~/dotfiles/vscode/extensions.json ~/Library/Application\ Support/Code/User/extensions.json
+ln -s ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
+ln -s ~/dotfiles/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+ln -s ~/dotfiles/vscode/extensions.json ~/.config/Code/User/extensions.json

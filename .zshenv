@@ -61,6 +61,12 @@ export XDG_CONFIG_HOME=~/.config
 # Programming Languager Settings
 # ------------------------------
 
+# Anyenv
+# if [ -d ${HOME}/.anyenv ] ; then
+#   export PATH="$HOME/.anyenv/bin:$PATH"
+#   eval "$(anyenv init -)"
+# fi
+
 # Golang
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOROOT:$GOPATH:$GOPATH/bin

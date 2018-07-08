@@ -10,6 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $term gnome-terminal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -99,7 +100,7 @@ exec --no-startup-id "compton -cbm 0.75" # for transparent
 exec --no-startup-id "parcellite &" # for clip board
 exec --no-startup-id "volumeicon &" # for volume manager
 # exec --no-startup-id "conky &"
-exec --no-startup-id i3-msg 'workspace 0:Terminal ; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace terminal; exec gnome-terminal'
 
 # to change workspace name like tmux bind
 bindsym $mod+comma exec i3-input -F 'rename workspace to "%s"' -P 'Rename workspace: '
@@ -108,6 +109,9 @@ bindsym $mod+comma exec i3-input -F 'rename workspace to "%s"' -P 'Rename worksp
 # Note: need to exec permission
 # chmod +x ~/dotfiles/i3/empty_workspace.sh
 bindsym $mod+c exec --no-startup-id ~/dotfiles/i3/new_workspace.sh
+
+# open previous workspace
+bindsym $mod+Tab workspace back_and_forth
 
 # move focused workspace by pgUp/pgDn or n/p
 bindsym $mod+p workspace prev
