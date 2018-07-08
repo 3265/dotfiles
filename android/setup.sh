@@ -50,3 +50,9 @@ adb start-server
 
 adb devices # check whether device is recognized or not
 
+# -----------------------
+#  For dmenu
+# -----------------------
+
+sudo mv android /usr/local/bin/
+sudo chmod +x /usr/local/bin/android
