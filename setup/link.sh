@@ -33,6 +33,7 @@ ln -s -i ~/dotfiles/i3/config ~/.config/i3/config
 
 ln -s -i ~/dotfiles/.screenrc ~/.screenrc
 ln -s -i ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -s -i ~/dotfiles/.conkyrc ~/.conkyrc
 ln -s -i ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s -i ~/dotfiles/.gitignore ~/.gitignore
 ln -s -i ~/dotfiles/.tigrc ~/.tigrc

@@ -14,6 +14,7 @@ sudo apt-get install ranger -y
 sudo apt-get install tig -y
 sudo apt-get install curl -y
 sudo apt-get install tree -y
+sudo apt-get install neofetch -y # cli sys info tool
 
 # Programing Language
 sudo apt-get install golang -y
