@@ -7,12 +7,17 @@ sudo apt-get install silversearcher-ag -y
 sudo apt-get install ranger -y
 sudo apt-get install curl -y
 sudo apt-get install tree -y
+sudo apt-get install gwaei -y # dictionary
+
+# Todo Manager
+sudo apt-get install taskwarrior -y
+sudo apt-get install vit -y
 
 # For git
 sudo apt-get install tig -y
 sudo apt-get install git -y
 
-# Tmux & Screen
+# terminal multiplexer
 sudo apt-get install tmux -y
 sudo apt-get install xsel -y # for yank
 sudo apt-get install screen -y

@@ -99,9 +99,9 @@ exec --no-startup-id "feh --bg-center ~/dotfiles/i3/wallpaper.jpeg --image-bg #0
 exec --no-startup-id "compton -cbm 0.75" # for transparent
 exec --no-startup-id "parcellite &" # for clip board
 exec --no-startup-id "volumeicon &" # for volume manager
-exec --no-startup-id conky -d -c ~/dotfiles/i3/conky-info
 exec --no-startup-id conky -d -c ~/dotfiles/i3/conky-time
-exec --no-startup-id conky -d -c ~/dotfiles/i3/conky-bottom
+exec --no-startup-id conky -d -c ~/dotfiles/i3/conky-cal
+exec --no-startup-id conky -d -c ~/dotfiles/i3/conky-info
 exec --no-startup-id i3-msg 'workspace terminal; exec gnome-terminal'
 
 

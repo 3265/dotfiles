@@ -68,8 +68,8 @@ Filesystem Space Left:
 /$alignr${fs_used /}/${fs_size /}
 $fs_bar
 
-/home/jack$alignr${fs_used /home/jack}/${fs_size /home/jack}
-${fs_bar /home/jack}
+#/home/jack$alignr${fs_used /home/jack}/${fs_size /home/jack}
+# ${fs_bar /home/jack}
 Temperature:$alignr${execi 2 sensors | grep temp2 | cut -c 15-18 | tail -1}
 #${execigraph 2 -t sensors | grep temp2 | cut -c 15-16 | tail -1}
 ${color #d1d1d1}MEMORY & I/O $hr${color}
