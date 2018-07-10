@@ -8,6 +8,7 @@ sudo apt-get install ranger -y
 sudo apt-get install curl -y
 sudo apt-get install tree -y
 sudo apt-get install gwaei -y # dictionary
+sudo apt-get install redshift gtk-redshift -y # for blue light
 
 # Todo Manager
 sudo apt-get install taskwarrior -y
