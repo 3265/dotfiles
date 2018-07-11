@@ -53,7 +53,7 @@ Swap usage:$alignr$swap/$swapmax
 ${color #d1d1d1}NETWORK $hr${color}
 Gateway:$alignr$gw_ip
 Local IP: $alignr ${addr wlan0}
-External IP: $alignr ${exec curl ifconfig.me}
+External IP: $alignr ${execi 10000 curl ipinfo.io/ip}
 SSID: $alignr ${wireless_essid wlan0}
 wlan0 MAC:$alignr${exec ifconfig -a | grep HWaddr | grep wlan0 | cut -c 39-55}
 eth0 MAC:$alignr${exec ifconfig -a | grep HWaddr | grep eth0 | cut -c 39-55}

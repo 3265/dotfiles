@@ -30,8 +30,9 @@ sudo apt-get install compton -y # for transparent
 sudo apt-get install parcellite -y # for clip board
 sudo apt-get install volumeicon-alsa -y # to use volumeicon
 sudo apt-get install neofetch -y # cli sys info tool
-sudo apt-get install moc moc-ffmpeg-plugin # for Music
-sudo apt install net-tools # for ifconfig(used by conky-info)
+sudo apt-get install moc moc-ffmpeg-plugin -y # for Music
+sudo apt-get install net-tools -y # for ifconfig(used by conky-info)
+sudo apt-get install lm-sensors -y # for sensors in conky
 
 # Programing Language
 sudo apt-get install golang -y
