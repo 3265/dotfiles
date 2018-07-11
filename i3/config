@@ -100,6 +100,7 @@ exec --no-startup-id "compton -cbm 0.75" # for transparent
 exec --no-startup-id "parcellite &" # for clip board
 exec --no-startup-id "volumeicon &" # for volume manager
 exec --no-startup-id "redshift &" # for brightness
+exec --no-startup-id "mocp -S && mocp -p" # for auto running mocp server to avoid `FATAL_ERROR: The server is not running` by mocp -i commadn in conky-info
 exec --no-startup-id conky -d -c ~/dotfiles/i3/conky-time
 exec --no-startup-id conky -d -c ~/dotfiles/i3/conky-cal
 exec --no-startup-id conky -d -c ~/dotfiles/i3/conky-info
