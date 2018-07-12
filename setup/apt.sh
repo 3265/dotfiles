@@ -10,6 +10,14 @@ sudo apt-get install tree -y
 sudo apt-get install gwaei -y # dictionary
 sudo apt-get install redshift gtk-redshift -y # for blue light
 
+# Browser
+sudo apt-get install chromium-browser -y
+sudo apt-get install qutebrowser -y
+
+# Office
+sudo apt-get install libreoffice -y
+sudo apt-get install impressive -y
+
 # Todo Manager
 sudo apt-get install taskwarrior -y
 sudo apt-get install vit -y
@@ -41,9 +49,6 @@ sudo apt-get install neofetch -y # cli sys info tool
 sudo apt-get install golang -y
 sudo apt-get install python-pip -y
 sudo apt-get install python3-pip -y
-
-# GUI
-sudo apt-get install chromium-browser -y
 
 # Business
 sudo snap install slack --classic

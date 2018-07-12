@@ -15,7 +15,7 @@ alias l='LC_COLLATE=C ls -al --color=auto --human-readable --group-directories-f
 alias m='mocp' # music on console
 alias n='nautilus &'
 alias o='xdg-open'
-alias p='pet'
+alias p='echo ${PWD} | xsel -b'
 alias q='exit'
 alias r='ranger' # finder
 alias s='chromium-browser --app="https://google.com/"' # search
@@ -48,6 +48,7 @@ alias ts='task summary'
 alias td='task done'
 
 # Pet
+alias pe='pet'
 alias pn='pet new'
 alias pl='pet list'
 alias pe='pet exec'

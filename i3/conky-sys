@@ -61,6 +61,8 @@ Connection Quality: $alignr ${wireless_link_qual wlan0}%
 ${color #d1d1d1}CPU $hr${color}
 CPU Frequency:$alignr$freq_g
 CPU usage:$alignr${cpu cpu0}%
+CORE1: ${alignr}${execi 90 sensors | grep 'Core 0' | cut -c16-23}
+CORE2: ${alignr}${execi 90 sensors | grep 'Core 1' | cut -c16-23}
 $cpugraph
 $cpubar
 ${color #d1d1d1}HDD $hr${color}
