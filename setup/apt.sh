@@ -44,6 +44,9 @@ sudo apt-get install moc moc-ffmpeg-plugin -y # for Music
 sudo apt-get install net-tools -y # for ifconfig(used by conky-info)
 sudo apt-get install lm-sensors -y # for sensors in conky
 sudo apt-get install neofetch -y # cli sys info tool
+sudo apt-get install gcalcli -y # google calendar cli
+# need to auth before use it using cmd below
+# gcalcli --noauth_local_webserver
 
 # Programing Language
 sudo apt-get install golang -y
