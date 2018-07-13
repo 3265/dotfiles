@@ -45,6 +45,7 @@
 	save = commit -m
 	amend = commit --amend
 	resave = commit --amend
+	ignore = rm -r --cached .
 	empty = commit --allow-empty --allow-empty-message
 
 	delete = branch -D
