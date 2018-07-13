@@ -1,49 +1,52 @@
-# Most of this should work for anyone, a few things to look out for:
-# 1: The tempurature option may output two options, just check "sensors" output and adjust the grep accordingly.
-# 2: The Music commands are based on outputs of "mocp -i", so change as neccisary according to the info output of your music player. Note: The first output for the music player shows the path minus the /home/jack/ prefix. You should adjust accordingly or omit it since it only displays very short paths properly.
-# 3: Some of the disk stuff should be adjusted depending on how many partitions you have as well as their names.
-# 4: If you don't have the profont font, adjust accordingly.
-##############################################
-#  Settings
-##############################################
+conky.config = {
+-- Most of this should work for anyone, a few things to look out for:
+-- 1: The tempurature option may output two options, just check "sensors" output and adjust the grep accordingly.
+-- 2: The Music commands are based on outputs of "mocp -i", so change as neccisary according to the info output of your music player. Note: The first output for the music player shows the path minus the /home/jack/ prefix. You should adjust accordingly or omit it since it only displays very short paths properly.
+-- 3: Some of the disk stuff should be adjusted depending on how many partitions you have as well as their names.
+-- 4: If you don't have the profont font, adjust accordingly.
+--#############################################
+--  Settings
+--#############################################
 
-use_xft yes
-xftfont Inconsolata:pixelsize=12
-xftalpha 0.1
-update_interval 1.0
-total_run_times 0
-background no
+	use_xft = true,
+	font = 'Inconsolata:pixelsize=12',
+	xftalpha = 0.1,
+	update_interval = 1.0,
+	total_run_times = 0,
+	background = false,
 
-own_window yes
-own_window_type override
-own_window_transparent yes
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-own_window_colour 000000
-own_window_argb_visual no
-own_window_argb_value 0
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_colour = '#000000',
+	own_window_argb_visual = false,
+	own_window_argb_value = 0,
 
-double_buffer yes
-#minimum_size 500 200
-#maximum_width 500
-draw_shades no
-draw_outline no
-draw_borders no
-draw_graph_borders no
-default_color white
-default_shade_color red
-default_outline_color green
-alignment top_right
-gap_x 30
-gap_y 20
+	double_buffer = true,
+--minimum_size 500 200
+--maximum_width 500
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	default_color = 'white',
+	default_shade_color = 'red',
+	default_outline_color = 'green',
+	alignment = 'top_right',
+	gap_x = 30,
+	gap_y = 20,
 
-no_buffers no
-override_utf8_locale yes
-use_spacer right
+	no_buffers = false,
+	override_utf8_locale = true,
+	use_spacer = 'right',
 
-##############################################
-#  Output
-##############################################
-TEXT
+--#############################################
+--  Output
+--#############################################
+};
+
+conky.text = [[
 ${color #d1d1d1}SYSTEM INFORMATION $hr${color}
 Host:$alignr$nodename
 Kernel:$alignr$kernel
@@ -100,3 +103,4 @@ ${top_mem name 1}$alignr${top_mem mem 1}%
 ${top_mem name 2}$alignr${top_mem mem 2}%
 ${top_mem name 3}$alignr${top_mem mem 3}%
 
+]];

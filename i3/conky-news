@@ -1,36 +1,39 @@
-use_xft yes
-xftfont Inconsolata:pixelsize=12
-xftalpha 0.1
-update_interval 5.0
-total_run_times 0
-background no
+conky.config = {
+	use_xft = true,
+	font = 'Inconsolata:pixelsize=12',
+	xftalpha = 0.1,
+	update_interval = 5.0,
+	total_run_times = 0,
+	background = false,
 
-own_window yes
-own_window_type override
-own_window_transparent yes
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-own_window_colour 000000
-own_window_argb_visual no
-own_window_argb_value 0
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_colour = '#000000',
+	own_window_argb_visual = false,
+	own_window_argb_value = 0,
 
-double_buffer yes
-draw_shades no
-draw_outline no
-draw_borders no
-draw_graph_borders no
-default_color white
-default_shade_color red
-default_outline_color green
-alignment bottom_middle
-gap_x -60
-gap_y 20
+	double_buffer = true,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	default_color = 'white',
+	default_shade_color = 'red',
+	default_outline_color = 'green',
+-- alignment left_middle
+	gap_x = 30,
+	gap_y = 570,
 
-no_buffers no
-override_utf8_locale yes
-use_spacer right
+	no_buffers = false,
+	override_utf8_locale = true,
+	use_spacer = 'right',
 
-TEXT
-${font Inconsolata:pixelsize=13}${color 4ca0be}
+};
+
+conky.text = [[
+${font Inconsolata:pixelsize=10}${color 4ca0be}
 
 HACKER NEWS
 -----------
@@ -44,14 +47,4 @@ HACKER NEWS
  8. ${rss https://news.ycombinator.com/rss 30 item_title 7}
  9. ${rss https://news.ycombinator.com/rss 30 item_title 8}
 10. ${rss https://news.ycombinator.com/rss 30 item_title 9}
-11. ${rss https://news.ycombinator.com/rss 30 item_title 10}
-12. ${rss https://news.ycombinator.com/rss 30 item_title 11}
-13. ${rss https://news.ycombinator.com/rss 30 item_title 12}
-14. ${rss https://news.ycombinator.com/rss 30 item_title 13}
-15. ${rss https://news.ycombinator.com/rss 30 item_title 14}
-16. ${rss https://news.ycombinator.com/rss 30 item_title 15}
-17. ${rss https://news.ycombinator.com/rss 30 item_title 16}
-18. ${rss https://news.ycombinator.com/rss 30 item_title 17}
-19. ${rss https://news.ycombinator.com/rss 30 item_title 18}
-20. ${rss https://news.ycombinator.com/rss 30 item_title 19}
-
+]];

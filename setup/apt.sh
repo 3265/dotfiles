@@ -49,9 +49,10 @@ sudo apt-get install gcalcli -y # google calendar cli
 # gcalcli --noauth_local_webserver
 
 # Programing Language
-sudo apt-get install golang -y
 sudo apt-get install python-pip -y
 sudo apt-get install python3-pip -y
+sudo apt-get install golang -y
+sudo apt-get install lua5.3 -y
 
 # Business
 sudo snap install slack --classic
