@@ -1,8 +1,11 @@
 #!/bin/bash
 
+# VIM
+sudo apt-get install vim -y
+sudo apt-get install vim-gnome -y # to use clipboard
+
 # CUI
 sudo apt-get install zsh -y
-sudo apt-get install vim -y
 sudo apt-get install silversearcher-ag -y
 sudo apt-get install ranger -y
 sudo apt-get install curl -y
