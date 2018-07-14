@@ -14,6 +14,9 @@ ln -s -f ~/dotfiles/.zshenv ~/.zshenv
 # Alias
 ln -s -f ~/dotfiles/.aliases ~/.aliases
 
+# IME
+ln -s -f ~/dotfiles/.xinputrc ~/.xinputrc
+
 # Keymap
 ln -s -f ~/dotfiles/.xmodmap ~/.xmodmap
 
