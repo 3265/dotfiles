@@ -45,6 +45,11 @@ alias -s mp3='mplayer'
 alias -s html='chromium-browser'
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}='extract'
 
+# permission
+alias 644='chmod 644'
+alias 755='chmod 755'
+alias 777='chmod 777'
+
 # typo
 alias gl='g l'
 alias gs='g s'
