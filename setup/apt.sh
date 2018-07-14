@@ -20,6 +20,7 @@ sudo apt-get install impressive -y
 
 # Todo Manager
 sudo apt-get install taskwarrior -y
+sudo apt-get install tasksh -y
 sudo apt-get install vit -y
 
 # For git

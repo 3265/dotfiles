@@ -19,7 +19,7 @@ alias p='echo ${PWD} | xsel -b'
 alias q='exit'
 alias r='ranger' # finder
 alias s='chromium-browser --app="https://google.com/"' # search
-alias t='vit' # cui for task
+alias t='tasksh' # cui for task
 alias u='du -hs' # directory size
 alias v='vim' # nvim
 alias w='w'
@@ -38,14 +38,6 @@ alias go='go'
 alias ja='java'
 alias no='node'
 alias hs='ghci'
-
-# Taskwarrior
-alias ta='task add'
-alias tl='task list'
-alias td='task list'
-alias tc='task calendar'
-alias ts='task summary'
-alias td='task done'
 
 # Pet
 alias pe='pet'
