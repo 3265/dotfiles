@@ -49,6 +49,14 @@ sudo apt-get install gcalcli -y # google calendar cli
 # need to auth before use it using cmd below
 # gcalcli --noauth_local_webserver
 
+# Firewall
+sudo apt-get install ufw -y
+sudo apt-get install gufw -y
+
+# Anti virus
+sudo apt-get install clamav -y
+sudo apt-get install clamtk -y
+
 # Programing Language
 sudo apt-get install python-pip -y
 sudo apt-get install python3-pip -y
