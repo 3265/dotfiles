@@ -1,6 +1,6 @@
 conky.config = {
 	use_xft = true,
-	font = 'Inconsolata:pixelsize=12',
+	font = 'Inconsolata:pixelsize=10',
 	xftalpha = 0.1,
 	update_interval = 5.0,
 	total_run_times = 0,
@@ -24,7 +24,7 @@ conky.config = {
 	default_outline_color = 'green',
 	alignment = 'top_right',
 	gap_x = 300,
-	gap_y = 20,
+	gap_y = 170,
 
 	no_buffers = false,
 	override_utf8_locale = true,
@@ -33,7 +33,5 @@ conky.config = {
 };
 
 conky.text = [[
-Google Calendar
 ${execpi 300 gcalcli --conky --nolineart calm}
-
 ]];

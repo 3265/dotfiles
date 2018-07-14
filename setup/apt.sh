@@ -51,6 +51,10 @@ sudo apt-get install neofetch -y # cli sys info tool
 sudo apt-get install gcalcli -y # google calendar cli
 # need to auth before use it using cmd below
 # gcalcli --noauth_local_webserver
+sudo apt-get install xml2 -y # parse xml for rss
+
+# RSS Reader
+# sudo apt-get install newsboat -y # for rss cause rss of conky does not break a new line
 
 # Firewall
 sudo apt-get install ufw -y

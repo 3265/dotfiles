@@ -1,6 +1,6 @@
 conky.config = {
 	use_xft = true,
-	font = 'DejaVu Sans Mono:size=9',
+	font = 'DejaVu Sans Mono:size=7',
 	xftalpha = 0.1,
 	update_interval = 1.0,
 	total_run_times = 0,
@@ -22,9 +22,9 @@ conky.config = {
 	default_color = 'white',
 	default_shade_color = 'red',
 	default_outline_color = 'green',
-	alignment = 'bottom_left',
-	gap_x = 30,
-	gap_y = 20,
+	alignment = 'bottom_middle',
+	gap_x = 185,
+	gap_y = 40,
 
 	no_buffers = false,
 	override_utf8_locale = true,
