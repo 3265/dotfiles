@@ -1,8 +1,8 @@
 conky.config = {
 	use_xft = true,
-	font = 'DejaVu Sans Mono:size=7',
+	font = 'Inconsolata:pixelsize=10',
 	xftalpha = 0.1,
-	update_interval = 1.0,
+	update_interval = 5.0,
 	total_run_times = 0,
 	background = false,
 
@@ -22,9 +22,9 @@ conky.config = {
 	default_color = 'white',
 	default_shade_color = 'red',
 	default_outline_color = 'green',
-	alignment = 'bottom_middle',
-	gap_x = 185,
-	gap_y = 40,
+	alignment = 'top_right',
+	gap_x = 295,
+	gap_y = 150,
 
 	no_buffers = false,
 	override_utf8_locale = true,
@@ -33,5 +33,5 @@ conky.config = {
 };
 
 conky.text = [[
-${exec cal -y}
+${execpi 300 gcalcli --conky --nolineart calm}
 ]];

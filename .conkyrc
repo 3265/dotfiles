@@ -1,0 +1,6 @@
+conky.config = {};
+
+conky.text = [[
+${exec ~/dotfiles/conky/conky.sh}
+]];
+

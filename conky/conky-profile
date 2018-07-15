@@ -1,6 +1,6 @@
 conky.config = {
 	use_xft = true,
-	font = 'Inconsolata:pixelsize=10',
+	font = 'Inconsolata:pixelsize=11',
 	xftalpha = 0.1,
 	update_interval = 5.0,
 	total_run_times = 0,
@@ -22,8 +22,8 @@ conky.config = {
 	default_color = 'white',
 	default_shade_color = 'red',
 	default_outline_color = 'green',
-	alignment = 'top_right',
-	gap_x = 300,
+	alignment = 'top_middle',
+	gap_x = 180,
 	gap_y = 170,
 
 	no_buffers = false,
@@ -33,5 +33,5 @@ conky.config = {
 };
 
 conky.text = [[
-${execpi 300 gcalcli --conky --nolineart calm}
+${exec neofetch --stdout}
 ]];

@@ -1,8 +1,8 @@
 conky.config = {
 	use_xft = true,
-	font = 'Inconsolata:pixelsize=11',
+	font = 'DejaVu Sans Mono:size=7',
 	xftalpha = 0.1,
-	update_interval = 5.0,
+	update_interval = 1.0,
 	total_run_times = 0,
 	background = false,
 
@@ -22,9 +22,9 @@ conky.config = {
 	default_color = 'white',
 	default_shade_color = 'red',
 	default_outline_color = 'green',
-	alignment = 'top_middle',
-	gap_x = 190,
-	gap_y = 170,
+	alignment = 'bottom_middle',
+	gap_x = 170,
+	gap_y = 50,
 
 	no_buffers = false,
 	override_utf8_locale = true,
@@ -33,5 +33,5 @@ conky.config = {
 };
 
 conky.text = [[
-${exec neofetch --stdout}
+${exec cal -y}
 ]];

@@ -24,7 +24,7 @@ conky.config = {
 	default_shade_color = 'red',
 	default_outline_color = 'green',
 	alignment = left_top,
-	gap_x = 20,
+	gap_x = 10,
 	gap_y = 50,
 
 	no_buffers = false,
@@ -39,55 +39,55 @@ ${font TakaoExGothic:style=Bold:size=15}News Feed${font}
 
 ## World
 ${color #d1d1d1}World$hr${color}
-${execi 10 ~/dotfiles/i3/rss.sh "https://news.google.com/news/rss/headlines/section/topic/WORLD?ned=us&hl=en"}
+${execi 10 ~/dotfiles/conky/rss.sh "https://news.google.com/news/rss/headlines/section/topic/WORLD?ned=us&hl=en"}
 
 ## Nation
 ${color #d1d1d1}Nation$hr${color}
-${execi 10 ~/dotfiles/i3/rss.sh "https://news.google.com/news/rss/headlines/section/topic/NATION?ned=us&hl=en"}
+${execi 10 ~/dotfiles/conky/rss.sh "https://news.google.com/news/rss/headlines/section/topic/NATION?ned=us&hl=en"}
 
 ## Business
 ${color #d1d1d1}Business$hr${color}
-${execi 10 ~/dotfiles/i3/rss.sh "https://news.google.com/news/rss/headlines/section/topic/BUSINESS?ned=us&hl=en"}
+${execi 10 ~/dotfiles/conky/rss.sh "https://news.google.com/news/rss/headlines/section/topic/BUSINESS?ned=us&hl=en"}
 
 ## Technology
 ${color #d1d1d1}Technology$hr${color}
-${execi 10 ~/dotfiles/i3/rss.sh "https://news.google.com/news/rss/headlines/section/topic/TECHNOLOGY?ned=us&hl=en"}
+${execi 10 ~/dotfiles/conky/rss.sh "https://news.google.com/news/rss/headlines/section/topic/TECHNOLOGY?ned=us&hl=en"}
 
 ## Health
 ${color #d1d1d1}Health$hr${color}
-${execi 10 ~/dotfiles/i3/rss.sh "https://news.google.com/news/rss/headlines/section/topic/HEALTH?ned=us&hl=en"}
+${execi 10 ~/dotfiles/conky/rss.sh "https://news.google.com/news/rss/headlines/section/topic/HEALTH?ned=us&hl=en"}
 
 ## Science
 ${color #d1d1d1}Science$hr${color}
-${execi 10 ~/dotfiles/i3/rss.sh "https://news.google.com/news/rss/headlines/section/topic/SCIENCE?ned=us&hl=en"}
+${execi 10 ~/dotfiles/conky/rss.sh "https://news.google.com/news/rss/headlines/section/topic/SCIENCE?ned=us&hl=en"}
 
 ## Sports
 ${color #d1d1d1}Sports$hr${color}
-${execi 10 ~/dotfiles/i3/rss.sh "https://news.google.com/news/rss/headlines/section/topic/SPORTS?ned=us&hl=en"}
+${execi 10 ~/dotfiles/conky/rss.sh "https://news.google.com/news/rss/headlines/section/topic/SPORTS?ned=us&hl=en"}
 
 ## Entertainment
 ${color #d1d1d1}Entertainment$hr${color}
-${execi 10 ~/dotfiles/i3/rss.sh "https://news.google.com/news/rss/headlines/section/topic/ENTERTAINMENT?ned=us&hl=en"}
+${execi 10 ~/dotfiles/conky/rss.sh "https://news.google.com/news/rss/headlines/section/topic/ENTERTAINMENT?ned=us&hl=en"}
 
 ## BCC
 ${color #d1d1d1}BBC$hr${color}
-${execi 10 ~/dotfiles/i3/rss.sh "http://feeds.bbci.co.uk/news/rss.xml"}
+${execi 10 ~/dotfiles/conky/rss.sh "http://feeds.bbci.co.uk/news/rss.xml"}
 
 ## CNN
 ${color #d1d1d1}CNN$hr${color}
-${execi 10 ~/dotfiles/i3/rss.sh "http://rss.cnn.com/rss/cnn_topstories.rss"}
+${execi 10 ~/dotfiles/conky/rss.sh "http://rss.cnn.com/rss/cnn_topstories.rss"}
 
 ## Washington Post
 ${color #d1d1d1}Washington Post$hr${color}
-${execi 10 ~/dotfiles/i3/rss.sh "http://feeds.washingtonpost.com/rss/world"}
+${execi 10 ~/dotfiles/conky/rss.sh "http://feeds.washingtonpost.com/rss/world"}
 
 ## ABC News
 ${color #d1d1d1}ABC News$hr${color}
-${execi 10 ~/dotfiles/i3/rss.sh "https://abcnews.go.com/abcnews/topstories"}
+${execi 10 ~/dotfiles/conky/rss.sh "https://abcnews.go.com/abcnews/topstories"}
 
 ## HN
 ${color #d1d1d1}Hacker News$hr${color}
-${execi 10 ~/dotfiles/i3/rss.sh "https://news.ycombinator.com/rss"}
+${execi 10 ~/dotfiles/conky/rss.sh "https://news.ycombinator.com/rss"}
 ]];
 
 

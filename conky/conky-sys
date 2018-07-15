@@ -35,7 +35,7 @@ conky.config = {
 	default_outline_color = 'green',
 	alignment = 'top_right',
 	gap_x = 30,
-	gap_y = 20,
+	gap_y = 15,
 
 	no_buffers = false,
 	override_utf8_locale = true,
