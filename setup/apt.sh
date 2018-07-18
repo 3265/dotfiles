@@ -72,9 +72,11 @@ sudo apt-get install golang -y
 sudo apt-get install lua5.3 -y
 
 # Business
-sudo snap install slack --classic
 sudo snap install skype --classic
 
 # Manual
 # vs code
+# slack
 
+# Tools
+sudo apt-get install nmap -y
