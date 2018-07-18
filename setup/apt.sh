@@ -13,6 +13,10 @@ sudo apt-get install tree -y
 sudo apt-get install gwaei -y # dictionary
 sudo apt-get install redshift gtk-redshift -y # for blue light
 
+# Launcher
+sudo apt install rofi -y
+sudo apt install qalc -y # for calculation
+
 # Browser
 sudo apt-get install chromium-browser -y
 sudo apt-get install qutebrowser -y
