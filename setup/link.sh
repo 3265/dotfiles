@@ -33,6 +33,7 @@ ln -s -f ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 # i3 WM
 mkdir -p ~/.config/i3
 ln -s -f ~/dotfiles/i3/config ~/.config/i3/config
+ln -s -f ~/dotfiles/.i3status.conf ~/.i3status.conf
 
 # Terminal multiplexer
 ln -s -f ~/dotfiles/.screenrc ~/.screenrc
