@@ -44,6 +44,7 @@ alias -s {png,jpg,bmp,PNG,JPG,BMP}='feh'
 alias -s mp3='mplayer'
 alias -s html='chromium-browser'
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}='extract'
+alias -s deb='sudo dpkg -i'
 
 # permission
 alias 644='chmod 644'
