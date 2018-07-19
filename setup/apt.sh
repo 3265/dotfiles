@@ -84,6 +84,7 @@ sudo snap install skype --classic
 # Manual
 # vs code
 # slack
+# toggl
 
 # Tools
 sudo apt-get install nmap -y
