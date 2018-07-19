@@ -45,7 +45,7 @@ bindsym $mod+Shift+q kill
 
 # Launcher
 # NOTE: need to install rofi
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show drun -modi drun # drun is DesktopFile run option
 bindsym $mod+w exec rofi -show window
 bindsym $mod+space exec rofi -modi calc:qalc -show calc # need to install qalc
 # bindsym $mod+S exec rofi -show ssh
