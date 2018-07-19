@@ -4,6 +4,9 @@
 sudo apt-get install vim -y
 sudo apt-get install vim-gnome -y # to use clipboard
 
+# Emacs
+sudo apt-get install emacs -y
+
 # CUI
 sudo apt-get install zsh -y
 sudo apt-get install silversearcher-ag -y

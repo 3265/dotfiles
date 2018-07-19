@@ -7,8 +7,11 @@ bindkey -d               # いったんキーバインドをリセット
 bindkey -v               # キーバインドをviモードに設定
 
 # Emaccsの便利なショートカットで上書き
+# see http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Standard-Widgets
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
+bindkey "^B" backward-char
+bindkey "^F" forward-char
 bindkey '^N' history-beginning-search-forward-end
 bindkey '^P' history-beginning-search-backward-end
 bindkey '^U' kill-whole-line
