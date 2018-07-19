@@ -35,6 +35,10 @@ mkdir -p ~/.config/i3
 ln -s -f ~/dotfiles/i3/config ~/.config/i3/config
 ln -s -f ~/dotfiles/.i3status.conf ~/.i3status.conf
 
+# Nofitication
+mkdir -p ~/.config/dunst
+ln -s -f ~/dotfiles/dunstrc ~/.config/dunst/dunstrc
+
 # Terminal multiplexer
 ln -s -f ~/dotfiles/.screenrc ~/.screenrc
 ln -s -f ~/dotfiles/.tmux.conf ~/.tmux.conf
