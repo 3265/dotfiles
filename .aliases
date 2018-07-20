@@ -56,7 +56,6 @@ alias gl='g l'
 alias gs='g s'
 alias ll='l'
 
-
 # Pet
 alias pe='pet'
 alias pn='pet new'
@@ -69,10 +68,14 @@ alias egrep='egrep --color=auto'
 alias less='less -R'
 alias gitwatch='fswatch -0 . | xargs -0 -n 1 sh -c "clear && git status --short"' # to need to install fswatch
 
-# Docker shortcut
-alias dm='docker-machine'
-alias de='eval $(docker-machine env default)'
+# docker shortcuts
+alias alias dps="docker ps -a"
+alias alias dim="docker images"
+alias dbi() { docker build -t=$1 .; } } # Dockerfile build, e.g., $dbu tcnksm/test
+alias alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'' }}'"
+alias alias dvl="docker volume ls"
 
+# docker removes
 alias drmc='docker rm $(docker ps --all --quiet) -f'
 alias drmi='docker rmi $(docker images --quiet) -f'
 alias drmv='docker volume rm `docker volume ls -q -f dangling=true`'
