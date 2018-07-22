@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Tools
+sudo apt-get install gdebi -y
+sudo apt-get install nmap -y
+
 # VIM
 sudo apt-get install vim -y
 sudo apt-get install vim-gnome -y # to use clipboard
@@ -23,6 +27,9 @@ sudo apt install qalc -y # for calculation
 # Browser
 sudo apt-get install chromium-browser -y
 sudo apt-get install qutebrowser -y
+
+# Docker
+sudo apt-get install docker-ec -y
 
 # Office
 sudo apt-get install libreoffice -y
@@ -76,7 +83,17 @@ sudo apt-get install clamtk -y
 sudo apt-get install python-pip -y
 sudo apt-get install python3-pip -y
 sudo apt-get install golang -y
+sudo apt-get install nodejs -y
+sudo apt-get install npm -y
+sudo apt-get install default-jre  -y
+sudo apt-get install default-jdk  -y
+sudo apt-get install openjdk-8-jdk -y
 sudo apt-get install lua5.3 -y
+sudo apt-get install ruby -y
+sudo apt-get install r-base -y
+# Install RStudio desktop manually
+# see https://www.rstudio.com/products/rstudio/download
+
 
 # Business
 sudo snap install skype --classic
@@ -86,5 +103,5 @@ sudo snap install skype --classic
 # slack
 # toggl
 
-# Tools
-sudo apt-get install nmap -y
+# Dev
+sudo apt-get install mycli -y

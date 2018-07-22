@@ -76,7 +76,12 @@ fi
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOROOT:$GOPATH:$GOPATH/bin
 
-# eval "$(direnv hook zsh)"
+
+# load .direnvrc
+if [ $(which direnv) ]; then
+  eval "$(direnv hook zsh)"
+fi
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/mgoldchild/google-cloud-sdk/path.zsh.inc' ]; then source '/home/mgoldchild/google-cloud-sdk/path.zsh.inc'; fi

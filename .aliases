@@ -1,3 +1,4 @@
+#!/bin/sh
 
 # Command shortcut
 alias a='ag'
@@ -44,7 +45,7 @@ alias -s {png,jpg,bmp,PNG,JPG,BMP}='feh'
 alias -s mp3='mplayer'
 alias -s html='chromium-browser'
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}='extract'
-alias -s deb='sudo dpkg -i'
+alias -s deb='sudo gdebi' # dpkg -i だと依存関係解決してくれないため
 
 # permission
 alias 644='chmod 644'
@@ -69,11 +70,12 @@ alias less='less -R'
 alias gitwatch='fswatch -0 . | xargs -0 -n 1 sh -c "clear && git status --short"' # to need to install fswatch
 
 # docker shortcuts
-alias alias dps="docker ps -a"
-alias alias dim="docker images"
-alias dbi() { docker build -t=$1 .; } } # Dockerfile build, e.g., $dbu tcnksm/test
-alias alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'' }}'"
-alias alias dvl="docker volume ls"
+alias dps="docker ps" # -a
+alias dim="docker images"
+alias dvl="docker volume ls"
+
+dbi() { docker build -t=$1 .; } # Dockerfile build, e.g., $dbu tcnksm/test
+alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 
 # docker removes
 alias drmc='docker rm $(docker ps --all --quiet) -f'
