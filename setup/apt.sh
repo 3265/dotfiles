@@ -56,6 +56,7 @@ sudo apt-get install compton -y # for transparent
 sudo apt-get install parcellite -y # for clip board
 sudo apt-get install volumeicon-alsa -y # to use volumeicon
 sudo apt-get install scrot -y # to use scrot
+sudo apt-get install acpitool -y # to manage battery
 
 # Conky
 sudo apt-get install conky-all -y # to use rss

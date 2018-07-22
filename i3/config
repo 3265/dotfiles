@@ -109,6 +109,7 @@ exec --no-startup-id "volumeicon &" # for volume manager
 exec --no-startup-id "redshift &" # for brightness
 exec --no-startup-id "mocp -S && mocp -p" # for auto running mocp server to avoid `FATAL_ERROR: The server is not running` by mocp -i commadn in conky-sys
 exec --no-startup-id i3-msg 'workspace terminal; exec gnome-terminal'
+exec --no-startup-id "echo '*/5 * * * *  ~/dotfiles/i3/check_btr.sh' | crontab -" # need to add premition
 exec --no-startup-id "conky -d -c ~/.conkyrc" # need to add premition
 # a way to convert old conky to new conky below
 # NOTE: before to use it, need to install lua 5.3 and add permission to exec script and replace hashbang
