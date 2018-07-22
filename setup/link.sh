@@ -20,6 +20,10 @@ ln -s -f ~/dotfiles/.xinputrc ~/.xinputrc
 # Keymap
 ln -s -f ~/dotfiles/.xmodmap ~/.xmodmap
 
+# Launcher
+mkdir -p ~/.config/rofi
+ln -s -f ~/dotfiles/rofi/config ~/.config/rofi/config
+
 # VIM
 mkdir -p ~/.vim/
 ln -s -f ~/dotfiles/.vimrc ~/.vimrc
