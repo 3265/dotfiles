@@ -96,6 +96,10 @@ sudo apt-get install r-base -y
 # see https://www.rstudio.com/products/rstudio/download
 
 
+# Analytics
+# Anaconda
+# https://www.anaconda.com/download/
+
 # Business
 sudo snap install skype --classic
 

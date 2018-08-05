@@ -67,10 +67,6 @@ export XDG_CONFIG_HOME=~/.config
 #   eval "$(anyenv init -)"
 # fi
 #
-# Android
-if [ -d /usr/local/android-studio ] ; then
- export PATH=$PATH:/usr/local/android-studio/bin
-fi
 
 # Golang
 export GOPATH=$HOME/.go
@@ -82,6 +78,12 @@ if [ $(which direnv) ]; then
   eval "$(direnv hook zsh)"
 fi
 
+# ------------------------------
+# Auto added
+# ------------------------------
+
+# Anaconda3
+export PATH="/home/mgoldchild/anaconda3/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/mgoldchild/google-cloud-sdk/path.zsh.inc' ]; then source '/home/mgoldchild/google-cloud-sdk/path.zsh.inc'; fi
