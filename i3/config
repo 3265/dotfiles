@@ -102,12 +102,12 @@ bindsym $mod+v layout toggle split # toggle between veritcal and horizontal
 
 # Startup Programs
 exec --no-startup-id "nm-applet" # network manager
-exec --no-startup-id "feh --bg-center ~/dotfiles/i3/wallpaper.jpeg --image-bg #000000" # wallpaper
 exec --no-startup-id "compton -cbm 0.75" # for transparent
 exec --no-startup-id "parcellite &" # for clip board
 exec --no-startup-id "volumeicon &" # for volume manager
 exec --no-startup-id "redshift &" # for brightness
 exec --no-startup-id "sh ~/dotfiles/i3/autolock.sh" # auto lock
+exec --no-startup-id "sh ~/dotfiles/i3/monitor.sh" # wallpaper and monitor
 exec --no-startup-id "echo '*/5 * * * *  ~/dotfiles/i3/battery.sh' | crontab -" # need to add premition
 exec --no-startup-id i3-msg 'workspace terminal; exec gnome-terminal' # initial app
 
