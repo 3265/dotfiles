@@ -109,8 +109,8 @@ exec --no-startup-id "redshift &" # for brightness
 exec --no-startup-id "sh ~/dotfiles/i3/autolock.sh" # auto lock
 exec --no-startup-id "sh ~/dotfiles/i3/monitor.sh" # wallpaper and monitor
 exec --no-startup-id "echo '*/5 * * * *  ~/dotfiles/i3/battery.sh' | crontab -" # need to add premition
-exec --no-startup-id i3-msg 'workspace terminal; exec gnome-terminal' # initial app
-exec --no-startup-id i3-msg 'workspace browser; exec chromium-browser' # initial app
+exec --no-startup-id i3-msg 'workspace 1: terminal; exec gnome-terminal' # startup app
+exec --no-startup-id i3-msg 'workspace 2: browser; exec chromium-browser' # startup app
 
 # for Conky
 # exec --no-startup-id "mocp -S && mocp -p" # for auto running mocp server to avoid `FATAL_ERROR: The server is not running` by mocp -i commadn in conky-sys
