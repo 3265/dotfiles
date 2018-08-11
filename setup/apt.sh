@@ -57,6 +57,7 @@ sudo apt-get install parcellite -y # for clip board
 sudo apt-get install volumeicon-alsa -y # to use volumeicon
 sudo apt-get install scrot -y # to use scrot
 sudo apt-get install acpitool -y # to manage battery
+sudo apt-get install xautolock -y # for auto lock
 
 # Conky
 sudo apt-get install conky-all -y # to use rss

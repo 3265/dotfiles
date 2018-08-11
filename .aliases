@@ -6,7 +6,7 @@ alias b='cd ../'
 alias c='cd'
 alias d='docker'
 alias e='emacs'
-alias f='find'
+alias f='nautilus &' # finder
 alias g='git'
 alias h='history'
 alias i="ifconfig"
@@ -14,7 +14,7 @@ alias j='gwaei &' # dictionary jisho
 alias k='mkdir -p'
 alias l='LC_COLLATE=C ls -al --color=auto --human-readable --group-directories-first'
 alias m='mocp' # music on console
-alias n='nautilus &'
+# alias n='' # to use npm n module
 alias o='xdg-open'
 alias p='echo ${PWD} | xsel -b'
 alias q='exit'
@@ -69,7 +69,8 @@ alias egrep='egrep --color=auto'
 alias less='less -R'
 alias gitwatch='fswatch -0 . | xargs -0 -n 1 sh -c "clear && git status --short"' # to need to install fswatch
 
-# docker shortcuts
+# docker/docker-compose shortcuts
+alias dc="docker-compose"
 alias dps="docker ps" # -a
 alias dim="docker images"
 alias dvl="docker volume ls"

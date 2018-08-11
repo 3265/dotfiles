@@ -4,6 +4,7 @@
 #  NPM
 # ######################
 
+npm install -g yarn
 npm install -g json
 
 # build tool
@@ -12,7 +13,7 @@ npm instlal -g node-gyp
 # npm install -g enclose
 
 # doc tool
-npm install -g jsdoc
+# npm install -g jsdoc
 # npm install -g documentation
 # npm install -g hackmyresume
 
@@ -66,6 +67,9 @@ npm install -g coffee-script
 # npm install -g nativescript
 # npm install -g sweet.js
 # npm install -g jsx
+
+# RN
+npm install -g react-native-cli
 
 # alt css
 # npm install -g less
