@@ -47,6 +47,7 @@
 	resave = commit --amend
 	ignore = rm -r --cached .
 	empty = commit --allow-empty --allow-empty-message
+	cleaning = clean -fdx # includes folder
 
 	delete = branch -D
 
