@@ -35,33 +35,33 @@
 
   mg = mergetool
 
-	move = mv
-	remove = rm
+  move = mv
+  remove = rm
   gitignore = rm -r --cached
 
   prestage = diff -w --word-diff=color
   precommit = diff --cached -w --word-diff=color --word-diff-regex='[^[:space:]<>]+'
 
-	save = commit -m
-	amend = commit --amend
-	resave = commit --amend
-	ignore = rm -r --cached .
-	empty = commit --allow-empty --allow-empty-message
-	cleaning = clean -fdx # includes folder
+  save = commit -m
+  amend = commit --amend
+  resave = commit --amend
+  ignore = rm -r --cached .
+  empty = commit --allow-empty --allow-empty-message
+  cleaning = clean -fdx # includes folder
 
-	delete = branch -D
+  delete = branch -D
 
-	back = checkout "-"
+  back = checkout "-"
   nevermind = !git reset --hard HEAD && git clean -d -f
 
-	contributors = shortlog -s -n
-	tags = tag
+  contributors = shortlog -s -n
+  tags = tag
 
-	stashes = stash list
-	unshift = stash save -u
-	shift= stash apply
+  stashes = stash list
+  unshift = stash save -u
+  shift= stash apply
 
-	rewrite = rebase -i
+  rewrite = rebase -i
 
   d1 = diff HEAD~            # HEADから1つ前とdiff
   d2 = diff HEAD~~           # HEADから2つ前とdiff

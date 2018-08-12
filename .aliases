@@ -58,7 +58,6 @@ alias gs='g s'
 alias ll='l'
 
 # Pet
-alias pe='pet'
 alias pn='pet new'
 alias pl='pet list'
 alias pe='pet exec'
