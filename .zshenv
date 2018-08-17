@@ -68,6 +68,10 @@ export XDG_CONFIG_HOME=~/.config
 # fi
 #
 
+# Ruby Env
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 # Android
 export ANDROID_HOME=${HOME}/Android/Sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
