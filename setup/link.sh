@@ -47,6 +47,7 @@ ln -s -f ~/dotfiles/dunstrc ~/.config/dunst/dunstrc
 ln -s -f ~/dotfiles/.screenrc ~/.screenrc
 ln -s -f ~/dotfiles/.tmux.conf ~/.tmux.conf
 
+# System monitor
 ln -s -f ~/dotfiles/.conkyrc ~/.conkyrc
 
 # Git
@@ -59,6 +60,9 @@ ln -s -f ~/dotfiles/.agignore ~/.agignore
 ln -s -f ~/dotfiles/.editorconfig ~/.editorconfig
 ln -s -f ~/dotfiles/.Xresources  ~/.Xresources
 # ln -s -f ~/dotfiles/config.toml ~/.config/memo/config.toml
+
+# GTK-3.0(for chromium)
+ln -s -f ~/dotfiles/settings.ini ~/.config/gtk-3.0/settings.ini
 
 # peco
 mkdir -p ~/.config/peco
