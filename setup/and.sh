@@ -51,8 +51,8 @@ adb start-server
 adb devices # check whether device is recognized or not
 
 # -----------------------
-#  For dmenu
+#  Emulator
 # -----------------------
+sudo apt-get install virtualbox -y
+# https://www.genymotion.com
 
-sudo mv android /usr/local/bin/
-sudo chmod +x /usr/local/bin/android

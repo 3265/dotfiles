@@ -3,7 +3,7 @@
 # Command shortcut
 alias a='ag'
 alias b='cd ../'
-alias c='cd'
+alias c='echo ${PWD} | xsel -b'
 alias d='docker'
 alias e='emacs'
 alias f='nautilus &' # finder
@@ -16,7 +16,7 @@ alias l='LC_COLLATE=C ls -al --color=auto --human-readable --group-directories-f
 alias m='mocp' # music on console
 # alias n='' # to use npm n module
 alias o='xdg-open'
-alias p='echo ${PWD} | xsel -b'
+alias p='pet'
 alias q='exit'
 alias r='ranger' # finder
 alias s='chromium-browser --app="https://google.com/"' # search
@@ -33,6 +33,7 @@ alias -g G='| grep --color'
 alias -g L='| less'
 alias -g H='| head'
 alias -g T='| tail'
+alias -g P='| peco'
 
 # Suffix aliases
 alias -s rb='ruby'
@@ -60,7 +61,8 @@ alias ll='l'
 # Pet
 alias pn='pet new'
 alias pl='pet list'
-alias pe='pet exec'
+alias pe='pet edit'
+alias pp='pet exec' # pet peco
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'

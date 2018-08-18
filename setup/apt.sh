@@ -108,6 +108,7 @@ sudo snap install skype --classic
 # vs code
 # slack
 # toggl
+# ngrok
 
 # Dev
 sudo apt-get install mycli -y

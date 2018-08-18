@@ -9,7 +9,6 @@
   "workbench.activityBar.visible": true,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.sideBar.location": "left",
-  "workbench.iconTheme": "material-icon-theme",
   "workbench.editor.enablePreview": false,
   "files.trimTrailingWhitespace": true,
   "editor.selectionHighlight": true,
