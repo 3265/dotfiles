@@ -37,7 +37,6 @@
 
   move = mv
   remove = rm
-  gitignore = rm -r --cached
 
   prestage = diff -w --word-diff=color
   precommit = diff --cached -w --word-diff=color --word-diff-regex='[^[:space:]<>]+'
@@ -45,7 +44,7 @@
   save = commit -m
   amend = commit --amend
   resave = commit --amend
-  ignore = rm -r --cached .
+  ignore = rm -r --cached . # need git add . and git commit after this cmd
   empty = commit --allow-empty --allow-empty-message
   cleaning = clean -fdx # includes folder
 
