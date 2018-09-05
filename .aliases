@@ -64,11 +64,18 @@ alias pl='pet list'
 alias pe='pet edit'
 alias pp='pet exec' # pet peco
 
+# color
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias less='less -R'
 alias gitwatch='fswatch -0 . | xargs -0 -n 1 sh -c "clear && git status --short"' # to need to install fswatch
+
+# sysctrl
+alias reboot='reboot'
+alias shutdown='reboot'
+alias suspend='systemctl suspend'
+alias lock='i3lock -c 000000'
 
 # docker/docker-compose shortcuts
 alias dc="docker-compose"
