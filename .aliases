@@ -3,7 +3,7 @@
 # Command shortcut
 alias a='ag'
 alias b='cd ../'
-alias c='echo ${PWD} | xsel -b'
+alias c='cd'
 alias d='docker'
 alias e='emacs'
 alias f='nautilus &' # finder
@@ -27,6 +27,9 @@ alias w='w'
 alias x='ex'
 alias y='yes'
 alias z='zsh'
+
+# Others
+alias copy='echo ${PWD} | xsel -b'
 
 # Global aliases
 alias -g G='| grep --color'
