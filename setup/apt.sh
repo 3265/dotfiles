@@ -115,3 +115,5 @@ sudo snap install skype --classic
 
 # Dev
 sudo apt-get install mycli -y
+# Postman
+# https://blog.bluematador.com/posts/postman-how-to-install-on-ubuntu-1604/
