@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Tools
-sudo apt-get install gdebi -y
-sudo apt-get install nmap -y
-
 # VIM
 sudo apt-get install vim -y
 sudo apt-get install vim-gnome -y # to use clipboard
@@ -19,6 +15,13 @@ sudo apt-get install curl -y
 sudo apt-get install tree -y
 sudo apt-get install gwaei -y # dictionary
 sudo apt-get install redshift gtk-redshift -y # for blue light
+
+# Tools
+sudo apt-get install gdebi -y
+sudo apt-get install nmap -y
+sudo apt-get install wireshark -y
+# Way to solve permission err of wireshark
+# see https://ubuntuforums.org/showthread.php?t=2039978
 
 # Launcher
 sudo apt install rofi -y
