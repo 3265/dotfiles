@@ -99,6 +99,9 @@ sudo apt-get install r-base -y
 # Install RStudio desktop manually
 # see https://www.rstudio.com/products/rstudio/download
 
+# DB
+sudo apt-get install sqlite3 -y
+sudo apt-get install mysql -y
 
 # Analytics
 # Anaconda
