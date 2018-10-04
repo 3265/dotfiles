@@ -47,6 +47,15 @@
   ignore = rm -r --cached . # need git add . and git commit after this cmd
   empty = commit --allow-empty --allow-empty-message
   cleaning = clean -fdx # includes folder
+  mylog = log --author=mgoldchild
+  diff-stg = diff --cached
+
+  # MEMO:
+  # resolv conflict by rebase
+  # git checkout working-branch
+  # git rebase master
+  # git add .
+  # git rebase --continue
 
   delete = branch -D
 
