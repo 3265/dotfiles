@@ -50,6 +50,9 @@ bindsym $mod+w exec rofi -show window
 bindsym $mod+space exec rofi -modi calc:qalc -show calc # need to install qalc
 # bindsym $mod+S exec rofi -show ssh
 
+# System shortcuts
+bindsym $mod+Shift+p exec systemctl suspend
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
