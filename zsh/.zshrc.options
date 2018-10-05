@@ -44,7 +44,8 @@ unsetopt caseglob    # ファイルグロブで大文字小文字を区別しな
 setopt bang_hist          # !を使ったヒストリ展開を行う(d)
 setopt extended_history   # ヒストリに実行時間も保存する
 setopt hist_ignore_dups   # 直前と同じコマンドはヒストリに追加しない
-# setopt share_history      # 他のシェルのヒストリをリアルタイムで共有する
+setopt share_history      # 他のシェルのヒストリをリアルタイムで共有する
+setopt inc_append_history # to save every cmd before it is executed
 setopt hist_reduce_blanks # 余分なスペースを削除してヒストリに保存する
 setopt hist_ignore_space # スペースで始まるコマンド行はヒストリリストから削除
 
