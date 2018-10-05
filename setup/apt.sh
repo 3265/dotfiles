@@ -29,7 +29,11 @@ sudo apt install qalc -y # for calculation
 
 # Browser
 sudo apt-get install chromium-browser -y
+sudo apt-get install firefox -y
 sudo apt-get install qutebrowser -y
+
+# VPN
+sudo apt-get install network-manager-openvpn-gnome
 
 # Docker
 sudo apt-get install docker-ec -y
