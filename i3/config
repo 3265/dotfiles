@@ -52,6 +52,7 @@ bindsym $mod+space exec rofi -modi calc:qalc -show calc # need to install qalc
 
 # System shortcuts
 bindsym $mod+Shift+p exec systemctl suspend
+bindsym $mod+Shift+o exec "sh ~/dotfiles/i3/monitor.sh"
 
 # change focus
 bindsym $mod+h focus left
