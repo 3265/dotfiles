@@ -5,4 +5,5 @@ cd
 mkdir -p ~/.zsh
 cd ~/.zsh
 git clone https://github.com/zsh-users/antigen.git
+chown $USER:$USER -R ~/.zsh
 

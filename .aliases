@@ -86,19 +86,27 @@ alias dps="docker ps" # -a
 alias dim="docker images"
 alias dvl="docker volume ls"
 
-dbi() { docker build -t=$1 .; } # Dockerfile build, e.g., $dbu tcnksm/test
-alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
-
 # docker removes
 alias drmc='docker rm $(docker ps --all --quiet) -f'
 alias drmi='docker rmi $(docker images --quiet) -f'
 alias drmv='docker volume rm `docker volume ls -q -f dangling=true`'
 
+# docker viratual dev env
+bld() {
+  docker build -t ${1:-dot} $HOME/dotfiles/.
+}
+run() {
+  WS_DIR="${HOME}/workspace"
+  mkdir -p $WS_DIR # NOTE: need to make share directory in host before using cmd below coz its owner will be root.
+  CONTAINER_ID=$(docker run -it -d  --name $1 -v $WS_DIR:$WS_DIR ${2:-dot} bash)
+  docker attach --sig-proxy=false --detach-keys "ctrl-\\" $CONTAINER_ID
+}
+att() { docker attach --sig-proxy=false --detach-keys "ctrl-\\" $1 }
+
 # mac sshfs
 # alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
 # alias kaishafs='sshfs kaisha: ~/mp/kaisha -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=kaisha'
-
-function extract() {
+extract() {
   case $1 in
     *.tar.gz|*.tgz) tar xzvf $1;;
     *.tar.xz) tar Jxvf $1;;
@@ -113,4 +121,3 @@ function extract() {
     *.arj) unarj $1;;
   esac
 }
-

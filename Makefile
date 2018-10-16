@@ -1,15 +1,27 @@
-DOTIFLES := "~/dotfiles/"
+SETUP_DIR = ~/dotfiles/setup
 
-mac-init:
-	cd $(DOTIFLES)
-	sh ./setup/link.sh
-	sh ./setup/mac.sh
-	sh ./setup/zsh.sh
-	sh ./setup/tmux.sh
-	sh ./setup/vim.sh
-	sh ./setup/git.sh
-	sh ./setup/nvm.sh
-	sh ./setup/pyenv.sh
-	sh ./setup/import.sh
-	sh ./setup/utils.sh
-	source .bash_profile
+.ONESHELL:
+guest:
+	cd $(SETUP_DIR)
+	sh ./link.sh
+	sh ./cui.sh
+	sh ./zsh.sh
+	sh ./ssh.sh
+	sh ./vim.sh
+	sh ./tmux.sh
+	sh ./ranger.sh
+
+host:
+	cd $(SETUP_DIR)
+	sh ./link.sh
+	sh ./cui.sh
+	sh ./gui.sh
+	sh ./zsh.sh
+	sh ./ssh.sh
+	sh ./vim.sh
+	sh ./tmux.sh
+	sh ./ranger.sh
+	sh ./ime.sh
+	sh ./font.sh
+	sh ./and.sh
+	sh ./gcp.sh
