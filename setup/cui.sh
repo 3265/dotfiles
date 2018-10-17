@@ -4,6 +4,7 @@ apt-get update
 apt-get install sudo -y
 
 # Terminal
+# apt-get install bash -y
 apt-get install zsh -y
 
 # Editor
