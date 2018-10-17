@@ -1,4 +1,6 @@
-#.bashrcの読み込み(for mac)
+if [ -f ~/.zshenv ]; then
+    . ~/.zshenv
+fi
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi

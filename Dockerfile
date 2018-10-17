@@ -5,6 +5,9 @@ MAINTAINER mgoldchild
 ENV USER mgoldchild
 ENV HOME /home/${USER}
 ENV SHELL /bin/bash
+ENV TERM xterm
+ENV LANG C.UTF-8
+ENV LANGUAGE en_US:
 # to avoid choosing time zone
 ENV DEBIAN_FRONTEND=noninteractive
 

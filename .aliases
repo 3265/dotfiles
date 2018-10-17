@@ -31,7 +31,7 @@ alias z='zsh'
 # Others
 alias copy='echo ${PWD} | xsel -b'
 
-if [[ $0 == "zsh" ]]; then
+if [[ $0 != "bash" ]]; then
   # Global aliases
   alias -g G='| grep --color'
   alias -g L='| less'
@@ -94,16 +94,16 @@ alias drmi='docker rmi $(docker images --quiet) -f'
 alias drmv='docker volume rm `docker volume ls -q -f dangling=true`'
 
 # docker viratual dev env
-bld() {
-  docker build -t ${1:-dot} $HOME/dotfiles/.
-}
+bld() { docker build -t ${1:-dot} $HOME/dotfiles/. ; }
 run() {
   WS_DIR="${HOME}/workspace"
   mkdir -p $WS_DIR # NOTE: need to make share directory in host before using cmd below coz its owner will be root.
   CONTAINER_ID=$(docker run -it -d  --name $1 -v $WS_DIR:$WS_DIR ${2:-dot} bash)
-  docker attach --sig-proxy=false --detach-keys "ctrl-\\" $CONTAINER_ID
+  # docker attach --sig-proxy=false --detach-keys "ctrl-\\" $CONTAINER_ID bash
 }
 att() { docker attach --sig-proxy=false --detach-keys "ctrl-\\" $1; }
+exe() { docker exec -it $1 bash; }
+
 
 # mac sshfs
 # alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
