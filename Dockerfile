@@ -13,12 +13,12 @@ RUN echo "${USER}:pw" | chpasswd
 RUN adduser ${USER} sudo
 
 RUN apt-get update && \
-    apt-get install git -y && \
     apt-get install make -y
 
 WORKDIR ${HOME}
 
-RUN git clone https://github.com/mgoldchild/dotfiles.git
+RUN mkdir -p ./dotfiles
+COPY . ./dotfiles
 RUN chown ${USER}:${USER} -R .
 RUN chmod +x -R .
 

@@ -31,25 +31,27 @@ alias z='zsh'
 # Others
 alias copy='echo ${PWD} | xsel -b'
 
-# Global aliases
-alias -g G='| grep --color'
-alias -g L='| less'
-alias -g H='| head'
-alias -g T='| tail'
-alias -g P='| peco'
+if [[ $0 == "zsh" ]]; then
+  # Global aliases
+  alias -g G='| grep --color'
+  alias -g L='| less'
+  alias -g H='| head'
+  alias -g T='| tail'
+  alias -g P='| peco'
 
-# Suffix aliases
-alias -s rb='ruby'
-alias -s py='python3'
-alias -s go='go'
-alias -s java='java'
-alias -s js='node'
-alias -s hs='ghci'
-alias -s {png,jpg,bmp,PNG,JPG,BMP}='feh'
-alias -s mp3='mplayer'
-alias -s html='chromium-browser'
-alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}='extract'
-alias -s deb='sudo gdebi' # dpkg -i だと依存関係解決してくれないため
+  # Suffix aliases
+  alias -s rb='ruby'
+  alias -s py='python3'
+  alias -s go='go'
+  alias -s java='java'
+  alias -s js='node'
+  alias -s hs='ghci'
+  alias -s {png,jpg,bmp,PNG,JPG,BMP}='feh'
+  alias -s mp3='mplayer'
+  alias -s html='chromium-browser'
+  alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}='extract'
+  alias -s deb='sudo gdebi' # dpkg -i だと依存関係解決してくれないため
+fi
 
 # permission
 alias 644='chmod 644'
@@ -67,7 +69,7 @@ alias pl='pet list'
 alias pe='pet edit'
 alias pp='pet exec' # pet peco
 
-# color
+# Color
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -101,11 +103,12 @@ run() {
   CONTAINER_ID=$(docker run -it -d  --name $1 -v $WS_DIR:$WS_DIR ${2:-dot} bash)
   docker attach --sig-proxy=false --detach-keys "ctrl-\\" $CONTAINER_ID
 }
-att() { docker attach --sig-proxy=false --detach-keys "ctrl-\\" $1 }
+att() { docker attach --sig-proxy=false --detach-keys "ctrl-\\" $1; }
 
 # mac sshfs
 # alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
 # alias kaishafs='sshfs kaisha: ~/mp/kaisha -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=kaisha'
+
 extract() {
   case $1 in
     *.tar.gz|*.tgz) tar xzvf $1;;
