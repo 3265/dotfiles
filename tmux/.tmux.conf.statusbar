@@ -12,7 +12,7 @@ set -g status-right-length 60
 set -g status-left-length 40
 
 # text of window status
-run-shell "tmux set-environment -g ENV_STATUS $([ -f /.dockerenv ] && echo '🐳' || echo '🏠')"
+run-shell "tmux set-environment -g ENV_STATUS $([ -f /.dockerenv ] && echo '🐳' || echo '💻')"
 set -g status-left "#[fg=green]Session: #S #[fg=yellow]Pane: #I #[fg=cyan]Window: #P"
 set -g status-right "Env: #{ENV_STATUS} Online: #{online_status} CPU:#{cpu_percentage} Battery: #{battery_percentage} #[fg=cyan] %a %h-%d %H:%M"
 
