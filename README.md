@@ -30,10 +30,14 @@ Editor
 - VSCode
 - IntelliJ IDEA/Android Studio
 
+Virtualization
+- Virtualbox
+- Vagrant
+- Docker
+
 Terminal Multiplexer
 - Screen
 - Tmux
-- Docker
 
 Window Manager
 - i3

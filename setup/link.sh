@@ -51,12 +51,15 @@ ln -s -f ~/dotfiles/.tmux.conf ~/.tmux.conf
 # System monitor
 ln -s -f ~/dotfiles/.conkyrc ~/.conkyrc
 
-# Git
+# VCS
 ln -s -f ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s -f ~/dotfiles/.gitignore ~/.gitignore
 ln -s -f ~/dotfiles/.tigrc ~/.tigrc
 
+# Docker
 ln -s -f ~/dotfiles/.dockerignore ~/.dockerignore
+sudo ln -s -f ~/dotfiles/daemon.json /etc/docker/daemon.json # to use experimental future
+
 ln -s -f ~/dotfiles/.agignore ~/.agignore
 ln -s -f ~/dotfiles/.editorconfig ~/.editorconfig
 ln -s -f ~/dotfiles/.Xresources  ~/.Xresources

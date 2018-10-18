@@ -20,8 +20,10 @@ apt-get install silversearcher-ag -y
 apt-get install curl -y
 apt-get install wget -y
 
-# Docker
+# Virtualization
 apt-get install docker-ec -y
+apt-get install virtualbox
+apt-get install vagrant
 
 # Terminal multiplexer
 apt-get install tmux -y
