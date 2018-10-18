@@ -4,7 +4,7 @@ apt-get update
 apt-get install sudo -y
 
 # FileSystem
-apt-get install zfs
+apt-get install zfs -y
 
 # Terminal
 # apt-get install bash -y
@@ -25,8 +25,8 @@ apt-get install wget -y
 
 # Virtualization
 apt-get install docker-ec -y
-apt-get install virtualbox
-apt-get install vagrant
+apt-get install virtualbox -y
+apt-get install vagrant -y
 
 # Terminal multiplexer
 apt-get install tmux -y

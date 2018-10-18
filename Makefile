@@ -1,7 +1,16 @@
 SETUP_DIR = ~/dotfiles/setup
 
-.ONESHELL:
-guest:
+ctr:
+	cd $(SETUP_DIR)
+	sh ./link.sh
+	sh ./cui.sh
+	sh ./zsh.sh
+	sh ./ssh.sh
+	sh ./vim.sh
+	sh ./tmux.sh
+	sh ./ranger.sh
+
+vm:
 	cd $(SETUP_DIR)
 	sh ./link.sh
 	sh ./cui.sh

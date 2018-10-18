@@ -74,3 +74,6 @@ node_modules
 
 # zsh
 *.zwc
+
+.vagrant
+

@@ -63,12 +63,6 @@ alias gl='g l'
 alias gs='g s'
 alias ll='l'
 
-# Pet
-alias pn='pet new'
-alias pl='pet list'
-alias pe='pet edit'
-alias pp='pet exec' # pet peco
-
 # Color
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -82,40 +76,100 @@ alias shutdown='reboot'
 alias suspend='systemctl suspend'
 alias lock='i3lock -c 000000'
 
-# Vagrant/Virtualbox
-alias vu='vagrant up'
-alias vs='vagrant ssh'
-aliae vss='vagrant suspend'
-aliae vr='vagrant resume'
+pet() {
+  case $1 in
+    n)
+      shift
+      command pet new "$@";;
+    ls)
+      shift
+      command pet list "$@";;
+    e)
+      shift
+      command pet edit "$@";;
+    x) # need to instal peco
+      shift
+      command pet exec "$@";;
+    *) command pet "$@";;
+  esac
+}
 
-# docker/docker-compose shortcuts
+# Vagrant
+alias vg='vagrant'
+vagrant() {
+  case $1 in
+    i)
+      shift
+      command vagrant init "$@";;
+    u)
+      shift
+      command vagrant up "$@";;
+    s)
+      shift
+      command vagrant ssh "$@";;
+    d)
+      shift
+      command vagrant suspend "$@";;
+    l)
+      shift
+      command vagrant reload "$@";;
+    m)
+      shift
+      command vagrant resume "$@";;
+    *) command docker-compose "$@";;
+  esac
+}
+
+# docker subcommand aliases
+docker() {
+  case $1 in
+    ps)
+      shift
+      command docker ps "$@";; # -a
+    i)
+      shift
+      command docker images "$@";;
+    v)
+      shift
+      command docker volume "$@";;
+    b) docker build -t ${1:-dot} $HOME/dotfiles/. ;;
+    r)
+      WS_DIR="${HOME}/workspace"
+      mkdir -p $WS_DIR # NOTE: need to make share directory in host before using cmd below coz its owner will be root.
+      CONTAINER_ID=$(docker run -it -d --name $1 -v $WS_DIR:$WS_DIR ${2:-dot});;
+      # docker attach --sig-proxy=false --detach-keys "ctrl-\\" $CONTAINER_ID;;
+    c)
+      NEW_TAG=$(docker images | awk -v img_name="${2:-dot}" '($1 == img_name) {print $2 += .01; exit}')
+      docker commit ${1:-app} ${2:-dot}:$NEW_TAG;;
+    a) docker attach --sig-proxy=false --detach-keys "ctrl-\\" $1;;
+    s)
+      shift
+      docker start $1 "$@";;
+    p)
+      shift
+      docker stop $1 "$@";;
+    x)
+      docker exec -it $1 bash;;
+    rmc-all) docker rm $(docker ps --all --quiet) -f;;
+    rmi-all) docker rmi $(docker images --quiet) -f;;
+    rmv-all) docker volume rm `docker volume ls -q -f dangling=true`;;
+    *) command docker "$@";;
+  esac
+}
+
+# NOTE: bash and zsh allows to use hyphens but POSIX
 alias dc="docker-compose"
-alias dps="docker ps" # -a
-alias dim="docker images"
-alias dvl="docker volume ls"
-
-# docker removes
-alias drmc='docker rm $(docker ps --all --quiet) -f'
-alias drmi='docker rmi $(docker images --quiet) -f'
-alias drmv='docker volume rm `docker volume ls -q -f dangling=true`'
-
-# docker viratual dev env
-# MEMO: i tried to save docker status by using CRIU but containers with tty was not supported.
-bld() { docker build -t ${1:-dot} $HOME/dotfiles/. ; }
-run() {
-  WS_DIR="${HOME}/workspace"
-  mkdir -p $WS_DIR # NOTE: need to make share directory in host before using cmd below coz its owner will be root.
-  CONTAINER_ID=$(docker run -it -d --name $1 -v $WS_DIR:$WS_DIR ${2:-dot})
-  docker attach --sig-proxy=false --detach-keys "ctrl-\\" $CONTAINER_ID
+docker-compose() {
+  case $1 in
+    i)
+      shift
+      command docker-compose images "$@";;
+    b)
+      shift
+      command docker-compose up -d --build "$@";;
+    *) command docker-compose "$@";;
+  esac
 }
-cmt() {
-  NEW_TAG=$(docker images | awk -v img_name="${2:-dot}" '($1 == img_name) {print $2 += .01; exit}')
-  docker commit ${1:-app} ${2:-dot}:$NEW_TAG
-}
-att() { docker attach --sig-proxy=false --detach-keys "ctrl-\\" $1; }
-stp() { docker stop $1; }
-str() { docker start $1; }
-exe() { docker exec -it $1 bash; }
 
 # mac sshfs
 # alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
