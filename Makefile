@@ -11,6 +11,8 @@ ctr:
 	sh ./ranger.sh
 
 vm:
+	HOME=/home/vagrant
+	USER=vagrant
 	cd $(SETUP_DIR)
 	sh ./link.sh
 	sh ./cui.sh

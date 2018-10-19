@@ -7,8 +7,9 @@ apt-get install sudo -y
 apt-get install zfs -y
 
 # Terminal
-# apt-get install bash -y
+apt-get install bash -y
 apt-get install zsh -y
+apt-get install mosh -y
 
 # Editor
 apt-get install vim -y
@@ -22,6 +23,16 @@ apt-get install silversearcher-ag -y
 # Downloader
 apt-get install curl -y
 apt-get install wget -y
+
+# KVM
+# NOTE: Need to reboot
+apt-get install qemu-kvm -y # emulator
+apt-get install libvirt-bin -y
+apt-get install libvirt0 -y
+apt-get install libvirt-bin -y
+apt-get install virt-install -y # cli
+apt-get install virt-manager -y
+apt-get install bridge-utils -y # for virtual bridge
 
 # Virtualization
 apt-get install docker-ec -y

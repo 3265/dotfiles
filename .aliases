@@ -76,6 +76,16 @@ alias shutdown='reboot'
 alias suspend='systemctl suspend'
 alias lock='i3lock -c 000000'
 
+show() {
+  case $1 in
+    group) cat /etc/group;;
+    kernel) uname -a;;
+    os) cat /etc/lsb-release;;
+    spec) neofetch;;
+    *) echo 'worng subcommand found';;
+  esac
+}
+
 pet() {
   case $1 in
     n)
@@ -94,29 +104,38 @@ pet() {
   esac
 }
 
+# VirtualBox
+alias vbm='vboxmanage'
+alias vbh='vboxheadless'
+vbox() {
+  case $1 in
+    ls)
+      echo "[all]"
+      command vboxmanage list vms
+      echo "[running]"
+      command vboxmanage list runningvms;;
+    save) # save state
+      shift
+      command vboxmanage controlvm $1 savestate;;
+    start) # detachable start
+      shift
+      command vboxmanage startvm --type separate $1;;
+    *) command vboxmanage "$@";;
+  esac
+}
+
 # Vagrant
 alias vg='vagrant'
 vagrant() {
   case $1 in
-    i)
-      shift
-      command vagrant init "$@";;
-    u)
-      shift
-      command vagrant up "$@";;
-    s)
-      shift
-      command vagrant ssh "$@";;
-    d)
-      shift
-      command vagrant suspend "$@";;
-    l)
-      shift
-      command vagrant reload "$@";;
-    m)
-      shift
-      command vagrant resume "$@";;
-    *) command docker-compose "$@";;
+    i) command vagrant init;;
+    u) command vagrant up;;
+    s) command vagrant status;;
+    push) command vagrant snapshot push;;
+    pop) command vagrant snapshot pop;;
+    h) command vagrant ssh;;
+    l) command vagrant reload;;
+    *) command vagrant "$@";;
   esac
 }
 
