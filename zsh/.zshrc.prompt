@@ -26,9 +26,11 @@ zstyle ':vcs_info:*' formats " %F{cyan}%c%u(%b)%f" #通常
 zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリクト等 formats 外の表示
 
 # Container or not
-ENV_ICON="H" # host
-if [ -f /.dockerenv ]; then
-  ENV_ICON="G" # guest
+ENV_ICON="H" # Host
+if [[ `cat /sys/class/dmi/id/product_name` == "VirtualBox" ]]; then
+  ENV_ICON="V" # VM
+elif [ -f /.dockerenv ]; then
+  ENV_ICON="C" # Container
 fi
 
 export ENV_STATUS="[%{${fg[cyan]}%}$ENV_ICON%{${reset_color}%}]"
