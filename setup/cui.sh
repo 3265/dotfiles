@@ -20,24 +20,28 @@ apt-get install emacs -y
 apt-get install ranger -y
 apt-get install silversearcher-ag -y
 
+# Dictionary
+apt-get install waei -y
+
 # Downloader
 apt-get install curl -y
 apt-get install wget -y
-
-# KVM
-# NOTE: Need to reboot
-apt-get install qemu-kvm -y # emulator
-apt-get install libvirt-bin -y
-apt-get install libvirt0 -y
-apt-get install libvirt-bin -y
-apt-get install virt-install -y # cli
-apt-get install virt-manager -y
-apt-get install bridge-utils -y # for virtual bridge
 
 # Virtualization
 apt-get install docker-ec -y
 apt-get install virtualbox -y
 apt-get install vagrant -y
+
+# KVM
+# NOTE: Need to reboot
+# apt-get install qemu-kvm -y # emulator
+# apt-get install libvirt-bin -y
+# apt-get install libvirt0 -y
+# apt-get install libvirt-bin -y
+# apt-get install virt-install -y # cli
+# apt-get install virt-manager -y
+# apt-get install bridge-utils -y # for virtual bridge
+
 
 # Terminal multiplexer
 apt-get install tmux -y
@@ -57,23 +61,3 @@ apt-get install vit -y
 apt-get install tree -y
 apt-get install gdebi -y
 apt-get install nmap -y
-
-# Language
-apt-get install python-pip -y
-apt-get install python3-pip -y
-apt-get install golang -y
-apt-get install nodejs -y
-apt-get install npm -y
-apt-get install default-jre  -y
-apt-get install default-jdk  -y
-apt-get install openjdk-8-jdk -y
-apt-get install lua5.3 -y
-apt-get install ruby -y
-apt-get install r-base -y
-# Install RStudio desktop manually
-# see https://www.rstudio.com/products/rstudio/download
-
-# DB
-apt-get install mysql -y
-apt-get install sqlite3 -y
-apt-get install mycli -y
