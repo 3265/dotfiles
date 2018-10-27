@@ -41,6 +41,9 @@
   prestage = diff -w --word-diff=color
   precommit = diff --cached -w --word-diff=color --word-diff-regex='[^[:space:]<>]+'
 
+  show-names = show --pretty="" --name-only
+  diff-names = diff --pretty="" --name-only
+
   save = commit -m
   amend = commit --amend
   resave = commit --amend
