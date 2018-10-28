@@ -6,13 +6,13 @@ swipe:
       command: 'xdotool key alt+Left'
   4:
     left:
-      command: 'xdotool key super+p'
-    right:
       command: 'xdotool key super+n'
+    right:
+      command: 'xdotool key super+p'
     up:
-      command: 'xdotool key super+k'
-    down:
       command: 'xdotool key super+j'
+    down:
+      command: 'xdotool key super+k'
 pinch:
   4:
     in:

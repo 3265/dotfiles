@@ -8,7 +8,8 @@ sudo apt-get install feh -y # for wallpaper
 sudo apt-get install compton -y # for transparent
 sudo apt-get install parcellite -y # for clip board
 sudo apt-get install volumeicon-alsa -y # to use volumeicon
-sudo apt-get install scrot -y # to use scrot
+sudo apt-get install scrot -y # screenshot
+sudo apt-get install shutter -y # rectangle screenshot
 sudo apt-get install acpitool -y # to manage battery
 sudo apt-get install xautolock -y # for auto lock
 sudo apt-get install network-manager-openvpn-gnome # for VPN
