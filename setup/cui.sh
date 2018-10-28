@@ -23,6 +23,10 @@ apt-get install silversearcher-ag -y
 # Dictionary
 apt-get install waei -y
 
+# Monitoring
+apt-get install htop -y
+apt-get install powertop -y
+
 # Downloader
 apt-get install curl -y
 apt-get install wget -y
@@ -42,20 +46,22 @@ apt-get install vagrant -y
 # apt-get install virt-manager -y
 # apt-get install bridge-utils -y # for virtual bridge
 
-
 # Terminal multiplexer
 apt-get install tmux -y
 apt-get install xsel -y # for yank
 apt-get install screen -y
 
 # VCS
-apt-get install tig -y
 apt-get install git -y
+apt-get install tig -y
 
 # Todo Manager
 apt-get install taskwarrior -y
 apt-get install tasksh -y
 apt-get install vit -y
+
+# Screensaver
+apt-get install cmatrix -y
 
 # Tools
 apt-get install tree -y

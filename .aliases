@@ -41,17 +41,14 @@ if [[ $0 != "bash" ]]; then
   alias -g P='| peco'
 
   # Suffix aliases
-  alias -s rb='ruby'
-  alias -s py='python3'
-  alias -s go='go'
-  alias -s java='java'
-  alias -s js='node'
-  alias -s hs='ghci'
+  alias -s {c,py,cpp,r,rb,go,js,jsx,ts,java,sql,hs,md,sh,sh,rs,php}='vim'
+  alias -s {xml,json,toml,yaml,yml,ini,conf,log}='vim'
   alias -s {png,jpg,bmp,PNG,JPG,BMP}='feh'
   alias -s mp3='mplayer'
   alias -s html='chromium-browser'
   alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}='extract'
   alias -s deb='sudo gdebi' # dpkg -i だと依存関係解決してくれないため
+
 fi
 
 # permission
@@ -83,6 +80,24 @@ eigo() {
   case $1 in
     e) shift; waei -ce "$@";;
     *) waei -c "$@";;
+  esac
+}
+
+sshcfg() {
+  case $1 in
+    ls) ssh-add -l;;
+    a|add) ssh-add ~/.ssh/id_rsa;;
+    c|copy) # to add pub key to .ssh/authorized_keys in host
+      shift; ssh-copy-id -i ~/.ssh/id_rsa.pub "$@";;
+    alive) eval `ssh-agent`;;
+    s|springboard) shift; ssh -A "$@" ;;
+    g|generate) ssh-keygen -t rsa;;
+    d|delete) # delete host from known_hosts
+      shift; ssh-keygen -R "$@";;
+    c|check) # check private key from host
+      shift; ssh-keyscan "$@";;
+    h) declare -f sshcfg;;
+    *) echo 'worng subcommand found';;
   esac
 }
 

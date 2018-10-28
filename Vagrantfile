@@ -44,7 +44,12 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   config.vm.synced_folder "../workspace", "/home/vagrant/workspace"
+  config.vm.synced_folder "../apps", "/home/vagrant/apps"
   config.vm.synced_folder ".", "/home/vagrant/dotfiles"
+
+  # If true, then any SSH connections made will enable agent forwarding.
+  # Default value: false
+  config.ssh.forward_agent = true
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -62,6 +67,7 @@ Vagrant.configure("2") do |config|
   # information on available options.
   config.vm.define "default", primary: true do |n|
     n.vm.hostname = "dot"
+    n.vm.network :private_network, ip: "192.168.33.10"
     n.vm.provider "virtualbox" do |vb|
       vb.memory = 2048
       vb.cpus = 2
@@ -71,8 +77,6 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "file", source: "~/.ssh/id_rsa", destination: "~/.ssh"
-  config.vm.provision "file", source: "~/.ssh/config", destination: "~/.ssh"
   # config.vm.provision "shell", inline: <<-SHELL
   #   apt-get update
   #   apt-get install -y apache2

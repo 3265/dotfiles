@@ -2,21 +2,6 @@
 
 sudo apt-get update
 
-# Tools
-sudo apt-get install gwaei -y # dictionary
-sudo apt-get install wireshark -y
-# Way to solve permission err of wireshark
-# see https://ubuntuforums.org/showthread.php?t=2039978
-
-# Browser
-sudo apt-get install chromium-browser -y
-sudo apt-get install firefox -y
-sudo apt-get install qutebrowser -y
-
-# Office
-sudo apt-get install libreoffice -y
-sudo apt-get install impressive -y
-
 # WM
 sudo apt-get install i3 -y
 sudo apt-get install feh -y # for wallpaper
@@ -32,6 +17,18 @@ sudo apt-get install redshift gtk-redshift -y # for blue light
 # Launcher
 sudo apt install rofi -y
 sudo apt install qalc -y # for calculation
+
+# Browser
+sudo apt-get install chromium-browser -y
+sudo apt-get install firefox -y
+sudo apt-get install qutebrowser -y
+
+# Office
+sudo apt-get install libreoffice -y
+sudo apt-get install impressive -y
+
+# Touchpad Gesture
+# see fusuma.sh
 
 # Conky
 sudo apt-get install conky-all -y # to use rss
@@ -57,6 +54,11 @@ sudo apt-get install clamtk -y
 
 # Business
 sudo snap install skype --classic
+
+# Tools
+sudo apt-get install wireshark -y
+# Way to solve permission err of wireshark
+# see https://ubuntuforums.org/showthread.php?t=2039978
 
 # Manual
 # vs code

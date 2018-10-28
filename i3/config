@@ -110,6 +110,7 @@ exec --no-startup-id "compton -cbm 0.75" # for transparent
 exec --no-startup-id "parcellite &" # for clip board
 exec --no-startup-id "volumeicon &" # for volume manager
 exec --no-startup-id "redshift &" # for brightness
+exec --no-startup-id "/usr/local/bin/fusuma -d" # gesture
 exec --no-startup-id "sh ~/dotfiles/i3/autolock.sh" # auto lock
 exec --no-startup-id "sh ~/dotfiles/i3/monitor.sh" # wallpaper and monitor
 exec --no-startup-id "echo '*/5 * * * *  ~/dotfiles/i3/battery.sh' | crontab -" # need to add premition

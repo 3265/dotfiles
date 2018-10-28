@@ -42,7 +42,11 @@
   precommit = diff --cached -w --word-diff=color --word-diff-regex='[^[:space:]<>]+'
 
   show-names = show --pretty="" --name-only
+  sn= show --pretty="" --name-only
   diff-names = diff --pretty="" --name-only
+  dn= diff --pretty="" --name-only
+  cache-names = diff --cached --pretty="" --name-only
+  cn= diff --cached --pretty="" --name-only
 
   save = commit -m
   amend = commit --amend

@@ -105,6 +105,11 @@ ServerAliveCountMax 10
 # kown_hostsの自動登録
 StrictHostKeyChecking no
 
+# enable ssh-agent forwarding
+# ref https://stackoverflow.com/questions/24681167/use-ssh-private-key-from-host-in-vagrant-guest
+Host *
+  ForwardAgent yes
+
 # blog
 Host blog
   HostName 000.000.000.000

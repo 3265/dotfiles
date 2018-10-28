@@ -56,6 +56,10 @@ ln -s -f ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s -f ~/dotfiles/.gitignore ~/.gitignore
 ln -s -f ~/dotfiles/.tigrc ~/.tigrc
 
+# Fusuma
+mkdir -p ~/.config/fusuma
+ln -s -f ~/dotfiles/config.yml ~/.config/fusuma/config.yml
+
 # Docker
 ln -s -f ~/dotfiles/.dockerignore ~/.dockerignore
 sudo ln -s -f ~/dotfiles/daemon.json /etc/docker/daemon.json # to use experimental future

@@ -28,6 +28,7 @@ host:
 	bash ./link.sh
 	bash ./cui.sh
 	bash ./lang.sh
+	bash ./fusuma.sh
 	bash ./gui.sh
 	bash ./zsh.sh
 	bash ./ssh.sh
