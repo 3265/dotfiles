@@ -28,6 +28,9 @@ sudo apt-get install qutebrowser -y
 sudo apt-get install libreoffice -y
 sudo apt-get install impressive -y
 
+# Video Player
+sudo apt-get install vlc -y
+
 # Touchpad Gesture
 # see fusuma.sh
 
