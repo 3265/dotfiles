@@ -85,6 +85,9 @@
   d5 = diff HEAD~~~~~        # HEADから5つ前とdiff
   d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
 
+  global-list = config --global --list
+  local-list = config --local --list
+
 # git stash clear
 # git fetch --prune
 #
