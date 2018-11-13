@@ -10,6 +10,7 @@ apt-get install zfs -y
 apt-get install bash -y
 apt-get install zsh -y
 apt-get install mosh -y
+apt-get install pssh -y # includes prsync, pscp
 
 # Editor
 apt-get install vim -y

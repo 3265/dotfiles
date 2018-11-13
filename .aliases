@@ -77,6 +77,15 @@ alias shutdown='shutdown -h now'
 alias suspend='systemctl suspend'
 alias lock='i3lock -c 000000'
 
+# Shell
+alias bsh='bash'
+alias zsh='zsh'
+alias msh='mosh'
+alias psh='parallel-ssh'
+alias tsh='tasksh' # for task
+alias vsh='virsh' # KVM
+
+
 eigo() {
   case $1 in
     e) shift; waei -ce "$@";;
@@ -257,6 +266,20 @@ docker-compose() {
       shift
       command docker-compose up -d --build "$@";;
     h) declare -f docker-compose;;
+    *) command docker-compose "$@";;
+  esac
+}
+
+rbenv() {
+  case $1 in
+    install)
+      shift
+      rbenv install "$@";;
+    where)
+      which ruby;;
+    install-bundle)
+      gem install bundle;;
+    h) declare -f rbenv;;
     *) command docker-compose "$@";;
   esac
 }
