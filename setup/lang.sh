@@ -17,4 +17,6 @@ apt-get install r-base -y
 # DB
 apt-get install mysql -y
 apt-get install sqlite3 -y
+apt-get install redis -y
+apt-get install mongodb -y
 apt-get install mycli -y
