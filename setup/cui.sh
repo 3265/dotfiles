@@ -14,6 +14,7 @@ apt-get install pssh -y # includes prsync, pscp
 
 # Editor
 apt-get install vim -y
+apt-get install nvim -y
 apt-get install vim-gnome -y # to use clipboard
 apt-get install emacs -y
 

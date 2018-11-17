@@ -6,7 +6,7 @@ alias b='cd ../'
 alias c='cd'
 alias d='docker'
 alias e='emacs'
-alias f='free'
+alias f='free -h'
 alias g='git'
 alias h='history'
 alias i="ifconfig"
@@ -22,7 +22,7 @@ alias r='ranger' # finder
 alias s='screen'
 alias t='tasksh' # cui for task
 alias u='du -hs' # directory size
-alias v='vim' # nvim
+alias v='nvim' # or vim
 alias w='w'
 alias x='ex'
 alias y='yes'
@@ -121,6 +121,7 @@ show() {
     ip) dig $2;;
     owner) whois $2;;
     t|tree) tree -N $2;;
+    m|memory) free -h;;
     f|file)
       shift;
       file "$@"
