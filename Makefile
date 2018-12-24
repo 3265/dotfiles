@@ -38,4 +38,4 @@ host:
 	bash ./ime.sh
 	bash ./font.sh
 	bash ./and.sh
-	bash ./gcp.sh
+	bash ./cloud.sh
