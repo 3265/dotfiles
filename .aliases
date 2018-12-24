@@ -76,6 +76,7 @@ alias reboot='reboot'
 alias shutdown='shutdown -h now'
 alias suspend='systemctl suspend'
 alias lock='i3lock -c 000000'
+alias tf="terraform"
 
 # Shell
 alias bsh='bash'
@@ -84,7 +85,6 @@ alias msh='mosh'
 alias psh='parallel-ssh'
 alias tsh='tasksh' # for task
 alias vsh='virsh' # KVM
-
 
 eigo() {
   case $1 in
