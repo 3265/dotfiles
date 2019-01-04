@@ -4,7 +4,7 @@
 
 \# | cmd
 ---|---
-1 | sudo apt-get install git
+1 | sudo apt install git make
 2 | git clone https://github.com/mgoldchild/dotfiles
 3 | cd dotfiles
 4 | make cui
