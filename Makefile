@@ -14,6 +14,7 @@ host:
 	bash ./tmux.sh
 	bash ./ranger.sh
 	bash ./ime.sh
+	bash ./dict.sh
 	bash ./and.sh
 	bash ./cloud.sh
 	bash ./font.sh
