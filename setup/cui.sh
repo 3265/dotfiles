@@ -40,6 +40,10 @@ apt install virtualbox -y
 apt install vagrant -y
 apt install docker-ec -y
 
+# VPN
+apt install strongswan -y
+apt install xl2tpd -y
+
 # KVM
 # NOTE: Need to reboot
 # apt-get install qemu-kvm -y # emulator
