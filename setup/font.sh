@@ -14,5 +14,7 @@ fc-cache -f -v
 # format [font-name size]
 # gconftool-2 --get /apps/gnome-terminal/profiles/Default/font # to confirm
 gconftool-2 --set /apps/gnome-terminal/profiles/Default/font --type string "Ricty Regular 12"
-sudo shutdown -r now # need to restart to use ricty on gnome terminal
+
+# commented out for makefile
+# sudo shutdown -r now # need to restart to use ricty on gnome terminal
 

@@ -1,42 +1,44 @@
 #!/bin/bash
 
-apt-get update
-apt-get install sudo -y
+apt update
+apt install sudo -y
 
 # FileSystem
-apt-get install zfs -y
+apt install zfs -y
 
 # Terminal
-apt-get install bash -y
-apt-get install zsh -y
-apt-get install mosh -y
-apt-get install pssh -y # includes prsync, pscp
+apt install bash -y
+apt install zsh -y
+apt install mosh -y
+apt install pssh -y # includes prsync, pscp
+apt install translate-shell
 
 # Editor
-apt-get install vim -y
-apt-get install nvim -y
-apt-get install vim-gnome -y # to use clipboard
-apt-get install emacs -y
+apt install vim -y
+apt install neovim -y
+apt install vim-gnome -y # to use clipboard
+apt install emacs -y
 
 # Finder
-apt-get install ranger -y
-apt-get install silversearcher-ag -y
+apt install ranger -y
+apt install silversearcher-ag -y
 
 # Dictionary
-apt-get install waei -y
+apt install goldendict -y
+apt install waei -y
 
 # Monitoring
-apt-get install htop -y
-apt-get install powertop -y
+apt install htop -y
+apt install powertop -y
 
 # Downloader
-apt-get install curl -y
-apt-get install wget -y
+apt install curl -y
+apt install wget -y
 
 # Virtualization
-apt-get install docker-ec -y
-apt-get install virtualbox -y
-apt-get install vagrant -y
+apt install virtualbox -y
+apt install vagrant -y
+apt install docker-ec -y
 
 # KVM
 # NOTE: Need to reboot
@@ -49,23 +51,24 @@ apt-get install vagrant -y
 # apt-get install bridge-utils -y # for virtual bridge
 
 # Terminal multiplexer
-apt-get install tmux -y
-apt-get install xsel -y # for yank
-apt-get install screen -y
+apt install screen -y
+apt install tmux -y
+apt install xsel -y # for yank
 
 # VCS
-apt-get install git -y
-apt-get install tig -y
+apt install git -y
+apt install tig -y
 
 # Todo Manager
-apt-get install taskwarrior -y
-apt-get install tasksh -y
-apt-get install vit -y
+apt install taskwarrior -y
+apt install tasksh -y
+apt install vit -y
 
 # Screensaver
-apt-get install cmatrix -y
+apt install cmatrix -y
 
 # Tools
-apt-get install tree -y
-apt-get install gdebi -y
-apt-get install nmap -y
+apt install tree -y
+apt install gdebi -y
+apt install nmap -y
+apt install net-tools -y # for ifconfig
