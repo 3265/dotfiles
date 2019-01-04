@@ -114,7 +114,7 @@ Host *
 Host blog
   HostName 000.000.000.000
   Port 22
-  IdentityFile /Users/mgoldchild/.ssh/id_rsa
+  IdentityFile /Users/gc/.ssh/id_rsa
   User mgoldchild
   Protocol 2
   ServerAliveInterval 15
@@ -124,7 +124,7 @@ Host blog
 Host blogX
   HostName 000.000.000.000
   Port 22
-  IdentityFile /Users/mgoldchild/.ssh/id_rsa
+  IdentityFile /Users/gc/.ssh/id_rsa
   User mgoldchild
   Protocol 2
   ServerAliveInterval 15
