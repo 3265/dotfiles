@@ -7,6 +7,7 @@ ln -s -f ~/dotfiles/.bashrc ~/.bashrc
 ln -s -f ~/dotfiles/.bashenv ~/.bashenv
 ln -s -f ~/dotfiles/.bash_profile ~/.bash_profile
 ln -s -f ~/dotfiles/.inputrc ~/.inputrc
+ln -s -f ~/dotfiles/.netrc ~/.netrc
 
 # ZSH
 ln -s -f ~/dotfiles/.zshrc ~/.zshrc

@@ -18,6 +18,7 @@ host:
 	bash ./and.sh
 	bash ./cloud.sh
 	bash ./font.sh
+	# sudo direnv exec . bash setup/vpn.sh
 	reboot # for font
 
 .ONESHELL:
