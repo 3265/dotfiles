@@ -1,4 +1,8 @@
-remove Lock = Caps_Lock
-keysym Caps_Lock = Control_L
-add Control = Control_L
+! NOTE:
+!  - Comment out coz /etc/default/keyboard is better to disable capslock
+!  - and  etxkbmap is modern according to the site below
+!  - ref https://askubuntu.com/questions/29603/how-do-i-clear-xmodmap-settings
+! remove Lock = Caps_Lock
+! keysym Caps_Lock = Control_L
+! add Control = Control_L
 
