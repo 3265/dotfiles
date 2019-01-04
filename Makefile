@@ -7,7 +7,7 @@ host:
 	sudo bash ./cui.sh
 	bash ./lang.sh
 	bash ./fusuma.sh
-	bash ./gui.sh
+	sudo bash ./gui.sh
 	bash ./zsh.sh
 	bash ./ssh.sh
 	bash ./vim.sh
