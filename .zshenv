@@ -68,6 +68,11 @@ export XDG_CONFIG_HOME=~/.config
 # fi
 #
 
+# Direnv
+if [ $(which direnv) ]; then
+  eval "$(direnv hook zsh)"
+fi
+
 # Ruby Env
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
@@ -81,11 +86,6 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOROOT:$GOPATH:$GOPATH/bin
 
-
-# load .direnvrc
-if [ $(which direnv) ]; then
-  eval "$(direnv hook zsh)"
-fi
 
 # ------------------------------
 # Auto added

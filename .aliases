@@ -33,7 +33,7 @@ alias py='python3'
 alias copy='echo ${PWD} | xsel -b'
 alias search='chromium-browser --app="https://google.com/"' # search
 
-if [[ $0 != "bash" ]]; then
+if [[ $SHELL == "/bin/zsh" ]]; then
   # Global aliases
   alias -g G='| grep --color'
   alias -g L='| less'
@@ -49,7 +49,6 @@ if [[ $0 != "bash" ]]; then
   alias -s html='chromium-browser'
   alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}='extract'
   alias -s deb='sudo gdebi' # dpkg -i だと依存関係解決してくれないため
-
 fi
 
 # permission
@@ -267,20 +266,6 @@ docker-compose() {
       shift
       command docker-compose up -d --build "$@";;
     h) declare -f docker-compose;;
-    *) command docker-compose "$@";;
-  esac
-}
-
-rbenv() {
-  case $1 in
-    install)
-      shift
-      rbenv install "$@";;
-    where)
-      which ruby;;
-    install-bundle)
-      gem install bundle;;
-    h) declare -f rbenv;;
     *) command docker-compose "$@";;
   esac
 }

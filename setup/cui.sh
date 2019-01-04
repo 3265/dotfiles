@@ -41,6 +41,7 @@ apt install vagrant -y
 apt install docker-ec -y
 
 # VPN
+apt install ike-scan -y
 apt install strongswan -y
 apt install xl2tpd -y
 
@@ -72,6 +73,7 @@ apt install vit -y
 apt install cmatrix -y
 
 # Tools
+apt install direnv -y
 apt install tree -y
 apt install gdebi -y
 apt install nmap -y
