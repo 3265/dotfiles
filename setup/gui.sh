@@ -1,5 +1,4 @@
 #!/bin/bash
-j
 apt update
 
 # Tools
