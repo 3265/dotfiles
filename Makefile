@@ -5,14 +5,14 @@ host:
 	cd $(SETUP_DIR)
 	bash ./link.sh
 	sudo bash ./cui.sh
-	bash ./lang.sh
-	bash ./fusuma.sh
-	sudo bash ./gui.sh
 	bash ./zsh.sh
 	bash ./ssh.sh
 	bash ./vim.sh
 	bash ./tmux.sh
 	bash ./ranger.sh
+	bash ./lang.sh
+	sudo bash ./gui.sh
+	bash ./fusuma.sh
 	bash ./ime.sh
 	bash ./dict.sh
 	bash ./and.sh

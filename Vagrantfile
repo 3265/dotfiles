@@ -43,8 +43,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "../workspace", "/home/vagrant/workspace"
-  config.vm.synced_folder "../apps", "/home/vagrant/apps"
+  config.vm.synced_folder "../Apps", "/home/vagrant/Apps"
   config.vm.synced_folder ".", "/home/vagrant/dotfiles"
 
   # If true, then any SSH connections made will enable agent forwarding.
@@ -66,7 +65,7 @@ Vagrant.configure("2") do |config|
   # View the documentation for the provider you are using for more
   # information on available options.
   config.vm.define "default", primary: true do |n|
-    n.vm.hostname = "dot"
+    n.vm.hostname = "vm"
     n.vm.network :private_network, ip: "192.168.33.10"
     n.vm.provider "virtualbox" do |vb|
       vb.memory = 2048

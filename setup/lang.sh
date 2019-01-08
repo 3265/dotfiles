@@ -15,8 +15,8 @@ apt-get install r-base -y
 # see https://www.rstudio.com/products/rstudio/download
 
 # DB
-apt-get install mysql -y
+apt-get install mysql-server-5.7 -y
 apt-get install sqlite3 -y
-apt-get install redis -y
+apt-get install redis-server -y
 apt-get install mongodb -y
 apt-get install mycli -y
