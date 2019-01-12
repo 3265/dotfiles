@@ -1,3 +1,3 @@
 rofi.show-icons: true
 rofi.theme: solarized
-rofi.combi-modi: run,drun
+rofi.combi-modi: window,drun,run

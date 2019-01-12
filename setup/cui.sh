@@ -27,6 +27,9 @@ apt install silversearcher-ag -y
 apt install goldendict -y
 apt install waei -y
 
+# Additional keyboard shortcut
+apt install xbindkey -y
+
 # Monitoring
 apt install htop -y
 apt install powertop -y
@@ -74,6 +77,7 @@ apt install cmatrix -y
 
 # Tools
 apt install direnv -y
+apt install peco -y
 apt install tree -y
 apt install gdebi -y
 apt install nmap -y

@@ -2,6 +2,7 @@
 apt update
 
 # Tools
+apt install xpad -y
 apt install gparted -y
 
 # Launcher
@@ -13,6 +14,7 @@ apt install chromium-browser -y
 apt install firefox -y
 apt install qutebrowser -y
 snap install opera -y
+# for FF to disable Alt; about:config >.key.menua > ui.key.menuAccessKeyFocuses = false
 
 # Office
 apt install libreoffice -y

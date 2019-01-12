@@ -1,0 +1,11 @@
+"rofi -show combi"
+    m:0x4 + c:65
+    Control + space
+"rofi -show combi"
+    m:0x4 + c:66
+    Control + Control_L
+
+# MEMO:
+# xbindkeys -mk
+# killall xbindkeys; xbindkeys
+

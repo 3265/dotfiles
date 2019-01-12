@@ -19,6 +19,9 @@ ln -s -f ~/dotfiles/.aliases ~/.aliases
 # IME
 ln -s -f ~/dotfiles/.xinputrc ~/.xinputrc
 
+# Additional Shortcut Key
+ln -s -f ~/dotfiles/.xbindkeysrc ~/.xbindkeysrc
+
 # Keymap
 ln -s -f ~/dotfiles/.xmodmap ~/.xmodmap
 
@@ -63,7 +66,7 @@ ln -s -f ~/dotfiles/config.yml ~/.config/fusuma/config.yml
 
 # Docker
 ln -s -f ~/dotfiles/.dockerignore ~/.dockerignore
-sudo ln -s -f ~/dotfiles/daemon.json /etc/docker/daemon.json # to use experimental future
+# sudo ln -s -f ~/dotfiles/daemon.json /etc/docker/daemon.json # to use experimental future
 
 ln -s -f ~/dotfiles/.agignore ~/.agignore
 ln -s -f ~/dotfiles/.editorconfig ~/.editorconfig

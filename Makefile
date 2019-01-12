@@ -12,7 +12,7 @@ host:
 	bash ./ranger.sh
 	bash ./lang.sh
 	sudo bash ./gui.sh
-	bash ./fusuma.sh
+	sudo bash ./fusuma.sh
 	bash ./ime.sh
 	bash ./dict.sh
 	bash ./and.sh

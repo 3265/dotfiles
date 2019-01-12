@@ -142,3 +142,8 @@ Host github
 Host gitlab
   HostName gitlab.com
   IdentityFile ~/.ssh/id_rsa
+
+# Bitbucket
+Host bitbucket
+  HostName bitbucket.com
+  IdentityFile ~/.ssh/id_rsa
