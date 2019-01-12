@@ -79,3 +79,4 @@ node_modules
 
 .envrc
 
+test.sh
