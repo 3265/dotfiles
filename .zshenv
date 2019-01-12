@@ -92,11 +92,11 @@ export PATH=$PATH:$GOROOT:$GOPATH:$GOPATH/bin
 # ------------------------------
 
 # Anaconda3
-export PATH="/home/mgoldchild/anaconda3/bin:$PATH"
+export PATH="/home/gc/anaconda3/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/mgoldchild/google-cloud-sdk/path.zsh.inc' ]; then source '/home/mgoldchild/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/gc/google-cloud-sdk/path.zsh.inc' ]; then source '/home/gc/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/mgoldchild/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/mgoldchild/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/gc/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/gc/google-cloud-sdk/completion.zsh.inc'; fi
 

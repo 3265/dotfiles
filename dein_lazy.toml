@@ -283,3 +283,17 @@ on_ft = 'yaml'
 repo = 'tmux-plugins/vim-tmux' # tmux.conf用
 on_ft = 'tmux.conf'
 
+# ====================-
+# Terraform
+# ====================-
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+on_ft = ['tf', 'tfvars']
+hook_add = '''
+let g:terraform_fmt_on_save = 0 " to fit the rule of certain pj
+'''
+
+[[plugins]]
+repo = 'juliosueiras/vim-terraform-completion'
+on_ft = ['tf', 'tfvars']

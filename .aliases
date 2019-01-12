@@ -75,7 +75,6 @@ alias reboot='reboot'
 alias shutdown='shutdown -h now'
 alias suspend='systemctl suspend'
 alias lock='i3lock -c 000000'
-alias tf="terraform"
 
 # Shell
 alias bsh='bash'
@@ -267,6 +266,31 @@ docker-compose() {
       command docker-compose up -d --build "$@";;
     h) declare -f docker-compose;;
     *) command docker-compose "$@";;
+  esac
+}
+
+aws() {
+  case $1 in
+    check)
+      aws s3 ls;;
+    h) declare -f aws;;
+    *) command aws "$@";;
+  esac
+}
+
+alias tf="terraform"
+docker-compose() {
+  case $1 in
+    c|console)
+      command terraform console;;
+    i|init)
+      command terraform init;;
+    a|apply)
+      command terraform apply;;
+    v|variable)
+      command terraform variable;;
+    h) declare -f terraform;;
+    *) command terraform "$@";;
   esac
 }
 

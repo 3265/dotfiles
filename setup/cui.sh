@@ -82,3 +82,8 @@ apt install tree -y
 apt install gdebi -y
 apt install nmap -y
 apt install net-tools -y # for ifconfig
+
+# pet
+wget https://github.com/knqyf263/pet/releases/download/v0.3.0/pet_0.3.0_linux_amd64.deb
+dpkg -i pet_0.3.0_linux_amd64.deb
+rm pet_0.3.0_linux_amd64.deb
