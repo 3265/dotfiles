@@ -14,6 +14,11 @@ autoload history-search-end
 autoload -U tetris; zle -N tetris
 autoload -U compinit; compinit        # lsの色
 autoload bashcompinit                 # to avoid err command not found: complete
+
+# コマンドラインを任意のエディタで編集する(bindは.zshrc.keybinding)
+autoload -Uz edit-command-line
+zle -N edit-command-line
+
 bashcompinit
 
 # ------------------------------

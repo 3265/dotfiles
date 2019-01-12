@@ -70,8 +70,10 @@ ln -s -f ~/dotfiles/.dockerignore ~/.dockerignore
 
 ln -s -f ~/dotfiles/.agignore ~/.agignore
 ln -s -f ~/dotfiles/.editorconfig ~/.editorconfig
-ln -s -f ~/dotfiles/.Xresources  ~/.Xresources
 # ln -s -f ~/dotfiles/config.toml ~/.config/memo/config.toml
+
+# see https://askubuntu.com/questions/302736/solarized-color-name-not-defined
+# ln -s -f ~/dotfiles/.Xresources  ~/.Xresources
 
 # GTK-3.0(for chromium)
 ln -s -f ~/dotfiles/settings.ini ~/.config/gtk-3.0/settings.ini
