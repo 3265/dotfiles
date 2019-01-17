@@ -256,18 +256,18 @@ docker() {
 
 # NOTE: bash and zsh allows to use hyphens but POSIX
 alias dc="docker-compose"
-docker-compose() {
-  case $1 in
-    i)
-      shift
-      command docker-compose images "$@";;
-    b)
-      shift
-      command docker-compose up -d --build "$@";;
-    h) declare -f docker-compose;;
-    *) command docker-compose "$@";;
-  esac
-}
+# docker-compose() {
+#   case $1 in
+#     i)
+#       shift
+#       command docker-compose images "$@";;
+#     b)
+#       shift
+#       command docker-compose up -d --build "$@";;
+#     h) declare -f docker-compose;;
+#     *) command docker-compose "$@";;
+#   esac
+# }
 
 aws() {
   case $1 in
@@ -279,7 +279,7 @@ aws() {
 }
 
 alias tf="terraform"
-docker-compose() {
+terraform() {
   case $1 in
     c|console)
       command terraform console;;

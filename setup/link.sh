@@ -75,6 +75,9 @@ ln -s -f ~/dotfiles/.editorconfig ~/.editorconfig
 # see https://askubuntu.com/questions/302736/solarized-color-name-not-defined
 # ln -s -f ~/dotfiles/.Xresources  ~/.Xresources
 
+# DB
+ln -s -f ~/dotfiles/.my.cnf ~/.my.cnf
+
 # GTK-3.0(for chromium)
 ln -s -f ~/dotfiles/settings.ini ~/.config/gtk-3.0/settings.ini
 
