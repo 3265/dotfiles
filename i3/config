@@ -164,7 +164,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # Screenshot
 bindsym Print exec scrot -e 'mv $f ~/screenshots'
-bindsym $mod+Shift+Print exec shutter --min_at_startup -e -s -o /home/mgoldchild/screenshots/%y-%m-%d-%T.png
+bindsym $mod+Shift+Print exec shutter --min_at_startup -e -s -o /home/mike/screenshots/%y-%m-%d-%T.png
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

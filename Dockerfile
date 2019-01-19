@@ -1,8 +1,8 @@
 FROM ubuntu:18.04
 
-MAINTAINER mgoldchild
+MAINTAINER mike
 
-ENV USER mgoldchild
+ENV USER mike
 ENV HOME /home/${USER}
 ENV SHELL /bin/bash
 ENV TERM xterm

@@ -26,7 +26,7 @@ sudo apt-get install lib32z1 lib32ncurses5 lib32stdc++6
 # see https://stackoverflow.com/questions/37300811/android-studio-dev-kvm-device-permission-denied
 ls /dev/kvm # group is kvm
 grep kvm /etc/group # confirm kvm group
-sudo adduser mgoldchild kvm # add me to kvm
+sudo adduser mike kvm # add me to kvm
 
 # -----------------------
 #  Real Device

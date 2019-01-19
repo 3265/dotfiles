@@ -114,8 +114,8 @@ Host *
 Host blog
   HostName 000.000.000.000
   Port 22
-  IdentityFile /Users/gc/.ssh/id_rsa
-  User mgoldchild
+  IdentityFile /Users/mike/.ssh/id_rsa
+  User mike
   Protocol 2
   ServerAliveInterval 15
   ServerAliveCountMax 10
@@ -124,8 +124,8 @@ Host blog
 Host blogX
   HostName 000.000.000.000
   Port 22
-  IdentityFile /Users/gc/.ssh/id_rsa
-  User mgoldchild
+  IdentityFile /Users/mike/.ssh/id_rsa
+  User mike
   Protocol 2
   ServerAliveInterval 15
   ServerAliveCountMax 1

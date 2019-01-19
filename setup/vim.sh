@@ -4,4 +4,5 @@
 cd
 mkdir -p ~/.vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/vundle.git
-chown $USER:$USER -R ~/.vim
+chown mike:mike -R ~/.vim
+# chown $USER:$USER -R ~/.vim
