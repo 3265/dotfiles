@@ -14,10 +14,12 @@ host:
 	sudo bash ./gui.sh
 	sudo bash ./fusuma.sh
 	bash ./ime.sh
-	bash ./dict.sh
 	bash ./and.sh
 	bash ./cloud.sh
+	bash ./dict.sh
 	bash ./font.sh
+	bash ./docker.sh
+	bash ./rbenv.sh
 	# sudo direnv exec . bash setup/vpn.sh
 	reboot # for font
 

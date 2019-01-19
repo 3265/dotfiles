@@ -14,7 +14,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # add me to docker group
 sudo groupadd docker
-sudo gpasswd -a $USER docker
+sudo gpasswd -a mike docker
 sudo systemctl restart docker
 # exit
 
