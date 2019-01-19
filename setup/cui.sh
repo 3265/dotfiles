@@ -11,7 +11,7 @@ apt install bash -y
 apt install zsh -y
 apt install mosh -y
 apt install pssh -y # includes prsync, pscp
-apt install translate-shell
+apt install translate-shell -y
 
 # Editor
 apt install vim -y
