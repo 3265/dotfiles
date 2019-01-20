@@ -48,6 +48,9 @@ ln -s -f ~/dotfiles/.i3status.conf ~/.i3status.conf
 mkdir -p ~/.config/dunst
 ln -s -f ~/dotfiles/dunstrc ~/.config/dunst/dunstrc
 
+# Terminal
+ln -s -f ~/dotfiles/termite/config ~/.config/termite/config
+
 # Terminal multiplexer
 ln -s -f ~/dotfiles/.screenrc ~/.screenrc
 ln -s -f ~/dotfiles/.tmux.conf ~/.tmux.conf
