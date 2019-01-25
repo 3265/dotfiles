@@ -49,6 +49,7 @@ mkdir -p ~/.config/dunst
 ln -s -f ~/dotfiles/dunstrc ~/.config/dunst/dunstrc
 
 # Terminal
+mkdir -p ~/.config/termite
 ln -s -f ~/dotfiles/termite/config ~/.config/termite/config
 
 # Terminal multiplexer
