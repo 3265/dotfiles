@@ -10,7 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $term gnome-terminal
+set $term termite
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -31,7 +31,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -110,6 +110,7 @@ exec --no-startup-id "compton -cbm 0.75" # for transparent
 exec --no-startup-id "parcellite &" # for clip board
 exec --no-startup-id "volumeicon &" # for volume manager
 exec --no-startup-id "redshift &" # for brightness
+exec --no-startup-id fcitx # IME
 exec --no-startup-id "/usr/local/bin/fusuma -d" # gesture
 exec --no-startup-id "sh ~/dotfiles/i3/autolock.sh" # auto lock
 exec --no-startup-id "sh ~/dotfiles/i3/monitor.sh" # wallpaper and monitor
