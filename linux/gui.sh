@@ -28,6 +28,16 @@ sudo pacman -S --noconfirm fcitx fcitx-mozc fcitx-configtool
 # - [Babylon Japanese-English](https://www.babylon-software.com/free-dictionaries/languages/Babylon-Japanese-English/1257.html)（Babylon_Japanese_English_dicti.BGL）
 sudo pacman -S --noconfirm goldendict
 
+# NetworkManger
+# NOTE:
+#  - Need to stop netctl to use networkmanager
+#  - netctl list # show profile list, for example, i have oreore profile
+#  - sudo netctl stop oreore
+#  - sudo netctl disable oreore
+sudo pacman -S --noconfirm networkmanager network-manager-applet
+sudo systemctl start NetworkManager
+sudo systemctl enable NetworkManager
+
 # Editor
 yay -S --noconfirm visual-studio-code-bin
 
@@ -49,8 +59,28 @@ sudo pacman -S --noconfirm libreoffice-fresh
 # Video Player
 sudo pacman -S --noconfirm vlc
 
+# Window transparent
+sudo pacman -S --noconfirm compton
+
+# Clipboard manager
+sudo pacman -S --noconfirm doneparcellite
+
+# Blightness
+# NOTE: python-gobject is dependency for redshift-gtk
+# see https://github.com/jonls/redshift/issues/615
+sudo pacman -S --noconfirm python-gobject
+sudo pacman -S --noconfirm redshift
+
+# Volume control for system tray
+sudo pacman -S --noconfirm volumeicon
+
 # Touchpad Gesture
-# see fusuma.sh
+# sudo libinput debug-events # debug
+# sudo /usr/bin/fusuma -d # launch
+# cat /etc/group | grep mike # to confirm if user added
+sudo pacman -S --noconfirm xdotool # xdottool and libinput are dependency of fusuma
+yay -S --noconfirm ruby-fusuma
+sudo gpasswd -a $USER input
 
 # Business
 yay -S --noconfirm skypeforlinux-stable-bin slack-desktop
