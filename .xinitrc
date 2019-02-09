@@ -6,4 +6,3 @@ export XMODIFIERS=”@im=fcitx”
 
 # For GUI
 exec i3 # startkde
-

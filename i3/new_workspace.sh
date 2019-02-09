@@ -9,5 +9,5 @@ i3-msg workspace $(python ~/dotfiles/i3/nw.py)
 
 # i3-input -F 'rename workspace to "%s"' -P 'Rename workspace: '
 # dmenu_run
-rofi -show combi
+rofi -show drun run
 

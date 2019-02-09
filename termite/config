@@ -34,7 +34,7 @@ color15 = #fdf6e3
 # for Transparency(#002b36 to rgba)
 # used http://hex2rgba.devoth.com/
 # reload: Ctrl + Shift + R
-background = rgba(0, 43, 54, 0.8)
+background = rgba(0, 43, 54, 0.9)
 
 # NOTE: need to install ricty
 # Rictyは見づらかったhigh resolutionだと。。。

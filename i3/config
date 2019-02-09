@@ -45,13 +45,13 @@ bindsym $mod+Shift+q kill
 
 # Launcher
 # NOTE: need to install rofi
-bindsym $mod+d exec rofi -show combi # drun is DesktopFile run option
-bindsym $mod+w exec rofi -show window
+bindsym $mod+d exec rofi -show drun run # drun is DesktopFile run option
+bindsym $mod+w exec rofi -show windowcd
 bindsym $mod+space exec rofi -modi calc:qalc -show calc # need to install qalc
 # bindsym $mod+S exec rofi -show ssh
 
 # System shortcuts
-bindsym $mod+Shift+p exec systemctl suspend
+bindsym $mod+Shift+y exec systemctl suspend
 bindsym $mod+Shift+o exec "sh ~/dotfiles/i3/monitor.sh"
 
 # change focus
@@ -135,45 +135,68 @@ bindsym $mod+comma exec i3-input -F 'rename workspace to "%s"' -P 'Rename worksp
 # chmod +x ~/dotfiles/i3/empty_workspace.sh
 bindsym $mod+c exec --no-startup-id ~/dotfiles/i3/new_workspace.sh
 
-# open previous workspace
-bindsym $mod+Tab workspace back_and_forth
+# Last focused
+# bindsym $mod+Tab exec i3-msg "[con_id=$(cat ~/dotfiles/i3/last_focus)] focus"
+exec --no-startup-id python3 ~/dotfiles/i3/focus_last.py
+bindsym $mod+Tab exec python3 ~/dotfiles/i3/focus_last.py --switch
+# bindsym $mod+Shift+Tab exec ~/.config/i3/scripts/cycle_workspaces.py --rev-switch
 
-# move focused workspace by pgUp/pgDn or n/p
+
+# move workspace
 bindsym $mod+p workspace prev
 bindsym $mod+n workspace next
 bindsym $mod+Prior workspace prev
 bindsym $mod+Next workspace next
+bindsym $mod+Shift+Tab workspace back_and_forth
+
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Screenshot
 bindsym Print exec scrot -e 'mv $f ~/screenshots'
 bindsym $mod+Shift+Print exec shutter --min_at_startup -e -s -o /home/mike/screenshots/%y-%m-%d-%T.png
 
+
+# Hide title bar
+# https://gist.github.com/lirenlin/9892945
+for_window [class="^.*"] border pixel 1
+new_window 1pixel
+
 # reload the configuration file
-bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -228,3 +251,14 @@ bindsym $mod+r mode "resize"
 #
 # client.background       #FFFFFF
 #
+
+# NEED TO INSTALL I3-gaps
+for_window [class="^.*"] border pixel 2
+gaps inner 8
+gaps outer 8
+
+# original https://github.com/tobiaszwaszak/i3wm/blob/master/config
+client.focused          #002b36 #586e75 #fdf6e3 #268bd2
+client.focused_inactive #002b36 #073642 #839496 #073642
+client.unfocused        #002b36 #073642 #839496 #073642
+client.urgent           #002b36 #dc322f #fdf6e3 #002b36

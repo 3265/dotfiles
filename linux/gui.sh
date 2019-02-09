@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# i3
+sudo pacman -S --noconfirm i3-gaps
+
 # IME
 # open `Fcitx configuration` from applications
 #
@@ -52,6 +55,7 @@ sudo pacman -S --noconfirm rofi # qlcplus-qt5
 # for FF to disable Alt; about:config >.key.menua > ui.key.menuAccessKeyFocuses = false
 sudo pacman -S --noconfirm chromium firefox opera qutebrowser
 yay -S --noconfirm google-chrome
+# for chrome, need to apply Solarized Dark Refresh Theme
 
 # Office
 sudo pacman -S --noconfirm libreoffice-fresh
@@ -73,6 +77,12 @@ sudo pacman -S --noconfirm redshift
 
 # Volume control for system tray
 sudo pacman -S --noconfirm volumeicon
+
+# Screen Locker
+sudo pacman -S --noconfirm i3lock
+
+# Finder
+sudo pacman -S --noconfirm vifm
 
 # Touchpad Gesture
 # sudo libinput debug-events # debug

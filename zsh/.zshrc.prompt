@@ -81,7 +81,7 @@ fi
 
 export PROMPT=$tmp_prompt    # 通常のプロンプト
 export PROMPT2=$tmp_prompt2  # セカンダリのプロンプト(コマンドが2行以上の時に表示される)
-export RPROMPT=$tmp_rprompt  # 右側のプロンプト
+# export RPROMPT=$tmp_rprompt  # 右側のプロンプト (必要ないのでコメントアウトする)
 export SPROMPT=$tmp_sprompt  # スペル訂正用プロンプト
 
 # Not store failed command
