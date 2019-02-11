@@ -1,6 +1,9 @@
 
+# ---------------
+# find ttf from character
+# ---------------
 # ref https://github.com/jaagr/polybar/wiki/Fonts
-# Usage: perl test-fonts.pl "😀"
+# Usage: perl find-font.pl "😀"
 # NOTE: need to install module
 # $ perl -MCPAN -e 'install Font::FreeType'
 
@@ -16,3 +19,12 @@ foreach my $font_def (`fc-list`) {
         print $font_def;
     }
 }
+
+# ---------------
+# find a character from character code
+# ---------------
+# $ fc-list | grep "Noto"
+# $ fc-cache # to reflesh cache
+# $ fc-match "NotoSansSymbols2-Regular"
+# $ gucharmap # to find a character from character code
+# open https://nerdfonts.com/ # to get character code
