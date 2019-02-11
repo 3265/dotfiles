@@ -90,6 +90,11 @@ ln -s -f ~/dotfiles/settings.ini ~/.config/gtk-3.0/settings.ini
 mkdir -p ~/.config/peco
 ln -s -f ~/dotfiles/config.json ~/.config/peco/config.json
 
+# polybar
+mkdir -p ~/.config/polybar
+ln -s -f ~/dotfiles/polybar/config ~/.config/polybar/config
+ln -s -f ~/dotfiles/polybar/launch.sh ~/.config/polybar/launch.sh
+
 # pet
 mkdir -p ~/.config/pet
 ln -s -f ~/dotfiles/config.toml ~/.config/pet/config.toml

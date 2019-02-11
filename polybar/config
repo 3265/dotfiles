@@ -1,0 +1,284 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+background = #073642
+background-alt = #444
+foreground = #bbb
+foreground-alt = #bbb
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+[bar/top]
+monitor = ${env:MONITOR:eDP1}
+width = 100%
+height = 20
+offset-x = 0
+offset-y = 0
+
+overline-size = 0
+overline-color = #f00
+underline-size = 2
+underline-color = #00f
+border-bottom-color = #333
+
+spacing = 1
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+
+font-0 = "Hack Nerd Font:pixelsize=8"
+font-1 = "Wuncon Siji:pixelsize=10"
+font-2 = "NotoSansEgyptianHieroglyphs-Regular:pixelsize=8:weight=bold"
+font-3 = "RictyDiminished NF:pixelsize=10"
+font-4 = "NotoSansSymbols2-Regular:pixelsize=8"
+
+modules-left = i3
+modules-right = menu date network alsa backlight battery
+modules-center = xwindow
+
+tray-position = right
+tray-padding = 5
+
+; to restart polybar
+enable-ipc = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+separator = " | "
+
+[bar/bottom]
+monitor = ${env:MONITOR:eDP1}
+width = 100%
+height = 20
+offset-x = 0
+offset-y = 0
+
+bottom = true
+
+overline-size = 0
+overline-color = #f00
+underline-size = 2
+underline-color = #00f
+border-bottom-color = #333
+
+spacing = 1
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+
+font-0 = "Hack Nerd Font:pixelsize=8"
+font-1 = "Wuncon Siji:pixelsize=10"
+font-2 = "NotoSansEgyptianHieroglyphs-Regular:pixelsize=8:weight=bold"
+font-3 = "RictyDiminished NF:pixelsize=10"
+font-4 = "NotoSansSymbols2-Regular:pixelsize=8"
+
+
+modules-left = cpu memory filesystem temperature
+modules-center =
+modules-right = mpd
+
+tray-position = right
+tray-padding = 5
+; to restart polybar
+enable-ipc = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+separator = " | "
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format-prefix = "  "
+format-charging = <label-charging>
+; format-underline = #d64937
+label = %percentage%%
+
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+; format-underline = #32bbc2
+label = %gb_used%/%gb_free%
+
+[module/alsa]
+type = internal/alsa
+master-soundcard = default
+master-mixer = Master
+headphone-id = 9
+mapped = true
+interval = 5
+
+format-volume = <ramp-volume> <label-volume>
+
+label-muted =  muted
+label-muted-foreground = #66
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+[module/date]
+type = internal/date
+interval = 1.0
+date = %Y-%m-%d%
+time = %H:%M
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
+format =  <label>
+label = %date% %time%
+label-font = 3
+
+[module/battery]
+type = internal/battery
+full-at = 99
+battery = BAT0
+adapter = ADP1
+poll-interval = 5
+time-format = %H:%M
+format-charging = <ramp-capacity> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+label-charging =  %percentage%%
+label-discharging = %percentage%%
+label-full = Full
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format =  <label>
+label = %percentage%%
+
+[module/network]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+accumulate-stats = true
+unknown-as-up = true
+format-connected = <ramp-signal>, <label-connected>
+format-disconnected = <label-disconnected>
+label-connected = %essid%%downspeed:9%
+label-connected-foreground = #eefafafa
+label-disconnected = not connected
+label-disconnected-foreground = #66ffffff
+ramp-signal-0 =  0
+ramp-signal-1 =  1
+ramp-signal-2 =  2
+ramp-signal-3 =  3
+ramp-signal-4 =  4
+ramp-signal-5 =  5
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+enable-click = true
+enable-scroll = false
+wrapping-scroll = false
+reverse-scroll = false
+fuzzy-match = true
+
+ws-icon-0 = 1;𓂀
+ws-icon-1 = 2;𓃒
+ws-icon-2 = 3;𓃣
+ws-icon-3 = 4;𓀩
+ws-icon-4 = 5;𓆲
+ws-icon-default = 𓂺
+
+format = <label-state> <label-mode>
+
+label-mode =  %mode%
+label-mode-padding = 2
+label-mode-background = #e60053
+
+; label-state
+label-focused = [%index%] %icon% %name% %output%
+label-focused-foreground = #ffffff
+label-focused-background = #3f3f3f
+label-focused-underline = #fba922
+label-focused-padding = 1
+label-unfocused = [%index%] %icon% %name% %output%
+label-unfocused-padding = 1
+
+[module/filesystem]
+type = internal/fs
+format-mounted = <label-mounted>
+mount-0 = /
+mount-1 = /home
+interval = 10
+fixed-values = true
+spacing = 4
+label-mounted =  %mountpoint%: %percentage_free%% of %total%
+
+[module/menu]
+type = custom/menu
+expand-right = true
+
+menu-0-0 = Browsers
+menu-0-0-exec = menu-open-1
+menu-0-1 = Multimedia
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = Firefox
+menu-1-0-exec = firefox &
+menu-1-1 = Chromium
+menu-1-1-exec = chromium &
+
+
+[module/temperature]
+type = internal/temperature
+interval = 0.5
+thermal-zone = 0
+hwmon-path = /sys/devices/virtual/thermal/thermal_zone0/hwmon0/temp1_input
+warn-temperature = 60
+label =  %temperature-c%
+label-warn =  %temperature-c%
+label-warn-foreground = #f00
+
+ramp-0 = A
+ramp-1 = B
+ramp-2 = C
+ramp-foreground = #55
+
+
+[module/mpd]
+type = internal/mpd
+
+; Host where mpd is running (either ip or domain name)
+; Can also be the full path to a unix socket where mpd is running.
+host = 127.0.0.1
+port = 6600
+password = mysecretpassword
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
+
+
