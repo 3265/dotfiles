@@ -60,11 +60,17 @@ yay -S --noconfirm google-chrome
 # Office
 sudo pacman -S --noconfirm libreoffice-fresh
 
+# Image Viewer
+sudo pacman -S --noconfirm feh sxiv
+
 # Video Player
 sudo pacman -S --noconfirm vlc
 
 # Window transparent
 sudo pacman -S --noconfirm compton
+
+# Screen Capture utility
+sudo pacman -S --noconfirm scrot
 
 # Clipboard manager
 sudo pacman -S --noconfirm doneparcellite
@@ -81,19 +87,16 @@ sudo pacman -S --noconfirm volumeicon
 # Screen Locker
 sudo pacman -S --noconfirm i3lock
 
-# Finder
-sudo pacman -S --noconfirm vifm
-
 # Touchpad Gesture
 # sudo libinput debug-events # debug
 # sudo /usr/bin/fusuma -d # launch
-# cat /etc/group | grep mike # to confirm if user added
+# cat /etc/group | grep input # to confirm if user added
 sudo pacman -S --noconfirm xdotool # xdottool and libinput are dependency of fusuma
 yay -S --noconfirm ruby-fusuma
 sudo gpasswd -a $USER input
 
 # Business
-yay -S --noconfirm skypeforlinux-stable-bin slack-desktop
+yay -S --noconfirm skypeforlinux-stable-bin slack-desktop zoom
 
 # Tools
 # Way to solve permission err of wireshark

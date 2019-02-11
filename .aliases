@@ -44,9 +44,9 @@ if [[ $SHELL == "/bin/zsh" ]]; then
   # Suffix aliases
   alias -s {c,py,cpp,r,rb,go,js,jsx,ts,java,sql,hs,md,sh,sh,rs,php}='vim'
   alias -s {xml,json,toml,yaml,yml,ini,conf,log}='vim'
-  alias -s {png,jpg,bmp,PNG,JPG,BMP}='feh'
+  alias -s {png,jpg,bmp,PNG,JPG,BMP}='sxiv'
   alias -s mp3='mplayer'
-  alias -s html='chromium-browser'
+  alias -s html='google-chrome-stable'
   alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}='extract'
   alias -s deb='sudo gdebi' # dpkg -i だと依存関係解決してくれないため
 fi

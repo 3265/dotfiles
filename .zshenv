@@ -105,3 +105,10 @@ if [ -f '/home/gc/google-cloud-sdk/path.zsh.inc' ]; then source '/home/gc/google
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/gc/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/gc/google-cloud-sdk/completion.zsh.inc'; fi
 
+# perl
+PATH="/home/mike/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/mike/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/mike/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/mike/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/mike/perl5"; export PERL_MM_OPT;
+

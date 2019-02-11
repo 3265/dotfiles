@@ -8,13 +8,13 @@ set -g status-fg white
 set -g status-bg black
 
 # size of window status
-set -g status-right-length 60
+set -g status-right-length 70
 set -g status-left-length 40
 
 # text of window status
-run-shell "tmux set-environment -g TMUX_ENV_ICON '🏠'"
-if-shell 'test -f /.dockerenv' "run-shell 'tmux set-environment -g TMUX_ENV_ICON 🐳'"
-if-shell 'test $(cat /sys/class/dmi/id/product_name) = "VirtualBox"' "run-shell 'tmux set-environment -g TMUX_ENV_ICON 📦'"
+run-shell "tmux set-environment -g TMUX_ENV_ICON Host"
+if-shell 'test -f /.dockerenv' "run-shell 'tmux set-environment -g TMUX_ENV_ICON Container'"
+if-shell 'test $(cat /sys/class/dmi/id/product_name) = "VirtualBox"' "run-shell 'tmux set-environment -g TMUX_ENV_ICON VM'"
 set -g status-left "#[fg=green]Session: #S #[fg=yellow]Pane: #I #[fg=cyan]Window: #P"
 set -g status-right "Env: #{TMUX_ENV_ICON}  Online: #{online_status} CPU:#{cpu_percentage} Battery: #{battery_percentage} #[fg=cyan] %a %h-%d %H:%M"
 
