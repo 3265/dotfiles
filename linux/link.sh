@@ -45,6 +45,10 @@ mkdir -p ~/.config/i3
 ln -s -f ~/dotfiles/.config/i3/config ~/.config/i3/config
 ln -s -f ~/dotfiles/.i3status.conf ~/.i3status.conf
 
+# i3Status
+mkdir -p ~/.config/i3status
+ln -s -f ~/dotfiles/.config/i3status/config ~/.config/i3status/config
+
 # Nofitication
 mkdir -p ~/.config/dunst
 ln -s -f ~/dotfiles/dunstrc ~/.config/dunst/dunstrc
