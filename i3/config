@@ -110,7 +110,7 @@ exec --no-startup-id compton -cbm 0.90 # for transparent
 exec --no-startup-id parcellite & # for clip board
 exec --no-startup-id volumeicon & # for volume manager
 exec --no-startup-id redshift & # for brightness
-exec --no-startup-id goldendict & # Dictionary
+# exec --no-startup-id goldendict & # Dictionary
 exec --no-startup-id redshift-gtk & # Color
 exec --no-startup-id fcitx # IME
 exec --no-startup-id xpad # sticky note
