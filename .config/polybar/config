@@ -178,18 +178,18 @@ interface = wlp2s0
 interval = 3.0
 accumulate-stats = true
 unknown-as-up = true
-format-connected = <ramp-signal>, <label-connected>
+format-connected = <ramp-signal>  <label-connected>
 format-disconnected = <label-disconnected>
 label-connected = %essid%%downspeed:9%
 label-connected-foreground = #eefafafa
 label-disconnected = not connected
 label-disconnected-foreground = #66ffffff
-ramp-signal-0 =  0
-ramp-signal-1 =  1
-ramp-signal-2 =  2
-ramp-signal-3 =  3
-ramp-signal-4 =  4
-ramp-signal-5 =  5
+ramp-signal-0 =  0%
+ramp-signal-1 =  20%
+ramp-signal-2 =  40%
+ramp-signal-3 =  60%
+ramp-signal-4 =  80%
+ramp-signal-5 =  100%
 
 [module/i3]
 type = internal/i3
