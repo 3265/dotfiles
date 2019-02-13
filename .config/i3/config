@@ -115,9 +115,9 @@ exec --no-startup-id redshift-gtk & # Color
 exec --no-startup-id fcitx # IME
 exec --no-startup-id xpad # sticky note
 exec --no-startup-id /usr/bin/fusuma -d # gesture
-exec --no-startup-id sh ~/dotfiles/i3/autolock.sh # auto lock
-exec --no-startup-id sh ~/dotfiles/i3/monitor.sh # wallpaper and monitor
-exec --no-startup-id "echo '*/5 * * * *  ~/dotfiles/i3/battery.sh' | crontab -" # need to add premition
+exec --no-startup-id sh ~/dotfiles/.config/i3/autolock.sh # auto lock
+exec --no-startup-id sh ~/dotfiles/.config/i3/monitor.sh # wallpaper and monitor
+exec --no-startup-id "echo '*/5 * * * *  ~/dotfiles/.config/i3/battery.sh' | crontab -" # need to add premition
 exec --no-startup-id i3-msg workspace 1: terminal; exec $term # startup app
 # NOTE: polybar is depended on nm-applet
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -132,13 +132,12 @@ bindsym $mod+comma exec i3-input -F 'rename workspace to "%s"' -P 'Rename worksp
 # to make new workspace like tmux
 # Note: need to exec permission
 # chmod +x ~/dotfiles/i3/empty_workspace.sh
-bindsym $mod+c exec --no-startup-id ~/dotfiles/i3/new_workspace.sh
+bindsym $mod+c exec --no-startup-id ~/dotfiles/.config/i3/new_workspace.sh
 
 # Last focused
 # bindsym $mod+Tab exec i3-msg "[con_id=$(cat ~/dotfiles/i3/last_focus)] focus"
-exec --no-startup-id python3 ~/dotfiles/i3/focus_last.py
-bindsym $mod+Tab exec python3 ~/dotfiles/i3/focus_last.py --switch
-# bindsym $mod+Shift+Tab exec ~/.config/i3/scripts/cycle_workspaces.py --rev-switch
+exec --no-startup-id python3 ~/dotfiles/.config/i3/focus_last.py
+bindsym $mod+Tab exec python3 ~/dotfiles/.config/i3/focus_last.py --switch
 
 
 # move workspace

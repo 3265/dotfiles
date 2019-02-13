@@ -28,7 +28,7 @@ ln -s -f ~/dotfiles/.xmodmap ~/.xmodmap
 
 # Launcher
 mkdir -p ~/.config/rofi
-ln -s -f ~/dotfiles/rofi/config ~/.config/rofi/config
+ln -s -f ~/dotfiles/.config/rofi/config ~/.config/rofi/config
 
 # VIM
 mkdir -p ~/.vim/
@@ -42,7 +42,7 @@ ln -s -f ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 
 # i3 WM
 mkdir -p ~/.config/i3
-ln -s -f ~/dotfiles/i3/config ~/.config/i3/config
+ln -s -f ~/dotfiles/.config/i3/config ~/.config/i3/config
 ln -s -f ~/dotfiles/.i3status.conf ~/.i3status.conf
 
 # Nofitication
@@ -51,7 +51,7 @@ ln -s -f ~/dotfiles/dunstrc ~/.config/dunst/dunstrc
 
 # Terminal
 mkdir -p ~/.config/termite
-ln -s -f ~/dotfiles/termite/config ~/.config/termite/config
+ln -s -f ~/dotfiles/.config/termite/config ~/.config/termite/config
 
 # Terminal multiplexer
 ln -s -f ~/dotfiles/.screenrc ~/.screenrc
@@ -92,8 +92,8 @@ ln -s -f ~/dotfiles/config.json ~/.config/peco/config.json
 
 # polybar
 mkdir -p ~/.config/polybar
-ln -s -f ~/dotfiles/polybar/config ~/.config/polybar/config
-ln -s -f ~/dotfiles/polybar/launch.sh ~/.config/polybar/launch.sh
+ln -s -f ~/dotfiles/.config/polybar/config ~/.config/polybar/config
+ln -s -f ~/dotfiles/.config/polybar/launch.sh ~/.config/polybar/launch.sh
 
 # pet
 mkdir -p ~/.config/pet
