@@ -53,7 +53,9 @@
   resave = commit --amend
   ignore = rm -r --cached . # need git add . and git commit after this cmd
   empty = commit --allow-empty --allow-empty-message
-  cleaning = clean -fdx # includes folder
+  clean-untracked = clean -f -d # remove untracked
+  clean-change = git reset --hard # staged and working directory changes
+  clean-all = clean -f -d -x # untracked and ignored files
   mylog = log --author=mgoldchild
   diff-stg = diff --cached
 
@@ -99,6 +101,7 @@
   editor = vim
 [merge]
   tool = vimdiff
+  ff = false # it means not to do FF. in other words, i always make a merge commit in merge
 [mergetool]
   prompt = false
   keepBackup = false
@@ -107,4 +110,6 @@
   default = simple
 
 [credential]
-	helper = store
+  helper = store
+[pull]
+  ff = only # if FF is possible then it will execute
