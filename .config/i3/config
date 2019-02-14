@@ -11,6 +11,7 @@
 
 set $mod Mod4
 set $term termite --title=Termite
+set $dmenu dmenu_run
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -47,7 +48,7 @@ bindsym $mod+Shift+q kill
 # NOTE: need to install rofi
 bindsym $mod+d exec rofi -show drun run # drun is DesktopFile run option
 bindsym $mod+w exec rofi -show windowcd
-bindsym $mod+space exec rofi -modi calc:qalc -show calc # need to install qalc
+# bindsym $mod+space exec rofi -modi calc:qalc -show calc # need to install qalc
 # bindsym $mod+S exec rofi -show ssh
 
 # System shortcuts
@@ -86,11 +87,9 @@ bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+v layout toggle split # toggle between veritcal and horizontal
 
-# split in horizontal orientation
-# bindsym $mod+Shift+v split h
-
-# split in vertical orientation
-# bindsym $mod+v split v
+# split in vertical/horizontal  orientation
+bindsym $mod+minus split v ;; exec $dmenu
+bindsym $mod+Shift+bar split h ;; exec $dmenu
 
 # toggle tiling / floating
 # bindsym $mod+Shift+space floating toggle
@@ -182,6 +181,10 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+
+# Toggle floating window
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
 
 # Screenshot
 bindsym Print exec scrot -e 'mv $f ~/Pictures'

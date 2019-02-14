@@ -49,7 +49,7 @@ sudo pacman -S --noconfirm gparted xpad
 yay -S --noconfirm postman ngrok
 
 # Launcher
-sudo pacman -S --noconfirm rofi # qlcplus-qt5
+sudo pacman -S --noconfirm rofi dmenu # qlcplus-qt5
 
 # Browser
 # for FF to disable Alt; about:config >.key.menua > ui.key.menuAccessKeyFocuses = false
