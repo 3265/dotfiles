@@ -105,7 +105,7 @@ ln -s -f ~/dotfiles/.config/pet/config.toml ~/.config/pet/config.toml
 
 # ranger
 mkdir -p ~/.config/ranger
-ln -s -f ~/dotfiles/rc.conf ~/.config/ranger/rc.conf
+ln -s -f ~/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
 
 # GRC
 mkdir -p ~/.grc/
