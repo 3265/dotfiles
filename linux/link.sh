@@ -88,7 +88,8 @@ ln -s -f ~/dotfiles/.editorconfig ~/.editorconfig
 ln -s -f ~/dotfiles/.my.cnf ~/.my.cnf
 
 # GTK-3.0(for chromium)
-ln -s -f ~/dotfiles/settings.ini ~/.config/gtk-3.0/settings.ini
+mkdir -p ~/.config/gtk-3.0
+ln -s -f ~/dotfiles/.config/gtk-3.0//settings.ini ~/.config/gtk-3.0/settings.ini
 
 # peco
 mkdir -p ~/.config/peco
