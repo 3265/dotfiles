@@ -13,20 +13,8 @@ set $mod Mod4
 set $term termite --title=Termite
 set $dmenu dmenu_run
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
+# Font
 font pango:monospace 8
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -37,6 +25,11 @@ bindsym $mod+Return exec $term
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# NEED TO INSTALL I3-gaps
+for_window [class="^.*"] border pixel 2
+gaps inner 10
+gaps outer 10
+
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -45,9 +38,9 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # Launcher
-# NOTE: need to install rofi
-bindsym $mod+d exec rofi -show drun run # drun is DesktopFile run option
-bindsym $mod+w exec rofi -show windowcd
+bindsym $mod+d exec $dmenu # drun is DesktopFile run option
+bindsym $mod+Shift+d exec rofi -show drun run # drun is DesktopFile run option
+bindsym $mod+Shift+w exec rofi -show windowcd
 # bindsym $mod+space exec rofi -modi calc:qalc -show calc # need to install qalc
 # bindsym $mod+S exec rofi -show ssh
 
@@ -90,18 +83,19 @@ bindsym $mod+v layout toggle split # toggle between veritcal and horizontal
 # split in vertical/horizontal  orientation
 bindsym $mod+minus split v ;; exec $dmenu
 bindsym $mod+Shift+bar split h ;; exec $dmenu
+bindsym $mod+bar split h ;; exec $dmenu # for convenience
 
 # toggle tiling / floating
-# bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle
 #
 # change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-# bindsym $mod+a focus parent
+bindsym $mod+a focus parent
 
 # focus the child container
-# bindsym $mod+d focus child
+bindsym $mod+Shift+a focus child
 
 # Startup Programs
 exec --no-startup-id nm-applet # network manager
@@ -182,10 +176,6 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# Toggle floating window
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
-
 # Screenshot
 bindsym Print exec scrot -e 'mv $f ~/Pictures'
 
@@ -222,11 +212,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# NEED TO INSTALL I3-gaps
-for_window [class="^.*"] border pixel 2
-gaps inner 8
-gaps outer 8
 
 # original https://github.com/tobiaszwaszak/i3wm/blob/master/config
 client.focused          #002b36 #586e75 #fdf6e3 #268bd2
