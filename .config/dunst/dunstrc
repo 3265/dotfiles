@@ -9,7 +9,7 @@
     #   <i>italic</i>
     #   <s>strikethrough</s>
     #   <u>underline</u>
-    allow_markup = yes
+    markup = yes
 
     #   %a  appname
     #   %s  summary

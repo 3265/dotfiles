@@ -67,6 +67,7 @@ sudo pacman -S --noconfirm feh sxiv
 sudo pacman -S --noconfirm vlc
 
 # Notification daemon
+sudo pacman -S --noconfirm gnome-icon-theme # dependency for dunst
 sudo pacman -S --noconfirm dunst
 
 # Window transparent

@@ -83,6 +83,9 @@ ln -s -f ~/dotfiles/.editorconfig ~/.editorconfig
 # see https://askubuntu.com/questions/302736/solarized-color-name-not-defined
 # ln -s -f ~/dotfiles/.Xresources  ~/.Xresources
 
+# Compton
+ln -s -f ~/dotfiles/.config/compton.conf ~/.config/compton.conf
+
 # DB
 ln -s -f ~/dotfiles/.my.cnf ~/.my.cnf
 

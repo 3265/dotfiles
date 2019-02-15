@@ -98,8 +98,9 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
 
 # Startup Programs
-exec --no-startup-id compton -cbm 0.90 # for transparent
+exec --no-startup-id dunst & # notification
 exec --no-startup-id nm-applet # network manager
+exec --no-startup-id compton -cbm 0.90 # for transparent
 exec --no-startup-id parcellite & # for clip board
 exec --no-startup-id volumeicon & # for volume manager
 exec --no-startup-id redshift & # for brightness
