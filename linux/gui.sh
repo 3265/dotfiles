@@ -66,6 +66,9 @@ sudo pacman -S --noconfirm feh sxiv
 # Video Player
 sudo pacman -S --noconfirm vlc
 
+# Notification daemon
+sudo pacman -S --noconfirm dunst
+
 # Window transparent
 sudo pacman -S --noconfirm compton
 

@@ -43,7 +43,6 @@ ln -s -f ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 # i3 WM
 mkdir -p ~/.config/i3
 ln -s -f ~/dotfiles/.config/i3/config ~/.config/i3/config
-ln -s -f ~/dotfiles/.i3status.conf ~/.i3status.conf
 
 # i3Status
 mkdir -p ~/.config/i3status
@@ -51,7 +50,7 @@ ln -s -f ~/dotfiles/.config/i3status/config ~/.config/i3status/config
 
 # Nofitication
 mkdir -p ~/.config/dunst
-ln -s -f ~/dotfiles/dunstrc ~/.config/dunst/dunstrc
+ln -s -f ~/dotfiles/.config/dunst/dunstrc ~/.config/dunst/dunstrc
 
 # Terminal
 mkdir -p ~/.config/termite
