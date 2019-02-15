@@ -71,7 +71,7 @@ ln -s -f ~/dotfiles/.tigrc ~/.tigrc
 
 # Fusuma
 mkdir -p ~/.config/fusuma
-ln -s -f ~/dotfiles/config.yml ~/.config/fusuma/config.yml
+ln -s -f ~/dotfiles/.config/fusuma/config.yml ~/.config/fusuma/config.yml
 
 # Docker
 ln -s -f ~/dotfiles/.dockerignore ~/.dockerignore
