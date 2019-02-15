@@ -92,7 +92,7 @@ ln -s -f ~/dotfiles/settings.ini ~/.config/gtk-3.0/settings.ini
 
 # peco
 mkdir -p ~/.config/peco
-ln -s -f ~/dotfiles/config.json ~/.config/peco/config.json
+ln -s -f ~/dotfiles/.config/peco/config.json ~/.config/peco/config.json
 
 # polybar
 mkdir -p ~/.config/polybar
