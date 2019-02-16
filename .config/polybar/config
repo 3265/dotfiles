@@ -76,7 +76,7 @@ separator = " | "
 
 [bar/top]
 inherit = section/base
-monitor = ${env:MONITOR:eDP1}
+monitor = ${env:MONITOR}
 
 modules-left = logo i3
 modules-right = network alsa backlight battery username powermenu
@@ -88,7 +88,7 @@ modules-center = xwindow
 
 [bar/bottom]
 inherit = section/base
-monitor = ${env:MONITOR:eDP1}
+monitor = ${env:MONITOR}
 bottom = true
 
 modules-left = cpu memory filesystem temperature

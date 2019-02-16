@@ -46,7 +46,7 @@ bindsym $mod+Shift+w exec rofi -show windowcd
 
 # System shortcuts
 bindsym $mod+Shift+y exec systemctl suspend
-bindsym $mod+Shift+o exec "sh ~/dotfiles/i3/monitor.sh"
+bindsym $mod+Shift+o exec "sh ~/dotfiles/.config/i3/monitor.sh"
 
 # change focus
 bindsym $mod+h focus left
@@ -192,7 +192,7 @@ new_window 1pixel
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id "sh ~/dotfiles/i3/menu.sh"
+bindsym $mod+Shift+e exec --no-startup-id "sh ~/dotfiles/.config/i3/menu.sh"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
