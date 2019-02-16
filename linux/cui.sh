@@ -89,3 +89,6 @@ sudo pacman -S --noconfirm mpd
 systemctl start mpd
 systemctl enable mpd
 # yay -S --noconfirm vimpc-git
+
+# Screen recorder
+sudo pacman -S --noconfirm asciinema
