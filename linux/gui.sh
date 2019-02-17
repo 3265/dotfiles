@@ -18,9 +18,8 @@ sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter
 sudo pacman -S --noconfirm lightdm-gtk-greeter-settings # for tweak setting of lightdm
 sudo systemctl enable lightdm.service
 
-# Change permission in image files for lightdm
-sudo chown -R root:root ~/dotfiles/images
-sudo chmod -R 644 ~/dotfiles/images
+# Place image in shared space for permission
+sudo cp /home/$USER/dotfiles/images/wallpaper.jpg /usr/share/pixmaps/
 
 # Dictionary
 # mkdir ~/.goldendict/dict
