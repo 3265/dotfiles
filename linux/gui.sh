@@ -13,6 +13,15 @@ sudo pacman -S --noconfirm i3-gaps
 #    - inactive input method = ralt
 sudo pacman -S --noconfirm fcitx fcitx-mozc fcitx-configtool
 
+# login DM
+sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter
+sudo pacman -S --noconfirm lightdm-gtk-greeter-settings # for tweak setting of lightdm
+sudo systemctl enable lightdm.service
+
+# Change permission in image files for lightdm
+sudo chown -R root:root ~/dotfiles/images
+sudo chmod -R 644 ~/dotfiles/images
+
 # Dictionary
 # mkdir ~/.goldendict/dict
 #
@@ -41,8 +50,12 @@ sudo pacman -S --noconfirm networkmanager network-manager-applet
 sudo systemctl start NetworkManager
 sudo systemctl enable NetworkManager
 
+# Bluetooth(for blueman-applet on tray)
+sudo pacman -S --noconfirm blueman
+
 # Editor
 yay -S --noconfirm visual-studio-code-bin
+# yay -S --noconfirm oni
 
 # Tools
 sudo pacman -S --noconfirm gparted xpad
@@ -89,7 +102,7 @@ sudo pacman -S --noconfirm redshift
 sudo pacman -S --noconfirm volumeicon
 
 # Screen Locker
-sudo pacman -S --noconfirm i3lock
+sudo pacman -S --noconfirm i3lock xautolock
 
 # Touchpad Gesture
 # sudo libinput debug-events # debug

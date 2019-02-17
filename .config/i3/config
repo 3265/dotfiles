@@ -26,7 +26,10 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 
 # NEED TO INSTALL I3-gaps
-for_window [class="^.*"] border pixel 2
+# Hide title bar
+# https://gist.github.com/lirenlin/9892945
+for_window [class="^.*"] border pixel 3
+new_window 1pixel
 gaps inner 10
 gaps outer 10
 
@@ -109,12 +112,16 @@ exec --no-startup-id redshift-gtk & # Color
 exec --no-startup-id fcitx # IME
 exec --no-startup-id xpad # sticky note
 exec --no-startup-id /usr/bin/fusuma -d # gesture
+exec --no-startup-id blueman-applet # Bluetooth Manager
+# NOTE: polybar is depended on nm-applet
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# NOTE: need to exec `sudo chmod +x -R ./i3/`
 exec --no-startup-id sh ~/dotfiles/.config/i3/autolock.sh # auto lock
 exec --no-startup-id sh ~/dotfiles/.config/i3/monitor.sh # wallpaper and monitor
 exec --no-startup-id "echo '*/5 * * * *  ~/dotfiles/.config/i3/battery.sh' | crontab -" # need to add premition
+
 exec --no-startup-id i3-msg workspace 1: terminal; exec $term # startup app
-# NOTE: polybar is depended on nm-applet
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # for Conky
 # exec --no-startup-id "mocp -S && mocp -p" # for auto running mocp server to avoid `FATAL_ERROR: The server is not running` by mocp -i commadn in conky-sys
@@ -133,14 +140,12 @@ bindsym $mod+c exec --no-startup-id ~/dotfiles/.config/i3/new_workspace.sh
 exec --no-startup-id python3 ~/dotfiles/.config/i3/focus_last.py
 bindsym $mod+Tab exec python3 ~/dotfiles/.config/i3/focus_last.py --switch
 
-
 # move workspace
 bindsym $mod+p workspace prev
 bindsym $mod+n workspace next
 bindsym $mod+Prior workspace prev
 bindsym $mod+Next workspace next
 bindsym $mod+Shift+Tab workspace back_and_forth
-
 
 set $ws1 "1"
 set $ws2 "2"
@@ -180,11 +185,6 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # Screenshot
 bindsym Print exec scrot -e 'mv $f ~/Pictures'
 
-# Hide title bar
-# https://gist.github.com/lirenlin/9892945
-for_window [class="^.*"] border pixel 1
-new_window 1pixel
-
 # reload the configuration file
 # bindsym $mod+Shift+c reload
 
@@ -194,6 +194,11 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec --no-startup-id "sh ~/dotfiles/.config/i3/menu.sh"
 
+#################################################
+#  Resize mode
+#################################################
+
+bindsym $mod+r mode "resize"
 # resize window (you can also use the mouse for that)
 mode "resize" {
         bindsym $mod+h resize shrink width 10 px or 10 ppt
@@ -212,10 +217,20 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
-
 # original https://github.com/tobiaszwaszak/i3wm/blob/master/config
 client.focused          #002b36 #586e75 #fdf6e3 #268bd2
 client.focused_inactive #002b36 #073642 #839496 #073642
 client.unfocused        #002b36 #073642 #839496 #073642
 client.urgent           #002b36 #dc322f #fdf6e3 #002b36
+
+# Title bar icons
+for_window [class="(?i)firefox"] title_format "<tt></tt><span foreground='#FF6611'>  </span><tt> </tt>%title"
+for_window [class="(.*)terminal(.*)"] title_format "<tt></tt><span foreground='#00FF00' background='#000000'>  </span><tt> </tt>%title"
+for_window [class="(.*)Chromium(.*)"] title_format "<tt></tt><span foreground='#367dd0' background='#d9e5f4'>  </span><tt> </tt>%title"
+for_window [class="(.*)Google(.*)"] title_format "<tt></tt><span foreground='#367dd0' background='#d9e5f4'>  </span><tt> </tt>%title"
+for_window [class="Evolution"] title_format "<tt></tt><span foreground='#FFFFFF' >  </span><tt> </tt>%title"
+for_window [title=".* Evolution"] title_format "<tt></tt><span foreground='#FFFFFF' >  </span><tt> </tt>%title"
+for_window [class="Slack"] title_format "<tt></tt><span foreground='#FFFFFF' >  </span><tt> </tt>%title"
+for_window [class="Signal"] title_format "<tt></tt><span background='#2090ea' foreground='#FFFFFF' >  </span><tt> </tt>%title"
+for_window [class="VirtualBox Machine"] title_format "<tt></tt><span  background='#073624' foreground='#AAAAFF' >  </span><tt> </tt>%title"
+for_window [class="Termite"] title_format "<tt></tt><span  background='#073624' foreground='#AAAAFF' >   </span><tt> </tt>%title"

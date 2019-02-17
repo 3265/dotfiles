@@ -92,3 +92,9 @@ systemctl enable mpd
 
 # Screen recorder
 sudo pacman -S --noconfirm asciinema
+
+# Menu
+yay -S --noconfirm pdmenu
+
+# Language
+yay -S --noconfirm rbenv
