@@ -101,7 +101,8 @@ sudo pacman -S --noconfirm redshift
 sudo pacman -S --noconfirm volumeicon
 
 # Screen Locker
-sudo pacman -S --noconfirm i3lock xautolock
+# sudo pacman -S --noconfirm i3lock xautolock
+sudo pacman -S --noconfirm light-locker
 
 # Touchpad Gesture
 # sudo libinput debug-events # debug

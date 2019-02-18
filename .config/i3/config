@@ -31,7 +31,7 @@ bindsym $mod+Shift+q kill
 for_window [class="^.*"] border pixel 3
 new_window 1pixel
 gaps inner 10
-gaps outer 10
+gaps outer 5
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
@@ -117,11 +117,13 @@ exec --no-startup-id blueman-applet # Bluetooth Manager
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # NOTE: need to exec `sudo chmod +x -R ./i3/`
+exec --no-startup-id light-locker --lock-on-suspend
 exec --no-startup-id sh ~/dotfiles/.config/i3/autolock.sh # auto lock
-exec --no-startup-id sh ~/dotfiles/.config/i3/monitor.sh # wallpaper and monitor
+# exec --no-startup-id sh ~/dotfiles/.config/i3/monitor.sh # wallpaper and monitor
+exec --no-startup-id ~/dotfiles/.config/i3/monitor_detect.sh
 exec --no-startup-id "echo '*/5 * * * *  ~/dotfiles/.config/i3/battery.sh' | crontab -" # need to add premition
 
-exec --no-startup-id i3-msg workspace 1: terminal; exec $term # startup app
+exec --no-startup-id i3-msg workspace 1; exec $term # startup app
 
 # for Conky
 # exec --no-startup-id "mocp -S && mocp -p" # for auto running mocp server to avoid `FATAL_ERROR: The server is not running` by mocp -i commadn in conky-sys
