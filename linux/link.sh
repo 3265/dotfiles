@@ -56,6 +56,10 @@ ln -s -f ~/dotfiles/.config/dunst/dunstrc ~/.config/dunst/dunstrc
 mkdir -p ~/.config/termite
 ln -s -f ~/dotfiles/.config/termite/config ~/.config/termite/config
 
+# MPD
+mkdir -p ~/.config/mpd
+ln -s -f ~/dotfiles/.config/mpd/mpd.conf ~/.config/mpd/mpd.conf
+
 # Terminal multiplexer
 ln -s -f ~/dotfiles/.screenrc ~/.screenrc
 ln -s -f ~/dotfiles/.tmux.conf ~/.tmux.conf

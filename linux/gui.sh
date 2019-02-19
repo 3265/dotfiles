@@ -13,6 +13,10 @@ sudo pacman -S --noconfirm i3-gaps
 #    - inactive input method = ralt
 sudo pacman -S --noconfirm fcitx fcitx-mozc fcitx-configtool
 
+# Status bar
+sudo pacman -S --noconfirm libmpdclient # support for 'internal/mpd'
+yay -S --noconfirm polybar # yay -S --rebuild polybar
+
 # login DM
 sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter
 sudo pacman -S --noconfirm lightdm-gtk-greeter-settings # for tweak setting of lightdm
@@ -66,8 +70,15 @@ sudo pacman -S --noconfirm rofi dmenu # qlcplus-qt5
 # Browser
 # for FF to disable Alt; about:config >.key.menua > ui.key.menuAccessKeyFocuses = false
 sudo pacman -S --noconfirm chromium firefox opera qutebrowser
+sudo pacman -S --noconfirm firefox
+# FF
+# Disable opening menu by alt
+# about:config > ui.key.menuAccessKey = 0
+# about:config > ui.key.menuAccessKeyFocuses = false
+# theme
+# https://addons.mozilla.org/ja/firefox/addon/zen-fox/
 yay -S --noconfirm google-chrome
-# for chrome, need to apply Solarized Dark Refresh Theme
+# for chrome, need to apply Solarized Dark, Solarized dark, Rename tab title, Vimium, Google Translate
 
 # Office
 sudo pacman -S --noconfirm libreoffice-fresh

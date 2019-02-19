@@ -4,7 +4,8 @@
 sudo pacman -S --noconfirm bash zsh mosh parallel translate-shell
 
 # Editor
-sudo pacman -S --noconfirm vim neovim emacs
+sudo pacman -S --noconfirm vim emacs
+sudo pacman -S --noconfirm neovim python-neovim # with python module
 
 # Finder with UI
 sudo pacman -S --noconfirm ranger vifm
@@ -86,9 +87,9 @@ yay -S --noconfirm mdp
 
 # Music player
 sudo pacman -S --noconfirm mpd
-systemctl start mpd
-systemctl enable mpd
-# yay -S --noconfirm vimpc-git
+sudo pacman -S --noconfirm ncmpcpp
+yay -S --noconfirm vimpc-git
+# sudo pacman -S --noconfirm mopidy
 
 # Screen recorder
 sudo pacman -S --noconfirm asciinema
@@ -98,3 +99,6 @@ yay -S --noconfirm pdmenu
 
 # Language
 yay -S --noconfirm rbenv
+
+# Calendar
+sudo pacman -S --noconfirm calcurse
