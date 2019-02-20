@@ -92,7 +92,7 @@ exec --no-startup-id mpd # Music, should be launched by systemd maybe ...
 exec --no-startup-id compton -cbm 0.90 # for transparent
 exec --no-startup-id parcellite & # for clip board
 exec --no-startup-id volumeicon & # for volume manager
-exec --no-startup-id redshift & # for brightness
+# exec --no-startup-id redshift & # for brightness
 # exec --no-startup-id goldendict & # Dictionary
 exec --no-startup-id redshift-gtk & # Color
 exec --no-startup-id fcitx # IME
@@ -227,3 +227,4 @@ for_window [class="Slack"] title_format "<tt></tt><span foreground='#FFFFFF' > �
 for_window [class="Signal"] title_format "<tt></tt><span background='#2090ea' foreground='#FFFFFF' >  </span><tt> </tt>%title"
 for_window [class="VirtualBox Machine"] title_format "<tt></tt><span  background='#073624' foreground='#AAAAFF' >  </span><tt> </tt>%title"
 for_window [class="Termite"] title_format "<tt></tt><span  background='#073624' foreground='#AAAAFF' >   </span><tt> </tt>%title"
+for_window [class="Nautilus"] title_format "<tt></tt><span  background='#073624' foreground='#AAAAFF' >   </span><tt> </tt>%title"

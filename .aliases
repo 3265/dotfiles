@@ -29,6 +29,7 @@ alias y='yes'
 alias z='zsh'
 
 # Others
+alias open='xdg-open'
 alias py='python3'
 alias copy='echo ${PWD} | xsel -b'
 alias search='chromium-browser --app="https://google.com/"' # search

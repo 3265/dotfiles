@@ -98,6 +98,7 @@ sudo pacman -S --noconfirm asciinema
 yay -S --noconfirm pdmenu
 
 # Language
+sudo pacman -S --noconfirm python-pipenv
 yay -S --noconfirm rbenv
 
 # Calendar

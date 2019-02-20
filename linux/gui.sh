@@ -131,3 +131,8 @@ yay -S --noconfirm skypeforlinux-stable-bin slack-desktop zoom
 # see https://ubuntuforums.org/showthread.php?t=2039978
 sudo pacman -S --noconfirm wireshark-common
 
+
+# File manager
+sudo pacman -S --noconfirm nautilus
+yay -S gtk-theme-solarc-git --noconfirm
+
