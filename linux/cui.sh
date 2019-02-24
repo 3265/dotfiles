@@ -23,6 +23,9 @@ sudo pacman -S --noconfirm htop powertop
 # Downloader
 sudo pacman -S --noconfirm curl wget
 
+# Archiver
+sudo pacman -S --noconfirm unrar
+
 # Tools
 
 # Virtualization
@@ -87,9 +90,9 @@ yay -S --noconfirm mdp
 
 # Music player
 sudo pacman -S --noconfirm mpd
-sudo pacman -S --noconfirm ncmpcpp
-yay -S --noconfirm vimpc-git
 # sudo pacman -S --noconfirm mopidy
+yay -S --noconfirm vimpc-git
+# sudo pacman -S --noconfirm ncmpcpp
 
 # Screen recorder
 sudo pacman -S --noconfirm asciinema
@@ -100,6 +103,7 @@ yay -S --noconfirm pdmenu
 # Language
 sudo pacman -S --noconfirm python-pipenv
 yay -S --noconfirm rbenv
+# yay -S --noconfirm anaconda # from Website
 
 # Calendar
 sudo pacman -S --noconfirm calcurse

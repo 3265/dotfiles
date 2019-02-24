@@ -3,7 +3,7 @@
 mkdir -p ~/.ssh/
 cd ~/.ssh/
 ssh-keygen -t rsa #パスフレ無し
-cp ~/dotfiles/config ~/.ssh/
+cp ~/dotfiles/.ssh/config ~/.ssh/
 # $EDITOR ~/.ssh/config #以下の設定内容を貼り付け
 
 # github

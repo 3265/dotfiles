@@ -29,10 +29,8 @@ alias y='yes'
 alias z='zsh'
 
 # Others
-alias open='xdg-open'
 alias py='python3'
 alias copy='echo ${PWD} | xsel -b'
-alias search='chromium-browser --app="https://google.com/"' # search
 
 if [[ $SHELL == "/bin/zsh" ]]; then
   # Global aliases
@@ -71,11 +69,13 @@ alias gitwatch='fswatch -0 . | xargs -0 -n 1 sh -c "clear && git status --short"
 
 # # Others
 alias rename='mv'
-alias music='mocp'
+alias open='xdg-open'
+alias music='vimpc'
 alias reboot='reboot'
 alias shutdown='shutdown -h now'
 alias suspend='systemctl suspend'
 alias lock='i3lock -c 000000'
+alias search='chromium-browser --app="https://google.com/"' # search
 
 # Shell
 alias bsh='bash'
@@ -312,6 +312,7 @@ extract() {
     *.Z) uncompress $1;;
     *.tar) tar xvf $1;;
     *.arj) unarj $1;;
+    *.rar) unrar x $1;;
   esac
 }
 

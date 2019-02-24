@@ -100,7 +100,10 @@ sudo pacman -S --noconfirm compton
 sudo pacman -S --noconfirm scrot
 
 # Clipboard manager
-sudo pacman -S --noconfirm doneparcellite
+sudo pacman -S --noconfirm parcellite
+
+# EPub Reader
+sudo pacman -S --noconfirm calibre
 
 # Blightness
 # NOTE: python-gobject is dependency for redshift-gtk
