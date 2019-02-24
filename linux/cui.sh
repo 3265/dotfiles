@@ -74,9 +74,6 @@ yay -S --noconfirm direnv peco pet-bin
 sudo pacman -S --noconfirm aws-cli
 yay -S --noconfirm google-cloud-sdk
 
-# lang
-yay -S --noconfirm terraform
-
 # Font
 # ref https://nerdfonts.com/
 sudo pacman -S --noconfirm gucharmap
@@ -102,8 +99,10 @@ yay -S --noconfirm pdmenu
 
 # Language
 sudo pacman -S --noconfirm python-pipenv
+yay -S --noconfirm pyenv
 yay -S --noconfirm rbenv
-# yay -S --noconfirm anaconda # from Website
+yay -S --noconfirm terraform
+# yay -S --noconfirm anaconda
 
 # Calendar
 sudo pacman -S --noconfirm calcurse

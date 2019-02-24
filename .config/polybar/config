@@ -79,7 +79,7 @@ inherit = section/base
 monitor = ${env:MONITOR:eDP1}
 
 modules-left = logo i3
-modules-right = network alsa backlight battery username powermenu
+modules-right = network alsa backlight battery date username powermenu
 modules-center = xwindow
 
 ;=====================================================
@@ -91,7 +91,7 @@ inherit = section/base
 monitor = ${env:MONITOR:eDP1}
 bottom = true
 
-modules-left = date cpu memory temperature
+modules-left = cpu memory temperature
 modules-center = mpd
 modules-right = filesystem
 
@@ -106,7 +106,7 @@ label = %title:0:30:...%
 [module/cpu]
 type = internal/cpu
 interval = 0.5
-format-prefix = "CPU  "
+format-prefix = "  CPU "
 format-charging = <label-charging>
 ; format-underline = #d64937
 label = %percentage%%
@@ -115,7 +115,7 @@ label = %percentage%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "RAM  "
+format-prefix = " RAM "
 ; format-underline = #32bbc2
 label = %gb_used%/%gb_free%
 
@@ -143,7 +143,7 @@ date = %Y-%m-%d%
 time = %H:%M
 date-alt = %A, %d %B %Y
 time-alt = %H:%M:%S
-format-prefix = "  "
+format-prefix = " "
 format = <label>
 label = %date% %time%
 label-font = 3
@@ -244,7 +244,8 @@ interval = 0.5
 thermal-zone = 0
 hwmon-path = /sys/devices/virtual/thermal/thermal_zone0/hwmon0/temp1_input
 warn-temperature = 60
-label = CPU Temp  %temperature-c%
+format-prefix = " CPU Temp "
+label = %temperature-c%
 label-warn =  %temperature-c%
 label-warn-foreground = #f00
 
