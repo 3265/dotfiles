@@ -148,6 +148,8 @@ screen() {
       shift
       command screen -d -r "$@";;
     rm) command screen -wipe;;
+    rm-detached)
+      screen -ls | grep Detached | cut -d. -f1 | awk '{print $1}';;
     h) declare -f screen;;
     *) command screen "$@";;
   esac
