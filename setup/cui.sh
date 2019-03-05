@@ -1,52 +1,46 @@
 #!/bin/bash
 
-apt update
-apt install sudo -y
-
-# FileSystem
-apt install zfs -y
-
 # Terminal
-apt install bash -y
-apt install zsh -y
-apt install mosh -y
-apt install pssh -y # includes prsync, pscp
-apt install translate-shell -y
+sudo pacman -S --noconfirm bash zsh mosh parallel translate-shell
 
 # Editor
-apt install vim -y
-apt install neovim -y
-apt install vim-gnome -y # to use clipboard
-apt install emacs -y
+sudo pacman -S --noconfirm vim emacs
+sudo pacman -S --noconfirm neovim python-neovim # with python module
+
+# basic command alternative
+sudo pacman -S --noconfirm lsd
+
+# Finder with UI
+sudo pacman -S --noconfirm ranger vifm
 
 # Finder
-apt install ranger -y
-apt install silversearcher-ag -y
-
-# Dictionary
-apt install goldendict -y
-apt install waei -y
+sudo pacman -S --noconfirm donethe_silver_searcher
 
 # Additional keyboard shortcut
-apt install xbindkey -y
+# use xbindkeys to avod to depend desktop environment
+sudo pacman -S --noconfirm xbindkeys
 
 # Monitoring
-apt install htop -y
-apt install powertop -y
+sudo pacman -S --noconfirm htop powertop
 
 # Downloader
-apt install curl -y
-apt install wget -y
+sudo pacman -S --noconfirm curl wget
+
+# Archiver
+sudo pacman -S --noconfirm unrar
 
 # Virtualization
-apt install virtualbox -y
-apt install vagrant -y
-apt install docker-ec -y
+<< __EOF__
+# add mike to docker group
+sudo groupadd docker
+sudo gpasswd -a mike docker
+sudo systemctl restart docker
+__EOF__
+sudo pacman -S --noconfirm virtualbox vagrant docker docker-compose
 
 # VPN
-apt install ike-scan -y
-apt install strongswan -y
-apt install xl2tpd -y
+sudo pacman -S --noconfirm strongswan xl2tpd
+yay -S --noconfirm ike-scan
 
 # KVM
 # NOTE: Need to reboot
@@ -59,31 +53,57 @@ apt install xl2tpd -y
 # apt-get install bridge-utils -y # for virtual bridge
 
 # Terminal multiplexer
-apt install screen -y
-apt install tmux -y
-apt install xsel -y # for yank
+# NOTE: xsel is for yank
+sudo pacman -S --noconfirm screen tmux xsel
 
 # VCS
-apt install git -y
-apt install tig -y
+sudo pacman -S --noconfirm git tig
 
 # Todo Manager
-apt install taskwarrior -y
-apt install tasksh -y
-apt install vit -y
+sudo pacman -S --noconfirm task
+yay -S --noconfirm tasksh vit
 
 # Screensaver
-apt install cmatrix -y
+sudo pacman -S --noconfirm cmatrix
 
 # Tools
-apt install direnv -y
-apt install peco -y
-apt install tree -y
-apt install gdebi -y
-apt install nmap -y
-apt install net-tools -y # for ifconfig
+# NOTE: net-tools is for ifconfig
+sudo pacman -S --noconfirm tree nmap net-tools alsa-utils
+yay -S --noconfirm direnv peco pet-bin
 
-# pet
-wget https://github.com/knqyf263/pet/releases/download/v0.3.0/pet_0.3.0_linux_amd64.deb
-dpkg -i pet_0.3.0_linux_amd64.deb
-rm pet_0.3.0_linux_amd64.deb
+# Cloud CLI
+sudo pacman -S --noconfirm aws-cli
+yay -S --noconfirm google-cloud-sdk
+
+# Font
+# ref https://nerdfonts.com/
+sudo pacman -S --noconfirm gucharmap
+yay -S --noconfirm nerd-fonts-hack
+
+# For temperature
+sudo pacman -S --noconfirm lm_sensors
+
+# A command-line based markdown presentation tool.
+yay -S --noconfirm mdp
+
+# Music player
+sudo pacman -S --noconfirm mpd
+# sudo pacman -S --noconfirm mopidy
+yay -S --noconfirm vimpc-git
+# sudo pacman -S --noconfirm ncmpcpp
+
+# Screen recorder
+sudo pacman -S --noconfirm asciinema
+
+# Menu
+yay -S --noconfirm pdmenu
+
+# Language
+sudo pacman -S --noconfirm python-pipenv
+yay -S --noconfirm pyenv
+yay -S --noconfirm rbenv
+yay -S --noconfirm terraform
+# yay -S --noconfirm anaconda
+
+# Calendar
+sudo pacman -S --noconfirm calcurse

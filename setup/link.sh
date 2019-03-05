@@ -28,7 +28,7 @@ ln -s -f ~/dotfiles/.xmodmap ~/.xmodmap
 
 # Launcher
 mkdir -p ~/.config/rofi
-ln -s -f ~/dotfiles/rofi/config ~/.config/rofi/config
+ln -s -f ~/dotfiles/.config/rofi/config ~/.config/rofi/config
 
 # VIM
 mkdir -p ~/.vim/
@@ -42,16 +42,23 @@ ln -s -f ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 
 # i3 WM
 mkdir -p ~/.config/i3
-ln -s -f ~/dotfiles/i3/config ~/.config/i3/config
-ln -s -f ~/dotfiles/.i3status.conf ~/.i3status.conf
+ln -s -f ~/dotfiles/.config/i3/config ~/.config/i3/config
+
+# i3Status
+mkdir -p ~/.config/i3status
+ln -s -f ~/dotfiles/.config/i3status/config ~/.config/i3status/config
 
 # Nofitication
 mkdir -p ~/.config/dunst
-ln -s -f ~/dotfiles/dunstrc ~/.config/dunst/dunstrc
+ln -s -f ~/dotfiles/.config/dunst/dunstrc ~/.config/dunst/dunstrc
 
 # Terminal
 mkdir -p ~/.config/termite
-ln -s -f ~/dotfiles/termite/config ~/.config/termite/config
+ln -s -f ~/dotfiles/.config/termite/config ~/.config/termite/config
+
+# MPD
+mkdir -p ~/.config/mpd
+ln -s -f ~/dotfiles/.config/mpd/mpd.conf ~/.config/mpd/mpd.conf
 
 # Terminal multiplexer
 ln -s -f ~/dotfiles/.screenrc ~/.screenrc
@@ -67,7 +74,7 @@ ln -s -f ~/dotfiles/.tigrc ~/.tigrc
 
 # Fusuma
 mkdir -p ~/.config/fusuma
-ln -s -f ~/dotfiles/config.yml ~/.config/fusuma/config.yml
+ln -s -f ~/dotfiles/.config/fusuma/config.yml ~/.config/fusuma/config.yml
 
 # Docker
 ln -s -f ~/dotfiles/.dockerignore ~/.dockerignore
@@ -80,23 +87,32 @@ ln -s -f ~/dotfiles/.editorconfig ~/.editorconfig
 # see https://askubuntu.com/questions/302736/solarized-color-name-not-defined
 # ln -s -f ~/dotfiles/.Xresources  ~/.Xresources
 
+# Compton
+ln -s -f ~/dotfiles/.config/compton.conf ~/.config/compton.conf
+
 # DB
 ln -s -f ~/dotfiles/.my.cnf ~/.my.cnf
 
 # GTK-3.0(for chromium)
-ln -s -f ~/dotfiles/settings.ini ~/.config/gtk-3.0/settings.ini
+mkdir -p ~/.config/gtk-3.0
+ln -s -f ~/dotfiles/.config/gtk-3.0//settings.ini ~/.config/gtk-3.0/settings.ini
 
 # peco
 mkdir -p ~/.config/peco
-ln -s -f ~/dotfiles/config.json ~/.config/peco/config.json
+ln -s -f ~/dotfiles/.config/peco/config.json ~/.config/peco/config.json
+
+# polybar
+mkdir -p ~/.config/polybar
+ln -s -f ~/dotfiles/.config/polybar/config ~/.config/polybar/config
+ln -s -f ~/dotfiles/.config/polybar/launch.sh ~/.config/polybar/launch.sh
 
 # pet
 mkdir -p ~/.config/pet
-ln -s -f ~/dotfiles/config.toml ~/.config/pet/config.toml
+ln -s -f ~/dotfiles/.config/pet/config.toml ~/.config/pet/config.toml
 
 # ranger
 mkdir -p ~/.config/ranger
-ln -s -f ~/dotfiles/rc.conf ~/.config/ranger/rc.conf
+ln -s -f ~/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
 
 # GRC
 mkdir -p ~/.grc/
