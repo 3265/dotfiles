@@ -7,6 +7,9 @@ sudo pacman -S --noconfirm bash zsh mosh parallel translate-shell
 sudo pacman -S --noconfirm vim emacs
 sudo pacman -S --noconfirm neovim python-neovim # with python module
 
+# basic command alternative
+sudo pacman -S --noconfirm lsd
+
 # Finder with UI
 sudo pacman -S --noconfirm ranger vifm
 
@@ -25,8 +28,6 @@ sudo pacman -S --noconfirm curl wget
 
 # Archiver
 sudo pacman -S --noconfirm unrar
-
-# Tools
 
 # Virtualization
 << __EOF__

@@ -12,7 +12,7 @@ alias h='history'
 alias i="ifconfig"
 alias j='gwaei &' # dictionary jisho
 alias k='mkdir -p'
-alias l='LC_COLLATE=C ls -al --color=auto --human-readable --group-directories-first'
+alias l='runls'
 alias m='mv'
 # alias n='' # to use npm n module
 alias o='xdg-open'
@@ -27,6 +27,14 @@ alias w='w'
 alias x='ex'
 alias y='yes'
 alias z='zsh'
+
+runls() {
+    if hash lsd 2>/dev/null; then
+      lsd -al "$@"
+    else
+      LC_COLLATE=C ls -al --color=auto --human-readable --group-directories-first "$@"
+    fi
+}
 
 # Others
 alias py='python3'
