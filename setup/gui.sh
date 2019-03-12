@@ -58,6 +58,9 @@ sudo pacman -S --noconfirm blueman
 
 # Editor
 yay -S --noconfirm visual-studio-code-bin
+# yay -S --noconfirm unityhub
+# yay -S --noconfirm unity-editor-beta
+# sudo pacman -S --noconfirm ffmpeg
 # yay -S --noconfirm oni
 
 # Tools

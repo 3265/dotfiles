@@ -2,3 +2,23 @@
   description = "up and build"
   command = "docker-compose up -d --build"
   output = ""
+
+[[snippets]]
+  description = "rails log"
+  command = "docker-compose logs -f rails"
+  output = ""
+
+[[snippets]]
+  description = "migration"
+  command = "docker-compose exec rails rails db:migrate"
+  output = ""
+
+[[snippets]]
+  description = "change owner in current directory"
+  command = "sudo chown -R mike:mike ."
+  output = ""
+
+[[snippets]]
+  description = "reset database"
+  command = "docker-compose exec rails rails db:migrate:reset"
+  output = ""

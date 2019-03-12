@@ -13,6 +13,8 @@
 # #############################################
 
 # NOTE: need to be sudoers
+# cd ~/dotifiles
+# sudo direnv allow && sudo direnv exec . bash setup/vpn.sh
 
 cat > /etc/ipsec.conf <<EOF
 # ipsec.conf - strongSwan IPsec configuration file
@@ -94,11 +96,19 @@ touch /var/run/xl2tpd/l2tp-control
 #  enabled changes
 # #############################################
 
-service strongswan restart
-service xl2tpd restart
+/usr/bin/systemctl restart strongswan
+/usr/bin/systemctl restart xl2tpd
 
 # #############################################
-#  start VPN
+#  start VPN (Arch))
+# #############################################
+
+# echo "c myvpn" > /var/run/xl2tpd/l2tp-control # start l2tp
+# route add $VPN_SERVER_IP gw 192.168.0.1 # replace default route; 192.168.0.1 is gateway ip, it appeared by `default via X.X.X.X ....`
+# route add default dev ppp0 # Add a new default route to start routing traffic via the VPN server
+
+# #############################################
+#  start VPN (Ubuntu)
 # #############################################
 
 # wget -qO- http://ipv4.icanhazip.com; echo # current ip address

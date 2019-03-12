@@ -38,6 +38,7 @@ runls() {
 
 # Others
 alias py='python3'
+alias le='less'
 alias copy='echo ${PWD} | xsel -b'
 
 if [[ $SHELL == "/bin/zsh" ]]; then
@@ -165,13 +166,13 @@ screen() {
 
 pet() {
   case $1 in
-    n)
+    a|n) # new or add
       shift
       command pet new "$@";;
-    ls)
+    l|ls) # list
       shift
       command pet list "$@";;
-    e)
+    e|m) # edit or modify
       shift
       command pet edit "$@";;
     x) # need to instal peco
