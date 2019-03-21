@@ -14,7 +14,7 @@ do
             xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --off
         fi
         bash ~/dotfiles/.config/polybar/launch.sh
-        feh --bg-center ~/dotfiles/images/wallpaper.jpg --image-bg black # wallpaper
+        feh --bg-center ~/dotfiles/images/silver_lining.jpg --image-bg black # wallpaper
     fi
     sleep 1
 done
