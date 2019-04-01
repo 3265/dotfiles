@@ -172,7 +172,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Screenshot
-bindsym Print exec scrot -e 'mv $f ~/Pictures'
+bindsym Print exec scrot -ue 'mv $f ~/Pictures'
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
