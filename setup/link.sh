@@ -90,6 +90,9 @@ ln -s -f ~/dotfiles/.editorconfig ~/.editorconfig
 # Compton
 ln -s -f ~/dotfiles/.config/compton.conf ~/.config/compton.conf
 
+# Redshift
+ln -s -f ~/dotfiles/.config/redshift.conf ~/.config/redshift.conf
+
 # DB
 ln -s -f ~/dotfiles/.my.cnf ~/.my.cnf
 

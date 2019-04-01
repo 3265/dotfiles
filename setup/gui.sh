@@ -139,6 +139,9 @@ sudo pacman -S --noconfirm wireshark-common
 
 
 # File manager
-sudo pacman -S --noconfirm nautilus
-yay -S gtk-theme-solarc-git --noconfirm
+sudo pacman -S --noconfirm pcmanfm
+# sudo pacman -S --noconfirm nautilus
+# yay -S gtk-theme-solarc-git --noconfirm
 
+# Printer
+# sudo pacman -S --noconfirm cups

@@ -98,6 +98,7 @@ touch /var/run/xl2tpd/l2tp-control
 
 /usr/bin/systemctl restart strongswan
 /usr/bin/systemctl restart xl2tpd
+# sudo direnv allow && sudo direnv exec . bash
 
 # #############################################
 #  start VPN (Arch))
