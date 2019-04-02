@@ -145,3 +145,6 @@ sudo pacman -S --noconfirm pcmanfm
 
 # Printer
 # sudo pacman -S --noconfirm cups
+
+# Voice messenger
+yay -S --noconfirm discord
