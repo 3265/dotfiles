@@ -173,6 +173,8 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Screenshot
 bindsym Print exec scrot -ue 'mv $f ~/Pictures'
+bindsym --release Shift+Print exec scrot -se 'mv $f ~/Pictures'
+# https://faq.i3wm.org/question/6066/scrot-selection-using-bindkeys.1.html
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
