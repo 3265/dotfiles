@@ -148,3 +148,8 @@ sudo pacman -S --noconfirm pcmanfm
 
 # Voice messenger
 yay -S --noconfirm discord
+
+
+# Paper
+yay -S mendeleydesktop
+
