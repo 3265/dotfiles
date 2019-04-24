@@ -107,3 +107,7 @@ yay -S --noconfirm terraform
 
 # Calendar
 sudo pacman -S --noconfirm calcurse
+
+# Others
+sudo pacman -S --noconfirm dnsutils # for dig cmd
+sudo pacman -S --noconfirm sysstat # for sar cmd
