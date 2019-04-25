@@ -11,7 +11,17 @@ sudo pacman -S --noconfirm neovim python-neovim # with python module
 sudo pacman -S --noconfirm lsd
 
 # Finder with UI
-sudo pacman -S --noconfirm ranger vifm
+sudo pacman -S --noconfirm ranger
+sudo pacman -S --noconfirm vifm
+
+# Ranger Preview tools
+sudo pacman -S --noconfirm highlight # source code highlight
+sudo pacman -S --noconfirm pdftotext # pdf viewer
+sudo pacman -S --noconfirm w3m # Image viewer
+sudo pacman -S --noconfirm atool # archive manager (frontend of archiver) which needs cmds below like zip
+sudo pacman -S --noconfirm donebzip2 cpio gzip lhasa xz lzop p7zip tar unace unrar zip unzip
+# NOTE: i configured according to this website
+# http://malkalech.com/ranger_filer
 
 # Finder
 sudo pacman -S --noconfirm donethe_silver_searcher
@@ -111,3 +121,4 @@ sudo pacman -S --noconfirm calcurse
 # Others
 sudo pacman -S --noconfirm dnsutils # for dig cmd
 sudo pacman -S --noconfirm sysstat # for sar cmd
+
