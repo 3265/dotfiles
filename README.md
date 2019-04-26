@@ -43,7 +43,9 @@ yd| yank directory name
 
 File Selection Operation
 
-<space> | select file
+Shortcut | Desc
+---|---
+space | select file
 v | select all
 V | rectangular select 
 uv | deselection
