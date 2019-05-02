@@ -6,3 +6,6 @@
 ! keysym Caps_Lock = Control_L
 ! add Control = Control_L
 
+! For HHKB
+keycode 134 = Print
+
