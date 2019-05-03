@@ -30,6 +30,7 @@ yy| yank
 yr| reset yank
 \/| search
 dD| delete
+pp| paste
 
 File Path Operations
 
