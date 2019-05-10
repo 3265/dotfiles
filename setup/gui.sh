@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# terminal
+# sudo pacman -S --noconfirm termite
+sudo pacman -S --noconfirm terminator
+
 # i3
 sudo pacman -S --noconfirm i3-gaps
 
@@ -23,7 +27,9 @@ sudo pacman -S --noconfirm lightdm-gtk-greeter-settings # for tweak setting of l
 sudo systemctl enable lightdm.service
 
 # Place image in shared space for permission
-sudo cp /home/$USER/dotfiles/images/silver_lining.jpg /usr/share/pixmaps/
+# Use sudo lightdm-gtk-greeter-settings for lightdm setting
+sudo cp /home/$USER/dotfiles/images/universe.jpg /usr/share/pixmaps/
+sudo cp /home/$USER/dotfiles/images/ba90.png /usr/share/pixmaps/
 
 # Dictionary
 # mkdir ~/.goldendict/dict

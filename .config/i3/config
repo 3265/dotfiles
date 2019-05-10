@@ -10,7 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $term termite --title=Termite
+set $term terminator
 set $dmenu dmenu_run
 
 # Font
@@ -34,9 +34,9 @@ gaps inner 10
 gaps outer 5
 
 # Launcher
-bindsym $mod+d exec $dmenu # drun is DesktopFile run option
-bindsym $mod+Shift+d exec rofi -show drun run # drun is DesktopFile run option
-bindsym $mod+Shift+w exec rofi -show windowcd
+bindsym $mod+Shift+d exec $dmenu # drun is DesktopFile run option
+bindsym $mod+d exec rofi -show drun run # drun is DesktopFile run option
+bindsym $mod+w exec rofi -show windowcd
 # bindsym $mod+space exec rofi -modi calc:qalc -show calc # need to install qalc
 # bindsym $mod+S exec rofi -show ssh
 
