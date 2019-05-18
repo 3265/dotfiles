@@ -122,3 +122,6 @@ sudo pacman -S --noconfirm calcurse
 sudo pacman -S --noconfirm dnsutils # for dig cmd
 sudo pacman -S --noconfirm sysstat # for sar cmd
 
+# DB
+sudo yay -S --noconfirm mycli
+
