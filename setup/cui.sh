@@ -125,3 +125,5 @@ sudo pacman -S --noconfirm sysstat # for sar cmd
 # DB
 sudo yay -S --noconfirm mycli
 
+# PDF2Mobi
+sudo yay -S --noconfirm k2pdfopt
