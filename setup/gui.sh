@@ -13,6 +13,8 @@ sudo pacman -S --noconfirm i3-gaps
 # - add mozc and prioritize it more over Keyboard English
 # - change default keyboard layout to to English(US)
 # - prioritize English than Mozc to use english keyboard first
+# - Global config
+#    - Trigger Input Method = Empty
 # - Global config > show advance options
 #    - active input method = RALT
 #    - inactive input method = LALT

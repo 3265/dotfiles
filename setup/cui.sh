@@ -121,9 +121,13 @@ sudo pacman -S --noconfirm calcurse
 # Others
 sudo pacman -S --noconfirm dnsutils # for dig cmd
 sudo pacman -S --noconfirm sysstat # for sar cmd
+sudo pacman -S --noconfirm whois
 
 # DB
-sudo yay -S --noconfirm mycli
+yay -S --noconfirm mycli
 
 # PDF2Mobi
-sudo yay -S --noconfirm k2pdfopt
+# yay -S --noconfirm k2pdfopt
+
+# git secret
+yay -S --noconfirm git-secrets
