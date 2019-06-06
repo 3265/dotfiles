@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Fusuma
+Type=Application
+Exec=/usr/bin/fusuma -d
+OnlyShowIn=GNOME
+NoDisplay=true
+

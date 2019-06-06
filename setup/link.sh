@@ -76,6 +76,10 @@ ln -s -f ~/dotfiles/.tigrc ~/.tigrc
 mkdir -p ~/.config/fusuma
 ln -s -f ~/dotfiles/.config/fusuma/config.yml ~/.config/fusuma/config.yml
 
+# Fusuma startapp
+mkdir -p ~/.config/autostart
+ln -s -f ~/dotfiles/.config/autostart/fusuma.desktop ~/.config/autostart/fusuma.desktop
+
 # Docker
 ln -s -f ~/dotfiles/.dockerignore ~/.dockerignore
 # sudo ln -s -f ~/dotfiles/daemon.json /etc/docker/daemon.json # to use experimental future
