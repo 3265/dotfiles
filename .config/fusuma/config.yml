@@ -1,1 +1,43 @@
-# fusuma/lib/fusuma/config.yml
+# touchpad gesture for GNOME 3 like Mac
+# see fusuma/lib/fusuma/config.yml
+
+swipe:
+  3:
+    left:
+      command: 'xdotool key alt+Right'
+    right:
+      command: 'xdotool key alt+Left'
+    up:
+      command: 'xdotool key ctrl+t'
+    down:
+      command: 'xdotool key ctrl+w'
+  4:
+    left:
+      command: 'xdotool key super+Right'
+    right:
+      command: 'xdotool key super+Left'
+    up:
+      command: 'xdotool key super+a'
+    down:
+      command: 'xdotool key super+s'
+
+pinch:
+  2:
+    in:
+      command: 'xdotool key ctrl+equal'
+    out:
+      command: 'xdotool key ctrl+minus'
+  4:
+    in:
+      command: 'xdotool key super+a'
+    out:
+      command: 'xdotool key super+s'
+
+threshold:
+  swipe: 0.3
+  pinch: 0.1
+
+interval:
+  swipe: 1
+  pinch: 1
+
