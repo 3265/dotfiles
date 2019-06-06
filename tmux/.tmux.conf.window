@@ -4,14 +4,14 @@
 # ############################
 
 # ウィンドウリストの色を設定する
-setw -g window-status-fg white
-setw -g window-status-bg default
-setw -g window-status-attr dim
+setw -g window-status-style fg=white
+setw -g window-status-style bg=default
+setw -g window-status-style dim
 
 # アクティブなウィンドウを目立たせる
-setw -g window-status-current-fg white
-setw -g window-status-current-bg green
-setw -g window-status-current-attr bright
+setw -g window-status-current-style fg=white
+setw -g window-status-current-style bg=green
+setw -g window-status-current-style bright
 
 # tmuxの選択中のウィンドウの画面のフォーマット(=10:で前方10文字のみ表示)
 set-window-option -g window-status-format "[#I: #{=10:window_name}]"

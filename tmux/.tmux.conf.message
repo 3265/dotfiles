@@ -4,6 +4,5 @@
 # ############################
 
 # コマンドラインの色を設定する
-set -g message-fg white
-set -g message-bg black
-set -g message-attr bright
+set-option -g status-style bg=white,fg=black
+set-option -g status-style bright,dim
