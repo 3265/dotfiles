@@ -1,18 +1,23 @@
+# Setup L2TP/IPSec
+
+TODO
 
 # Start L2TP/IPSec
+
+## Firstly, need to start processes
 
 ```
 $ /usr/bin/systemctl restart strongswan
 $ /usr/bin/systemctl restart xl2tpd
 ```
 
-# SWitch shell to use env
+## SWitch shell to use env
 
 ```
 $ sudo direnv allow && sudo direnv exec . bash
 ```
 
-# Start VPN
+## Start VPN
 
 ```
 $ wget -qO- http://ipv4.icanhazip.com; echo # current ip address
@@ -27,7 +32,7 @@ $
 $ wget -qO- http://ipv4.icanhazip.com; echo # new ip address
 ```
 
-# finish VPN
+## finish VPN
 
 ```
 $ route del default dev ppp0
