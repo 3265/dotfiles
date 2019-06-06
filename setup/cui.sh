@@ -93,4 +93,5 @@ sudo pacman -S --noconfirm python-pipenv
 yay -S --noconfirm pyenv
 yay -S --noconfirm rbenv
 yay -S --noconfirm terraform
+yay -S --noconfirm nvm
 
