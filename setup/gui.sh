@@ -15,6 +15,9 @@ sudo pacman -S --noconfirm terminator
 sudo pacman -S --noconfirm chromium firefox opera
 yay -S --noconfirm google-chrome
 
+# Gnome Tweaks
+sudo pacman -S --noconfirm gnome-tweaks
+
 # Clipboard manager
 sudo pacman -S --noconfirm parcellite
 
