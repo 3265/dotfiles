@@ -8,7 +8,18 @@ $ sudo pacman -S gnome-tweaks
 
 # Settings
 
-I updated settings by following below that:
+I updated settings like following below 
+
+- Background
+  - Universe.jpg
+- TouchPad
+  - Natural Scrolling: ON
+- Online Accounts
+  - Google
+
+# Gnome-tweaks
+
+I updated settings like following below that:
 
 - General
   - Animations: false
@@ -16,3 +27,5 @@ I updated settings by following below that:
   - All true-
 - Keyboard & Mouse
   - Emacs Input: Enabled
+
+
