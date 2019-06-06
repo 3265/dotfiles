@@ -31,9 +31,23 @@ export KCODE=u           # KCODEにUTF-8を設定
 export AUTOFEATURE=true  # autotestでfeatureを動かす
 
 # Language
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
+# NOTE:
+# - the reason of why that i specify locale here is to avoid rendering bag of screen.
+# - especially i want to set ja_JP.UTF-9 to LC_CTYPE, but it makes bag.
+# - so i just configure that in .xprofile for fcitx and then replace it here for gnu screen.
+# LC_CTYPE="en_US.UTF-8"
+# LC_NUMERIC="en_US.UTF-8"
+# LC_TIME="en_US.UTF-8"
+# LC_COLLATE="en_US.UTF-8"
+# LC_MONETARY="en_US.UTF-8"
+# LC_MESSAGES="en_US.UTF-8"
+# LC_PAPER="en_US.UTF-8"
+# LC_NAME="en_US.UTF-8"
+# LC_ADDRESS="en_US.UTF-8"
+# LC_TELEPHONE="en_US.UTF-8"
+# LC_MEASUREMENT="en_US.UTF-8"
+# LC_IDENTIFICATION="en_US.UTF-8"
+# LC_ALL=en_US.UTF-8
 
 export TERM=xterm-256color # iTermのときの設定
 
