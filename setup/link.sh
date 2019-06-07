@@ -7,7 +7,8 @@ ln -s -f ~/dotfiles/.bashrc ~/.bashrc
 ln -s -f ~/dotfiles/.bashenv ~/.bashenv
 ln -s -f ~/dotfiles/.bash_profile ~/.bash_profile
 ln -s -f ~/dotfiles/.inputrc ~/.inputrc
-ln -s -f ~/dotfiles/.xinitrc ~/.xinitrc
+# ln -s -f ~/dotfiles/.xinitrc ~/.xinitrc
+ln -s -f ~/dotfiles/.xprofile ~/.xprofile
 ln -s -f ~/dotfiles/.netrc ~/.netrc
 
 # ZSH
@@ -18,10 +19,10 @@ ln -s -f ~/dotfiles/.zshenv ~/.zshenv
 ln -s -f ~/dotfiles/.aliases ~/.aliases
 
 # IME
-ln -s -f ~/dotfiles/.xinputrc ~/.xinputrc
+# ln -s -f ~/dotfiles/.xinputrc ~/.xinputrc
 
 # Additional Shortcut Key
-ln -s -f ~/dotfiles/.xbindkeysrc ~/.xbindkeysrc
+# ln -s -f ~/dotfiles/.xbindkeysrc ~/.xbindkeysrc
 
 # Keymap
 ln -s -f ~/dotfiles/.xmodmap ~/.xmodmap
