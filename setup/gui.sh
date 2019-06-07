@@ -4,16 +4,17 @@
 # sudo pacman -S --noconfirm termite
 sudo pacman -S --noconfirm terminator
 
+# File manager
+sudo pacman -S --noconfirm pcmanfm
+
 # Browser
-# FF
-#   Disable opening menu by alt
-#   about:config > ui.key.menuAccessKey = 0
-#   about:config > ui.key.menuAccessKeyFocuses = false
-#   theme
-#   https://addons.mozilla.org/ja/firefox/addon/zen-fox/
-# for chrome, need to apply Solarized Dark, Solarized dark, Rename tab title, Vimium, Google Translate
-sudo pacman -S --noconfirm chromium firefox opera
+sudo pacman -S --noconfirm chromium
+sudo pacman -S --noconfirm firefox
+sudo pacman -S --noconfirm opera
 yay -S --noconfirm google-chrome
+
+# Firewall
+sudo pacman -S --noconfirm gufw
 
 # Gnome Tweaks
 sudo pacman -S --noconfirm gnome-tweaks
@@ -23,32 +24,24 @@ sudo pacman -S --noconfirm parcellite
 
 # Editor
 yay -S --noconfirm visual-studio-code-bin
-# yay -S --noconfirm unityhub
-# yay -S --noconfirm unity-editor-beta
-# sudo pacman -S --noconfirm ffmpeg
-# yay -S --noconfirm oni
+yay -S --noconfirm vnote
 
 # Tools
-sudo pacman -S --noconfirm gparted xpad
-yay -S --noconfirm postman ngrok
-
-# Business
-yay -S --noconfirm skypeforlinux-stable-bin slack-desktop zoom
-yay -S --noconfirm discord
-
-# Tools
-# Way to solve permission err of wireshark
-# see https://ubuntuforums.org/showthread.php?t=2039978
-sudo pacman -S --noconfirm wireshark-common
-
-# File manager
-# sudo pacman -S --noconfirm pcmanfm
-# sudo pacman -S --noconfirm nautilus
-# yay -S gtk-theme-solarc-git --noconfirm
-
-# Printer
-# sudo pacman -S --noconfirm cups
-
-# Paper management
+sudo pacman -S --noconfirm gparted
+sudo pacman -S --noconfirm xpad
+sudo pacman -S --noconfirm gimp
+sudo pacman -S --noconfirm filezilla
+yay -S --noconfirm postman-bin
+yay -S --noconfirm spotify
+sudo pacman -S --noconfirm thunderbird
 # yay -S mendeleydesktop
+sudo pacman -S --noconfirm wireshark-common
+# in order to use wireshark, see https://ubuntuforums.org/showthread.php?t=2039978
+
+# Communication
+yay -S --noconfirm skypeforlinux-stable-bin
+yay -S --noconfirm slack-desktop
+yay -S --noconfirm zoom
+sudo pacman -S --noconfirm telegram-desktop
+yay -S --noconfirm discord
 
