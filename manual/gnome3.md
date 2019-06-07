@@ -28,4 +28,8 @@ I updated settings like following below that:
 - Keyboard & Mouse
   - Emacs Input: Enabled
 
+# Capslock to ctrl
 
+```
+$ gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']"
+```
