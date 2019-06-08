@@ -81,10 +81,13 @@ yay -S --noconfirm git-secrets
 # Font
 # ref https://nerdfonts.com/
 # sudo pacman -S --noconfirm gucharmap
-yay -S --noconfirm nerd-fonts-hack
+yay -S --noconfirm nerd-fonts-hack # for programming
+yay -S --noconfirm ttf-ms-fonts # for MS office
 
+# Other tools
 yay -S --noconfirm mdp # markdown presentation tool.
 sudo pacman -S --noconfirm asciinema # screen reader
+sudo pacman -S --noconfirm neofetch
 
 # Music player
 sudo pacman -S --noconfirm mpd
