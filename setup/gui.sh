@@ -6,11 +6,10 @@ sudo pacman -S --noconfirm terminator
 
 # Gnome Tools
 sudo pacman -S --noconfirm gnome-tweaks
-yay -S --noconfirm gnome-shell-extension-caffeine-plus-git # caffeine
 yay -S --noconfirm gnome-shell-extension-clipboard-indicator-git # clipboard
+yay -S --noconfirm gnome-shell-extension-caffeine-plus-git # caffeine
 yay -S --noconfirm gnome-shell-extension-gsconnect # connect to Android
-# yay -S --noconfirm gnome-shell-extension-system-monitor-git
-# yay -S --noconfirm gnome-shell-performance # monitoring
+yay -S --noconfirm gnome-shell-extension-system-monitor-git
 
 # File manager
 # sudo pacman -S --noconfirm pcmanfm # it's ok only nautilus
