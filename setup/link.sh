@@ -40,8 +40,8 @@ ln -s -f ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 
 # VIM & NVIM PKG
 mkdir -p ~/.vim/
-ln -s -f ~/dotfiles/.vim/dein.toml ~/.vim/dein.toml
-ln -s -f ~/dotfiles/.vim/dein_lazy.toml ~/.vim/dein_lazy.toml
+ln -s -f ~/dotfiles/.config/vim/dein.toml ~/.vim/dein.toml
+ln -s -f ~/dotfiles/.config/vim/dein_lazy.toml ~/.vim/dein_lazy.toml
 
 # i3 WM
 mkdir -p ~/.config/i3
