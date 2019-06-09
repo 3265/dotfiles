@@ -1,0 +1,93 @@
+conky.config = {
+	use_xft = true,
+	font = 'Inconsolata:pixelsize=12',
+	xftalpha = 0.1,
+	update_interval = 5.0,
+	total_run_times = 0,
+	background = false,
+
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_colour = '#000000',
+	own_window_argb_visual = false,
+	own_window_argb_value = 0,
+	maximum_width = 400,
+
+	double_buffer = true,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	default_color = 'white',
+	default_shade_color = 'red',
+	default_outline_color = 'green',
+	alignment = left_top,
+	gap_x = 10,
+	gap_y = 50,
+
+	no_buffers = false,
+	override_utf8_locale = true,
+	use_spacer = 'right',
+
+};
+
+-- ref see https://github.com/SethPipho/code-stuff/blob/f92b623bb4edce0787d3416ad12c16c9445f1e99/blurb.fyi-demo/sources.csv
+conky.text = [[
+${font TakaoExGothic:style=Bold:size=15}News Feed${font}
+
+## World
+${color #d1d1d1}World$hr${color}
+${execi 600 ~/dotfiles/conky/rss.sh "https://news.google.com/news/rss/headlines/section/topic/WORLD?ned=us&hl=en"}
+
+## Nation
+${color #d1d1d1}Nation$hr${color}
+${execi 600 ~/dotfiles/conky/rss.sh "https://news.google.com/news/rss/headlines/section/topic/NATION?ned=us&hl=en"}
+
+## Business
+${color #d1d1d1}Business$hr${color}
+${execi 600 ~/dotfiles/conky/rss.sh "https://news.google.com/news/rss/headlines/section/topic/BUSINESS?ned=us&hl=en"}
+
+## Technology
+${color #d1d1d1}Technology$hr${color}
+${execi 600 ~/dotfiles/conky/rss.sh "https://news.google.com/news/rss/headlines/section/topic/TECHNOLOGY?ned=us&hl=en"}
+
+## Health
+${color #d1d1d1}Health$hr${color}
+${execi 600 ~/dotfiles/conky/rss.sh "https://news.google.com/news/rss/headlines/section/topic/HEALTH?ned=us&hl=en"}
+
+## Science
+${color #d1d1d1}Science$hr${color}
+${execi 600 ~/dotfiles/conky/rss.sh "https://news.google.com/news/rss/headlines/section/topic/SCIENCE?ned=us&hl=en"}
+
+## Sports
+${color #d1d1d1}Sports$hr${color}
+${execi 600 ~/dotfiles/conky/rss.sh "https://news.google.com/news/rss/headlines/section/topic/SPORTS?ned=us&hl=en"}
+
+## Entertainment
+${color #d1d1d1}Entertainment$hr${color}
+${execi 600 ~/dotfiles/conky/rss.sh "https://news.google.com/news/rss/headlines/section/topic/ENTERTAINMENT?ned=us&hl=en"}
+
+## BCC
+${color #d1d1d1}BBC$hr${color}
+${execi 600 ~/dotfiles/conky/rss.sh "http://feeds.bbci.co.uk/news/rss.xml"}
+
+## CNN
+${color #d1d1d1}CNN$hr${color}
+${execi 600 ~/dotfiles/conky/rss.sh "http://rss.cnn.com/rss/cnn_topstories.rss"}
+
+## Washington Post
+${color #d1d1d1}Washington Post$hr${color}
+${execi 600 ~/dotfiles/conky/rss.sh "http://feeds.washingtonpost.com/rss/world"}
+
+## ABC News
+${color #d1d1d1}ABC News$hr${color}
+${execi 600 ~/dotfiles/conky/rss.sh "https://abcnews.go.com/abcnews/topstories"}
+
+## HN
+${color #d1d1d1}Hacker News$hr${color}
+${execi 600 ~/dotfiles/conky/rss.sh "https://news.ycombinator.com/rss"}
+]];
+
+

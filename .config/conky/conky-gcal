@@ -1,0 +1,37 @@
+conky.config = {
+	use_xft = true,
+	font = 'Inconsolata:pixelsize=10',
+	xftalpha = 0.1,
+	update_interval = 5.0,
+	total_run_times = 0,
+	background = false,
+
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_colour = '#000000',
+	own_window_argb_visual = false,
+	own_window_argb_value = 0,
+
+	double_buffer = true,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	default_color = 'white',
+	default_shade_color = 'red',
+	default_outline_color = 'green',
+	alignment = 'top_right',
+	gap_x = 295,
+	gap_y = 150,
+
+	no_buffers = false,
+	override_utf8_locale = true,
+	use_spacer = 'right',
+
+};
+
+conky.text = [[
+${execpi 600 gcalcli --conky --nolineart calm}
+]];
