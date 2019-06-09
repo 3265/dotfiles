@@ -26,8 +26,3 @@ zstyle ':completion:*' use-cache true       # apt-getとかでcacheを使用す�
 
 # For alias to show command shortcuts
 compdef g='git'
-
-# generic colouriser(mac)
-# Neet to execute brew install grc
-[[ -s "/usr/local/etc/grc.zsh" ]] && source /usr/local/etc/grc.zsh
-

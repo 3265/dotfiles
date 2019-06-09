@@ -30,7 +30,7 @@ alias z='zsh'
 
 runls() {
     if hash lsd 2>/dev/null; then
-      lsd -al "$@"
+      lsd -la --group-dirs=first "$@"
     else
       LC_COLLATE=C ls -al --color=auto --human-readable --group-directories-first "$@"
     fi

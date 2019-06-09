@@ -30,11 +30,6 @@ export PAGER=less        # PagerはLESS
 export KCODE=u           # KCODEにUTF-8を設定
 export AUTOFEATURE=true  # autotestでfeatureを動かす
 
-# Language
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-
 export TERM=xterm-256color # iTermのときの設定
 
 # Editor

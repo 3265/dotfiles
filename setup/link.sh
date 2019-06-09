@@ -7,7 +7,8 @@ ln -s -f ~/dotfiles/.bashrc ~/.bashrc
 ln -s -f ~/dotfiles/.bashenv ~/.bashenv
 ln -s -f ~/dotfiles/.bash_profile ~/.bash_profile
 ln -s -f ~/dotfiles/.inputrc ~/.inputrc
-ln -s -f ~/dotfiles/.xinitrc ~/.xinitrc
+# ln -s -f ~/dotfiles/.xinitrc ~/.xinitrc
+ln -s -f ~/dotfiles/.xprofile ~/.xprofile
 ln -s -f ~/dotfiles/.netrc ~/.netrc
 
 # ZSH
@@ -18,10 +19,10 @@ ln -s -f ~/dotfiles/.zshenv ~/.zshenv
 ln -s -f ~/dotfiles/.aliases ~/.aliases
 
 # IME
-ln -s -f ~/dotfiles/.xinputrc ~/.xinputrc
+# ln -s -f ~/dotfiles/.xinputrc ~/.xinputrc
 
 # Additional Shortcut Key
-ln -s -f ~/dotfiles/.xbindkeysrc ~/.xbindkeysrc
+# ln -s -f ~/dotfiles/.xbindkeysrc ~/.xbindkeysrc
 
 # Keymap
 ln -s -f ~/dotfiles/.xmodmap ~/.xmodmap
@@ -31,14 +32,16 @@ mkdir -p ~/.config/rofi
 ln -s -f ~/dotfiles/.config/rofi/config ~/.config/rofi/config
 
 # VIM
-mkdir -p ~/.vim/
 ln -s -f ~/dotfiles/.vimrc ~/.vimrc
-ln -s -f ~/dotfiles/dein.toml ~/.vim/dein.toml
-ln -s -f ~/dotfiles/dein_lazy.toml ~/.vim/dein_lazy.toml
 
 # NVIM
 mkdir -p ~/.config/nvim
 ln -s -f ~/dotfiles/.vimrc ~/.config/nvim/init.vim
+
+# VIM & NVIM PKG
+mkdir -p ~/.vim/
+ln -s -f ~/dotfiles/.config/vim/dein.toml ~/.vim/dein.toml
+ln -s -f ~/dotfiles/.config/vim/dein_lazy.toml ~/.vim/dein_lazy.toml
 
 # i3 WM
 mkdir -p ~/.config/i3
@@ -64,8 +67,9 @@ ln -s -f ~/dotfiles/.config/mpd/mpd.conf ~/.config/mpd/mpd.conf
 ln -s -f ~/dotfiles/.screenrc ~/.screenrc
 ln -s -f ~/dotfiles/.tmux.conf ~/.tmux.conf
 
-# System monitor
-ln -s -f ~/dotfiles/.conkyrc ~/.conkyrc
+# Conky
+mkdir -p ~/.config/conky
+ln -s -f ~/dotfiles/.config/conky/conky.conf ~/.config/conky/conky.conf
 
 # VCS
 ln -s -f ~/dotfiles/.gitconfig ~/.gitconfig
@@ -122,11 +126,6 @@ ln -s -f ~/dotfiles/.config/pet/snippet.toml ~/.config/pet/snippet.toml
 mkdir -p ~/.config/ranger
 ln -s -f ~/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
 
-# GRC
-mkdir -p ~/.grc/
-ln -s -f ~/dotfiles/grc/grc.conf ~/.grc/grc.conf
-ln -s -f ~/dotfiles/grc/conf.gotest ~/.grc/conf.gotest
-
 # JS
 ln -s -f ~/dotfiles/.npmrc ~/.npmrc
 # ln -s -f ~/dotfiles/.tern-config ~/.tern-config
@@ -135,6 +134,7 @@ ln -s -f ~/dotfiles/.npmrc ~/.npmrc
 ln -s -f ~/dotfiles/.gemrc ~/.gemrc
 
 # VS Code
-ln -s ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
-ln -s ~/dotfiles/vscode/keybindings.json ~/.config/Code/User/keybindings.json
-ln -s ~/dotfiles/vscode/extensions.json ~/.config/Code/User/extensions.json
+mkdir -p ~/.config/Code/User
+ln -s -f ~/dotfiles/.config/Code/User/settings.json ~/.config/Code/User/settings.json
+ln -s -f ~/dotfiles/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
+ln -s -f ~/dotfiles/.config/Code/User/extensions.json ~/.config/Code/User/extensions.json

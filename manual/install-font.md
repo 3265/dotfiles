@@ -13,10 +13,3 @@ $ fc-list | grep Ricty | Regular
 # fotmat [font-file-path: font-name:style]
 ```
 
-# find font code 
-
-better to use gucharmap
-
-```
-$ sudo pacman -S --noconfirm gucharmap
-```

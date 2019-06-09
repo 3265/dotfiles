@@ -28,4 +28,15 @@ I updated settings like following below that:
 - Keyboard & Mouse
   - Emacs Input: Enabled
 
+# Capslock to ctrl
 
+```
+$ gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']"
+```
+
+# Reload gnome-extensions
+
+```
+Press Alt + F2 and then enter r in the dialog box
+```
+see https://askubuntu.com/questions/75604/why-does-users-theme-extension-not-show-up-under-gnome-tweak-tool

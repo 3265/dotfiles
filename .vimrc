@@ -1,11 +1,11 @@
 " Bundle
-source ~/dotfiles/vim/.vimrc.bundle
+source ~/dotfiles/.config/vim/.vimrc.bundle
 
 " Common
-source ~/dotfiles/vim/.vimrc.common
+source ~/dotfiles/.config/vim/.vimrc.common
 
 " key mapping
-source ~/dotfiles/vim/.vimrc.keymapping
+source ~/dotfiles/.config/vim/.vimrc.keymapping
 
 " misc
-source ~/dotfiles/vim/.vimrc.misc
+source ~/dotfiles/.config/vim/.vimrc.misc
