@@ -65,8 +65,9 @@ ln -s -f ~/dotfiles/.config/mpd/mpd.conf ~/.config/mpd/mpd.conf
 ln -s -f ~/dotfiles/.screenrc ~/.screenrc
 ln -s -f ~/dotfiles/.tmux.conf ~/.tmux.conf
 
-# System monitor
-ln -s -f ~/dotfiles/.conkyrc ~/.conkyrc
+# Conky
+mkdir -p ~/.config/conky
+ln -s -f ~/dotfiles/.config/conky/conky.conf ~/.config/conky/conky.conf
 
 # VCS
 ln -s -f ~/dotfiles/.gitconfig ~/.gitconfig
@@ -123,11 +124,6 @@ ln -s -f ~/dotfiles/.config/pet/snippet.toml ~/.config/pet/snippet.toml
 mkdir -p ~/.config/ranger
 ln -s -f ~/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
 
-# GRC
-mkdir -p ~/.grc/
-ln -s -f ~/dotfiles/grc/grc.conf ~/.grc/grc.conf
-ln -s -f ~/dotfiles/grc/conf.gotest ~/.grc/conf.gotest
-
 # JS
 ln -s -f ~/dotfiles/.npmrc ~/.npmrc
 # ln -s -f ~/dotfiles/.tern-config ~/.tern-config
@@ -136,6 +132,7 @@ ln -s -f ~/dotfiles/.npmrc ~/.npmrc
 ln -s -f ~/dotfiles/.gemrc ~/.gemrc
 
 # VS Code
-ln -s ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
-ln -s ~/dotfiles/vscode/keybindings.json ~/.config/Code/User/keybindings.json
-ln -s ~/dotfiles/vscode/extensions.json ~/.config/Code/User/extensions.json
+mkdir -p ~/.config/Code/User
+ln -s ~/dotfiles/.config/Code/User/settings.json ~/.config/Code/User/settings.json
+ln -s ~/dotfiles/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
+ln -s ~/dotfiles/.config/Code/User/extensions.json ~/.config/Code/User/extensions.json
