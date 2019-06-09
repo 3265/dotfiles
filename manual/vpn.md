@@ -39,3 +39,12 @@ $ route del default dev ppp0
 $ echo "d myvpn" > /var/run/xl2tpd/l2tp-control
 $ ipsec down myvpn
 ```
+
+
+# Get gateway address
+
+
+```
+DEFAULT_GW=$(python3 ~/dotfiles/scripts/gw_addr.py)
+route add $VPN_SERVER_IP gw $DEFAULT_GW # replace default route; 192.168.0.1 is gateway ip, it appeared by `default via X.X.X.X ....`
+```
