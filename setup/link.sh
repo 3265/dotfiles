@@ -22,7 +22,7 @@ ln -s -f ~/dotfiles/.aliases ~/.aliases
 # ln -s -f ~/dotfiles/.xinputrc ~/.xinputrc
 
 # Additional Shortcut Key
-# ln -s -f ~/dotfiles/.xbindkeysrc ~/.xbindkeysrc
+ln -s -f ~/dotfiles/.xbindkeysrc ~/.xbindkeysrc
 
 # Keymap
 ln -s -f ~/dotfiles/.xmodmap ~/.xmodmap

@@ -1,8 +1,15 @@
 #!/bin/bash
 
+# X.org
+sudo pacman -S --noconfirm xorg-xmodmap
+
 # terminal
 # sudo pacman -S --noconfirm termite
 sudo pacman -S --noconfirm terminator
+
+# Launcher
+sudo pacman -S --noconfirm xbindkeys
+sudo pacman -S --noconfirm rofi
 
 # Gnome Tools
 sudo pacman -S --noconfirm gnome-tweaks
