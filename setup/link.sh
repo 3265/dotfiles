@@ -34,8 +34,8 @@ ln -s -f ~/dotfiles/.config/rofi/config ~/.config/rofi/config
 # VIM
 mkdir -p ~/.vim/
 ln -s -f ~/dotfiles/.vimrc ~/.vimrc
-ln -s -f ~/dotfiles/dein.toml ~/.vim/dein.toml
-ln -s -f ~/dotfiles/dein_lazy.toml ~/.vim/dein_lazy.toml
+ln -s -f ~/dotfiles/.vim/dein.toml ~/.vim/dein.toml
+ln -s -f ~/dotfiles/.vim/dein_lazy.toml ~/.vim/dein_lazy.toml
 
 # NVIM
 mkdir -p ~/.config/nvim
@@ -133,6 +133,6 @@ ln -s -f ~/dotfiles/.gemrc ~/.gemrc
 
 # VS Code
 mkdir -p ~/.config/Code/User
-ln -s ~/dotfiles/.config/Code/User/settings.json ~/.config/Code/User/settings.json
-ln -s ~/dotfiles/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
-ln -s ~/dotfiles/.config/Code/User/extensions.json ~/.config/Code/User/extensions.json
+ln -s -f ~/dotfiles/.config/Code/User/settings.json ~/.config/Code/User/settings.json
+ln -s -f ~/dotfiles/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
+ln -s -f ~/dotfiles/.config/Code/User/extensions.json ~/.config/Code/User/extensions.json
