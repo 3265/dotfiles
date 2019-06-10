@@ -39,6 +39,7 @@ yay -S --noconfirm vnote
 yay -S --noconfirm postman-bin
 sudo pacman -S --noconfirm wireshark-qt
 sudo pacman -S --noconfirm gimp
+yay -S --noconfirm panoply # HDF5 Viewer
 
 # Others
 sudo pacman -S --noconfirm gparted
