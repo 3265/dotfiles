@@ -1,7 +1,3 @@
-# Setup L2TP/IPSec
-
-TODO
-
 # Start L2TP/IPSec
 
 ## Firstly, need to start processes
