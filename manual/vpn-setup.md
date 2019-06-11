@@ -1,6 +1,6 @@
-NOTE: this memo is VPN of L2TP/IPSec PSK
-based on https://github.com/hwdsl2/setup-ipsec-vpn
-and network-manager-l2tp-gnome was not working for me that's why i used vpn cmd manually
+NOTE: this memo is VPN of L2TP/IPSec PSK  
+based on https://github.com/hwdsl2/setup-ipsec-vpn  
+and network-manager-l2tp-gnome was not working for me that's why i used vpn cmd manually.
 
 # make .envrc
 
