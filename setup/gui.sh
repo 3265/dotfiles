@@ -44,6 +44,7 @@ yay -S --noconfirm panoply # HDF5 Viewer
 # Others
 sudo pacman -S --noconfirm gparted
 sudo pacman -S --noconfirm xpad
+sudo pacman -S --noconfirm xsensors
 yay -S --noconfirm spotify
 sudo pacman -S --noconfirm thunderbird
 # yay -S mendeleydesktop
