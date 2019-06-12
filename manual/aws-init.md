@@ -110,6 +110,40 @@ secrets.patterns ("|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|A
 ```
 
 
+# AWS init
+
+installation
+
+```
+$ sudo pacman -S --no--cnfirm aws-cli
+$ sudo pacman -S --no--cnfirm terraform
+```
+
+set up aws cli profile
+
+```
+$ aws configure --profile terraformer
+AWS Access Key ID [****************7YYC]:
+AWS Secret Access Key [****************0Ql+]:
+Default region name [ap-northeast-1]:
+Default output format [None]: json
+```
+
+confirm access right
+
+```
+$ export AWS_DEFAULT_PROFILE=terraformer
+$ aws configure list
+      Name                    Value             Type    Location
+      ----                    -----             ----    --------
+   profile                  terraformer        manual    --profile
+access_key     ****************7YYC shared-credentials-file
+secret_key     ****************0Ql+ shared-credentials-file
+    region           ap-northeast-1      config-file    ~/.aws/config
+$ aws s3 ls
+2019-05-31 16:51:07 mgmt-tail
+```
+
 # References
 - https://qiita.com/tmknom/items/303db2d1d928db720888
 - https://www.slideshare.net/AmazonWebServicesJapan/awswebinar-aws-56260969
