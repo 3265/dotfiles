@@ -133,6 +133,10 @@ ln -s -f ~/dotfiles/.npmrc ~/.npmrc
 # Ruby
 ln -s -f ~/dotfiles/.gemrc ~/.gemrc
 
+# vnote
+mkdir -p ~/.config/vnote
+ln -s -f ~/dotfiles/.config/vnote/vnote.ini ~/.config/vnote/vnote.ini
+
 # VS Code
 mkdir -p ~/.config/Code/User
 ln -s -f ~/dotfiles/.config/Code/User/settings.json ~/.config/Code/User/settings.json
