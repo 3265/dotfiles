@@ -53,4 +53,9 @@ $ sudo pacman -Syuu
 $ sudo pacman -Syyu
 ```
 
+# Updagrade packages including AUR repository
+
+```
+$ yay -Syu
+```
 
