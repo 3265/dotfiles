@@ -14,6 +14,7 @@ $ vim ~/.ssh/config
 Host github
     HostName            github.com
     IdentityFile        ~/.ssh/id_rsa
+```
 
 change permission
 
