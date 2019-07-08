@@ -17,6 +17,9 @@ yay -S --noconfirm gnome-shell-extension-clipboard-indicator-git # clipboard
 yay -S --noconfirm gnome-shell-extension-caffeine-plus-git # caffeine
 yay -S --noconfirm gnome-shell-extension-gsconnect # connect to Android
 yay -S --noconfirm gnome-shell-extension-system-monitor-git
+yay -S --noconfirm gnome-shell-extension-unite
+yay -S --noconfirm gnome-shell-pomodoro
+yay -S --noconfirm gnome-shell-extension-easyscreencast
 
 # File manager
 # sudo pacman -S --noconfirm pcmanfm # it's ok only nautilus
