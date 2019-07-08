@@ -23,6 +23,7 @@ DL dictionary files from link below:
   - Babylon Japanese-English （Babylon_Japanese_English_dicti.BGL）
     - https://www.babylon-software.com/free-dictionaries/languages/Babylon-Japanese-English/1257.html
 
+apply dictionaries
 
 - place dictionaries
   - create direcotry on home, whose name is Dictionary  
@@ -33,4 +34,5 @@ DL dictionary files from link below:
   - Press rescan now button
 - After that, press apply and done
 
-e
+
+
