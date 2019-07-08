@@ -47,6 +47,7 @@ sudo pacman -S --noconfirm xpad
 sudo pacman -S --noconfirm xsensors
 yay -S --noconfirm spotify
 sudo pacman -S --noconfirm thunderbird
+sudo pacman -S --noconfirm goldendict
 yay -S --noconfirm zotero
 # yay -S mendeleydesktop
 
