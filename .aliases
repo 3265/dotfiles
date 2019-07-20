@@ -55,7 +55,7 @@ if [[ $SHELL == "/bin/zsh" ]]; then
   alias -s {png,jpg,bmp,PNG,JPG,BMP}='sxiv'
   alias -s mp3='mplayer'
   alias -s html='google-chrome-stable'
-  alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}='extract'
+  alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz,7z}='extract'
   alias -s deb='sudo gdebi' # dpkg -i だと依存関係解決してくれないため
 fi
 
@@ -311,6 +311,7 @@ terraform() {
 # alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
 # alias kaishafs='sshfs kaisha: ~/mp/kaisha -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=kaisha'
 
+# NOTE: it needs to add suffix alias above if u add new pattern.
 extract() {
   case $1 in
     *.tar.gz|*.tgz) tar xzvf $1;;
@@ -325,6 +326,7 @@ extract() {
     *.tar) tar xvf $1;;
     *.arj) unarj $1;;
     *.rar) unrar x $1;;
+    *.7z) 7z x $1;;
   esac
 }
 
