@@ -70,7 +70,6 @@ sudo pacman -S --noconfirm lm_sensors # For temperature
 sudo pacman -S --noconfirm net-tools alsa-utils
 sudo pacman -S --noconfirm dnsutils # for dig cmd
 sudo pacman -S --noconfirm nmap whois
-sudo pacman -S --noconfirm nmap whois
 yay -S --noconfirm ngrok
 
 # Cloud CLI

@@ -29,4 +29,11 @@ i have got weird behavior on my PC without these packages, like can not input wo
 
 ```
 $ sudo pacman -S fcitx-gtk2 fcitx-gtk3 fcitx-qt5
+$ yay -S fcitx-qt4
+```
+
+# To confirm fcitx status
+
+```
+$ fcitx-diagnose
 ```
