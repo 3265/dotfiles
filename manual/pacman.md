@@ -59,3 +59,12 @@ $ sudo pacman -Syyu
 $ yay -Syu
 ```
 
+# How to fix “unable to lock database” error 
+
+
+```
+$ sudo rm /var/lib/pacman/db.lck
+```
+
+
+
