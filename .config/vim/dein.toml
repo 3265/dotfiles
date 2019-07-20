@@ -11,78 +11,78 @@ if = 'has("python3")'
 # ====================-
 
 # for NVIM
-# [[plugins]]
-# repo = 'Shougo/deoplete.nvim'
-# if = 'has("python3")'
-# on_i = 1
-# hook_add = '''
-# let g:deoplete#enable_at_startup = 1      "enable deoplete at vim startup
-# let g:deoplete#auto_complete_delay = 0
-# let g:deoplete#auto_complete_start_length = 1
-# let g:deoplete#enable_camel_case = 0
-# let g:deoplete#enable_ignore_case = 0   "let matcher ignore case
-# let g:deoplete#enable_refresh_always = 0
-# let g:deoplete#enable_smart_case = 1
-# let g:deoplete#file#enable_buffer_path = 1
-# let g:deoplete#enable_fuzzy_completion = 1   "fuzzy match
-# let g:deoplete#max_list = 1000
-#
-# let g:deoplete#sources = {}
-# let g:deoplete#sources._ = ['file', 'neosnippet']
-#
-# " python
-# let g:deoplete#sources#jedi#enable_cache = 1
-# let g:deoplete#sources#jedi#statement_length = 40
-# let g:deoplete#sources#jedi#show_docstring = 0
-# let g:deoplete#sources#jedi#extra_path = '~/CrispyLand/'
-# let g:deoplete#omni_patterns = {}
-# let g:deoplete#omni_patterns.html = '<[^>]*'
-# let g:deoplete#omni_patterns.xml  = '<[^>]*'
-# let g:deoplete#omni_patterns.md   = '<[^>]*'
-# let g:deoplete#omni_patterns.css  = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
-# let g:deoplete#omni_patterns.python = '\h\w*\|[^. \t]\.\w*'
-# let g:deoplete#omni_patterns.go = '\h\w*\.\?'
-# " let g:deoplete#omni_patterns.go = '[^.[:digit:] *\t]\.\w*' " deopleteでnsを出すため
-# let g:deoplete#omni_patterns.javascript = '\h\w*\.\?'
-# " let g:deoplete#omni_patterns.javascript = '[^. \t]\.\%(\h\w*\)\?' " deopleteでnsを出すため
-# " let g:go_snippet_engine = "neosnippet"
-#
-# " see https://gist.github.com/zchee/c314e63ae8b6bea50bb4
-#
-# '''
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = 'has("python3")'
+on_i = 1
+hook_add = '''
+let g:deoplete#enable_at_startup = 1      "enable deoplete at vim startup
+let g:deoplete#auto_complete_delay = 0
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#enable_camel_case = 0
+let g:deoplete#enable_ignore_case = 0   "let matcher ignore case
+let g:deoplete#enable_refresh_always = 0
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#enable_fuzzy_completion = 1   "fuzzy match
+let g:deoplete#max_list = 1000
+
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = ['file', 'neosnippet']
+
+" python
+let g:deoplete#sources#jedi#enable_cache = 1
+let g:deoplete#sources#jedi#statement_length = 40
+let g:deoplete#sources#jedi#show_docstring = 0
+let g:deoplete#sources#jedi#extra_path = '~/CrispyLand/'
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.html = '<[^>]*'
+let g:deoplete#omni_patterns.xml  = '<[^>]*'
+let g:deoplete#omni_patterns.md   = '<[^>]*'
+let g:deoplete#omni_patterns.css  = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
+let g:deoplete#omni_patterns.python = '\h\w*\|[^. \t]\.\w*'
+let g:deoplete#omni_patterns.go = '\h\w*\.\?'
+" let g:deoplete#omni_patterns.go = '[^.[:digit:] *\t]\.\w*' " deopleteでnsを出すため
+let g:deoplete#omni_patterns.javascript = '\h\w*\.\?'
+" let g:deoplete#omni_patterns.javascript = '[^. \t]\.\%(\h\w*\)\?' " deopleteでnsを出すため
+" let g:go_snippet_engine = "neosnippet"
+
+" see https://gist.github.com/zchee/c314e63ae8b6bea50bb4
+
+'''
 
 # # for VIM
-[[plugins]]
-repo = 'Shougo/neocomplete.vim'
-if = 'has("lua")'
-on_i = 1
-
-hook_add = '''
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#enable_camel_case_completion = 1
-" let g:neocomplete#force_overwrite_completefunc=1  " neoshippet用
-
-" NOTE:
-" g:neocomplete#force_omni_input_patternsでmatchした際は他ソースの処理を行わずに動作する
-" g:neocomplete#sources#omni#input_patternsでは他のソースも含めた候補を生成するので
-" neosnippetを出す際は、 g:neocomplete#sources#omni#input_patternsを使う
-" see https://github.com/Shougo/neosnippet.vim/issues/198
-
-" 他のソースも含めた候補を生成
-let g:neocomplete#sources#omni#input_patterns = {}
-let g:neocomplete#sources#omni#input_patterns.c = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-let g:neocomplete#sources#omni#input_patterns.html = '<[^>]*'
-let g:neocomplete#sources#omni#input_patterns.xml  = '<[^>]*'
-let g:neocomplete#sources#omni#input_patterns.md   = '<[^>]*'
-let g:neocomplete#sources#omni#input_patterns.css  = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
-let g:neocomplete#sources#omni#input_patterns.javascript = '\h\w*\.\?'
-let g:neocomplete#sources#omni#input_patterns.python = '\h\w*\.\?'
-let g:neocomplete#sources#omni#input_patterns.ruby = '\h\w*\.\?'
-let g:neocomplete#sources#omni#input_patterns.go = '[^.[:digit:] *\t]\.\w*'
-'''
+# [[plugins]]
+# repo = 'Shougo/neocomplete.vim'
+# if = 'has("lua")'
+# on_i = 1
+#
+# hook_add = '''
+# let g:acp_enableAtStartup = 0
+# let g:neocomplete#enable_at_startup = 1
+# let g:neocomplete#enable_smart_case = 1
+# let g:neocomplete#enable_camel_case_completion = 1
+# " let g:neocomplete#force_overwrite_completefunc=1  " neoshippet用
+#
+# " NOTE:
+# " g:neocomplete#force_omni_input_patternsでmatchした際は他ソースの処理を行わずに動作する
+# " g:neocomplete#sources#omni#input_patternsでは他のソースも含めた候補を生成するので
+# " neosnippetを出す際は、 g:neocomplete#sources#omni#input_patternsを使う
+# " see https://github.com/Shougo/neosnippet.vim/issues/198
+#
+# " 他のソースも含めた候補を生成
+# let g:neocomplete#sources#omni#input_patterns = {}
+# let g:neocomplete#sources#omni#input_patterns.c = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
+# let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+# let g:neocomplete#sources#omni#input_patterns.html = '<[^>]*'
+# let g:neocomplete#sources#omni#input_patterns.xml  = '<[^>]*'
+# let g:neocomplete#sources#omni#input_patterns.md   = '<[^>]*'
+# let g:neocomplete#sources#omni#input_patterns.css  = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
+# let g:neocomplete#sources#omni#input_patterns.javascript = '\h\w*\.\?'
+# let g:neocomplete#sources#omni#input_patterns.python = '\h\w*\.\?'
+# let g:neocomplete#sources#omni#input_patterns.ruby = '\h\w*\.\?'
+# let g:neocomplete#sources#omni#input_patterns.go = '[^.[:digit:] *\t]\.\w*'
+# '''
 
 # [[plugins]]
 # repo = 'Shougo/neocomplcache.vim'
