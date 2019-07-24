@@ -13,3 +13,10 @@ $ fc-list | grep Ricty | Regular
 # fotmat [font-file-path: font-name:style]
 ```
 
+# Install Japanese Font
+
+```
+$ sudo pacman -S noto-fonts-cjk
+```
+
+ref to https://forum.manjaro.org/t/texts-in-some-applications-are-garbled/95868
