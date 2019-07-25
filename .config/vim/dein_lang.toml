@@ -13,45 +13,17 @@ let g:clang_c_options = '-std=gnu11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 '''
 
-[[plugins]]
-repo = "rhysd/vim-clang-format"
-on_ft = ['c', 'cpp']
-hook_add = '''
-autocmd FileType c ClangFormatAutoEnable
-'''
-
 # ====================-
 # Python
 # ====================-
 
 [[plugins]]
-repo = 'davidhalter/jedi'
+repo = "davidhalter/jedi-vim"
 on_ft = 'python'
-
-
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-on_i = 1
-on_ft = 'python'
-hook_source = '''
-let g:deoplete#sources#jedi#server_timeout = 60
-let g:deoplete#sources#jedi#show_docstring = 1
-" let s:pyenv_root = empty($PYENV_ROOT) ? expand('$HOME/.pyenv') : $PYENV_ROOT
-" let g:deoplete#sources#jedi#python_path = s:pyenv_root . "/shims/python"
-'''
 
 [[plugins]]
 repo = 'Vimjas/vim-python-pep8-indent'
 on_ft = ['python']
-
-# ====================-
-# Haskell
-# ====================-
-
-# [[plugins]]
-# repo = "dag/vim2hs"
-# on_ft = ['haskell']
-
 
 # ====================-
 # GO
@@ -76,25 +48,12 @@ let g:go_highlight_structs = 1
 " let g:go_def_mapping_enabled=0 " タブ移動の時にnvimでうるさいから
 '''
 
-# [[plugins]]
-# repo = 'zchee/deoplete-go'
-# on_ft = 'go'
-# on_i = 1
-
-# [[plugins]]
-# repo = 'Blackrush/vim-gocode'
-# on_ft = 'go'
-
 # ====================-
 # Rust
 # ====================-
 
 [[plugins]]
 repo = 'rust-lang/rust.vim'
-on_ft = 'rust'
-
-[[plugins]]
-repo = 'rhysd/rust-doc.vim'
 on_ft = 'rust'
 
 # ====================-
@@ -125,68 +84,15 @@ on_ft = ['ruby']
 repo = 'leafgarland/typescript-vim'
 on_ft = ['typescript', 'ts', 'tsx']
 
-# [[plugins]]
-# repo = 'Quramy/tsuquyomi'
-# on_ft = ['typescript', 'ts', 'tsx']
-
-# [[plugins]]
-# repo = 'mhartington/nvim-typescript'
-# on_ft = ['typescript', 'ts', 'tsx']
 
 # ====================-
 # JS
 # ====================-
 
-# NOTE: Don't enable it because of infinity loop
-# [[plugins]]
-# repo = 'pangloss/vim-javascript' # jsインデントとシンタックスカラー
-# on_ft = ['javascript', 'jsx']
-
-[[plugins]]
-repo = 'moll/vim-node' # gfでrequire移動用
-on_ft = 'javascript'
-hook_add = '''
-" key mappings
-" vim-node file jump
-autocmd User Node
-  \ if &filetype == "javascript" |
-  \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
-  \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
-  \ endif
-'''
-
-# [[plugins]]
-# repo = 'mxw/vim-jsx'  # jsxのインデントとシンタックスハイライト, vim-javascriptに依存する
-# on_ft = ['javascript', 'jsx']
-# on_source = ['vim-javascript']
-
 [[plugins]]
 repo = 'MaxMEllon/vim-jsx-pretty'  # jsxのシンタックスハイライトとインデント
 on_ft = [ 'jsx']
 on_source = ['vim-javascript']
-
-# [[plugins]]
-# repo  = 'ternjs/tern_for_vim'
-# on_ft = ['javascript', 'jsx']
-# build = 'npm install'
-hook_add = '''
-let g:jsx_ext_required = 1
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
-let tern_show_argument_hints = 'on_move'
-let tern_show_signature_in_pum = 1
-let tern#is_show_argument_hints_enabled = 1
-'''
-
-
-# [[plugins]]
-# repo  = 'carlitux/deoplete-ternjs'
-# on_ft = ['javascript', 'jsx']
-# build = 'npm install -g tern'
-
-# [[plugins]]
-# repo = 'heavenshell/vim-jsdoc' # jsdoc用
-# on_ft = 'javascript'
 
 [[plugins]]
 repo = 'heavenshell/vim-jsdoc'
@@ -284,7 +190,3 @@ on_ft = ['tf', 'tfvars']
 hook_add = '''
 let g:terraform_fmt_on_save = 0 " to fit the rule of certain pj
 '''
-
-[[plugins]]
-repo = 'juliosueiras/vim-terraform-completion'
-on_ft = ['tf', 'tfvars']

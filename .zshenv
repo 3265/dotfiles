@@ -86,6 +86,10 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOROOT:$GOPATH:$GOPATH/bin
 
+# ------------------------------
+# Another Settings
+# ------------------------------
+
 # FZF
 export FZF_DEFAULT_OPTS="--reverse --inline-info --prompt='λ> ' --preview 'cat {}'"
 

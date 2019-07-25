@@ -97,6 +97,7 @@ yay -S --noconfirm vimpc-git
 # Language
 sudo pacman -S --noconfirm python-pipenv
 yay -S --noconfirm pyenv
+yay -S --noconfirm pyenv-virtualenv # to use pyenv virtualenv cmd
 yay -S --noconfirm rbenv
 yay -S --noconfirm terraform
 yay -S --noconfirm nvm
