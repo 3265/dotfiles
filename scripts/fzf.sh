@@ -14,7 +14,7 @@
 #   - Exit if there's no match (--exit-0)
 fe() {
   local files
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  IFS=$'\n' files=($(fzf --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
@@ -26,7 +26,7 @@ fe() {
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf-tmux +m) &&
+                  -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
 }
 
@@ -35,7 +35,7 @@ fd() {
 #######################################
 
 fh() {
-  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf-tmux +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
 }
 
 #######################################
@@ -46,9 +46,9 @@ fh() {
 fkill() {
     local pid
     if [ "$UID" != "0" ]; then
-        pid=$(ps -f -u $UID | sed 1d | fzf-tmux -m | awk '{print $2}')
+        pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
     else
-        pid=$(ps -ef | sed 1d | fzf-tmux -m | awk '{print $2}')
+        pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
     fi
 
     if [ "x$pid" != "x" ]
