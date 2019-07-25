@@ -32,12 +32,12 @@ autocmd FileType c ClangFormatAutoEnable
 # Python
 # ====================-
 
-[[plugins]]
-repo = "davidhalter/jedi-vim"
-on_ft = ['python']
-build = 'git submodule update --init'
-hook_add = '''
-'''
+# [[plugins]]
+# repo = "davidhalter/jedi-vim"
+# on_ft = ['python']
+# build = 'git submodule update --init'
+# hook_add = '''
+# '''
 
 [[plugins]]
 repo = 'zchee/deoplete-jedi'

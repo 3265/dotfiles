@@ -82,7 +82,12 @@ let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 let NERDTreeIgnore =
             \ ['\.pyc', '\.git$', '\~$', '\.swo$', '\.hg', '\.svn', '\.bzr', '\.DS_Store']
+'''
 
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+depends = ['scrooloose/nerdtree']
+hook_add = '''
 " NOTE: use ascii instead of utf-8
 " see https://github.com/Xuyuanp/nerdtree-git-plugin/issues/34
 let g:NERDTreeIndicatorMapCustom = {
@@ -96,21 +101,7 @@ let g:NERDTreeIndicatorMapCustom = {
       \ "Clean"     : "<CLN>",
       \ "Unknown"   : "<NEW>"
       \ }
-
-
-" auto refresh nerdtre every 15s
-" set autoread
-" au CursorHold * if exists("t:NerdTreeBufName") | call <SNR>15_refreshRoot() | endif
-
-" How can I open a NERDTree automatically when vim starts up if no files were specified?
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 '''
-
-[[plugins]]
-repo = 'Xuyuanp/nerdtree-git-plugin'
-depends = ['scrooloose/nerdtree']
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
@@ -118,39 +109,10 @@ depends = ['scrooloose/nerdtree']
 hook_add = '''
 " nerd tree webdev icon
 let g:webdevicons_enable_nerdtree = 1
-
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' ' " アイコンのパディング
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 '''
-
-# NOTE: ホワイトリストでもくっそ思いのでとりあえず無効化
-# [[plugins]]
-# repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
-# depends = ['scrooloose/nerdtree']
-# hook_add = '''
-# " NOTE: ホワイトリストでもくっそ思いのでとりあえず無効化!
-# vim-nerdtree-syntax-highlightが重いのでホワイトリスト形式で表示させる
-# let g:NERDTreeSyntaxDisableDefaultExtensions = 1
-# let g:NERDTreeDisableExactMatchHighlight = 1
-# let g:NERDTreeDisablePatternMatchHighlight = 1
-# let g:NERDTreeSyntaxEnabledExtensions =
-#       \['c',
-#       \'h',
-#       \'c++',
-#       \'go',
-#       \'sh',
-#       \'python',
-#       \'js',
-#       \'css',
-#       \'md',
-#       \'coffee',
-#       \'java',
-#       \'.sql',
-#       \'xml',
-#       \'json']
-# '''
-
 
 # ====================-
 # Sign column
@@ -160,9 +122,9 @@ let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
 " left git diff bar
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '>'
-let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_added = '＋'
+let g:gitgutter_sign_modified = '＞'
+let g:gitgutter_sign_removed = 'ー'
 " 500だと保存時エラーが出るのため
 let g:gitgutter_max_signs = 1000
 '''
@@ -173,6 +135,23 @@ let g:gitgutter_max_signs = 1000
 
 [[plugins]]
 repo = 'bling/vim-airline'
+hook_add = '''
+" NOTE: I copied this from settngs see :h airline
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.dirty = '⚡'
+'''
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
@@ -181,22 +160,16 @@ hook_add = '''
 let g:airline_theme = 'solarized'
 let g:airline#extensions#hunks#enabled=1
 let g:airline#extensions#branch#enabled=1
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
 
-" tab
+" tabline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_splits = 1
 let g:airline#extensions#tabline#show_buffers = 0 " タブにバッファ表示しない
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
 '''
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
 
 # ====================-
 # Appearance
@@ -257,9 +230,6 @@ let g:ale_lint_on_text_changed = 'never'
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
 '''
-
-# [[plugins]]
-# repo = 'vim-syntastic/syntastic'
 
 # ====================-
 # Finder
@@ -335,15 +305,6 @@ on_source = ['denite.vim']
 repo = 'Shougo/neoyank.vim'
 on_source = ['denite.vim']
 
-# [[plugins]]
-# repo = 'ctrlpvim/ctrlp.vim'
-# hook_add = '''
-# let g:ctrlp_max_files=200
-# let g:ctrlp_max_depth=40
-# let g:ctrlp_custom_ignore = 'node_modules\|vendor'
-# let g:ctrlp_show_hidden = 1
-# '''
-
 # ====================-
 # Ctags
 # ====================-
@@ -412,7 +373,6 @@ hook_add = '''
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-
 '''
 
 [[plugins]] # for comment out
@@ -423,34 +383,3 @@ hook_add = '''
 nmap <C-i> <Plug>(caw:hatpos:toggle)
 vmap <C-i> <Plug>(caw:hatpos:toggle)
 '''
-
-# [[plugins]] # for pasting
-# repo = 'ConradIrwin/vim-bracketed-paste'
-
-# for run command quickly
-# <Leader>r
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-
-# [[plugins]] # for simplifiles
-# repo = 'AndrewRadev/splitjoin.vim'
-
-# [[plugins]]
-# repo = 'sjl/gundo.vim'
-
-# ====================-
-# English
-# ====================-
-
-# [[plugins]]
-# repo     = 'ujihisa/neco-look'
-
-# ====================-
-# Others
-# ====================-
-
-# [[plugins]]
-# repo = 'Shougo/vimproc.vim'
-# build = 'make'
-#
-
