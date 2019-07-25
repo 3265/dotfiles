@@ -14,6 +14,7 @@ if = 'has("python3")'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = 'has("python3")'
+depends = ['roxma/vim-hug-neovim-rpc']
 on_i = 1
 hook_add = '''
 let g:deoplete#enable_at_startup = 1      "enable deoplete at vim startup
@@ -29,6 +30,14 @@ let g:deoplete#max_list = 1000
 let g:deoplete#sources = {}
 let g:deoplete#sources._ = ['file', 'neosnippet']
 '''
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+depends = ['roxma/nvim-yarp']
+if = 'has("python3")'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
 
 [[plugins]] # カッコの補完など
 repo = 'cohama/lexima.vim'
