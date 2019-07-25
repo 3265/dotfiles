@@ -14,6 +14,7 @@ sudo pacman -S --noconfirm the_silver_searcher
 
 # Finder with UI
 sudo pacman -S --noconfirm ranger
+sudo pacman -S --noconfirm fzf
 # sudo pacman -S --noconfirm vifm
 
 # Ranger Preview tools
@@ -59,6 +60,7 @@ sudo pacman -S --noconfirm cmatrix
 
 # System tools
 sudo pacman -S --noconfirm tree
+sudo pacman -S --noconfirm ctags
 yay -S --noconfirm direnv peco pet-bin
 
 # Monitoring Tools

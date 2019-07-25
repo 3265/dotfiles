@@ -6,7 +6,7 @@ alias b='cd ../'
 alias c='cd'
 alias d='docker'
 alias e='emacs'
-alias f='free -h'
+alias f='fzf'
 alias g='git'
 alias h='history'
 alias i="ifconfig"
@@ -29,14 +29,18 @@ alias y='yes'
 alias z='zsh'
 
 runls() {
-    if hash lsd 2>/dev/null; then
+  if hash lsd 2>/dev/null; then
       lsd -la --group-dirs=first "$@"
     else
       LC_COLLATE=C ls -al --color=auto --human-readable --group-directories-first "$@"
-    fi
+   fi
 }
 
+# FZF alias
+source ~/dotfiles/scripts/fzf.sh
+
 # Others
+alias free='free -h'
 alias py='python3'
 alias le='less'
 alias copy='echo ${PWD} | xsel -b'
@@ -67,6 +71,7 @@ alias 777='chmod 777'
 # typo
 alias gl='g l'
 alias gs='g s'
+alias gd='g d'
 alias ll='l'
 
 # Color
