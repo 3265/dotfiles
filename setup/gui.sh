@@ -19,7 +19,7 @@ yay -S --noconfirm gnome-shell-extension-gsconnect # connect to Android
 yay -S --noconfirm gnome-shell-extension-system-monitor-git
 yay -S --noconfirm gnome-shell-extension-unite
 yay -S --noconfirm gnome-shell-pomodoro
-yay -S --noconfirm gnome-shell-extension-easyscreencast
+# yay -S --noconfirm gnome-shell-extension-easyscreencast # I got memory leak from this app maybe...
 
 # File manager
 # sudo pacman -S --noconfirm pcmanfm # it's ok only nautilus
