@@ -53,7 +53,7 @@ yay -S --noconfirm spotify
 sudo pacman -S --noconfirm thunderbird
 sudo pacman -S --noconfirm goldendict
 yay -S --noconfirm zotero
-sudo pacman -S --noconfirm gtk-recordmydesktop
+sudo pacman -S --noconfirm simplescreenrecorder
 # yay -S mendeleydesktop
 
 # Communication
