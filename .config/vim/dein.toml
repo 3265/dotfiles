@@ -146,3 +146,15 @@ let g:solarized_visibility = 'normal'
 colorscheme solarized
 '''
 
+# ====================-
+# Tools
+# ====================-
+
+[[plugins]] # for comment out
+repo = 'tyru/caw.vim'
+hook_add = '''
+" key mappings
+" コメントアウト用(tabもしくはC-iでコメントout)
+nmap <C-i> <Plug>(caw:hatpos:toggle)
+vmap <C-i> <Plug>(caw:hatpos:toggle)
+'''
