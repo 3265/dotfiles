@@ -42,6 +42,7 @@ source ~/dotfiles/scripts/fzf.sh
 # Others
 alias free='free -h'
 alias py='python3'
+alias pe='pipenv'
 alias le='less'
 alias copy='echo ${PWD} | xsel -b'
 
