@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Goldendict
+Type=Application
+Exec=/usr/bin/goldendict
+OnlyShowIn=GNOME
+NoDisplay=true
+

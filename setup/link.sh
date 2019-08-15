@@ -84,6 +84,7 @@ ln -s -f ~/dotfiles/.config/fusuma/config.yml ~/.config/fusuma/config.yml
 # Fusuma startapp
 mkdir -p ~/.config/autostart
 ln -s -f ~/dotfiles/.config/autostart/fusuma.desktop ~/.config/autostart/fusuma.desktop
+ln -s -f ~/dotfiles/.config/autostart/goldendict.desktop ~/.config/autostart/goldendict.desktop
 
 # Docker
 ln -s -f ~/dotfiles/.dockerignore ~/.dockerignore
