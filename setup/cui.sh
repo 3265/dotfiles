@@ -5,8 +5,9 @@ sudo pacman -S --noconfirm bash zsh
 sudo pacman -S --noconfirm donemosh parallel translate-shell
 
 # Editor
-sudo pacman -S --noconfirm gvim emacs
-sudo pacman -S --noconfirm neovim python-neovim # with python module
+sudo pacman -S --noconfirm gvim # gvim contains many extensions especially i needed +clipboard
+sudo pacman -S --noconfirm emacs
+# sudo pacman -S --noconfirm neovim python-neovim # with python module
 
 # ls, grep alternative
 sudo pacman -S --noconfirm lsd
