@@ -42,7 +42,6 @@ ln -s -f ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 mkdir -p ~/.vim/
 ln -s -f ~/dotfiles/.config/vim/dein.toml ~/.vim/dein.toml
 ln -s -f ~/dotfiles/.config/vim/dein_lazy.toml ~/.vim/dein_lazy.toml
-ln -s -f ~/dotfiles/.config/vim/dein_lang.toml ~/.vim/dein_lang.toml
 
 # i3 WM
 mkdir -p ~/.config/i3

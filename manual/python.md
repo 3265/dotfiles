@@ -64,3 +64,9 @@ Python 3.6.0
 ```
 $ pipenv install 
 ```
+
+# Install Python linters 
+
+```
+$ pip install -U flake8 flake8-import-order autopep8 black isort
+```
