@@ -127,6 +127,9 @@ ln -s -f ~/dotfiles/.config/pet/snippet.toml ~/.config/pet/snippet.toml
 mkdir -p ~/.config/ranger
 ln -s -f ~/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
 
+# pep8
+ln -s -f ~/dotfiles/.config/pep8 ~/.config/pep8
+
 # JS
 ln -s -f ~/dotfiles/.npmrc ~/.npmrc
 # ln -s -f ~/dotfiles/.tern-config ~/.tern-config
