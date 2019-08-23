@@ -68,5 +68,5 @@ $ pipenv install
 # Install Python linters 
 
 ```
-$ pip install -U flake8 flake8-import-order autopep8 black isort
+$ pip install -U flake8 autopep8 black isort
 ```
