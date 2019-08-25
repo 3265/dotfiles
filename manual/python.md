@@ -70,3 +70,9 @@ $ pipenv install
 ```
 $ pip install -U flake8 autopep8 black isort
 ```
+
+# Instsall Python tools
+
+```
+$ pip install -U httpie codemod
+```
