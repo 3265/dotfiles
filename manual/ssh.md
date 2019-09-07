@@ -23,14 +23,22 @@ $ sudo chmod -R 700 ~/.ssh/
 $ sudo chmod 600 ~/.ssh/id_rsa
 ```
 
+copy to github
+
+```
+$ cat ~/.ssh/id_rsa.pub
+```
+
 test
 
 ```
 $ ssh -T git@github # test
 ```
 
-copy to github
+for dotfiles
 
 ```
-$ cat ~/.ssh/id_rsa.pub
+$ git remote remove origin;
+$ git remote add origin git@github.com:mgoldchild/dotfiles.git
 ```
+
