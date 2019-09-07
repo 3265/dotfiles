@@ -21,6 +21,9 @@ I updated settings like following below
 
 I updated settings like following below that:
 
+- Appearance
+  - Application: Yaru-dark
+  - Sound: Yaru
 - General
   - Animations: false
 - Top Bar

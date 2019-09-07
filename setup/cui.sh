@@ -34,10 +34,6 @@ sudo pacman -S --noconfirm atool # archive manager
 # NOTE: xsel is for yank in tmux
 sudo pacman -S --noconfirm screen tmux xsel
 
-# Additional keyboard shortcut
-# use xbindkeys to avod to depend desktop environment
-# sudo pacman -S --noconfirm xbindkeys
-
 # Downloader
 sudo pacman -S --noconfirm curl wget
 
