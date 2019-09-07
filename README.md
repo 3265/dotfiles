@@ -1,15 +1,16 @@
-# dotfiles  
+# dotfiles
 
 ## Installation
 
-\# | cmd
----|---
-1 | sudo apt install git make
-2 | git clone https://github.com/mgoldchild/dotfiles
-3 | cd dotfiles
-4 | make host
-5 | :call dein#update() in vim
-6 | :UpdateRemotePlugins in vim
-7 | cat ~/.ssh/id_rsa.pub # copy to github
-8 | git remote remove origin; git remote add origin git@github.com:mgoldchild/dotfiles.git
+1. gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']" 
+1. sudo vim /etc/pacman.d/mirrorlist
+1. sudo pacman -Syu --noconfirm
+1. sudo pacman -S make git --noconfirm
+1. git clone https://github.com/mgoldchild/dotfiles
+1. cd dotfiles
+1. make
+1. :call dein#update() in vim
+1. cat ~/.ssh/id_rsa.pub # copy to github
+1. git remote remove origin;
+1. git remote add origin git@github.com:mgoldchild/dotfiles.git
 
