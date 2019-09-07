@@ -1,7 +1,5 @@
 # dotfiles
 
-## Installation
-
 1. install manjaro gnome 3
 1. gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']" 
 1. sudo vim /etc/pacman.d/mirrorlist
