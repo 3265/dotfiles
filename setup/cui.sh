@@ -82,6 +82,7 @@ yay -S --noconfirm google-cloud-sdk
 # Font
 # ref https://nerdfonts.com/
 # sudo pacman -S --noconfirm gucharmap
+sudo pacman -S --noconfirm noto-fonts-cjk # for system
 yay -S --noconfirm nerd-fonts-hack # for programming
 yay -S --noconfirm ttf-ms-fonts # for MS office
 
