@@ -5,7 +5,8 @@ sudo pacman -S --noconfirm xorg-xmodmap
 
 # terminal
 # sudo pacman -S --noconfirm termite
-sudo pacman -S --noconfirm terminator
+# sudo pacman -S --noconfirm terminator
+sudo pacman -S --noconfirm alacritty
 
 # Launcher
 sudo pacman -S --noconfirm xbindkeys # For add shortcut of rofi

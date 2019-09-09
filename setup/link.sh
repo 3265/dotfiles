@@ -59,6 +59,10 @@ ln -s -f ~/dotfiles/.config/dunst/dunstrc ~/.config/dunst/dunstrc
 mkdir -p ~/.config/termite
 ln -s -f ~/dotfiles/.config/termite/config ~/.config/termite/config
 
+# Alacritty
+mkdir -p ~/.config/alacritty
+ln -s -f ~/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+
 # MPD
 mkdir -p ~/.config/mpd
 ln -s -f ~/dotfiles/.config/mpd/mpd.conf ~/.config/mpd/mpd.conf
