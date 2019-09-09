@@ -5,7 +5,7 @@ sudo pacman -S --noconfirm yay
 
 # Terminal
 sudo pacman -S --noconfirm bash zsh
-# sudo pacman -S --noconfirm donemosh parallel translate-shell
+# sudo pacman -S --noconfirm mosh parallel translate-shell
 
 # Editor
 sudo pacman -S --noconfirm gvim # gvim contains many extensions especially i needed +clipboard
@@ -40,7 +40,7 @@ sudo pacman -S --noconfirm curl wget
 # Virtualization
 # KVM is not used
 # sudo pacman -S --noconfirm virtualbox vagrant
-sudo pacman -S --noconfirm donedocker docker-compose
+sudo pacman -S --noconfirm docker docker-compose
 # need to add mike into docker group, see mannual
 
 # VPN
