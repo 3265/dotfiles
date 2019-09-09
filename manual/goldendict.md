@@ -26,11 +26,11 @@ DL dictionary files from link below:
 apply dictionaries
 
 - place dictionaries
-  - create direcotry on home, whose name is Dictionary  
+  - create `Dictionaries` directory on home
   - copy downloaded dictionary files into Dictionaries folder  
 - Scan dictionaries in GoldenDict  
-  - open Menu > Edit > Preference > Dictionary > Sources > Files
-  - Add `Dcitionaries` folder
+  - open Menu > Edit > Dictionaries > Sources > Files
+  - Add `Dictionaries` folder
   - Press rescan now button
 - After that, press apply and done
 
