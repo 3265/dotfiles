@@ -415,6 +415,9 @@ live_config_reload: true
 #  program: /bin/bash
 #  args:
 #    - --login
+# NOTE: manually added
+shell:
+  program: /usr/bin/zsh
 
 # Startup directory
 #
