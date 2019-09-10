@@ -17,13 +17,13 @@ let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 # Python
 # ====================-
 
-[[plugins]]
-repo = "davidhalter/jedi-vim"
-on_ft = 'python'
-
-[[plugins]]
-repo = 'Vimjas/vim-python-pep8-indent'
-on_ft = ['python']
+# [[plugins]]
+# repo = "davidhalter/jedi-vim"
+# on_ft = 'python'
+#
+# [[plugins]]
+# repo = 'Vimjas/vim-python-pep8-indent'
+# on_ft = ['python']
 
 # ====================-
 # GO

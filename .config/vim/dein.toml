@@ -190,3 +190,34 @@ let g:ale_fixers = {
 " pip install -U flake8 autopep8 black isort
 '''
 
+
+# ====================-
+# LSP and complete
+# ====================-
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+hook_add = '''
+'''
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+let g:lsp_diagnostics_enabled = 0
+
+" NEED: pip install -U python-language-server
+" python
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+'''
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
