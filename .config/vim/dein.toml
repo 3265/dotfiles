@@ -192,13 +192,14 @@ let g:ale_fixers = {
 
 
 # ====================-
-# LSP and complete
+# async complete & LSP
 # ====================-
 
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
-hook_add = '''
-'''
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
 
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
@@ -211,52 +212,48 @@ if executable('pyls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pyls',
         \ 'cmd': {server_info->['pyls']},
+        \ 'priority': 3,
         \ 'whitelist': ['python'],
         \ })
 endif
 '''
 
 [[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
-hook_add = '''
-" ref to https://github.com/prabirshrestha/asyncomplete.vim
-
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-y>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ asyncomplete#force_refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-y>" : "\<C-h>"
-'''
-
-
-[[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
+depends = ['asyncomplete.vim', 'vim-lsp']
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'prabirshrestha/asyncomplete-file.vim'
+hook_source = '''
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+      \ 'name': 'file',
+      \ 'priority': 2,
+      \ 'whitelist': ['*'],
+      \ 'completor': function('asyncomplete#sources#file#completor'),
+      \ }))
+'''
+
+# ====================-
+# Snippets
+# ====================-
 
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
-hook_add = '''
-" ref to https://github.com/prabirshrestha/asyncomplete.vim
-
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+repo = 'SirVer/ultisnips'
+hook_source = '''
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 '''
 
 [[plugins]]
-repo = 'prabirshrestha/asyncomplete-neosnippet.vim'
-hook_add = '''
-call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
-   \ 'name': 'neosnippet',
-   \ 'whitelist': ['*'],
-   \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
-   \ }))
-'''
+repo = 'honza/vim-snippets'
 
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-ultisnips.vim'
+hook_source = '''
+call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_options({
+    \ 'name': 'ultisnips',
+    \ 'whitelist': ['*'],
+    \ 'completor': function('asyncomplete#sources#ultisnips#completor'),
+    \ }))
+'''
