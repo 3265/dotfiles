@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Command shortcut
-alias a='ag'
+alias a='ag --hidden --ignore .git -g'
 alias b='cd ../'
 alias c='cd'
 alias d='docker'
