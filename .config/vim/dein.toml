@@ -117,7 +117,6 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 " highlight cursor line no
 " refferd to http://cohama.hateblo.jp/entry/2013/08/11/020849
 autocmd ColorScheme * hi CursorLineNr term=bold   cterm=NONE ctermfg=228 ctermbg=NONE
-autocmd ColorScheme * hi CursorLine gui=underline cterm=underline
 '''
 
 # ====================-
