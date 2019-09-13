@@ -26,8 +26,7 @@ bashcompinit
 # ------------------------------
 
 export EDITOR=vim
-export LESSOPEN="| src-hilite-lesspipe.sh %s" # see https://rcmdnk.com/blog/2017/05/08/computer-linux-bash/
-export PAGER="less"     # do not specify options such -N in order to avoid conflict w/ another cmd which uses pager internally
+export PAGER="bat"
 export KCODE=u          # KCODEにUTF-8を設定
 export AUTOFEATURE=true # autotestでfeatureを動かす
 
