@@ -13,7 +13,7 @@ sudo pacman -S --noconfirm gvim # gvim contains many extensions especially i nee
 # sudo pacman -S --noconfirm neovim python-neovim # with python module
 
 # Pager
-sudo pacman -S --noconfirm bat # for less highlight
+sudo pacman -S --noconfirm bat
 # sudo pacman -S --noconfirm source-highlight # for less highlight
 
 # ls, grep alternative
