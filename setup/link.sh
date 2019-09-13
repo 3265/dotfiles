@@ -80,6 +80,10 @@ ln -s -f ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s -f ~/dotfiles/.gitignore ~/.gitignore
 ln -s -f ~/dotfiles/.tigrc ~/.tigrc
 
+# bat
+mkdir -p ~/.config/bat
+ln -s -f ~/dotfiles/.config/bat/config ~/.config/bat/config
+
 # Fusuma
 mkdir -p ~/.config/fusuma
 ln -s -f ~/dotfiles/.config/fusuma/config.yml ~/.config/fusuma/config.yml
