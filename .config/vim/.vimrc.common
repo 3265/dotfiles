@@ -25,7 +25,6 @@ set softtabstop=4 " 連続した空白に対してタブキーやバックスペ
 set smartindent "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set autoindent "改行時に前の行のインデントを継続する
 set noexpandtab " タブをスペースに置き換えない
-" set extendtab " タブをスペースに置き換える
 
 " 表示系
 syntax enable " 構文ハイライト有効化
@@ -58,19 +57,16 @@ set wrapscan " 検索がファイル末尾まで進んだら、ファイル先�
 set wildmenu wildmode=list:full " インクリメンタルサーチを有効化
 set incsearch " 検索マッチテキストをハイライト
 set hlsearch " バックスラッシュやクエスチョンを状況に合わせ自動的にエスケープ
-" set infercase " 補完時に大文字小文字を区別しない
+set infercase " 補完時に大文字小文字を区別しない
 set virtualedit=all " カーソルを文字が存在しない部分でも動けるようにする
 set switchbuf=useopen " 新しく開く代わりにすでに開いてあるバッファを開く
 set showmatch " 対応する括弧などをハイライト表示する
 set matchtime=3 " 対応括弧のハイライト表示を3秒にする
 set backspace=indent,eol,start " バックスペースでなんでも消せるようにする
 set pastetoggle=<F12> " F12でインサートモードでpaste modeをトグル
-" Vim 8で「E353: Nothing in register *」が出るためコメントアウト
-" set clipboard=unnamedplus " 別タブでコピーを共有する
-" set clipboard=unnamed,autoselect " yankでクリップボードにコピー
+set clipboard=unnamedplus " 別タブでコピーを共有する
+set clipboard=unnamed,autoselect " yankでクリップボードにコピー
 set clipboard=unnamedplus
-
-"
 
 " バックアップ
 set nowritebackup
