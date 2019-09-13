@@ -1,4 +1,4 @@
-"alacritty --title '' --working-directory ~"
+"alacritty --title 'Terminal' --working-directory ~"
     m:0x5 + c:36
     Control+Shift + Return
 "rofi -show combi"
