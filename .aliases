@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Command shortcut
-alias a='ag --hidden --ignore .git -g "$@"'
+alias a="ag --hidden --ignore .git"
 alias b='cd ../'
 alias c='cat'
 alias d='cd'

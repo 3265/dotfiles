@@ -1,3 +1,6 @@
+"alacritty --title ''"
+    m:0x5 + c:36
+    Control+Shift + Return
 "rofi -show combi"
     m:0x4 + c:65
     Control + space
@@ -8,5 +11,4 @@
 # MEMO:
 # xbindkeys -mk
 # killall xbindkeys; xbindkeys
-
 
