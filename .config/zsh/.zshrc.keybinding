@@ -24,9 +24,23 @@ bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する(
 bindkey '^v' edit-command-line # Emacs/Vimバインドとかぶらないようにする(see .zshenv)
 
 # Fuzzy shortcuts
-#z_fd() { echo; fd; zle redisplay }
-#zle -N z_fd
-#bindkey '^d' z_fd
-#z_fe() { echo; fe; zle redisplay }
-#zle -N z_fe
-#bindkey '^m' z_fe
+z_fd() {
+  fd;
+  zle reset-prompt
+}
+zle -N z_fd
+bindkey '^d' z_fd
+
+# Refered to
+# - scripts/zfz.sh
+# - https://www.reddit.com/r/zsh/comments/2uyo2a/launch_vims_ctrlp_from_zsh/
+ctrlp() {
+  local files
+  IFS=$'\n' files=$(find ${1:-.} -path '*/\.git*' -prune \
+                  -o -type f -print 2> /dev/null |fzf --query="$1" --multi --select-1 --exit-0 --prompt="File>")
+  if [ -n "$files" ]; then
+    < /dev/tty ${EDITOR:-vim} "${files[@]}"
+  fi
+}
+zle -N ctrlp
+bindkey '^f' ctrlp

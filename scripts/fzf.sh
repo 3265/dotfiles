@@ -14,7 +14,7 @@
 #   - Exit if there's no match (--exit-0)
 fe() {
   local files
-  IFS=$'\n' files=($(fzf --query="$1" --multi --select-1 --exit-0))
+  IFS=$'\n' files=($(fzf --query="$1" --multi --select-1 --exit-0 --prompt="File>" ))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
@@ -26,7 +26,7 @@ fe() {
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.git*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m --preview "tree -h -l 1 {}") &&
+                  -o -type d -print 2> /dev/null | fzf +m --preview "tree -h -l 1 {}" --prompt="Directory>" ) &&
   cd "$dir"
 }
 
@@ -35,7 +35,7 @@ fd() {
 #######################################
 
 fh() {
-  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac --preview '' | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac --preview '' --prompt="History>"  | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
 }
 
 #######################################
@@ -46,9 +46,9 @@ fh() {
 fkill() {
     local pid
     if [ "$UID" != "0" ]; then
-        pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+        pid=$(ps -f -u $UID | sed 1d | fzf -m --prompt="Process>" --preview ''  | awk '{print $2}')
     else
-        pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+        pid=$(ps -ef | sed 1d | fzf -m --prompt="Process>" --preview ''  | awk '{print $2}')
     fi
 
     if [ "x$pid" != "x" ]
@@ -61,7 +61,7 @@ fkill() {
 # fuzzy grep open via ag
 fg() {
   local file
-  file="$(ag --nobreak --noheading -l $@ | fzf --preview "ag $@"' {}' -0 -1 | awk -F: '{print $1}')"
+  file="$(ag --nobreak --noheading -l $@ | fzf --preview "ag $@"' {}' --prompt="Grep>" -0 -1 | awk -F: '{print $1}')"
 
   if [[ -n $file ]]
   then
