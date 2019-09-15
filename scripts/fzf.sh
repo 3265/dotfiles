@@ -58,3 +58,13 @@ fkill() {
 }
 
 
+# fuzzy grep open via ag
+fg() {
+  local file
+  file="$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1}')"
+
+  if [[ -n $file ]]
+  then
+     $EDITOR $file
+  fi
+}

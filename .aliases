@@ -3,13 +3,13 @@
 # Command shortcut
 alias a="ag --hidden --ignore .git"
 alias b='cd ../'
-alias c='cat'
-alias d='cd'
-alias e=$EDITOR
-alias se=sudoedit
+alias c='cd'
+alias d='fd'  # fazzy open directory
+alias e='fe'  # fazzy edit file
+alias se='sudoedit'
 alias f='fzf'
 alias g='git'
-alias h='history'
+alias h='fh'
 alias i="ifconfig"
 alias j='gwaei &' # dictionary jisho
 alias k='mkdir -p'
@@ -17,7 +17,7 @@ alias l='runls'
 alias m='mv'
 alias n='screen'
 alias o='xdg-open'
-alias p=$PAGER
+alias p='fg' # fazzy grep and edit file
 alias q='exit'
 alias r='ranger'
 alias s='source'
