@@ -26,7 +26,7 @@ bashcompinit
 # ------------------------------
 
 export EDITOR=vim
-export PAGER="bat"
+export PAGER=less
 export KCODE=u          # KCODEにUTF-8を設定
 export AUTOFEATURE=true # autotestでfeatureを動かす
 

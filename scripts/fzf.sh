@@ -25,8 +25,8 @@ fe() {
 # fd - cd to selected directory
 fd() {
   local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
+  dir=$(find ${1:-.} -path '*/\.git*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m --preview "tree -h -l 1 {}") &&
   cd "$dir"
 }
 
@@ -35,7 +35,7 @@ fd() {
 #######################################
 
 fh() {
-  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac --preview '' | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
 }
 
 #######################################
@@ -61,7 +61,7 @@ fkill() {
 # fuzzy grep open via ag
 fg() {
   local file
-  file="$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1}')"
+  file="$(ag --nobreak --noheading -l $@ | fzf --preview "ag $@"' {}' -0 -1 | awk -F: '{print $1}')"
 
   if [[ -n $file ]]
   then

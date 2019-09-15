@@ -22,3 +22,11 @@ bindkey -M viins 'jj' vi-cmd-mode # jjでinsert modeに
 bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
 
 bindkey '^v' edit-command-line # Emacs/Vimバインドとかぶらないようにする(see .zshenv)
+
+# Fuzzy shortcuts
+#z_fd() { echo; fd; zle redisplay }
+#zle -N z_fd
+#bindkey '^d' z_fd
+#z_fe() { echo; fe; zle redisplay }
+#zle -N z_fe
+#bindkey '^m' z_fe
