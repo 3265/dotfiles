@@ -155,12 +155,10 @@ colorscheme solarized
 # ====================-
 
 [[plugins]] # for comment out
-repo = 'tyru/caw.vim'
+repo = 'scrooloose/nerdcommenter'
 hook_add = '''
-" key mappings
-" コメントアウト用(tabもしくはC-iでコメントout)
-nmap <C-i> <Plug>(caw:hatpos:toggle)
-vmap <C-i> <Plug>(caw:hatpos:toggle)
+nmap # <Plug>NERDCommenterToggle
+vmap # <Plug>NERDCommenterToggle
 '''
 
 # ====================-
@@ -244,8 +242,8 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
 [[plugins]]
 repo = 'SirVer/ultisnips'
 hook_source = '''
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsExpandTrigger = "<c-k>"
+let g:UltiSnipsJumpForwardTrigger = "<Tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 '''
 
