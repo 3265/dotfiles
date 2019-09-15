@@ -72,3 +72,14 @@ fg() {
   fi
 }
 
+#######################################
+# Git branch
+#######################################
+
+fbr() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m --prompt="Grep>" --preview="" ) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
