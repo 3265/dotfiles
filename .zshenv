@@ -91,7 +91,7 @@ export PATH=$PATH:$GOROOT:$GOPATH:$GOPATH/bin
 # ------------------------------
 
 # FZF
-export FZF_DEFAULT_OPTS="--reverse --inline-info --prompt='λ> ' --preview 'cat {}'"
+export FZF_DEFAULT_OPTS="--bind ctrl-d:page-down,ctrl-u:page-up --reverse --inline-info --prompt='λ> ' --preview 'cat {}'"
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""' # see https://github.com/junegunn/fzf/issues/634
 
 # ------------------------------

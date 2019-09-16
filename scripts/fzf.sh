@@ -26,7 +26,7 @@ fe() {
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.git*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m --preview "tree -h -l 1 {}" --prompt="Directory>" ) &&
+                  -o -type d -print 2> /dev/null | fzf +m --preview "tree -C {} -h -l 1" --prompt="Directory>" )
   cd "$dir"
 }
 
