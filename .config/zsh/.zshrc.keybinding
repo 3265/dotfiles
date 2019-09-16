@@ -26,6 +26,7 @@ bindkey '^v' edit-command-line # Emacs/Vimバインドとかぶらないよう�
 # Fuzzy shortcuts
 z_fd() {
   fd;
+  vcs_info # shows git branch
   zle reset-prompt
 }
 zle -N z_fd
