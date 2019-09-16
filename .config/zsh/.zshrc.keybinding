@@ -16,14 +16,16 @@ bindkey '^N' history-beginning-search-forward-end
 bindkey '^P' history-beginning-search-backward-end
 bindkey '^U' kill-whole-line
 bindkey '^K' kill-line
-# bindkey '^R' history-incremental-search-backward
+bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
 bindkey -M viins 'jj' vi-cmd-mode # jjでinsert modeに
 bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
 
 bindkey '^v' edit-command-line # Emacs/Vimバインドとかぶらないようにする(see .zshenv)
 
-# Fuzzy shortcuts
+# MEMO: sdfg shortcuts like hjkl cmd in vim
+
+# Fuzzy cd
 z_fd() {
   fd;
   vcs_info # shows git branch
@@ -32,7 +34,7 @@ z_fd() {
 zle -N z_fd
 bindkey '^f' z_fd
 
-# Referred to
+# Go to parent dir
 function up_dir() {
   echo
   cd ../
@@ -40,8 +42,9 @@ function up_dir() {
   zle reset-prompt
 }
 zle -N up_dir
-bindkey '^b' up_dir
+bindkey '^d' up_dir
 
+# Edit file by the name or content
 # Referred to
 # - scripts/zfz.sh
 # - https://www.reddit.com/r/zsh/comments/2uyo2a/launch_vims_ctrlp_from_zsh/
@@ -49,13 +52,11 @@ ctrlp() {
   local files
   IFS=$'\n' files=$(find ${1:-.} -path '*/\.git*' -prune \
                   -o -type f -print 2> /dev/null |fzf --query="$1" --multi --select-1 --exit-0 --prompt="File>")
+
   if [ -n "$files" ]; then
     < /dev/tty ${EDITOR:-vim} "${files[@]}"
   fi
 }
-zle -N ctrlp
-bindkey '^r' ctrlp
-
 grep_edit() {
   local file
   file="$(ag --nobreak --noheading -l ${BUFFER} | fzf --preview "ag ${BUFFER} {}" --prompt="Grep>" -0 -1 | awk -F: '{print $1}')"
@@ -65,6 +66,21 @@ grep_edit() {
      < /dev/tty $EDITOR $file
   fi
 }
+ctrlp_or_grep_edit() {
+  if [ -z $BUFFER ]; then
+    ctrlp
+  else
+    grep_edit
+  fi
+}
+zle -N ctrlp_or_grep_edit
+bindkey '^g' ctrlp_or_grep_edit
 
-zle -N grep_edit
-bindkey '^g' grep_edit
+# Execute Cmd from History
+function history_cmd() {
+  echo
+  fh;
+  zle reset-prompt
+}
+zle -N history_cmd
+bindkey '^s' history_cmd
