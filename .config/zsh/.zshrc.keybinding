@@ -16,7 +16,7 @@ bindkey '^N' history-beginning-search-forward-end
 bindkey '^P' history-beginning-search-backward-end
 bindkey '^U' kill-whole-line
 bindkey '^K' kill-line
-bindkey '^R' history-incremental-search-backward
+# bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
 bindkey -M viins 'jj' vi-cmd-mode # jjでinsert modeに
 bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
@@ -30,9 +30,19 @@ z_fd() {
   zle reset-prompt
 }
 zle -N z_fd
-bindkey '^d' z_fd
+bindkey '^f' z_fd
 
-# Refered to
+# Referred to
+function up_dir() {
+  echo
+  cd ../
+  vcs_info # shows git branch
+  zle reset-prompt
+}
+zle -N up_dir
+bindkey '^b' up_dir
+
+# Referred to
 # - scripts/zfz.sh
 # - https://www.reddit.com/r/zsh/comments/2uyo2a/launch_vims_ctrlp_from_zsh/
 ctrlp() {
@@ -44,4 +54,17 @@ ctrlp() {
   fi
 }
 zle -N ctrlp
-bindkey '^f' ctrlp
+bindkey '^r' ctrlp
+
+grep_edit() {
+  local file
+  file="$(ag --nobreak --noheading -l ${BUFFER} | fzf --preview "ag ${BUFFER} {}" --prompt="Grep>" -0 -1 | awk -F: '{print $1}')"
+
+  if [[ -n $file ]]
+  then
+     < /dev/tty $EDITOR $file
+  fi
+}
+
+zle -N grep_edit
+bindkey '^g' grep_edit

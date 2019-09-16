@@ -4,12 +4,12 @@
 alias a="ag --hidden --ignore .git"
 alias b='cd ../'
 alias c='cd'
-alias d='fd' # fuzzy directory
-alias e='ranger' # same shortcut as what i specified to open nerdtree in vim
+alias d='docker'
+alias e=$EDITOR
 alias se='sudoedit'
-alias f='fe' # fuzzy file name edit
+alias f='fzf'
 alias g='git'
-alias h='fh' # fuzzy history
+alias h='history'
 alias i="ipconfig"
 alias j='git' # jit
 alias k='mkdir -p'
@@ -17,9 +17,9 @@ alias l='runls'
 alias m='mv'
 alias n='screen'
 alias o='xdg-open'
-alias p='python'
+alias p=$PAGER
 alias q='exit'
-alias r='fg' # fuzzy search, coz r is shortcut of reverse-i-search
+alias r='ranger'
 alias s='source'
 alias t='tig' # cui for task
 alias u='du -hs' # directory size
@@ -50,7 +50,7 @@ source ~/dotfiles/scripts/fzf.sh
 
 # Others
 alias free='free -h'
-alias py='python3'
+alias py='python'
 alias pe='pipenv'
 alias le='less'
 alias copy='echo ${PWD} | xsel -b'
