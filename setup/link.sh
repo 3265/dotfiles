@@ -135,9 +135,14 @@ ln -s -f ~/dotfiles/.config/pet/snippet.toml ~/.config/pet/snippet.toml
 mkdir -p ~/.config/ranger
 ln -s -f ~/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
 
-# coc
+# coc-settings for nvim
 mkdir -p ~/.config/nvim
 ln -s -f ~/dotfiles/.config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json 
+
+# coc packages
+mkdir -p ~/.config/coc
+mkdir -p ~/.config/coc/extensions
+ln -s -f ~/dotfiles/.config/coc/extensions/package.json ~/.config/coc/extensions/package.json
 
 # pep8
 ln -s -f ~/dotfiles/.config/pep8 ~/.config/pep8
