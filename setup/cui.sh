@@ -8,9 +8,9 @@ sudo pacman -S --noconfirm bash zsh
 # sudo pacman -S --noconfirm mosh parallel translate-shell
 
 # Editor
-sudo pacman -S --noconfirm gvim # gvim contains many extensions especially i needed +clipboard
+# sudo pacman -S --noconfirm gvim # gvim contains many extensions especially i needed +clipboard
 # sudo pacman -S --noconfirm emacs
-# sudo pacman -S --noconfirm neovim python-neovim # with python module
+sudo pacman -S --noconfirm neovim python-neovim # with python module
 
 # Pager
 sudo pacman -S --noconfirm bat
@@ -103,6 +103,7 @@ sudo pacman -S --noconfirm neofetch
 sudo pacman -S --noconfirm python-pipenv
 yay -S --noconfirm pyenv
 yay -S --noconfirm pyenv-virtualenv # to use pyenv virtualenv cmd
+yay -S --noconfirm nvm
+sudo pacman -S --noconfirm yarn # for COC.nvim
 yay -S --noconfirm rbenv
 yay -S --noconfirm terraform
-yay -S --noconfirm nvm

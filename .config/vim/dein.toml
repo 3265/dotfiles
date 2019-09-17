@@ -192,73 +192,32 @@ let g:ale_fixers = {
 " pip install -U flake8 autopep8 black isort
 '''
 
-
 # ====================-
-# async complete & LSP
+# Complete
 # ====================-
 
 [[plugins]]
-repo = 'prabirshrestha/async.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
+repo = 'neoclide/coc.nvim'
+merge = 0
+rev = 'release'
+if = '''executable('node') && executable('yarn')'''
+build = './install.sh nightly'
 hook_add = '''
-let g:lsp_diagnostics_enabled = 0
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" NEED: pip install -U python-language-server
-" python
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'priority': 3,
-        \ 'whitelist': ['python'],
-        \ })
-endif
-'''
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-lsp.vim'
-depends = ['asyncomplete.vim', 'vim-lsp']
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-file.vim'
-hook_source = '''
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-      \ 'name': 'file',
-      \ 'priority': 2,
-      \ 'whitelist': ['*'],
-      \ 'completor': function('asyncomplete#sources#file#completor'),
-      \ }))
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 '''
 
 # ====================-
-# Snippets
+# Fuzzy finder
 # ====================-
-
-[[plugins]]
-repo = 'SirVer/ultisnips'
-hook_source = '''
-let g:UltiSnipsExpandTrigger = "<c-k>"
-let g:UltiSnipsJumpForwardTrigger = "<Tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-'''
-
-[[plugins]]
-repo = 'honza/vim-snippets'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-ultisnips.vim'
-hook_source = '''
-call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_options({
-    \ 'name': 'ultisnips',
-    \ 'whitelist': ['*'],
-    \ 'completor': function('asyncomplete#sources#ultisnips#completor'),
-    \ }))
-'''
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'

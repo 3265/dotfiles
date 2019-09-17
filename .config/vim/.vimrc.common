@@ -64,9 +64,7 @@ set showmatch " 対応する括弧などをハイライト表示する
 set matchtime=3 " 対応括弧のハイライト表示を3秒にする
 set backspace=indent,eol,start " バックスペースでなんでも消せるようにする
 set pastetoggle=<F12> " F12でインサートモードでpaste modeをトグル
-set clipboard=unnamedplus " 別タブでコピーを共有する
-set clipboard=unnamed,autoselect " yankでクリップボードにコピー
-set clipboard=unnamedplus
+set clipboard=unnamedplus  " yankでクリップボードにコピー
 
 " バックアップ
 set nowritebackup
