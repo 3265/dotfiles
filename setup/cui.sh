@@ -8,22 +8,23 @@ sudo pacman -S --noconfirm bash zsh
 # sudo pacman -S --noconfirm mosh parallel translate-shell
 
 # Editor
+# sudo pacman -S --noconfirm vim
 # sudo pacman -S --noconfirm gvim # gvim contains many extensions especially i needed +clipboard
 # sudo pacman -S --noconfirm emacs
 sudo pacman -S --noconfirm neovim python-neovim # with python module
 
 # Pager
-sudo pacman -S --noconfirm bat
 # sudo pacman -S --noconfirm source-highlight # for less highlight
+sudo pacman -S --noconfirm bat
 
 # ls, grep alternative
 sudo pacman -S --noconfirm lsd
 sudo pacman -S --noconfirm the_silver_searcher
 
 # Finder with UI
+# sudo pacman -S --noconfirm vifm
 sudo pacman -S --noconfirm ranger
 sudo pacman -S --noconfirm fzf
-# sudo pacman -S --noconfirm vifm
 
 # Ranger Preview tools
 # NOTE:
