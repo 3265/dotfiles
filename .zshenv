@@ -73,6 +73,9 @@ if [ $(which direnv) ]; then
   eval "$(direnv hook zsh)"
 fi
 
+# JAVA
+export JAVA_HOME=/usr/lib/jvm/default
+
 # Ruby Env
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
