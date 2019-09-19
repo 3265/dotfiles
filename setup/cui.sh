@@ -40,7 +40,7 @@ sudo pacman -S --noconfirm atool # archive manager
 sudo pacman -S --noconfirm screen tmux xsel
 
 # Downloader
-sudo pacman -S --noconfirm curl wget
+sudo pacman -S --noconfirm curl wget thefuck
 
 # Virtualization
 # KVM is not used
