@@ -226,7 +226,7 @@ hook_add = '''
 
 " [Replace of ctrlp.vim] ========================================
 "
-nnoremap <C-p> :FZFFileList<CR>
+nnoremap <C-g> :FZFFileList<CR>
 command! FZFFileList call fzf#run({
             \ 'source': 'find . -type d -name .git -prune -o ! -name .DS_Store',
             \ 'sink': 'e'})
