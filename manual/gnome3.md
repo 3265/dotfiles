@@ -43,3 +43,11 @@ $ gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']"
 Press Alt + F2 and then enter r in the dialog box
 ```
 see https://askubuntu.com/questions/75604/why-does-users-theme-extension-not-show-up-under-gnome-tweak-tool
+
+# Night mode
+
+```
+$ gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature 3000
+```
+
+https://askubuntu.com/questions/914500/how-to-adjust-the-hue-intensity-of-gnome-night-light
