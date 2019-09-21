@@ -34,6 +34,7 @@
     "fasterer": true,
     "debride": true,
     "ruby-lint": true
-  }
+  },
+  "vim.useSystemClipboard": true
 }
 
