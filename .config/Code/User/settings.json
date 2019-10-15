@@ -35,6 +35,7 @@
     "debride": true,
     "ruby-lint": true
   },
-  "vim.useSystemClipboard": true
+  "vim.useSystemClipboard": true,
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }
 
