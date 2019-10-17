@@ -11,6 +11,4 @@ run:
 	bash ./tmux.sh
 	bash ./ranger.sh
 	bash ./fusuma.sh
-	# bash ./and.sh
-	# bash ./bsstudio.sh
-	reboot # for font
+	reboot
