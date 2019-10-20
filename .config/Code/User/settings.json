@@ -36,6 +36,7 @@
     "ruby-lint": true
   },
   "vim.useSystemClipboard": true,
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "window.zoomLevel": 0
 }
 
