@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# AUR package manager
+# package managers
 sudo pacman -S --noconfirm yay
+yay -S --noconfirm snapd
 
 # Terminal
 sudo pacman -S --noconfirm bash zsh
