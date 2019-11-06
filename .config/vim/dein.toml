@@ -161,6 +161,12 @@ nmap # <Plug>NERDCommenterToggle
 vmap # <Plug>NERDCommenterToggle
 '''
 
+[[plugins]]
+repo = 'glacambre/firenvim'
+hook_post_update = '''
+  call firenvim#install()
+'''
+
 # ====================-
 # Syntax checker
 # ====================-
