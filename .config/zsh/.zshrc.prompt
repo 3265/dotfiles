@@ -30,12 +30,12 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリ�
 
 set_py_version() {
     PY_VERSION="Py:"`python --version 2>&1 | awk '{print $2}'`
-    PY_VER_STY="[%{${fg[cyan]}%}$PY_VERSION%{${reset_color}%}]"
+    PY_VER_STY="[%{${fg[green]}%}$PY_VERSION%{${reset_color}%}]"
 }
 
 # last command status
 OK="O"; NG="X"
-export CMD_STATUS="[%(?.%F{green}$OK%f.%F{red}$NG%f)]"
+export CMD_STATUS="[%(?.%F{cyan}$OK%f.%F{red}$NG%f)]"
 
 ### Const
 export user_name="%n"
