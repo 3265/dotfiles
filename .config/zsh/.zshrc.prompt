@@ -64,7 +64,7 @@ export c_at_sign="%{${fg[white]}%}@%{${reset_color}%}"
 export c_lambda="%{${fg[cyan]}%}${lambda}%{${reset_color}%}"
 
 # 一般ユーザ時
-export tmp_prompt='[${c_user_name}${c_at_sign}${c_host_name} ${c_current_dir}][${hh_mm_ss}]${vcs_info_msg_0_}${PY_VER_STY}${CMD_STATUS}${VIMODE}[${c_user_identifier}][${c_lambda}]> '
+export tmp_prompt='[${c_user_name}${c_at_sign}${c_host_name}${c_current_dir}][${hh_mm_ss}]${vcs_info_msg_0_}${PY_VER_STY}${CMD_STATUS}${VIMODE}[${c_user_identifier}][${c_lambda}]> '
 export tmp_prompt2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
 export tmp_rprompt="[${c_current_dir_fullpath}]"
 export tmp_sprompt="%{${fg[yellow]}%}%r is correct? [Yes, No, Abort, Edit]:%{${reset_color}%}"
