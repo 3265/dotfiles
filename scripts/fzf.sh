@@ -76,10 +76,21 @@ fg() {
 # Git branch
 #######################################
 
-fbr() {
+# ga/gd
+# from https://github.com/EfforiaKnight/fizzygit
+
+go() {
   local branches branch
   branches=$(git branch --all | grep -v HEAD) &&
   branch=$(echo "$branches" |
-           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m --prompt="Grep>" --preview="" ) &&
+           fzf -d $(( 2 + $(wc -l <<< "$branches") )) +m --prompt="Grep>" --preview="" ) &&
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+gh() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf -d $(( 2 + $(wc -l <<< "$branches") )) +m --prompt="Grep>" --preview="" ) &&
+  git push origin $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
