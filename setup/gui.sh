@@ -31,6 +31,7 @@ yay -S --noconfirm gnome-shell-extension-unite
 # Browser
 sudo pacman -S --noconfirm chromium
 yay -S --noconfirm google-chrome
+yay -S --noconfirm brave
 # sudo pacman -S --noconfirm firefox
 # sudo pacman -S --noconfirm opera
 
