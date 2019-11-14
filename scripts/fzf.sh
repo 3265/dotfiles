@@ -94,3 +94,11 @@ gh() {
            fzf -d $(( 2 + $(wc -l <<< "$branches") )) +m --prompt="Grep>" --preview="" ) &&
   git push origin $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
+
+gu() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf -d $(( 2 + $(wc -l <<< "$branches") )) +m --prompt="Grep>" --preview="" ) &&
+  git pull origin $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
