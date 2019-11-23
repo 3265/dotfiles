@@ -37,6 +37,7 @@
   },
   "vim.useSystemClipboard": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
+  "workbench.tree.indent": 15
 }
 
