@@ -93,3 +93,8 @@ nnoremap J :resize +5<cr>
 nnoremap K :resize -5<cr>
 nnoremap L :vertical resize +5<cr>
 
+" =================
+"  Custom commands
+" =================
+
+command W execute "w %"

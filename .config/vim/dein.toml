@@ -232,18 +232,8 @@ hook_add = '''
 
 " [Replace of ctrlp.vim] ========================================
 "
-nnoremap <C-g> :FZFFileList<CR>
+nnoremap <C-p> :FZFFileList<CR>
 command! FZFFileList call fzf#run({
             \ 'source': 'find . -type d -name .git -prune -o ! -name .DS_Store',
             \ 'sink': 'e'})
-
-
-" [MRU (Most Recently Used)] ========================================
-"
-command! Fmru FZFMru
-command! FZFMru call fzf#run({
-            \  'source':  v:oldfiles,
-            \  'sink':    'tabe',
-            \  'options': '-m -x +s',
-            \  'down':    '40%'})
 '''
