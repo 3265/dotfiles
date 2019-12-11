@@ -102,3 +102,11 @@ gu() {
            fzf -d $(( 2 + $(wc -l <<< "$branches") )) +m --prompt="Grep>" --preview="" ) &&
   git pull origin $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
+
+gv() {
+  local branches branch
+  files=$(git status --short) &&
+  file=$(echo "$files" |
+           fzf -d $(( 2 + $(wc -l <<< "$files") )) +m --prompt="Grep>" --preview="" ) &&
+  $EDITOR $(echo "$file" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
