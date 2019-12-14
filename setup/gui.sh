@@ -68,3 +68,5 @@ yay -S --noconfirm zoom
 # yay -S --noconfirm discord
 
 
+# For Kindle
+# sudo pacman -S --noconfirm wine
