@@ -110,3 +110,4 @@ yay -S --noconfirm nvm
 sudo pacman -S --noconfirm yarn # for COC.nvim
 yay -S --noconfirm rbenv
 yay -S --noconfirm terraform
+sudo pacman -S --noconfirm hugo
