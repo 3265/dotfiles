@@ -190,3 +190,22 @@ on_ft = ['tf', 'tfvars']
 hook_add = '''
 let g:terraform_fmt_on_save = 0 " to fit the rule of certain pj
 '''
+
+# ====================-
+# LaTex
+# ====================-
+
+# vimtex
+[[plugins]]
+repository = 'lervag/vimtex'
+on_ft = 'tex'
+
+# ====================-
+# Markdown
+# ====================-
+
+# vim-markdown
+[[plugins]]
+repository = 'tpope/vim-markdown'
+depends = 'godlygeek/tabular'
+on_ft = 'markdown'
