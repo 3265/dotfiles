@@ -209,3 +209,15 @@ on_ft = 'tex'
 repository = 'tpope/vim-markdown'
 depends = 'godlygeek/tabular'
 on_ft = 'markdown'
+
+# ====================-
+# Markdown
+# ====================-
+
+# vim-markdown
+[[plugins]]
+repository = 'btjanaka/vim-markdown-latex-highlight'
+on_ft = 'markdown'
+hook_add = '''
+let g:vim_markdown_math = 1
+''' 
