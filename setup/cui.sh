@@ -106,10 +106,10 @@ sudo pacman -S --noconfirm python-pipenv
 yay -S --noconfirm pyenv
 yay -S --noconfirm pyenv-virtualenv # to use pyenv virtualenv cmd
 sudo pacman -S rust
-cargo install mdbook
 sudo pacman -S --noconfirm jdk8-openjdk
 yay -S --noconfirm nvm
 sudo pacman -S --noconfirm yarn # for COC.nvim
 yay -S --noconfirm rbenv
 yay -S --noconfirm terraform
-sudo pacman -S --noconfirm hugo
+#cargo install mdbook
+# sudo pacman -S --noconfirm hugo
