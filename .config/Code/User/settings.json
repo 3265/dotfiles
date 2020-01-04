@@ -37,8 +37,10 @@
   },
   "vim.useSystemClipboard": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "window.zoomLevel": 3,
+  "window.zoomLevel": 2,
   "workbench.tree.indent": 15,
-  "explorer.confirmDragAndDrop": false
+  "explorer.confirmDragAndDrop": false,
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  }
 }
-
