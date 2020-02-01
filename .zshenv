@@ -73,6 +73,16 @@ if [ $(which direnv) ]; then
   eval "$(direnv hook zsh)"
 fi
 
+# Binary
+# NOTE: Personal binary place instead of /usr/local/bin/ due to permission
+# ref: 
+# - https://superuser.com/questions/1289534/how-to-install-when-permission-denied-to-usr-local-bin
+# - https://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-dir-does-not-already-exist
+if [[ ! -e ~/bin ]]; then
+    mkdir ~/bin
+fi
+export PATH="$HOME/bin:$PATH"
+
 # JAVA
 export JAVA_HOME=/usr/lib/jvm/default
 

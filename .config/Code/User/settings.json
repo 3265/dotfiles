@@ -42,5 +42,11 @@
   "explorer.confirmDragAndDrop": false,
   "[markdown]": {
     "files.trimTrailingWhitespace": false
-  }
+  },
+  // NOTE: need to install language server via menu which appears by presisn F1
+  // and res
+  "terraform.languageServer": {
+    "enabled": false,
+    "pathToBinary": "/home/mike/bin", // install folder
+  },
 }

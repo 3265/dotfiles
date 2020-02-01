@@ -282,45 +282,7 @@ docker() {
   esac
 }
 
-# NOTE: bash and zsh allows to use hyphens but POSIX
 alias dc="docker-compose"
-# docker-compose() {
-#   case $1 in
-#     i)
-#       shift
-#       command docker-compose images "$@";;
-#     b)
-#       shift
-#       command docker-compose up -d --build "$@";;
-#     h) declare -f docker-compose;;
-#     *) command docker-compose "$@";;
-#   esac
-# }
-
-aws() {
-  case $1 in
-    check)
-      aws s3 ls;;
-    h) declare -f aws;;
-    *) command aws "$@";;
-  esac
-}
-
-alias tf="terraform"
-terraform() {
-  case $1 in
-    c|console)
-      command terraform console;;
-    i|init)
-      command terraform init;;
-    a|apply)
-      command terraform apply;;
-    v|variable)
-      command terraform variable;;
-    h) declare -f terraform;;
-    *) command terraform "$@";;
-  esac
-}
 
 # mac sshfs
 # alias blogfs='sshfs blog: ~/mp/blog -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=blog'
