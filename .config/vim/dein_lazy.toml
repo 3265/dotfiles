@@ -17,10 +17,10 @@ let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 # Python
 # ====================-
 
-# [[plugins]]
-# repo = "davidhalter/jedi-vim"
-# on_ft = 'python'
-#
+[[plugins]]
+repo = "davidhalter/jedi-vim"
+on_ft = 'python'
+
 # [[plugins]]
 # repo = 'Vimjas/vim-python-pep8-indent'
 # on_ft = ['python']
@@ -197,7 +197,7 @@ let g:terraform_fmt_on_save = 0 " to fit the rule of certain pj
 
 # vimtex
 [[plugins]]
-repository = 'lervag/vimtex'
+repo = 'lervag/vimtex'
 on_ft = 'tex'
 
 # ====================-
@@ -206,7 +206,7 @@ on_ft = 'tex'
 
 # vim-markdown
 [[plugins]]
-repository = 'tpope/vim-markdown'
+repo = 'tpope/vim-markdown'
 depends = 'godlygeek/tabular'
 on_ft = 'markdown'
 
@@ -216,7 +216,7 @@ on_ft = 'markdown'
 
 # vim-markdown
 [[plugins]]
-repository = 'btjanaka/vim-markdown-latex-highlight'
+repo = 'btjanaka/vim-markdown-latex-highlight'
 on_ft = 'markdown'
 hook_add = '''
 let g:vim_markdown_math = 1

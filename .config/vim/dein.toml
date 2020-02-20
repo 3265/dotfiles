@@ -157,15 +157,15 @@ colorscheme solarized
 [[plugins]] # for comment out
 repo = 'scrooloose/nerdcommenter'
 hook_add = '''
-nmap # <Plug>NERDCommenterToggle
-vmap # <Plug>NERDCommenterToggle
+nmap <Tab> <Plug>NERDCommenterToggle
+vmap <Tab> <Plug>NERDCommenterToggle
 '''
 
-[[plugins]]
-repo = 'glacambre/firenvim'
-hook_post_update = '''
-  call firenvim#install()
-'''
+# [[plugins]]
+# repo = 'glacambre/firenvim'
+# hook_post_update = '''
+#   call firenvim#install()
+# '''
 
 # ====================-
 # Syntax checker
@@ -196,29 +196,6 @@ let g:ale_fixers = {
     \ }
 " For Python
 " pip install -U flake8 autopep8 black isort
-'''
-
-# ====================-
-# Complete
-# ====================-
-
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-merge = 0
-rev = 'release'
-if = '''executable('node') && executable('yarn')'''
-build = './install.sh nightly'
-hook_add = '''
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 '''
 
 # ====================-
