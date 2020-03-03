@@ -2,7 +2,7 @@
 
 # Command shortcut
 alias a="ag --hidden --ignore .git"
-alias b='cd ../'
+alias b='bat'
 alias c='cd'
 alias d='docker'
 alias e='emacs'
@@ -54,6 +54,8 @@ alias py='python'
 alias pe='pipenv'
 alias le='less'
 alias copy='echo ${PWD} | xsel -b'
+alias ssh-igk='ssh -oUserKnownHostsFile=/dev/null -oStrictHostKeyChecking=no'
+
 
 if [[ $SHELL == "/bin/zsh" ]]; then
   # Global aliases

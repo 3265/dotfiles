@@ -49,7 +49,7 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # 補完候補に�
 export HISTFILE=~/.zsh_history # History file
 export HISTSIZE=10000          # History size in memory
 export SAVEHIST=1000000        # The number of histsize
-export LISTMAX=50              # The size of asking history
+export LISTMAX=100              # The size of asking history
 
 # 3秒以上コマンドに時間がかかったら詳細表示
 export REPORTTIME=3
