@@ -41,12 +41,16 @@
   "workbench.tree.indent": 15,
   "explorer.confirmDragAndDrop": false,
   "[markdown]": {
-    "files.trimTrailingWhitespace": false
+    "files.trimTrailingWhitespace": false,
   },
-  // NOTE: need to install language server via menu which appears by presisn F1
-  // and res
-  "terraform.languageServer": {
-    "enabled": false,
-    "pathToBinary": "/home/mike/bin", // install folder
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 }
