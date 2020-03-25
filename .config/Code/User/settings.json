@@ -1,9 +1,10 @@
 {
   "extensions.autoUpdate": false,
   "eslint.enable": true,
-  "editor.rulers": [100],
+  "editor.rulers": [
+    100
+  ],
   "editor.fontSize": 10,
-  "editor.formatOnSave": false,
   "javascript.validate.enable": false,
   "workbench.colorTheme": "Solarized Dark",
   "workbench.activityBar.visible": true,
@@ -13,17 +14,14 @@
   "files.trimTrailingWhitespace": true,
   "editor.selectionHighlight": true,
   // for vim
-  "vim.disableAnnoyingNeovimMessage": true,
   "vim.hlsearch": true,
-  "vim.otherModesKeyBindingsNonRecursive": [
+  "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
-        "<C-n>", // 本当はescape escapeにしたいが・・・
+        "<C-n>"
       ],
       "commands": [
-        {
-          "command": ":nohl"
-        }
+        ":nohl"
       ]
     }
   ],
@@ -37,7 +35,7 @@
   },
   "vim.useSystemClipboard": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "window.zoomLevel": 2,
+  "window.zoomLevel": 0,
   "workbench.tree.indent": 15,
   "explorer.confirmDragAndDrop": false,
   "[markdown]": {
@@ -54,4 +52,9 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "python.linting.pylintEnabled": false,
+  "python.formatting.provider": "black",
+  "[python]": {
+    "editor.formatOnSave": true
+  }
 }
