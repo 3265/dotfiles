@@ -34,15 +34,16 @@
     "ruby-lint": true
   },
   "vim.useSystemClipboard": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
   "window.zoomLevel": 0,
   "workbench.tree.indent": 15,
   "explorer.confirmDragAndDrop": false,
   "[markdown]": {
     "files.trimTrailingWhitespace": false,
   },
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "[javascript]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
     "editor.formatOnSave": true,
