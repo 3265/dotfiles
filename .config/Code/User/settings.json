@@ -53,9 +53,21 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "python.linting.pylintEnabled": false,
+  // ##########################################
+  //                  Python
+  // ##########################################
+  // Python Venv
+   "python.venvPath": ".venv",
+   "python.pythonPath": ".venv/bin/python",
+  // Python typechecker
+  "python.linting.mypyEnabled": true,
+  // Python linter
+  "python.linting.pylintEnabled": false, // not use pylint
+  "python.linting.flake8Enabled": true,
+  "python.linting.lintOnSave": true,
+  // Python Formatter
   "python.formatting.provider": "black",
   "[python]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   }
 }
