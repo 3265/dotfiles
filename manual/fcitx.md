@@ -1,4 +1,5 @@
-# IME
+# Fcitx
+
 
 # Install basic package of fcitx
 
