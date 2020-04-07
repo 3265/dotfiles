@@ -1,5 +1,17 @@
 # IME
 
+# Install basic package of fcitx
+
+```
+$ sudo pacman -S --noconfirm fcitx fcitx-mozc fcitx-configtool
+```
+
+# Reboot
+
+```
+$ reboot
+```
+
 # Fcitx configuration settings
 
 Open fcitx-configuration
@@ -16,11 +28,6 @@ and update settings following below that:
    - Active input method = RALT
    - Inactive input method = LALT
 
-# Install basic package of fcitx
-
-```
-$ sudo pacman -S --noconfirm fcitx fcitx-mozc fcitx-configtool
-```
 
 # Install particular package for fcitx
 
