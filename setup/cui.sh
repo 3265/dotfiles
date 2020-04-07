@@ -31,9 +31,9 @@ sudo pacman -S --noconfirm fzf
 # NOTE:
 #  - i configured according to this website
 #  - http://malkalech.com/ranger_filer
-sudo pacman -S --noconfirm highlight # source code highlight
-yay -S --noconfirm python-pdftotext # pdf viewer
-sudo pacman -S --noconfirm w3m # Image viewer
+# sudo pacman -S --noconfirm highlight # source code highlight
+# yay -S --noconfirm python-pdftotext # pdf viewer
+# sudo pacman -S --noconfirm w3m # Image viewer
 sudo pacman -S --noconfirm atool # archive manager
 
 # Terminal multiplexer
@@ -51,8 +51,8 @@ sudo pacman -S --noconfirm docker docker-compose
 
 # VPN
 # NOTE: need to configure see mannual
-sudo pacman -S --noconfirm strongswan xl2tpd
-yay -S --noconfirm ike-scan
+# sudo pacman -S --noconfirm strongswan xl2tpd
+# yay -S --noconfirm ike-scan
 
 # VCS
 sudo pacman -S --noconfirm git tig
@@ -67,7 +67,7 @@ sudo pacman -S --noconfirm git tig
 # System tools
 sudo pacman -S --noconfirm tree
 # sudo pacman -S --noconfirm ctags
-yay -S --noconfirm direnv peco pet-bin
+# yay -S --noconfirm direnv peco pet-bin
 
 # Monitoring Tools
 # sudo pacman -S --noconfirm htop powertop
@@ -76,13 +76,13 @@ yay -S --noconfirm direnv peco pet-bin
 # Network Tools
 # NOTE: net-tools is for ifconfig
 sudo pacman -S --noconfirm net-tools alsa-utils
-sudo pacman -S --noconfirm dnsutils # for dig cmd
-sudo pacman -S --noconfirm nmap whois
+# sudo pacman -S --noconfirm dnsutils # for dig cmd
+# sudo pacman -S --noconfirm nmap whois
 yay -S --noconfirm ngrok
 
 # Cloud CLI
-sudo pacman -S --noconfirm aws-cli
 yay -S --noconfirm git-secrets
+sudo pacman -S --noconfirm aws-cli
 yay -S --noconfirm google-cloud-sdk
 
 # Font
@@ -105,11 +105,11 @@ sudo pacman -S --noconfirm neofetch
 yay -S --noconfirm pyenv
 yay -S --noconfirm pyenv-virtualenv # to use pyenv virtualenv cmd
 sudo pacman -S --noconfirm python-pipenv
-sudo pacman -S rust
-sudo pacman -S --noconfirm jdk8-openjdk
+# sudo pacman -S rust
+# sudo pacman -S --noconfirm jdk8-openjdk
 yay -S --noconfirm nvm
-sudo pacman -S --noconfirm yarn # for COC.nvim
+# sudo pacman -S --noconfirm yarn # for COC.nvim
 yay -S --noconfirm rbenv
 yay -S --noconfirm tfenv
-#cargo install mdbook
+# cargo install mdbook
 # sudo pacman -S --noconfirm hugo

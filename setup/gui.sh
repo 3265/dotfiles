@@ -14,13 +14,13 @@ sudo pacman -S --noconfirm rofi
 
 # Gnome Tools
 sudo pacman -S --noconfirm gnome-tweaks
-yay -S --noconfirm yaru-gtk-theme
-yay -S --noconfirm yaru-sound-theme
+# yay -S --noconfirm yaru-gtk-theme
+# yay -S --noconfirm yaru-sound-theme
 yay -S --noconfirm gnome-shell-extension-clipboard-indicator-git # clipboard
 yay -S --noconfirm gnome-shell-extension-caffeine-plus-git # caffeine
 yay -S --noconfirm gnome-shell-extension-gsconnect # connect to Android
 yay -S --noconfirm gnome-shell-extension-system-monitor-git
-yay -S --noconfirm gnome-shell-extension-unite
+# yay -S --noconfirm gnome-shell-extension-unite
 # yay -S --noconfirm gnome-shell-pomodoro
 # yay -S --noconfirm gnome-shell-extension-easyscreencast # I got memory leak from this app maybe...
 
@@ -29,9 +29,9 @@ yay -S --noconfirm gnome-shell-extension-unite
 # sudo pacman -S --noconfirm filezilla
 
 # Browser
-sudo pacman -S --noconfirm chromium
+# sudo pacman -S --noconfirm chromium
 yay -S --noconfirm google-chrome
-yay -S --noconfirm brave
+# yay -S --noconfirm brave
 # sudo pacman -S --noconfirm firefox
 # sudo pacman -S --noconfirm opera
 
@@ -52,8 +52,8 @@ sudo pacman -S --noconfirm gimp
 # Others
 sudo pacman -S --noconfirm gparted
 # sudo pacman -S --noconfirm xpad
-sudo pacman -S --noconfirm xsensors
-yay -S --noconfirm spotify
+# sudo pacman -S --noconfirm xsensors
+# yay -S --noconfirm spotify
 # sudo pacman -S --noconfirm thunderbird
 sudo pacman -S --noconfirm goldendict
 yay -S --noconfirm zotero
