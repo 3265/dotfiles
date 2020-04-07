@@ -7,6 +7,16 @@
 $ sudo pacman -S --noconfirm fcitx fcitx-mozc fcitx-configtool
 ```
 
+# Install particular package for fcitx
+
+NOTE: if u don't install particular packages for specific gui tool kit, the IME doesn't work well.
+i have got weird behavior on my PC without these packages, like can not input words in gui inputbox.
+
+```
+$ sudo pacman -S fcitx-gtk2 fcitx-gtk3 fcitx-qt5
+$ yay -S fcitx-qt4
+```
+
 # Reboot
 
 ```
@@ -30,15 +40,6 @@ and update settings following below that:
    - Inactive input method = LALT
 
 
-# Install particular package for fcitx
-
-NOTE: if u don't install particular packages for specific gui tool kit, the IME doesn't work well.
-i have got weird behavior on my PC without these packages, like can not input words in gui inputbox.
-
-```
-$ sudo pacman -S fcitx-gtk2 fcitx-gtk3 fcitx-qt5
-$ yay -S fcitx-qt4
-```
 
 # To confirm fcitx status
 
