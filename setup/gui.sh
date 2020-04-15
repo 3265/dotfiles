@@ -8,6 +8,12 @@ sudo pacman -S --noconfirm xorg-xmodmap
 # sudo pacman -S --noconfirm terminator
 sudo pacman -S --noconfirm alacritty
 
+# IME
+# see manual
+sudo pacman -S --noconfirm fcitx fcitx-mozc fcitx-configtool
+sudo pacman -S fcitx-gtk2 fcitx-gtk3 fcitx-qt5
+yay -S fcitx-qt4
+
 # Launcher
 sudo pacman -S --noconfirm xbindkeys # For add shortcut of rofi
 sudo pacman -S --noconfirm rofi
