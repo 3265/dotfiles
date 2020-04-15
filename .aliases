@@ -29,6 +29,8 @@ alias x='ex'
 alias y='yes'
 alias z='zsh'
 
+alias vim='nvim'
+
 runls() {
   if hash lsd 2>/dev/null; then
       lsd -la --group-dirs=first "$@"

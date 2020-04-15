@@ -66,8 +66,9 @@ sudo pacman -S --noconfirm git tig
 
 # System tools
 sudo pacman -S --noconfirm tree
+yay -S --noconfirm direnv
 # sudo pacman -S --noconfirm ctags
-# yay -S --noconfirm direnv peco pet-bin
+# yay -S --noconfirm peco pet-bin
 
 # Monitoring Tools
 # sudo pacman -S --noconfirm htop powertop
