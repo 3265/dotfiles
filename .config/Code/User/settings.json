@@ -15,6 +15,7 @@
   "editor.selectionHighlight": true,
   // for vim
   "vim.hlsearch": true,
+  "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
@@ -25,6 +26,7 @@
       ]
     }
   ],
+  "vim.foldfix": true,
   "ruby.lint": {
     "reek": true,
     "rubocop": true,
@@ -33,7 +35,6 @@
     "debride": true,
     "ruby-lint": true
   },
-  "vim.useSystemClipboard": true,
   "window.zoomLevel": 0,
   "workbench.tree.indent": 15,
   "explorer.confirmDragAndDrop": false,
