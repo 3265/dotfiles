@@ -163,3 +163,7 @@ mkdir -p ~/.config/Code/User
 ln -s -f ~/dotfiles/.config/Code/User/settings.json ~/.config/Code/User/settings.json
 ln -s -f ~/dotfiles/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
 ln -s -f ~/dotfiles/.config/Code/User/extensions.json ~/.config/Code/User/extensions.json
+
+# Alacritty
+mkdir -p ~/.local/share/applications
+ln -s -f ~/dotfiles/.local/share/applications/alacritty.desktop ~/.local/share/applications/alacritty.desktop
