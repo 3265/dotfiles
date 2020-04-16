@@ -1,4 +1,7 @@
 ! NOTE:
+! I assumed this file will be load by ~/.xinitrc
+
+! NOTE:
 !  - Comment out coz /etc/default/keyboard is better to disable capslock
 !  - and  etxkbmap is modern according to the site below
 !  - ref https://askubuntu.com/questions/29603/how-do-i-clear-xmodmap-settings
@@ -10,7 +13,6 @@
 keycode 134 = Print
 
 ! because of bug of RALT
-! http://haraita9283.blog98.fc2.com/blog-entry-273.html
-
+! see manual
 remove mod5 = ISO_Level3_Shift
 keycode 108 = Alt_R

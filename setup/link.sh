@@ -25,7 +25,7 @@ ln -s -f ~/dotfiles/.aliases ~/.aliases
 ln -s -f ~/dotfiles/.xbindkeysrc ~/.xbindkeysrc
 
 # Keymap
-ln -s -f ~/dotfiles/.xmodmap ~/.xmodmap
+ln -s -f ~/dotfiles/.Xmodmap ~/.Xmodmap
 
 # Launcher
 mkdir -p ~/.config/rofi
