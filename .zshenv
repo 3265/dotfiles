@@ -25,7 +25,7 @@ bashcompinit
 # General Settings
 # ------------------------------
 
-export EDITOR=vim
+export EDITOR=nvim
 export PAGER=less
 export KCODE=u          # KCODEにUTF-8を設定
 export AUTOFEATURE=true # autotestでfeatureを動かす
