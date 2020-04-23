@@ -103,6 +103,7 @@ sudo pacman -S --noconfirm neofetch
 # yay -S --noconfirm vimpc-git
 
 # Language
+pacman -S libffi # i was needed this
 yay -S --noconfirm pyenv
 yay -S --noconfirm pyenv-virtualenv # to use pyenv virtualenv cmd
 sudo pacman -S --noconfirm python-pipenv
