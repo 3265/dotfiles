@@ -99,7 +99,7 @@
   autoCRLF = false
   safecrlf = true
   excludesfile = ~/.gitignore
-  editor = vim
+  editor = nvim
   quotepath = false # git status 日本語文字化けのため
 [merge]
   tool = vimdiff
