@@ -11,6 +11,14 @@ $ pacman -V
                          the terms of the GNU General Public License.
 ```
 
+# Choose JP server
+
+```diff
+[core]
+Server = ftp://ftp.jaist.ac.jp/pub/Linux/ArchLinux/core/os/$arch
+Include = /etc/pacman.d/mirrorlist
+```
+
 # Update mirrorlist
 
 ```
@@ -66,5 +74,11 @@ $ yay -Syu
 $ sudo rm /var/lib/pacman/db.lck
 ```
 
+
+# lbffi.so.6: cannot open shared object file: No Such file ...
+
+```
+sudo ln -sf /usr/lib/libffi.so.7 /usr/lib/libffi.so.6
+```
 
 
