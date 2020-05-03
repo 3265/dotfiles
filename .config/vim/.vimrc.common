@@ -41,7 +41,7 @@ set colorcolumn=100 " 100行目にラインをいれる
 set t_vb= " ピープ音を消す
 set novisualbell " ビジュアルベルの無効化
 set list " 不可視文字の可視化
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:« ",nbsp:%
+" set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:« ",nbsp:%
 set t_Co=256 " 256色
 set background=dark " 背景色
 " 全角スペース可視化
