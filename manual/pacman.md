@@ -81,4 +81,5 @@ $ sudo rm /var/lib/pacman/db.lck
 sudo ln -sf /usr/lib/libffi.so.7 /usr/lib/libffi.so.6
 ```
 
-
+# Trouble Shooting
+- https://forum.manjaro.org/t/manjaro-gnome-settings-18-0-and-manjaro-gnome-settings-17-0-are-in-conflict/63701/5
