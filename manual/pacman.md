@@ -11,14 +11,6 @@ $ pacman -V
                          the terms of the GNU General Public License.
 ```
 
-# Choose JP server
-
-```diff
-[core]
-Server = ftp://ftp.jaist.ac.jp/pub/Linux/ArchLinux/core/os/$arch
-Include = /etc/pacman.d/mirrorlist
-```
-
 # Update mirrorlist
 
 ```
@@ -66,6 +58,13 @@ $ sudo pacman -Syyu
 ```
 $ yay -Syu
 ```
+
+# Remove Package with unused dependencies
+
+```
+$ sudo pacman -Rs $pkg
+```
+
 
 # How to fix “unable to lock database” error 
 
