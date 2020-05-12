@@ -97,6 +97,7 @@ yay -S --noconfirm ttf-ms-fonts # for MS office
 # yay -S --noconfirm mdp # markdown presentation tool.
 # sudo pacman -S --noconfirm asciinema # screen reader
 sudo pacman -S --noconfirm neofetch
+yay -S --noconfirm mdbook
 
 # Music player
 # sudo pacman -S --noconfirm mpd
@@ -113,5 +114,4 @@ yay -S --noconfirm nvm
 # sudo pacman -S --noconfirm yarn # for COC.nvim
 yay -S --noconfirm rbenv
 yay -S --noconfirm tfenv
-# cargo install mdbook
 # sudo pacman -S --noconfirm hugo
