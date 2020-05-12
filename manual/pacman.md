@@ -26,7 +26,7 @@ $ sudo pacman-mirrors --fasttrack 10
 # Use only Japan Server
 
 ```
-$ sudo pacman-mirrors --country
+$ sudo pacman-mirrors --country Japan
 
 ::INFO Downloading mirrors from repo.manjaro.org
 ::INFO User generated mirror list
