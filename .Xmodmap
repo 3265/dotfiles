@@ -10,6 +10,7 @@
 ! add Control = Control_L
 
 ! For HHKB
+remove mod4 = Super_R
 keycode 134 = Print
 
 ! because of bug of RALT
