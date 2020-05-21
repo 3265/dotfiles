@@ -34,7 +34,10 @@ sudo pacman -S --noconfirm fzf
 # sudo pacman -S --noconfirm highlight # source code highlight
 # yay -S --noconfirm python-pdftotext # pdf viewer
 # sudo pacman -S --noconfirm w3m # Image viewer
-sudo pacman -S --noconfirm atool # archive manager
+
+# archive manager
+sudo pacman -S --noconfirm atool
+sudo pacman -S unarchiver # Shift-JIS(932)のunzipが対応可能なunzipper
 
 # Terminal multiplexer
 # NOTE: xsel is for yank in tmux
