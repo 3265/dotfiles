@@ -4,6 +4,7 @@ make ssh key
 $ mkdir ~/.ssh/
 $ cd ~/.ssh/ 
 $ ssh-keygen -t rsa
+$ ssh-keygen -t rsa -f id_xxx_rsa # with file name
 ```
 
 update config
