@@ -52,6 +52,7 @@ yay -S --noconfirm vnote-bin
 yay -S --noconfirm postman-bin
 yay -S --noconfirm appimagelauncher # for appImage
 sudo pacman -S --noconfirm gimp
+sudo pacman -S --noconfirm graphviz # for dot file
 # sudo pacman -S --noconfirm wireshark-qt
 # yay -S --noconfirm panoply # HDF5 Viewer
 # sudo pacman -S --noconfirm poedit
