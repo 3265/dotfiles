@@ -1,5 +1,6 @@
 SETUP_DIR = ~/dotfiles/setup
 
+.PHONY: run
 .ONESHELL:
 run:
 	cd $(SETUP_DIR)
