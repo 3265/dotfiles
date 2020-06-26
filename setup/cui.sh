@@ -87,6 +87,7 @@ yay -S --noconfirm ngrok
 # Cloud CLI
 yay -S --noconfirm git-secrets
 sudo pacman -S --noconfirm aws-cli
+yay -S --noconfirm aws-ecs-cli
 yay -S --noconfirm google-cloud-sdk
 
 # Font
