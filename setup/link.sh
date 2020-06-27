@@ -113,9 +113,17 @@ ln -s -f ~/dotfiles/.config/redshift.conf ~/.config/redshift.conf
 # DB
 ln -s -f ~/dotfiles/.my.cnf ~/.my.cnf
 
+# GTK-2.0
+mkdir -p ~/.config/gtk-2.0
+ln -s -f ~/dotfiles/.config/gtk-2.0/gtkfilechooser.ini ~/.config/gtk-2.0/gtkfilechooser.ini
+
 # GTK-3.0(for chromium)
 mkdir -p ~/.config/gtk-3.0
-ln -s -f ~/dotfiles/.config/gtk-3.0//settings.ini ~/.config/gtk-3.0/settings.ini
+ln -s -f ~/dotfiles/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
+
+# GTK-4.0
+mkdir -p ~/.config/gtk-4.0
+ln -s -f ~/dotfiles/.config/gtk-4.0/settings.ini ~/.config/gtk-4.0/settings.ini
 
 # peco
 mkdir -p ~/.config/peco
