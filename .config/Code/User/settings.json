@@ -1,4 +1,5 @@
 {
+  "files.insertFinalNewline": true,
   "extensions.autoUpdate": false,
   "eslint.enable": true,
   "editor.rulers": [
@@ -35,13 +36,14 @@
     "debride": true,
     "ruby-lint": true
   },
-  "window.zoomLevel": 2,
+  "window.zoomLevel": 1,
   "workbench.tree.indent": 15,
   "explorer.confirmDragAndDrop": false,
   "[markdown]": {
     "files.trimTrailingWhitespace": false,
   },
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
   "[javascript]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -58,18 +60,26 @@
   //                  Python
   // ##########################################
   // Python Venv
-   "python.venvPath": ".venv",
-   "python.pythonPath": ".venv/bin/python",
+  "python.venvPath": ".venv",
   // Python typechecker
   "python.linting.mypyEnabled": true,
   // Python linter
   "python.linting.pylintEnabled": false, // not use pylint
   "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": [
+      "--max-line-length=120",
+      "--max-complexity","20"
+  ],
   "python.linting.lintOnSave": true,
-  // Python Formatter
-  "python.formatting.provider": "black",
   "[python]": {
     "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": true // runs Isort automatically upon saving your document
+      }
   },
-  "javascript.updateImportsOnFileMove.enabled": "always"
+  "python.formatting.provider": "autopep8",
+  "python.formatting.autopep8Args": [
+      "--aggressive",
+      "--aggressive",
+  ],
 }
