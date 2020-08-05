@@ -2,9 +2,7 @@
   "files.insertFinalNewline": true,
   "extensions.autoUpdate": false,
   "eslint.enable": true,
-  "editor.rulers": [
-    100
-  ],
+  "editor.rulers": [100],
   "editor.fontSize": 10,
   "javascript.validate.enable": false,
   "workbench.colorTheme": "Solarized Dark",
@@ -19,12 +17,8 @@
   "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "<C-n>"
-      ],
-      "commands": [
-        ":nohl"
-      ]
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
     }
   ],
   "vim.foldfix": true,
@@ -40,7 +34,7 @@
   "workbench.tree.indent": 15,
   "explorer.confirmDragAndDrop": false,
   "[markdown]": {
-    "files.trimTrailingWhitespace": false,
+    "files.trimTrailingWhitespace": false
   },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
@@ -48,13 +42,26 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[typescript]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[typescriptreact]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.disableLanguages": ["html"],
+  "emmet.includeLanguages": {"django-html": "html"},
+  // "files.associations": {
+  //     "*.html": "html"
+  // },
+  "[html]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[django-html]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
   },
   // ##########################################
   //                  Python
@@ -67,19 +74,17 @@
   "python.linting.pylintEnabled": false, // not use pylint
   "python.linting.flake8Enabled": true,
   "python.linting.flake8Args": [
-      "--max-line-length=120",
-      "--max-complexity","20"
+    "--max-line-length=120",
+    "--max-complexity",
+    "20"
   ],
   "python.linting.lintOnSave": true,
   "[python]": {
     "editor.formatOnSave": true,
-      "editor.codeActionsOnSave": {
-        "source.organizeImports": true // runs Isort automatically upon saving your document
-      }
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true // runs Isort automatically upon saving your document
+    }
   },
   "python.formatting.provider": "autopep8",
-  "python.formatting.autopep8Args": [
-      "--aggressive",
-      "--aggressive",
-  ],
+  "python.formatting.autopep8Args": ["--aggressive", "--aggressive"]
 }
