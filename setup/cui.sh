@@ -38,7 +38,7 @@ sudo pacman -S --noconfirm fzf
 
 # archive manager
 sudo pacman -S --noconfirm atool
-sudo pacman -S unarchiver # Shift-JIS(932)のunzipが対応可能なunzipper
+sudo pacman -S unarchiver # Shift-JIS(932)のunzipが対応可能なunzipper. ex) unar xxx.zip
 
 # Terminal multiplexer
 # NOTE: xsel is for yank in tmux
