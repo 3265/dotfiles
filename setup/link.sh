@@ -155,6 +155,9 @@ ln -s -f ~/dotfiles/.config/coc/extensions/package.json ~/.config/coc/extensions
 # pep8
 ln -s -f ~/dotfiles/.config/pep8 ~/.config/pep8
 
+# zoom
+ln -s -f ~/dotfiles/.config/zoomus.conf ~/.config/zoomus.conf
+
 # JS
 ln -s -f ~/dotfiles/.npmrc ~/.npmrc
 # ln -s -f ~/dotfiles/.tern-config ~/.tern-config
