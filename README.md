@@ -2,6 +2,7 @@
 
 1. install manjaro gnome 3
 1. gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']" 
+1. gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 1. EDITOR=vi sudoedit /etc/pacman.d/mirrorlist
 1. sudo pacman -S base-devel
 1. sudo pacman -Syu --noconfirm
