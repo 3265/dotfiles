@@ -89,6 +89,5 @@
   "python.formatting.autopep8Args": [
     "--aggressive",
     "--aggressive"
-  ],
-  "files.autoSave": "afterDelay"
+  ]
 }
