@@ -178,3 +178,7 @@ ln -s -f ~/dotfiles/.config/Code/User/extensions.json ~/.config/Code/User/extens
 # Alacritty
 mkdir -p ~/.local/share/applications
 ln -s -f ~/dotfiles/.local/share/applications/alacritty.desktop ~/.local/share/applications/alacritty.desktop
+
+# RStudio
+mkdir -p ~/.config/rstudio/
+ln -s -f ~/dotfiles/.config/rstudio/rstudio-prefs.json ~/.config/rstudio/rstudio-prefs.json
