@@ -113,10 +113,13 @@ pacman -S libffi # i was needed this
 yay -S --noconfirm pyenv
 yay -S --noconfirm pyenv-virtualenv # to use pyenv virtualenv cmd
 sudo pacman -S --noconfirm python-pipenv
+sudo pacman -S --noconfirm r
+yay -S --noconfirm rstudio
 # sudo pacman -S rust
-# sudo pacman -S --noconfirm jdk8-openjdk
 yay -S --noconfirm nvm
 # sudo pacman -S --noconfirm yarn # for COC.nvim
-yay -S --noconfirm rbenv
-yay -S --noconfirm tfenv
+# yay -S --noconfirm rbenv
+# yay -S --noconfirm tfenv
 # sudo pacman -S --noconfirm hugo
+# sudo pacman -S --noconfirm jdk8-openjdk
+# sudo pacman -S --noconfirm maven # for java
