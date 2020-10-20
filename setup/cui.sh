@@ -115,7 +115,8 @@ yay -S --noconfirm pyenv-virtualenv # to use pyenv virtualenv cmd
 sudo pacman -S --noconfirm python-pipenv
 sudo pacman -S --noconfirm r
 yay -S --noconfirm rstudio
-# sudo pacman -S rust
+sudo pacman -S rust
+cargo install fastmod # instead of codemod
 yay -S --noconfirm nvm
 # sudo pacman -S --noconfirm yarn # for COC.nvim
 # yay -S --noconfirm rbenv
