@@ -21,3 +21,4 @@
 id_rsa
 tmp
 old
+*.ipynb
