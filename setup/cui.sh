@@ -60,6 +60,7 @@ sudo pacman -S --noconfirm docker docker-compose
 
 # VCS
 sudo pacman -S --noconfirm git tig
+snap install --classic dvc # yayからだとエラーだったので
 
 # Todo Manager
 # sudo pacman -S --noconfirm task
