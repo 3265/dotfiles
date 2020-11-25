@@ -22,6 +22,11 @@
     }
   ],
   "vim.foldfix": true,
+  // ##########################################
+  //          Transparent setting
+  //         need to install wmctrl
+  // ##########################################
+  "glassit-linux.opacity": 90,
   "ruby.lint": {
     "reek": true,
     "rubocop": true,
@@ -30,7 +35,7 @@
     "debride": true,
     "ruby-lint": true
   },
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 2,
   "workbench.tree.indent": 15,
   "explorer.confirmDragAndDrop": false,
   "[markdown]": {
@@ -52,8 +57,8 @@
   //     "*.html": "html"
   // },
   "[html]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "vscode.html-language-features"
+     "editor.formatOnSave": true,
+     "editor.defaultFormatter": "vscode.html-language-features"
   },
   "[django-html]": {
     "editor.formatOnSave": true,
@@ -89,5 +94,11 @@
   "python.formatting.autopep8Args": [
     "--aggressive",
     "--aggressive"
+  ],
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
   ]
 }

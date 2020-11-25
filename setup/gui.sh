@@ -47,6 +47,7 @@ sudo pacman -S --noconfirm deja-dup
 # yay -S --noconfirm megasync
 
 # Editor & dev tool
+sudo pacman -S --noconfirm wmctrl # for GlassIt Linux
 yay -S --noconfirm visual-studio-code-bin
 yay -S --noconfirm vnote-bin
 yay -S --noconfirm postman-bin
