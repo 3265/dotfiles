@@ -90,7 +90,8 @@
       "source.organizeImports": true // runs Isort automatically upon saving your document
     }
   },
-  "python.formatting.provider": "autopep8",
+  // "python.formatting.provider": "autopep8",
+  "python.formatting.provider": "black",
   "python.formatting.autopep8Args": [
     "--aggressive",
     "--aggressive"
