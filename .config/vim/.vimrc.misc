@@ -33,3 +33,6 @@ let g:quickrun_config.python = {'command' : 'python3'}
 
 
 
+" https://stackoverflow.com/questions/10590165/is-there-a-way-in-vim-to-make-w-to-do-the-same-thing-as-w
+command! -bang -range=% -complete=file -nargs=* W <line1>,<line2>write<bang> <args>
+command! -bang Q quit<bang>
