@@ -4,3 +4,10 @@ set number
 command! -bang -range=% -complete=file -nargs=* W <line1>,<line2>write<bang> <args>
 command! -bang Q quit<bang>
 
+
+" https://vi.stackexchange.com/questions/13034/automatic-whitespace-in-python
+" ---- Minimal configuration:
+set smartindent   " Do smart autoindenting when starting a new line
+set shiftwidth=4  " Set number of spaces per auto indentation
+set expandtab     " When using <Tab>, put spaces instead of a <tab> character
+
