@@ -11,7 +11,7 @@ sudo pacman -S --noconfirm alacritty
 # IME
 # see manual
 sudo pacman -S --noconfirm fcitx fcitx-mozc fcitx-configtool
-sudo pacman -S --noconfirm fcitx-im 
+sudo pacman -S --noconfirm fcitx-im
 # sudo pacman -S fcitx-gtk2 fcitx-gtk3 fcitx-qt5
 # yay -S fcitx-qt4
 
@@ -66,7 +66,7 @@ sudo pacman -S --noconfirm gparted
 # yay -S --noconfirm spotify
 # sudo pacman -S --noconfirm thunderbird
 sudo pacman -S --noconfirm goldendict
-yay -S --noconfirm zotero
+# yay -S --noconfirm zotero
 sudo pacman -S --noconfirm simplescreenrecorder
 # yay -S mendeleydesktop
 
