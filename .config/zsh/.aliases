@@ -29,6 +29,8 @@ alias x='ex'
 alias y='yes'
 alias z='zsh'
 
+alias zen='python -m this'
+
 alias vim='nvim'
 
 runls() {
