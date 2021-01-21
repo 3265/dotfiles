@@ -3,40 +3,40 @@
 # mkdir -p ~/.config/memo
 
 # Bash
-ln -s -f ~/dotfiles/.bashrc ~/.bashrc
-ln -s -f ~/dotfiles/.bashenv ~/.bashenv
-ln -s -f ~/dotfiles/.bash_profile ~/.bash_profile
-ln -s -f ~/dotfiles/.inputrc ~/.inputrc
+ln -s -f ~/dotfiles/.config/bash/.bashrc ~/.bashrc
+ln -s -f ~/dotfiles/.config/bash/.bashenv ~/.bashenv
+ln -s -f ~/dotfiles/.config/bash/.bash_profile ~/.bash_profile
+ln -s -f ~/dotfiles/.config/bash/.inputrc ~/.inputrc
 # ln -s -f ~/dotfiles/.xinitrc ~/.xinitrc
-ln -s -f ~/dotfiles/.xprofile ~/.xprofile
-ln -s -f ~/dotfiles/.netrc ~/.netrc
+ln -s -f ~/dotfiles/.config/x/.xprofile ~/.xprofile
+ln -s -f ~/dotfiles/.config/net/.netrc ~/.netrc
 
 # ZSH
-ln -s -f ~/dotfiles/.zshrc ~/.zshrc
-ln -s -f ~/dotfiles/.zshenv ~/.zshenv
+ln -s -f ~/dotfiles/.config/zsh/.zshrc ~/.zshrc
+ln -s -f ~/dotfiles/.config/zsh/.zshenv ~/.zshenv
 
 # Alias
-ln -s -f ~/dotfiles/.aliases ~/.aliases
+ln -s -f ~/dotfiles/.config/zsh/.aliases ~/.aliases
 
 # IME
 # ln -s -f ~/dotfiles/.xinputrc ~/.xinputrc
 
 # Additional Shortcut Key
-ln -s -f ~/dotfiles/.xbindkeysrc ~/.xbindkeysrc
+ln -s -f ~/dotfiles/.config/xbindkeys/.xbindkeysrc ~/.xbindkeysrc
 
 # Keymap
-ln -s -f ~/dotfiles/.Xmodmap ~/.Xmodmap
+ln -s -f ~/dotfiles/.config/xmodmap/.Xmodmap ~/.Xmodmap
 
 # Launcher
 mkdir -p ~/.config/rofi
 ln -s -f ~/dotfiles/.config/rofi/config ~/.config/rofi/config
 
 # VIM
-ln -s -f ~/dotfiles/.vimrc ~/.vimrc
+ln -s -f ~/dotfiles/.config/vim/.vimrc_simple ~/.vimrc
 
 # NVIM
 mkdir -p ~/.config/nvim
-ln -s -f ~/dotfiles/.vimrc ~/.config/nvim/init.vim
+ln -s -f ~/dotfiles/.config/vim/.vimrc_simple ~/.config/nvim/init.vim
 
 # VIM & NVIM PKG
 mkdir -p ~/.vim/
@@ -68,17 +68,17 @@ mkdir -p ~/.config/mpd
 ln -s -f ~/dotfiles/.config/mpd/mpd.conf ~/.config/mpd/mpd.conf
 
 # Terminal multiplexer
-ln -s -f ~/dotfiles/.screenrc ~/.screenrc
-ln -s -f ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -s -f ~/dotfiles/.config/screen/.screenrc ~/.screenrc
+ln -s -f ~/dotfiles/.config/tmux/.tmux.conf ~/.tmux.conf
 
 # Conky
 mkdir -p ~/.config/conky
 ln -s -f ~/dotfiles/.config/conky/conky.conf ~/.config/conky/conky.conf
 
 # VCS
-ln -s -f ~/dotfiles/.gitconfig ~/.gitconfig
+ln -s -f ~/dotfiles/.config/git/.gitconfig ~/.gitconfig
 ln -s -f ~/dotfiles/.gitignore ~/.gitignore
-ln -s -f ~/dotfiles/.tigrc ~/.tigrc
+ln -s -f ~/dotfiles/.config/tig/.tigrc ~/.tigrc
 
 # bat
 mkdir -p ~/.config/bat
@@ -94,11 +94,11 @@ ln -s -f ~/dotfiles/.config/autostart/fusuma.desktop ~/.config/autostart/fusuma.
 ln -s -f ~/dotfiles/.config/autostart/goldendict.desktop ~/.config/autostart/goldendict.desktop
 
 # Docker
-ln -s -f ~/dotfiles/.dockerignore ~/.dockerignore
+ln -s -f ~/dotfiles/.config/docker/.dockerignore ~/.dockerignore
 # sudo ln -s -f ~/dotfiles/daemon.json /etc/docker/daemon.json # to use experimental future
 
-ln -s -f ~/dotfiles/.agignore ~/.agignore
-ln -s -f ~/dotfiles/.editorconfig ~/.editorconfig
+ln -s -f ~/dotfiles/.config/ag/.agignore ~/.agignore
+ln -s -f ~/dotfiles/.config/editorconfig/.editorconfig ~/.editorconfig
 # ln -s -f ~/dotfiles/config.toml ~/.config/memo/config.toml
 
 # see https://askubuntu.com/questions/302736/solarized-color-name-not-defined
@@ -111,7 +111,7 @@ ln -s -f ~/dotfiles/.config/compton.conf ~/.config/compton.conf
 ln -s -f ~/dotfiles/.config/redshift.conf ~/.config/redshift.conf
 
 # DB
-ln -s -f ~/dotfiles/.my.cnf ~/.my.cnf
+ln -s -f ~/dotfiles/.config/mysql/.my.cnf ~/.my.cnf
 
 # GTK-2.0
 mkdir -p ~/.config/gtk-2.0
@@ -159,11 +159,11 @@ ln -s -f ~/dotfiles/.config/pep8 ~/.config/pep8
 ln -s -f ~/dotfiles/.config/zoomus.conf ~/.config/zoomus.conf
 
 # JS
-ln -s -f ~/dotfiles/.npmrc ~/.npmrc
+ln -s -f ~/dotfiles/.config/npm/.npmrc ~/.npmrc
 # ln -s -f ~/dotfiles/.tern-config ~/.tern-config
 
 # Ruby
-ln -s -f ~/dotfiles/.gemrc ~/.gemrc
+ln -s -f ~/dotfiles/.config/gem/.gemrc ~/.gemrc
 
 # vnote
 mkdir -p ~/.config/vnote

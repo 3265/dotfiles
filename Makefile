@@ -6,12 +6,12 @@ link:
 	cd $(SETUP_DIR)
 	bash ./link.sh
 
-.PHONY: install
+.PHONY: arch_install
 .ONESHELL:
-install:
+arch_install:
 	cd $(SETUP_DIR)
-	bash ./cui.sh
-	bash ./gui.sh
+	bash ./arch_cui.sh
+	bash ./arch_gui.sh
 
 .PHONY: terminal
 .ONESHELL:
@@ -26,7 +26,7 @@ terminal:
 	reboot
 
 .PHONY: arch
-arch: link install terminal
+arch: link arch_install terminal
 
 .PHONY: link_deb
 .ONESHELL:
