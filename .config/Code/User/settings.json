@@ -96,10 +96,5 @@
     "--aggressive",
     "--aggressive"
   ],
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ]
+  "workbench.editorAssociations": []
 }
