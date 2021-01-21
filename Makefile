@@ -28,5 +28,17 @@ terminal:
 .PHONY: arch
 arch: link install terminal
 
+.PHONY: link_deb
+.ONESHELL:
+link_deb:
+	cd $(SETUP_DIR)
+	bash ./link_deb.sh
+
+.PHONY: install_deb
+.ONESHELL:
+install_deb:
+	cd $(SETUP_DIR)
+	bash ./cui_deb.sh
+
 .PHONY: deb
-deb: link terminal
+deb: link_deb install_deb
