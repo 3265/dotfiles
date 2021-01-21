@@ -3,7 +3,7 @@
 # ------------------
 
 # alias
-source ~/dotfiles/.aliases
+source ~/dotfiles/.config/zsh/.aliases
 
 # options
 source ~/dotfiles/.config/zsh/.zshrc.options

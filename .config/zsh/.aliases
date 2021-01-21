@@ -23,15 +23,14 @@ alias r='R'
 alias s='screen'
 alias t='tig' # cui for task
 alias u='du -hs' # directory size
-alias v='nvim'
+alias v='vim'
 alias w='w'
 alias x='ex'
 alias y='yes'
 alias z='zsh'
 
 alias zen='python -m this'
-
-alias vim='nvim'
+alias nvim='vim'
 
 runls() {
   if hash lsd 2>/dev/null; then
