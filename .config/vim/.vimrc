@@ -12,6 +12,8 @@ set shiftwidth=4
 set expandtab
 set smarttab
 
+" Hightlight
+set hlsearch
 noremap <C-n> :nohl<CR>
 vnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>
