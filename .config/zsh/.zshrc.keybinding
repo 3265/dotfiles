@@ -32,7 +32,7 @@ z_fd() {
   zle reset-prompt
 }
 zle -N z_fd
-bindkey '^f' z_fd
+bindkey '^d' z_fd
 
 # Go to parent dir
 function up_dir() {
@@ -42,7 +42,7 @@ function up_dir() {
   zle reset-prompt
 }
 zle -N up_dir
-bindkey '^d' up_dir
+bindkey '^b' up_dir
 
 # Edit file by the name or content
 # Referred to
@@ -74,7 +74,7 @@ ctrlp_or_grep_edit() {
   fi
 }
 zle -N ctrlp_or_grep_edit
-bindkey '^g' ctrlp_or_grep_edit
+bindkey '^f' ctrlp_or_grep_edit
 
 # Execute Cmd from History
 function history_cmd() {
@@ -84,3 +84,12 @@ function history_cmd() {
 }
 zle -N history_cmd
 bindkey '^s' history_cmd
+
+# autojump
+z_faj() {
+  faj;
+  vcs_info # shows git branch
+  zle reset-prompt
+}
+zle -N z_faj
+bindkey '^j' z_faj

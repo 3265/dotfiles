@@ -142,3 +142,5 @@ export PATH=$PATH:~/.cargo/bin/
 # NVM from ARU
 source /usr/share/nvm/init-nvm.sh
 
+# Autojump
+source /usr/share/autojump/autojump.zsh
