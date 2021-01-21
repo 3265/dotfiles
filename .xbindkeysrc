@@ -1,4 +1,4 @@
-"alacritty --title 'Terminal' --working-directory ~"
+"terminator --title="i'll be back""
     m:0x5 + c:36
     Control+Shift + Return
 "rofi -show combi"
