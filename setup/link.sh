@@ -32,11 +32,11 @@ mkdir -p ~/.config/rofi
 ln -s -f ~/dotfiles/.config/rofi/config ~/.config/rofi/config
 
 # VIM
-ln -s -f ~/dotfiles/.config/vim/.vimrc_simple ~/.vimrc
+ln -s -f ~/dotfiles/.config/vim/.vimrc_zen ~/.vimrc
 
 # NVIM
 mkdir -p ~/.config/nvim
-ln -s -f ~/dotfiles/.config/vim/.vimrc_simple ~/.config/nvim/init.vim
+ln -s -f ~/dotfiles/.config/vim/.vimrc_zen ~/.config/nvim/init.vim
 
 # VIM & NVIM PKG
 mkdir -p ~/.vim/
