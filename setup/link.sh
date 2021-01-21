@@ -32,16 +32,16 @@ mkdir -p ~/.config/rofi
 ln -s -f ~/dotfiles/.config/rofi/config ~/.config/rofi/config
 
 # VIM
-ln -s -f ~/dotfiles/.config/vim/.vimrc_zen ~/.vimrc
+ln -s -f ~/dotfiles/.config/vim/.vimrc ~/.vimrc
 
 # NVIM
 mkdir -p ~/.config/nvim
-ln -s -f ~/dotfiles/.config/vim/.vimrc_zen ~/.config/nvim/init.vim
+ln -s -f ~/dotfiles/.config/nvim/.vimrc ~/.config/nvim/init.vim
 
 # VIM & NVIM PKG
 mkdir -p ~/.vim/
-ln -s -f ~/dotfiles/.config/vim/dein.toml ~/.vim/dein.toml
-ln -s -f ~/dotfiles/.config/vim/dein_lazy.toml ~/.vim/dein_lazy.toml
+ln -s -f ~/dotfiles/.config/nvim/dein.toml ~/.vim/dein.toml
+ln -s -f ~/dotfiles/.config/nvim/dein_lazy.toml ~/.vim/dein_lazy.toml
 
 # i3 WM
 mkdir -p ~/.config/i3

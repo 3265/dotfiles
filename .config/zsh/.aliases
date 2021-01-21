@@ -30,7 +30,6 @@ alias y='yes'
 alias z='zsh'
 
 alias zen='python -m this'
-alias nvim='vim'
 
 runls() {
   if hash lsd 2>/dev/null; then
