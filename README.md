@@ -1,5 +1,7 @@
 # dotfiles
 
+Manjaro/Arch
+
 1. install manjaro gnome 3
 1. gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']" 
 1. gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
@@ -9,4 +11,14 @@
 1. sudo pacman -S git make --noconfirm
 1. git clone https://github.com/mgoldchild/dotfiles
 1. cd dotfiles
-1. make
+1. make arch
+
+Ubuntu/Debian
+
+1. install Uubntu gnome 3
+1. gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']" 
+1. gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
+1. sudo apt update
+1. git clone https://github.com/mgoldchild/dotfiles
+1. cd dotfiles
+1. make deb
