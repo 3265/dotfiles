@@ -140,7 +140,8 @@ fi
 export PATH=$PATH:~/.cargo/bin/
 
 # NVM from ARU
-source /usr/share/nvm/init-nvm.sh
+# Too slow this is
+# source /usr/share/nvm/init-nvm.sh
 
 # Autojump
 source /usr/share/autojump/autojump.zsh

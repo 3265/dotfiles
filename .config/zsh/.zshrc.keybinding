@@ -72,6 +72,7 @@ ctrlp_or_grep_edit() {
   else
     grep_edit
   fi
+  zle reset-prompt
 }
 zle -N ctrlp_or_grep_edit
 bindkey '^f' ctrlp_or_grep_edit
@@ -83,7 +84,7 @@ function history_cmd() {
   zle reset-prompt
 }
 zle -N history_cmd
-bindkey '^s' history_cmd
+bindkey '^h' history_cmd
 
 # autojump
 z_faj() {
@@ -93,3 +94,6 @@ z_faj() {
 }
 zle -N z_faj
 bindkey '^j' z_faj
+
+
+# MEMO: c^kとc^uはEmacsバインディングとして使いたい

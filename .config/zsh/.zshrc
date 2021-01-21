@@ -25,4 +25,3 @@ source ~/dotfiles/.config/zsh/.zshrc.function
 
 # plugin
 source ~/dotfiles/.config/zsh/.zshrc.plugin
-
