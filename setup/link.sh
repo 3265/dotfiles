@@ -43,6 +43,10 @@ mkdir -p ~/.vim/
 ln -s -f ~/dotfiles/.config/nvim/dein.toml ~/.vim/dein.toml
 ln -s -f ~/dotfiles/.config/nvim/dein_lazy.toml ~/.vim/dein_lazy.toml
 
+# Terminator 
+mkdir -p ~/.config/terminator
+ln -s -f ~/dotfiles/.config/terminator/config ~/.config/terminator/config
+
 # i3 WM
 mkdir -p ~/.config/i3
 ln -s -f ~/dotfiles/.config/i3/config ~/.config/i3/config
