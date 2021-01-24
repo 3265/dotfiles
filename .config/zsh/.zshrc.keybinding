@@ -79,7 +79,7 @@ bindkey '^f' ctrlp_or_grep_edit
 
 # Execute Cmd from History
 function history_cmd() {
-  echo
+  # TODO: 一回enterおさないとコマンドが表示されていない
   fh;
   zle reset-prompt
 }
