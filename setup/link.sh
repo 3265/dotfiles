@@ -75,6 +75,10 @@ ln -s -f ~/dotfiles/.config/mpd/mpd.conf ~/.config/mpd/mpd.conf
 ln -s -f ~/dotfiles/.config/screen/.screenrc ~/.screenrc
 ln -s -f ~/dotfiles/.config/tmux/.tmux.conf ~/.tmux.conf
 
+# Pip
+mkdir -p ~/.config/pip
+ln -s -f ~/dotfiles/.config/pip/pip.conf ~/.config/pip/pip.conf
+
 # Conky
 mkdir -p ~/.config/conky
 ln -s -f ~/dotfiles/.config/conky/conky.conf ~/.config/conky/conky.conf
