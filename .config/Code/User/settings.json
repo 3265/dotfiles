@@ -12,6 +12,7 @@
   "workbench.editor.enablePreview": false,
   "files.trimTrailingWhitespace": true,
   "editor.selectionHighlight": true,
+  "editor.selectionClipboard": true,
   // for vim
   "vim.hlsearch": true,
   "vim.useSystemClipboard": true,
@@ -35,7 +36,7 @@
     "debride": true,
     "ruby-lint": true
   },
-  "window.zoomLevel": 2,
+  "window.zoomLevel": 1,
   "workbench.tree.indent": 15,
   "explorer.confirmDragAndDrop": false,
   "[markdown]": {
