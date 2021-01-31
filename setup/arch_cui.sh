@@ -9,8 +9,7 @@ sudo pacman -S --noconfirm bash zsh
 # sudo pacman -S --noconfirm mosh parallel translate-shell
 
 # Editor
-sudo pacman -S --noconfirm vim
-# sudo pacman -S --noconfirm gvim # gvim contains many extensions especially i needed +clipboard
+sudo pacman -S --noconfirm gvim # for utilizing +clipboard feature. NOTE: pure vim doesn't contain it.
 sudo pacman -S --noconfirm emacs
 sudo pacman -S --noconfirm neovim python-neovim # with python module
 sudo pacman -S --noconfirm moreutils # just only for vidr

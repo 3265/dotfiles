@@ -18,3 +18,7 @@ noremap <C-n> :nohl<CR>
 vnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>
 
+
+" Copy selected text to clipboard (need to use vim of gvim)
+set clipboard=unnamedplus
+
