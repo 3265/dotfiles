@@ -6,17 +6,17 @@ link:
 	cd $(SETUP_DIR)
 	bash ./link.sh
 
-.PHONY: terminal-core
+.PHONY: term_core
 .ONESHELL:
-terminal-core:
+term_core:
 	cd $(SETUP_DIR)
 	chsh -s /bin/zsh
 	bash ./zsh.sh
 	bash ./vim.sh
 
-.PHONY: terminal-ext
+.PHONY: term_ext
 .ONESHELL:
-terminal-ext:
+term_ext:
 	cd $(SETUP_DIR)
 	bash ./tmux.sh
 	bash ./ranger.sh
@@ -31,14 +31,14 @@ arch_install:
 	bash ./arch_gui.sh
 
 .PHONY: arch
-arch: link arch_install terminal-core terminal-ext
+arch: link arch_install term_core term_ext
 
 .PHONY: deb_install
 .ONESHELL:
 deb_install:
 	cd $(SETUP_DIR)
-	bash ./cui_deb.sh
-	bash ./gui_deb.sh
+	bash ./deb_cui.sh
+	bash ./deb_gui.sh
 
 .PHONY: deb
-deb: link deb_install terminal-core
+deb: link deb_install term_core
