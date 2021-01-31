@@ -9,7 +9,7 @@ Manjaro/Arch
 1. sudo pacman -S base-devel
 1. sudo pacman -Syu --noconfirm
 1. sudo pacman -S git make --noconfirm
-1. git clone https://github.com/mgoldchild/dotfiles
+1. git clone git@github.com:mgoldchild/dotfiles.git
 1. cd dotfiles
 1. make arch
 
@@ -22,3 +22,4 @@ Ubuntu/Debian
 1. git clone https://github.com/mgoldchild/dotfiles
 1. cd dotfiles
 1. make deb
+
