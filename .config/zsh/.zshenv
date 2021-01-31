@@ -158,3 +158,10 @@ fi
 
 # Autojump
 source /usr/share/autojump/autojump.zsh
+
+# Jetson 
+if [ -d /usr/local/cuda-10.2 ] ; then
+  export PATH=/usr/local/cuda-10.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:~/.local/bin
+  export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64:
+fi
+
