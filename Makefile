@@ -6,13 +6,18 @@ link:
 	cd $(SETUP_DIR)
 	bash ./link.sh
 
-.PHONY: terminal
+.PHONY: terminal-core
 .ONESHELL:
-terminal:
+terminal-core:
 	cd $(SETUP_DIR)
 	chsh -s /bin/zsh
 	bash ./zsh.sh
 	bash ./vim.sh
+
+.PHONY: terminal-ext
+.ONESHELL:
+terminal-ext:
+	cd $(SETUP_DIR)
 	bash ./tmux.sh
 	bash ./ranger.sh
 	bash ./fusuma.sh
@@ -26,7 +31,7 @@ arch_install:
 	bash ./arch_gui.sh
 
 .PHONY: arch
-arch: link arch_install terminal
+arch: link arch_install terminal-core terminal-ext
 
 .PHONY: deb_install
 .ONESHELL:
@@ -36,4 +41,4 @@ deb_install:
 	bash ./gui_deb.sh
 
 .PHONY: deb
-deb: link deb_install terminal
+deb: link deb_install terminal-core
