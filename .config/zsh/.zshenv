@@ -141,7 +141,11 @@ export PATH=$PATH:~/.cargo/bin/
 
 # NVM from ARU
 # NOTE: Too slow this is
-source /usr/share/nvm/init-nvm.sh --no-use
+NVM_FILE=/usr/share/nvm/init-nvm.sh
+if [ -f "$NVM_FILE" ]; then
+    source $NVM_FILE --no-use
+fi
+
 
 # Autojump
 source /usr/share/autojump/autojump.zsh
