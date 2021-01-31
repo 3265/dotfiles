@@ -69,7 +69,7 @@ export XDG_CONFIG_HOME=~/.config
 #
 
 # Direnv
-if [ $(which direnv) ]; then
+if type "direnv" > /dev/null; then
   eval "$(direnv hook zsh)"
 fi
 
@@ -84,11 +84,15 @@ fi
 export PATH="$HOME/bin:$PATH"
 
 # JAVA
-export JAVA_HOME=/usr/lib/jvm/default
+if type "java" > /dev/null; then
+  export JAVA_HOME=/usr/lib/jvm/default
+fi
 
 # Ruby Env
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if type "rbenv" > /dev/null; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
 
 # Android
 export ANDROID_HOME=${HOME}/Android/Sdk
@@ -96,16 +100,20 @@ export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 # Golang
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOROOT:$GOPATH:$GOPATH/bin
+if type "go" > /dev/null; then
+  export GOPATH=$HOME/.go
+  export PATH=$PATH:$GOROOT:$GOPATH:$GOPATH/bin
+fi
 
 # ------------------------------
 # Another Settings
 # ------------------------------
 
 # FZF
-export FZF_DEFAULT_OPTS="--bind ctrl-d:page-down,ctrl-u:page-up --reverse --inline-info --prompt='λ> ' --preview 'cat {}'"
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""' # see https://github.com/junegunn/fzf/issues/634
+if type "fzf" > /dev/null; then
+  export FZF_DEFAULT_OPTS="--bind ctrl-d:page-down,ctrl-u:page-up --reverse --inline-info --prompt='λ> ' --preview 'cat {}'"
+  export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""' # see https://github.com/junegunn/fzf/issues/634
+fi
 
 # ------------------------------
 # Auto added
@@ -124,16 +132,18 @@ if [ -f '/home/mike/google-cloud-sdk/path.zsh.inc' ]; then source '/home/mike/go
 if [ -f '/home/mike/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/mike/google-cloud-sdk/completion.zsh.inc'; fi
 
 # perl
-PATH="/home/mike/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/mike/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/mike/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/mike/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/mike/perl5"; export PERL_MM_OPT;
+if type "perl" > /dev/null; then
+  PATH="/home/mike/perl5/bin${PATH:+:${PATH}}"; export PATH;
+  PERL5LIB="/home/mike/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+  PERL_LOCAL_LIB_ROOT="/home/mike/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+  PERL_MB_OPT="--install_base \"/home/mike/perl5\""; export PERL_MB_OPT;
+  PERL_MM_OPT="INSTALL_BASE=/home/mike/perl5"; export PERL_MM_OPT;
+fi
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
+if type "pyenv" > /dev/null; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
 fi
 
@@ -145,7 +155,6 @@ NVM_FILE=/usr/share/nvm/init-nvm.sh
 if [ -f "$NVM_FILE" ]; then
     source $NVM_FILE --no-use
 fi
-
 
 # Autojump
 source /usr/share/autojump/autojump.zsh
