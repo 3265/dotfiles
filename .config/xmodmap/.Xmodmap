@@ -10,10 +10,10 @@
 ! add Control = Control_L
 
 ! For HHKB
-remove mod4 = Super_R
-keycode 134 = Print
+! remove mod4 = Super_R
+! keycode 134 = Print
 
 ! because of bug of RALT
 ! see manual
-remove mod5 = ISO_Level3_Shift
-keycode 108 = Alt_R
+! remove mod5 = ISO_Level3_Shift
+! keycode 108 = Alt_R
