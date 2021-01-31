@@ -18,7 +18,11 @@ ln -s -f ~/dotfiles/.config/zsh/.zshenv ~/.zshenv
 # Alias
 ln -s -f ~/dotfiles/.config/zsh/.aliases ~/.aliases
 
-# IME
+# IME 
+mkdir -p ~/.config/fcitx
+ln -s -f ~/dotfiles/.config/fcitx/config ~/.config/fcitx/config
+
+# xinput
 # ln -s -f ~/dotfiles/.xinputrc ~/.xinputrc
 
 # Additional Shortcut Key
