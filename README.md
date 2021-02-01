@@ -19,6 +19,7 @@ Ubuntu/Debian
 1. gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']" 
 1. gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 1. sudo apt update
+1. sudo apt install git make
 1. git clone https://github.com/mgoldchild/dotfiles
 1. cd dotfiles
 1. make deb
