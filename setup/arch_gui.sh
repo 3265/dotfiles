@@ -80,3 +80,6 @@ yay -S --noconfirm zoom
 
 # For Kindle
 # sudo pacman -S --noconfirm wine
+
+# Live OS writer
+yay -S etcher-bin
