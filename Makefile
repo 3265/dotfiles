@@ -20,7 +20,7 @@ term_ext:
 	cd $(SETUP_DIR)
 	bash ./tmux.sh
 	bash ./ranger.sh
-	bash ./fusuma.sh
+	bash ./arch_fusuma.sh
 	reboot
 
 .PHONY: arch_install
