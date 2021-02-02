@@ -31,9 +31,9 @@ SwitchKey=Custom
 # Custom switch key
 #CustomSwitchKey=
 # Activate input method
-ActivateKey=ALT_RALT
+ActivateKey=ALT_RALT ALT_RALT
 # Inactivate Input Method
-InactivateKey=ALT_LALT
+InactivateKey=ALT_LALT ALT_LALT
 # Enable Hotkey to scroll Between Input Method
 # Available Value:
 # True False
@@ -48,7 +48,7 @@ InactivateKey=ALT_LALT
 # ALT_SHIFT
 # CTRL_SUPER
 # ALT_SUPER
-IMSwitchHotkey=ALT_SHIFT
+#IMSwitchHotkey=CTRL_SHIFT
 # Reload configuration
 #ReloadConfig=CTRL_5
 # Interval of Two Key Input
