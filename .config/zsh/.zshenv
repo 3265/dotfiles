@@ -165,3 +165,5 @@ if [ -d /usr/local/cuda-10.2 ] ; then
   export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64:
 fi
 
+# for pipenv on ubuntu
+export PATH="$HOME/.local/bin:$PATH"
