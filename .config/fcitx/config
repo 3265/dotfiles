@@ -31,9 +31,9 @@ SwitchKey=Custom
 # Custom switch key
 #CustomSwitchKey=
 # Activate input method
-ActivateKey=ALT_RALT ALT_RALT
+ActivateKey=ALT_RALT
 # Inactivate Input Method
-InactivateKey=ALT_LALT ALT_LALT
+InactivateKey=ALT_LALT
 # Enable Hotkey to scroll Between Input Method
 # Available Value:
 # True False
