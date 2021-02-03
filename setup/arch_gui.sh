@@ -9,7 +9,12 @@ sudo pacman -S --noconfirm terminator
 # sudo pacman -S --noconfirm alacritty
 
 # IME
-# see manual
+# 設定は次の通り。
+# - Active Key: RALT
+# - Inactive Key: LALT
+# NOTE:
+# - RALTがGnome 3のAlternate Character Keyとかぶるのでそれを変える必要がある。
+# - これを変更せずに作業するとGUIのフリーズを招くので要注意。
 sudo pacman -S --noconfirm fcitx fcitx-mozc fcitx-configtool
 sudo pacman -S --noconfirm fcitx-im
 # sudo pacman -S fcitx-gtk2 fcitx-gtk3 fcitx-qt5
