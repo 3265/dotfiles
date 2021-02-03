@@ -90,3 +90,6 @@ yay -S --noconfirm zoom
 
 # Live OS writer
 yay -S etcher-bin
+
+# VLC
+sudo pacman -S --noconfirm vlc
