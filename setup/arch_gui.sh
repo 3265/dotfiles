@@ -57,6 +57,8 @@ yay -S --noconfirm visual-studio-code-bin
 yay -S --noconfirm vnote-bin
 yay -S --noconfirm postman-bin
 yay -S --noconfirm appimagelauncher # for appImage
+sudo pacman -S --noconfirm arduino-avr-core
+sudo pacman -S --noconfirm arduino
 sudo pacman -S --noconfirm gimp
 sudo pacman -S --noconfirm graphviz # for dot file
 # sudo pacman -S --noconfirm wireshark-qt
