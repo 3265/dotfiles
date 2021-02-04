@@ -3,11 +3,11 @@
 # Command shortcut
 alias a="ag --hidden --ignore .git"
 alias b='bat'
-alias c='cd'
+alias c='gcc' # as C/C++ Compiler
 alias d='docker'
 alias e='emacs'
 alias se='sudoedit'
-alias f='fuck'
+alias f='dolphin .' # as finder
 alias g='git'
 alias h='history'
 alias i="whoami"
@@ -15,7 +15,7 @@ alias i="whoami"
 alias k='kill'
 alias l='runls'
 alias m='. ranger' # https://github.com/ranger/ranger/wiki/Integration-with-other-programs#changing-directories
-alias n='nautilus'
+alias n='node'
 alias o='xdg-open'
 alias p='python'
 alias q='exit'
