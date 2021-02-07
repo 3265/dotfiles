@@ -4,6 +4,7 @@ sudo apt install -y fzf
 sudo apt install -y xsel # for copy command
 sudo apt install -y autojump
 sudo apt install -y exa
+sudo apt install -y caffeine
 
 
 # NOTE:

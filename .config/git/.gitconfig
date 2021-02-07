@@ -116,4 +116,4 @@
 [pull]
   ff = only # if FF is possible then it will execute
 [commit]
-	gpgsign = true
+	# gpgsign = true
