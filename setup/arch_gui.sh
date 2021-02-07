@@ -55,7 +55,7 @@ sudo pacman -S --noconfirm deja-dup
 # Editor & dev tool
 sudo pacman -S --noconfirm wmctrl # for GlassIt Linux
 yay -S --noconfirm visual-studio-code-bin
-yay -S --noconfirm vnote-bin
+# yay -S --noconfirm vnote-bin
 yay -S --noconfirm postman-bin
 yay -S --noconfirm appimagelauncher # for appImage
 sudo pacman -S --noconfirm arduino-avr-core
