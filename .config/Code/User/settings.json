@@ -79,6 +79,7 @@
   // Python linter
   "python.linting.pylintEnabled": false, // not use pylint
   "python.linting.flake8Enabled": true,
+  "python.linting.blackEnabled": true,
   "python.linting.flake8Args": [
     "--max-line-length=120",
     "--max-complexity",
@@ -92,10 +93,11 @@
     }
   },
   // "python.formatting.provider": "autopep8",
-  "python.formatting.provider": "black",
   "python.formatting.autopep8Args": [
     "--aggressive",
     "--aggressive"
   ],
-  "workbench.editorAssociations": []
+  "python.formatting.provider": "black",
+  "workbench.editorAssociations": [],
+  "editor.formatOnSave": true
 }
