@@ -3,7 +3,7 @@
 # Command shortcut
 alias a="ag --hidden --ignore .git"
 alias b='bat'
-alias c='gcc' # as C/C++ Compiler
+alias c='code'
 alias d='docker'
 alias e='emacs'
 alias se='sudoedit'
