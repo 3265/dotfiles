@@ -5,7 +5,7 @@ sudo apt install -y xsel # for copy command
 sudo apt install -y autojump
 sudo apt install -y exa
 sudo apt install -y caffeine
-
+sudo apt install -y direnv
 
 # NOTE:
 # - way to install fzf on jetson agx xavier.
