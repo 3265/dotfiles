@@ -1,4 +1,4 @@
-"terminator --title="i'll be back""
+"konsole"
     m:0x5 + c:36
     Control+Shift + Return
 "rofi -show combi"
