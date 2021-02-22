@@ -71,6 +71,7 @@ sudo pacman -S --noconfirm graphviz # for dot file
 
 # Others
 sudo pacman -S --noconfirm gparted
+sudo pacman -S --noconfirm filelight
 # sudo pacman -S --noconfirm xpad
 # sudo pacman -S --noconfirm xsensors
 # yay -S --noconfirm spotify
