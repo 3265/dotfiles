@@ -40,6 +40,7 @@ yay -S --noconfirm gnome-shell-extension-system-monitor-git
 # sudo pacman -S --noconfirm pcmanfm # it's ok only nautilus
 # sudo pacman -S --noconfirm filezilla
 sudo pacman -S --noconfirm dolphin
+sudo pacman -S konsole # for dolphin
 
 # Browser
 # sudo pacman -S --noconfirm chromium
