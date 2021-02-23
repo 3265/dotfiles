@@ -187,9 +187,6 @@ ln -s -f ~/dotfiles/.config/Code/User/settings.json ~/.config/Code/User/settings
 ln -s -f ~/dotfiles/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
 ln -s -f ~/dotfiles/.config/Code/User/extensions.json ~/.config/Code/User/extensions.json
 
-# Alacritty
-mkdir -p ~/.local/share/applications
-ln -s -f ~/dotfiles/.local/share/applications/alacritty.desktop ~/.local/share/applications/alacritty.desktop
 
 # RStudio
 mkdir -p ~/.config/rstudio/
@@ -198,3 +195,14 @@ ln -s -f ~/dotfiles/.config/rstudio/rstudio-prefs.json ~/.config/rstudio/rstudio
 # matplotlib
 mkdir -p ~/.config/matplotlib/
 ln -s -f ~/dotfiles/.config/matplotlib/matplotlibrc ~/.config/matplotlib/matplotlibrc 
+
+## .local
+
+# Konsole
+mkdir -p ~/.local/share/konsole
+ln -s -f ~/dotfiles/.local/share/konsole/MyDefault.profile ~/.local/share/konsole/MyDefault.profile
+ln -s -f ~/dotfiles/.local/share/konsole/Solarized.colorscheme ~/.local/share/konsole/Solarized.colorscheme
+
+# Alacritty
+mkdir -p ~/.local/share/applications
+ln -s -f ~/dotfiles/.local/share/applications/alacritty.desktop ~/.local/share/applications/alacritty.desktop
