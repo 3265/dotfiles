@@ -10,7 +10,7 @@ sudo pacman -S --noconfirm xorg-xmodmap
 sudo pacman -S --noconfirm konsole
 
 # QT Theme changer
-sudo pacman -Syu qt5ct
+sudo pacman -S --noconfirm qt5ct
 
 # IME
 # 設定は次の通り。
