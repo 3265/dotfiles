@@ -9,8 +9,9 @@ sudo pacman -S --noconfirm xorg-xmodmap
 # sudo pacman -S --noconfirm alacritty
 sudo pacman -S --noconfirm konsole
 
-# QT Theme changer
-sudo pacman -S --noconfirm qt5ct
+# QT Theme changer 
+# https://forum.manjaro.org/t/i-cannot-set-dark-theme-on-menu-in-dolphin-manjaro-kde-plasma-with-awesome-wm/49960/5
+sudo pacman -S --noconfirm qt5ct kvantum-qt5
 
 # IME
 # 設定は次の通り。
