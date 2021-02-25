@@ -9,6 +9,9 @@ sudo pacman -S --noconfirm xorg-xmodmap
 # sudo pacman -S --noconfirm alacritty
 sudo pacman -S --noconfirm konsole
 
+# QT Theme changer
+sudo pacman -Syu qt5ct
+
 # IME
 # 設定は次の通り。
 # - Active Key: RALT
