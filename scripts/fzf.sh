@@ -91,7 +91,7 @@ faj() {
 # ga/gd
 # from https://github.com/EfforiaKnight/fizzygit
 
-go() {
+gb() {
   local branches branch
   branches=$(git branch --all | grep -v HEAD) &&
   branch=$(echo "$branches" |
