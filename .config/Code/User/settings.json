@@ -13,6 +13,13 @@
   "files.trimTrailingWhitespace": true,
   "editor.selectionHighlight": true,
   "editor.selectionClipboard": true,
+  // ##########################################
+  //         disable ALT
+  // https://stackoverflow.com/questions/48044429/override-alt-to-toggle-menu-bar-on-vs-code
+  // ##########################################
+  "window.titleBarStyle": "custom",
+  "window.customMenuBarAltFocus": false,
+  "window.enableMenuBarMnemonics": false,
   // for vim
   "vim.hlsearch": true,
   "vim.useSystemClipboard": true,
@@ -36,7 +43,6 @@
     "debride": true,
     "ruby-lint": true
   },
-  "window.zoomLevel": 1,
   "workbench.tree.indent": 15,
   "explorer.confirmDragAndDrop": false,
   "[markdown]": {
