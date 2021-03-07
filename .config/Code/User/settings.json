@@ -20,7 +20,9 @@
   "window.titleBarStyle": "custom",
   "window.customMenuBarAltFocus": false,
   "window.enableMenuBarMnemonics": false,
-  // for vim
+  // ##########################################
+  //         VIM
+  // ##########################################
   "vim.hlsearch": true,
   "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -35,6 +37,9 @@
   //         need to install wmctrl
   // ##########################################
   "glassit-linux.opacity": 90,
+  // ##########################################
+  //         Languages
+  // ##########################################
   "ruby.lint": {
     "reek": true,
     "rubocop": true,
@@ -105,5 +110,6 @@
   ],
   "python.formatting.provider": "black",
   "workbench.editorAssociations": [],
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "editor.renderControlCharacters": true
 }
