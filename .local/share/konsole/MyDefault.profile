@@ -10,7 +10,7 @@ CursorShape=0
 
 [General]
 DimWhenInactive=false
-LocalTabTitleFormat=%w
+LocalTabTitleFormat=%d
 Name=MyDefault
 Parent=FALLBACK/
 

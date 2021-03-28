@@ -111,5 +111,6 @@
   "python.formatting.provider": "black",
   "workbench.editorAssociations": [],
   "editor.formatOnSave": true,
-  "editor.renderControlCharacters": true
+  "editor.renderControlCharacters": true,
+  "window.zoomLevel": 1
 }
