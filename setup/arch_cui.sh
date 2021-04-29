@@ -14,6 +14,9 @@ sudo pacman -S --noconfirm emacs
 sudo pacman -S --noconfirm neovim python-neovim # with python module
 sudo pacman -S --noconfirm moreutils # just only for vidr
 
+# Log navigator
+sudo pacman -S --noconfirm lnav
+
 # Pager
 # sudo pacman -S --noconfirm source-highlight # for less highlight
 sudo pacman -S --noconfirm bat
