@@ -5,7 +5,7 @@
   "editor.rulers": [100],
   "editor.fontSize": 10,
   "javascript.validate.enable": false,
-  "workbench.colorTheme": "Solarized Dark",
+  "workbench.colorTheme": "Monokai",
   "workbench.activityBar.visible": true,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.sideBar.location": "left",
@@ -112,5 +112,5 @@
   "workbench.editorAssociations": [],
   "editor.formatOnSave": true,
   "editor.renderControlCharacters": true,
-  "window.zoomLevel": 1
+  "window.zoomLevel": 2
 }
