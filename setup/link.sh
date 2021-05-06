@@ -202,6 +202,7 @@ ln -s -f ~/dotfiles/.config/matplotlib/matplotlibrc ~/.config/matplotlib/matplot
 mkdir -p ~/.local/share/konsole
 ln -s -f ~/dotfiles/.local/share/konsole/MyDefault.profile ~/.local/share/konsole/MyDefault.profile
 ln -s -f ~/dotfiles/.local/share/konsole/Solarized.colorscheme ~/.local/share/konsole/Solarized.colorscheme
+ln -s -f ~/dotfiles/.local/share/konsole/Monokai.colorscheme ~/.local/share/konsole/Monokai.colorscheme
 
 # Alacritty
 mkdir -p ~/.local/share/applications
