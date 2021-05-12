@@ -4,15 +4,6 @@
     "key": "f9",
     "when": "editorLangId == 'markdown'"
   },
-  // for explorer
-  {
-    "key": "ctrl+e",
-    "command": "workbench.view.explorer"
-  },
-  {
-    "key": "ctrl+e",
-    "command": "workbench.action.toggleSidebarVisibility"
-  },
   // page up/down for vim
   //    {
   //        "key": "ctrl+u",
@@ -24,11 +15,11 @@
   //        "command": "cursorPageDown",
   //        "when": "editorTextFocus"
   //    },
-  // nerdtree like shortcuts
+  // remove keybinding
+  {"key": "ctrl+e", "command": "-workbench.action.quickOpen" },
   {
-    "key": "enter",
-    "command": "-renameFile",
-    "when": "explorerViewletVisible && filesExplorerFocus"
+    "key": "ctrl+k",
+    "command": "",
   },
-}
+]
 

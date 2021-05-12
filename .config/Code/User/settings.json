@@ -1,11 +1,10 @@
 {
   "files.insertFinalNewline": true,
-  "extensions.autoUpdate": false,
+  "extensions.autoUpdate": "onlyEnabledExtensions",
   "eslint.enable": true,
   "editor.rulers": [100],
   "editor.fontSize": 10,
   "javascript.validate.enable": false,
-  "workbench.colorTheme": "Monokai",
   "workbench.activityBar.visible": true,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.sideBar.location": "left",
@@ -109,8 +108,13 @@
     "--aggressive"
   ],
   "python.formatting.provider": "black",
-  "workbench.editorAssociations": [],
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
   "editor.formatOnSave": true,
   "editor.renderControlCharacters": true,
-  "window.zoomLevel": 2
+  "workbench.colorTheme": "Monokai"
 }
