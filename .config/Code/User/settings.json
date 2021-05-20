@@ -116,5 +116,6 @@
   ],
   "editor.formatOnSave": true,
   "editor.renderControlCharacters": true,
-  "workbench.colorTheme": "Monokai"
+  "workbench.colorTheme": "Monokai",
+  "window.zoomLevel": 1
 }
