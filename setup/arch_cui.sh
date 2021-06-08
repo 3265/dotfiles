@@ -127,3 +127,6 @@ yay -S --noconfirm nvm
 # sudo pacman -S --noconfirm hugo
 # sudo pacman -S --noconfirm jdk8-openjdk
 # sudo pacman -S --noconfirm maven # for java
+
+# Database
+yay -S --noconfirm pgcli
