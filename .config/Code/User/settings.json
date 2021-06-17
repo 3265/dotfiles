@@ -108,12 +108,9 @@
     "--aggressive"
   ],
   "python.formatting.provider": "black",
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
   "editor.formatOnSave": true,
   "editor.renderControlCharacters": true,
   "workbench.colorTheme": "Monokai",
