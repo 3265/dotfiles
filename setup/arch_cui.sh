@@ -92,7 +92,8 @@ yay -S --noconfirm ngrok
 yay -S --noconfirm git-secrets
 sudo pacman -S --noconfirm aws-cli
 yay -S --noconfirm aws-ecs-cli
-yay -S --noconfirm google-cloud-sdk
+# GCP: https://cloud.google.com/sdk/docs/quickstart-linux?hl=JA
+# yay -S --noconfirm google-cloud-sdk
 
 # Font
 # ref https://nerdfonts.com/

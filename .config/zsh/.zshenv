@@ -125,6 +125,8 @@ export PATH="/home/mike/anaconda3/bin:$PATH"
 # lunch screen
 export LC_CTYPE=en_US.UTF-8 # NOTE: for prevending bug of gnu screen
 
+export CLOUDSDK_PYTHON=python2
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/mike/google-cloud-sdk/path.zsh.inc' ]; then source '/home/mike/google-cloud-sdk/path.zsh.inc'; fi
 
