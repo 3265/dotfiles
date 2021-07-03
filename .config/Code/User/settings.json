@@ -109,11 +109,15 @@
   ],
   "python.formatting.provider": "black",
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
+    "*.ipynb": "jupyter-notebook"
   },
   "editor.formatOnSave": true,
   "editor.renderControlCharacters": true,
   "workbench.colorTheme": "Monokai",
   "window.zoomLevel": 1,
-  "security.workspace.trust.untrustedFiles": "newWindow"
+  "security.workspace.trust.untrustedFiles": "newWindow",
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  }
 }
