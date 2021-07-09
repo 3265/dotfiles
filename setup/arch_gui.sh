@@ -107,4 +107,5 @@ sudo pacman -S --noconfirm vlc
 yay -S --noconfirm wps-office
 
 # VNC for raspberry-pi
-sudo pacman -S --noconfirm tigernvc
+# sudo pacman -S --noconfirm tigernvc
+yay -S --noconfirm realvnc-vnc-viewer
