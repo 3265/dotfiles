@@ -186,6 +186,8 @@ mkdir -p ~/.config/Code/User
 ln -s -f ~/dotfiles/.config/Code/User/settings.json ~/.config/Code/User/settings.json
 ln -s -f ~/dotfiles/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
 ln -s -f ~/dotfiles/.config/Code/User/extensions.json ~/.config/Code/User/extensions.json
+mkdir -p ~/.vscode/
+ln -s -f ~/dotfiles/.config/vscode/argv.json ~/.vscode/argv.json
 
 
 # RStudio
