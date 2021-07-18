@@ -117,3 +117,5 @@
   ff = only # if FF is possible then it will execute
 [commit]
   gpgsign = true
+[gpg]
+	program = gpg2

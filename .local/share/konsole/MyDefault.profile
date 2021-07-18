@@ -9,6 +9,7 @@ UseFontLineChararacters=false
 CursorShape=0
 
 [General]
+Command=/bin/zsh
 DimWhenInactive=false
 LocalTabTitleFormat=%d
 Name=MyDefault
