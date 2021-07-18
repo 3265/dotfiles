@@ -40,7 +40,7 @@ sudo pacman -S --noconfirm fzf
 
 # archive manager
 sudo pacman -S --noconfirm atool
-sudo pacman -S unarchiver # Shift-JIS(932)のunzipが対応可能なunzipper. ex) unar xxx.zip
+sudo pacman -S --noconfirm unarchiver # Shift-JIS(932)のunzipが対応可能なunzipper. ex) unar xxx.zip
 
 # Terminal multiplexer
 # NOTE: xsel is for yank in tmux
@@ -86,7 +86,7 @@ yay -S --noconfirm direnv
 sudo pacman -S --noconfirm net-tools alsa-utils
 # sudo pacman -S --noconfirm dnsutils # for dig cmd
 # sudo pacman -S --noconfirm nmap whois
-yay -S --noconfirm ngrok
+# yay -S --noconfirm ngrok
 
 # Cloud CLI
 yay -S --noconfirm git-secrets
@@ -119,7 +119,7 @@ yay -S --noconfirm pyenv-virtualenv # to use pyenv virtualenv cmd
 sudo pacman -S --noconfirm python-pipenv
 sudo pacman -S --noconfirm r
 yay -S --noconfirm rstudio
-sudo pacman -S rust
+sudo pacman -S --noconfirm rust
 cargo install fastmod # instead of codemod
 yay -S --noconfirm nvm
 # sudo pacman -S --noconfirm yarn # for COC.nvim
