@@ -54,11 +54,11 @@ odoro
 # yay -S --noconfirm gnome-shell-extension-dash-to-panel
 
 # Browser
-# sudo pacman -S --noconfirm chromium
 yay -S --noconfirm google-chrome
+sudo pacman -S --noconfirm chromium
 # yay -S --noconfirm brave
 # sudo pacman -S --noconfirm firefox
-# sudo pacman -S --noconfirm opera
+sudo pacman -S --noconfirm opera
 yay -S --noconfirm microsoft-edge-dev-bin
 
 # Backup
