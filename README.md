@@ -6,8 +6,8 @@ Manjaro/Arch
 1. gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']" 
 1. gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 1. EDITOR=vi sudoedit /etc/pacman.d/mirrorlist
+1. sudo pacman -Syyu --noconfirm
 1. sudo pacman -S base-devel
-1. sudo pacman -Syu --noconfirm
 1. sudo pacman -S git make --noconfirm
 1. git clone git@github.com:mgoldchild/dotfiles.git
 1. cd dotfiles
