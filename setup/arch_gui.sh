@@ -98,7 +98,7 @@ yay -S --noconfirm zoom
 # sudo pacman -S --noconfirm wine
 
 # Live OS writer
-yay -S etcher-bin
+yay -S --noconfirm etcher-bin
 
 # VLC
 sudo pacman -S --noconfirm vlc
