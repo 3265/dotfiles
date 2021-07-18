@@ -119,5 +119,5 @@
     "default": "right",
     "jupyter-notebook": "left"
   },
-  "window.zoomLevel": 2
+  "editor.accessibilitySupport": "off"
 }
