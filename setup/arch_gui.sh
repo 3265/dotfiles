@@ -57,6 +57,7 @@ sudo pacman -S --noconfirm chromium
 # sudo pacman -S --noconfirm firefox
 sudo pacman -S --noconfirm opera
 yay -S --noconfirm microsoft-edge-dev-bin
+yay -S --noconfirm postman-bin
 
 # Backup
 sudo pacman -S --noconfirm deja-dup
