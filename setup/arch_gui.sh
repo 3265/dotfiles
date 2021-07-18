@@ -47,9 +47,6 @@ sudo pacman -S --noconfirm rofi
 # yay -S --noconfirm gnome-shell-pom# File manager
 # sudo pacman -S --noconfirm pcmanfm # it's ok only nautilus
 # sudo pacman -S --noconfirm filezilla
-sudo pacman -S --noconfirm dolphin
-sudo pacman -S --noconfirm ark # for compression context in dolphine
-odoro
 # yay -S --noconfirm gnome-shell-extension-easyscreencast # I got memory leak from this app maybe...
 # yay -S --noconfirm gnome-shell-extension-dash-to-panel
 
