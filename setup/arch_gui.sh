@@ -9,6 +9,12 @@ sudo pacman -S --noconfirm xorg-xmodmap
 # sudo pacman -S --noconfirm alacritty
 sudo pacman -S --noconfirm konsole
 
+# File manager
+# sudo pacman -S --noconfirm pcmanfm # it's ok only nautilus
+# sudo pacman -S --noconfirm filezilla
+sudo pacman -S --noconfirm dolphin
+sudo pacman -S --noconfirm ark # for compression context in dolphine
+
 # QT Theme changer 
 # https://forum.manjaro.org/t/i-cannot-set-dark-theme-on-menu-in-dolphin-manjaro-kde-plasma-with-awesome-wm/49960/5
 sudo pacman -S --noconfirm qt5ct kvantum-qt5
@@ -30,24 +36,22 @@ sudo pacman -S --noconfirm xbindkeys # For add shortcut of rofi
 sudo pacman -S --noconfirm rofi
 
 # Gnome Tools
-sudo pacman -S --noconfirm gnome-tweaks
+# sudo pacman -S --noconfirm gnome-tweaks
 # yay -S --noconfirm yaru-gtk-theme
 # yay -S --noconfirm yaru-sound-theme
-yay -S --noconfirm gnome-shell-extension-clipboard-indicator-git # clipboard
-yay -S --noconfirm gnome-shell-extension-caffeine-plus-git # caffeine
-yay -S --noconfirm gnome-shell-extension-gsconnect # connect to Android
-yay -S --noconfirm gnome-shell-extension-system-monitor-git
+# yay -S --noconfirm gnome-shell-extension-clipboard-indicator-git # clipboard
+# yay -S --noconfirm gnome-shell-extension-caffeine-plus-git # caffeine
+# yay -S --noconfirm gnome-shell-extension-gsconnect # connect to Android
+# yay -S --noconfirm gnome-shell-extension-system-monitor-git
 # yay -S --noconfirm gnome-shell-extension-unite
-# yay -S --noconfirm gnome-shell-pomodoro
-# yay -S --noconfirm gnome-shell-extension-easyscreencast # I got memory leak from this app maybe...
-yay -S --noconfirm gnome-shell-extension-dash-to-panel
-
-# File manager
+# yay -S --noconfirm gnome-shell-pom# File manager
 # sudo pacman -S --noconfirm pcmanfm # it's ok only nautilus
 # sudo pacman -S --noconfirm filezilla
 sudo pacman -S --noconfirm dolphin
-sudo pacman -S --noconfirm konsole # for dolphin
 sudo pacman -S --noconfirm ark # for compression context in dolphine
+odoro
+# yay -S --noconfirm gnome-shell-extension-easyscreencast # I got memory leak from this app maybe...
+# yay -S --noconfirm gnome-shell-extension-dash-to-panel
 
 # Browser
 # sudo pacman -S --noconfirm chromium
