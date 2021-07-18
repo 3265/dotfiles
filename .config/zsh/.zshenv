@@ -58,7 +58,7 @@ export REPORTTIME=3
 export XDG_CONFIG_HOME=~/.config
 
 # ------------------------------
-# Programming Languager Settings
+# Programming Language Settings
 # ------------------------------
 
 # Anyenv
