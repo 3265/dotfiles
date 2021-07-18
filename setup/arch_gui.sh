@@ -59,6 +59,7 @@ yay -S --noconfirm google-chrome
 # yay -S --noconfirm brave
 # sudo pacman -S --noconfirm firefox
 # sudo pacman -S --noconfirm opera
+yay -S --noconfirm microsoft-edge-dev-bin
 
 # Backup
 sudo pacman -S --noconfirm deja-dup
