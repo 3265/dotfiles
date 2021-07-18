@@ -40,6 +40,7 @@ yay -S --noconfirm gnome-shell-extension-system-monitor-git
 # yay -S --noconfirm gnome-shell-extension-unite
 # yay -S --noconfirm gnome-shell-pomodoro
 # yay -S --noconfirm gnome-shell-extension-easyscreencast # I got memory leak from this app maybe...
+yay -S --noconfirm gnome-shell-extension-dash-to-panel
 
 # File manager
 # sudo pacman -S --noconfirm pcmanfm # it's ok only nautilus

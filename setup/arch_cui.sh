@@ -29,6 +29,7 @@ sudo pacman -S --noconfirm the_silver_searcher
 # sudo pacman -S --noconfirm vifm
 sudo pacman -S --noconfirm ranger
 sudo pacman -S --noconfirm fzf
+yay -S --noconfirm autojump
 
 # Ranger Preview tools
 # NOTE:
