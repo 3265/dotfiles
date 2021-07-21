@@ -92,8 +92,8 @@ sudo pacman -S --noconfirm simplescreenrecorder
 
 # Communication
 yay -S --noconfirm skypeforlinux-stable-bin
-# yay -S --noconfirm slack-desktop
-sudo snap install slack --classic
+yay -S --noconfirm slack-desktop
+# sudo snap install slack --classic # NOTE: fcitx-mozc was not working.`
 yay -S --noconfirm zoom
 # sudo pacman -S --noconfirm telegram-desktop
 # yay -S --noconfirm discord
