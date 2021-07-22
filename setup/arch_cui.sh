@@ -126,7 +126,7 @@ yay -S --noconfirm nvm
 # sudo pacman -S --noconfirm yarn # for COC.nvim
 # yay -S --noconfirm rbenv
 # yay -S --noconfirm tfenv
-# sudo pacman -S --noconfirm hugo
+sudo pacman -S --noconfirm hugo
 # sudo pacman -S --noconfirm jdk8-openjdk
 # sudo pacman -S --noconfirm maven # for java
 
