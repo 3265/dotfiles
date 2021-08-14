@@ -2,7 +2,7 @@
 
 # CC
 sudo pacman -S gcc
-sudo pacman -S clang
+sudo pacman -S clang # https://github.com/pyenv/pyenv/issues/1889#issuecomment-833587851
 
 # package managers
 sudo pacman -S --noconfirm yay
