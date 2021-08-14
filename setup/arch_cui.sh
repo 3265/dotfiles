@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# CC
+sudo pacman -S gcc
+sudo pacman -S clang
+
 # package managers
 sudo pacman -S --noconfirm yay
 yay -S --noconfirm snapd
