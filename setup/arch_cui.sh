@@ -97,6 +97,7 @@ sudo pacman -S --noconfirm net-tools alsa-utils
 yay -S --noconfirm git-secrets
 sudo pacman -S --noconfirm aws-cli
 yay -S --noconfirm aws-ecs-cli
+yay -S --noconfirm aws-sam-cli-bin
 # GCP: https://cloud.google.com/sdk/docs/quickstart-linux?hl=JA
 # yay -S --noconfirm google-cloud-sdk
 
