@@ -30,6 +30,7 @@ alias y='yes'
 alias z='zsh'
 
 alias zen='python -m this'
+alias leet='l33t' # node-1337
 
 runls() {
   if hash lsd 2>/dev/null; then
