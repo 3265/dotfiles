@@ -1,25 +1,7 @@
 [
-  {
-    "command": "markdown.showPreviewToSide",
-    "key": "f9",
-    "when": "editorLangId == 'markdown'"
-  },
-  // page up/down for vim
-  //    {
-  //        "key": "ctrl+u",
-  //        "command": "cursorPageUp",
-  //        "when": "editorTextFocus"
-  //    },
-  //    {
-  //        "key": "ctrl+d",
-  //        "command": "cursorPageDown",
-  //        "when": "editorTextFocus"
-  //    },
-  // remove keybinding
-  {"key": "ctrl+e", "command": "-workbench.action.quickOpen" },
-  {
-    "key": "ctrl+k",
-    "command": "",
-  },
+{ "key": "ctrl+c",   "command": "editor.action.clipboardCopyAction",
+                       "when": "editorTextFocus && !inDebugRepl && vim.mode != 'Insert'" },
+{ "key": "ctrl+v",  "command": "editor.action.clipboardPasteAction",
+                       "when": "editorTextFocus && !inDebugRepl && vim.mode == 'Insert'" },
 ]
 

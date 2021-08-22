@@ -90,6 +90,9 @@ sudo pacman -S --noconfirm goldendict
 sudo pacman -S --noconfirm simplescreenrecorder
 # yay -S mendeleydesktop
 
+# TODO
+yay -S --noconfirm rememberthemilk
+
 # Communication
 yay -S --noconfirm skypeforlinux-stable-bin
 yay -S --noconfirm slack-desktop
