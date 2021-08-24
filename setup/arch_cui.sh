@@ -113,6 +113,7 @@ yay -S --noconfirm ttf-ms-fonts # for MS office
 # sudo pacman -S --noconfirm asciinema # screen reader
 sudo pacman -S --noconfirm neofetch
 yay -S --noconfirm mdbook
+yay -S --noconfirm yank 
 
 # Music player
 # sudo pacman -S --noconfirm mpd
