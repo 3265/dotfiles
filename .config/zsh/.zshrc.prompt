@@ -17,7 +17,6 @@ zle -N zle-keymap-select
 # VCS setting
 precmd () {
   vcs_info
-  # set_py_version
 } # プロンプト表示直前に表示する
 
 # VCS settings
@@ -27,12 +26,6 @@ zstyle ':vcs_info:git:*' stagedstr "%F{green}!" #commit されていないファ
 zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}+" #add されていないファイルがある
 zstyle ':vcs_info:*' formats " %F{cyan}%c%u(%b)%f" #通常
 zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリクト等 formats 外の表示
-
-# Pythonのバージョン表示
-# set_py_version() {
-#     PY_VERSION="Py:"`python --version 2>&1 | awk '{print $2}'`
-#     PY_VER_STY="[%{${fg[green]}%}$PY_VERSION%{${reset_color}%}]"
-# }
 
 # last command status
 OK="O"; NG="X"
@@ -65,7 +58,7 @@ export c_at_sign="%{${fg[white]}%}@%{${reset_color}%}"
 export c_lambda="%{${fg[cyan]}%}${lambda}%{${reset_color}%}"
 
 # 一般ユーザ時
-export tmp_prompt='[${c_user_name}${c_at_sign}${c_host_name} ${c_current_dir}][${hh_mm_ss}]${vcs_info_msg_0_}${CMD_STATUS}${VIMODE}[${c_user_identifier}][${c_lambda}]> '
+export tmp_prompt='[${c_user_name}${c_at_sign}${c_host_name} ${c_current_dir}][${hh_mm_ss}]${vcs_info_msg_0_}${CMD_STATUS}${VIMODE}> '
 export tmp_prompt2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
 export tmp_rprompt="[${c_current_dir_fullpath}]"
 export tmp_sprompt="%{${fg[yellow]}%}%r is correct? [Yes, No, Abort, Edit]:%{${reset_color}%}"
