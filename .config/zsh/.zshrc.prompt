@@ -121,12 +121,13 @@ fi
 # REF: 
 # - https://github.com/bernardobarreto/virtualenvwrapper/blob/master/docs/ja/tips.rst
 # - https://stackoverflow.com/questions/24941348/zsh-setting-rprompt-using-python-script-rprompt-not-updating
+# - https://stackoverflow.com/questions/9733338/shell-script-remove-first-and-last-quote-from-a-variable
 PS1="$_OLD_VIRTUAL_PS1"
 _OLD_RPROMPT="$RPROMPT"
 set_prompt () {
     VENV_NAME=`basename \"$VIRTUAL_ENV\"`
     if [ "$VENV_NAME" != '""' ]; then
-        RPROMPT="%{${fg_bold[white]}%}(env: %{${fg[green]}%}${VENV_NAME}%{${fg_bold[white]}%})%{${reset_color}%}"
+        RPROMPT="%{${fg_bold[white]}%}(env: %{${fg[green]}%}${VENV_NAME%\"}%{${fg_bold[white]}%})%{${reset_color}%}"
     fi
 }
 autoload add-zsh-hook
