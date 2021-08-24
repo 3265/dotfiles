@@ -35,14 +35,14 @@ zle -N z_fd
 bindkey '^d' z_fd
 
 # Go to parent dir
-function up_dir() {
-  echo
-  cd ../
-  vcs_info # shows git branch
-  zle reset-prompt
-}
-zle -N up_dir
-bindkey '^b' up_dir
+# function up_dir() {
+#   echo
+#   cd ../
+#   vcs_info # shows git branch
+#   zle reset-prompt
+# }
+# zle -N up_dir
+# bindkey '^b' up_dir
 
 # Edit file by the name or content
 # Referred to
