@@ -117,14 +117,17 @@ if type "nvm" > /dev/null; then
 fi
 
 
-# Pythonのvenvの除法をrpromptに表示する
+# Pythonのvenvの情報をrpromptに表示する
 # REF: 
 # - https://github.com/bernardobarreto/virtualenvwrapper/blob/master/docs/ja/tips.rst
 # - https://stackoverflow.com/questions/24941348/zsh-setting-rprompt-using-python-script-rprompt-not-updating
 PS1="$_OLD_VIRTUAL_PS1"
 _OLD_RPROMPT="$RPROMPT"
 set_prompt () {
-    RPROMPT="%{${fg_bold[white]}%}(env: %{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%})%{${reset_color}%}"
+    VENV_NAME=`basename \"$VIRTUAL_ENV\"`
+    if [ "$VENV_NAME" != '""' ]; then
+        RPROMPT="%{${fg_bold[white]}%}(env: %{${fg[green]}%}${VENV_NAME}%{${fg_bold[white]}%})%{${reset_color}%}"
+    fi
 }
 autoload add-zsh-hook
 add-zsh-hook precmd set_prompt
