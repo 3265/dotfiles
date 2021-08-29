@@ -89,7 +89,7 @@ yay -S --noconfirm direnv
 # Network Tools
 # NOTE: net-tools is for ifconfig
 sudo pacman -S --noconfirm net-tools alsa-utils
-# sudo pacman -S --noconfirm dnsutils # for dig cmd
+sudo pacman -S --noconfirm dnsutils # for dig cmd
 # sudo pacman -S --noconfirm nmap whois
 # yay -S --noconfirm ngrok
 
