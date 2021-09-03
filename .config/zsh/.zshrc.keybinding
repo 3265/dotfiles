@@ -42,7 +42,7 @@ function up_dir() {
   zle reset-prompt
 }
 zle -N up_dir
-bindkey '^t' up_dir # NOTE: ^bは補完が間違っていたときによく使うため
+bindkey '^b' up_dir
 
 # Yank the current path 
 function yank_path() {
