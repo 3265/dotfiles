@@ -120,6 +120,5 @@
     "jupyter-notebook": "left"
   },
   "editor.accessibilitySupport": "off",
-  "window.zoomLevel": 2,
   "workbench.editor.untitled.hint": "hidden"
 }
