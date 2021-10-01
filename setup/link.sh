@@ -18,7 +18,7 @@ ln -s -f ~/dotfiles/.config/zsh/.zshenv ~/.zshenv
 # Alias
 ln -s -f ~/dotfiles/.config/zsh/.aliases ~/.aliases
 
-# IME 
+# IME
 mkdir -p ~/.config/fcitx
 ln -s -f ~/dotfiles/.config/fcitx/config ~/.config/fcitx/config
 
@@ -47,7 +47,7 @@ mkdir -p ~/.vim/
 ln -s -f ~/dotfiles/.config/nvim/dein.toml ~/.vim/dein.toml
 ln -s -f ~/dotfiles/.config/nvim/dein_lazy.toml ~/.vim/dein_lazy.toml
 
-# Terminator 
+# Terminator
 mkdir -p ~/.config/terminator
 ln -s -f ~/dotfiles/.config/terminator/config ~/.config/terminator/config
 
@@ -157,7 +157,7 @@ ln -s -f ~/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
 
 # coc-settings for nvim
 mkdir -p ~/.config/nvim
-ln -s -f ~/dotfiles/.config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json 
+ln -s -f ~/dotfiles/.config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 
 # coc packages
 mkdir -p ~/.config/coc
@@ -189,6 +189,9 @@ ln -s -f ~/dotfiles/.config/Code/User/extensions.json ~/.config/Code/User/extens
 mkdir -p ~/.vscode/
 ln -s -f ~/dotfiles/.config/vscode/argv.json ~/.vscode/argv.json
 
+# KDE Wallet
+mkdir -p ~/.config/kdedefaults/
+ln -s -f ~/dotfiles/.config/kdedefaults/kwalletrc ~/.config/kdedefaults/kwalletrc
 
 # RStudio
 mkdir -p ~/.config/rstudio/
@@ -196,7 +199,7 @@ ln -s -f ~/dotfiles/.config/rstudio/rstudio-prefs.json ~/.config/rstudio/rstudio
 
 # matplotlib
 mkdir -p ~/.config/matplotlib/
-ln -s -f ~/dotfiles/.config/matplotlib/matplotlibrc ~/.config/matplotlib/matplotlibrc 
+ln -s -f ~/dotfiles/.config/matplotlib/matplotlibrc ~/.config/matplotlib/matplotlibrc
 
 ## .local
 
