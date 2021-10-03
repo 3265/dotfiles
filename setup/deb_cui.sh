@@ -6,6 +6,7 @@ sudo apt install -y autojump
 sudo apt install -y exa
 sudo apt install -y caffeine
 sudo apt install -y direnv
+sudo apt install -y cmake
 
 # NOTE:
 # - way to install fzf on jetson agx xavier.

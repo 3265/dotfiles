@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# CC
+# CC and tools
 sudo pacman -S gcc
 sudo pacman -S clang # https://github.com/pyenv/pyenv/issues/1889#issuecomment-833587851
+sudo pacman -S cmake
 
 # package managers
 sudo pacman -S --noconfirm yay
