@@ -103,6 +103,7 @@ yay -S --noconfirm slack-desktop
 yay -S --noconfirm zoom
 # sudo pacman -S --noconfirm telegram-desktop
 # yay -S --noconfirm discord
+sudo pacman -S telegram-desktop
 
 
 # For Kindle
