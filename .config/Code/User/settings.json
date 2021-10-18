@@ -112,6 +112,7 @@
     "*.ipynb": "jupyter-notebook"
   },
   "editor.formatOnSave": true,
+  "emmet.triggerExpansionOnTab": false,  // https://stackoverflow.com/questions/35519538/visual-studio-code-tab-key-does-not-insert-a-tab
   "editor.renderControlCharacters": true,
   "workbench.colorTheme": "Monokai",
   "security.workspace.trust.untrustedFiles": "newWindow",
