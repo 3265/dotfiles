@@ -1,7 +1,34 @@
 [
-{ "key": "ctrl+c",   "command": "editor.action.clipboardCopyAction",
-                       "when": "editorTextFocus && !inDebugRepl && vim.mode != 'Insert'" },
-{ "key": "ctrl+v",  "command": "editor.action.clipboardPasteAction",
-                       "when": "editorTextFocus && !inDebugRepl && vim.mode == 'Insert'" },
+    {
+        "key": "ctrl+c",
+        "command": "editor.action.clipboardCopyAction",
+         "when": "editorTextFocus && !inDebugRepl && vim.mode != 'Insert'"
+    },
+    {
+        "key": "ctrl+v",
+        "command": "editor.action.clipboardPasteAction",
+         "when": "editorTextFocus && !inDebugRepl && vim.mode == 'Insert'"
+    },
+    // Emacs binding for terminal.
+    {
+        "key": "ctrl+f",
+        "command": "ctrl+f",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "ctrl+b",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "ctrl+e",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "ctrl+k",
+        "when": "terminalFocus"
+    },
 ]
 
