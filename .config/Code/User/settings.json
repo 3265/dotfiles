@@ -28,7 +28,16 @@
     {
       "before": ["<C-n>"],
       "commands": [":nohl"]
-    }
+    },
+    // https://github.com/VSCodeVim/Vim/issues/2903
+    {
+      "before": [":", "W"],
+      "commands": [":w"]
+    },
+    {
+      "before": [":", "Q"],
+      "commands": [":q"]
+    },
   ],
   "vim.foldfix": true,
   // ##########################################
@@ -121,5 +130,6 @@
     "jupyter-notebook": "left"
   },
   "editor.accessibilitySupport": "off",
-  "workbench.editor.untitled.hint": "hidden"
+  "workbench.editor.untitled.hint": "hidden",
+  "window.zoomLevel": 2
 }
