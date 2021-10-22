@@ -125,7 +125,7 @@ pacman -S libffi # i was needed this
 yay -S --noconfirm pyenv
 yay -S --noconfirm pyenv-virtualenv # to use pyenv virtualenv cmd
 sudo pacman -S --noconfirm python-pipenv
-yay -S --noconfirm pip-tools
+# yay -S --noconfirm pip-tools
 sudo pacman -S --noconfirm r
 yay -S --noconfirm rstudio
 sudo pacman -S --noconfirm rust

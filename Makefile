@@ -29,6 +29,7 @@ arch_install:
 	cd $(SETUP_DIR)
 	bash ./arch_cui.sh
 	bash ./arch_gui.sh
+	bash ./pkg.sh
 
 .PHONY: arch
 arch: link arch_install term_core term_ext
@@ -39,6 +40,7 @@ deb_install:
 	cd $(SETUP_DIR)
 	bash ./deb_cui.sh
 	bash ./deb_gui.sh
+	bash ./pkg.sh
 
 .PHONY: deb
 deb: link deb_install term_core
