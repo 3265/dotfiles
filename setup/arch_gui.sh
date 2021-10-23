@@ -80,6 +80,7 @@ sudo pacman -S --noconfirm graphviz # for dot file
 # yay -S --noconfirm panoply # HDF5 Viewer
 # sudo pacman -S --noconfirm poedit
 # yay -S --noconfirm acroread # PDF Viewer
+yay -S --noconfirm drawio-desktop-bin
 
 # Others
 sudo pacman -S --noconfirm gparted
