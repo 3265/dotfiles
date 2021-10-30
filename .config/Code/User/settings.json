@@ -131,5 +131,5 @@
   },
   "editor.accessibilitySupport": "off",
   "workbench.editor.untitled.hint": "hidden",
-  "window.zoomLevel": 2
+  "window.zoomLevel": 1
 }
