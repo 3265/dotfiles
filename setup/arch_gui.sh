@@ -75,6 +75,7 @@ yay -S --noconfirm appimagelauncher # for appImage
 sudo pacman -S --noconfirm arduino-avr-core
 sudo pacman -S --noconfirm arduino
 sudo pacman -S --noconfirm gimp
+sudo pacman -S --noconfirm poedit
 sudo pacman -S --noconfirm graphviz # for dot file
 # sudo pacman -S --noconfirm wireshark-qt
 # yay -S --noconfirm panoply # HDF5 Viewer
