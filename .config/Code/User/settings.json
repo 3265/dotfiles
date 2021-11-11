@@ -131,6 +131,6 @@
   },
   "editor.accessibilitySupport": "off",
   "workbench.editor.untitled.hint": "hidden",
-  "window.zoomLevel": 1,
-  "terminal.integrated.fontFamily": "'Hack Nerd Font'"
+  "terminal.integrated.fontFamily": "'Hack Nerd Font'",
+  "terminal.integrated.copyOnSelection": true
 }
