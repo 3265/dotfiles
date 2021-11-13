@@ -132,5 +132,6 @@
   "editor.accessibilitySupport": "off",
   "workbench.editor.untitled.hint": "hidden",
   "terminal.integrated.fontFamily": "'Hack Nerd Font'",
-  "terminal.integrated.copyOnSelection": true
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.defaultProfile.linux": "zsh"
 }
