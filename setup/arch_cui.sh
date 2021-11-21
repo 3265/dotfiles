@@ -127,7 +127,7 @@ yay -S --noconfirm pyenv-virtualenv # to use pyenv virtualenv cmd
 sudo pacman -S --noconfirm python-pipenv
 # yay -S --noconfirm pip-tools
 sudo pacman -S --noconfirm r
-yay -S --noconfirm rstudio
+yay -S --noconfirm rstudio-desktop
 sudo pacman -S --noconfirm rust
 cargo install fastmod # instead of codemod
 yay -S --noconfirm nvm
