@@ -96,7 +96,7 @@ sudo pacman -S --noconfirm simplescreenrecorder
 # yay -S mendeleydesktop
 
 # TODO
-yay -S --noconfirm rememberthemilk
+# yay -S --noconfirm rememberthemilk
 
 # Communication
 yay -S --noconfirm skypeforlinux-stable-bin
