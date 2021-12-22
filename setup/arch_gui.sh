@@ -82,6 +82,7 @@ sudo pacman -S --noconfirm graphviz # for dot file
 # sudo pacman -S --noconfirm poedit
 # yay -S --noconfirm acroread # PDF Viewer
 yay -S --noconfirm drawio-desktop-bin
+yay -S --noconfirm imagej
 
 # Others
 sudo pacman -S --noconfirm gparted
