@@ -37,7 +37,7 @@
     {
       "before": [":", "Q"],
       "commands": [":q"]
-    },
+    }
   ],
   "vim.foldfix": true,
   // ##########################################
@@ -72,13 +72,13 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "prettier.disableLanguages": ["html"],
-  "emmet.includeLanguages": {"django-html": "html"},
+  "emmet.includeLanguages": { "django-html": "html" },
   // "files.associations": {
   //     "*.html": "html"
   // },
   "[html]": {
-     "editor.formatOnSave": true,
-     "editor.defaultFormatter": "vscode.html-language-features"
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "vscode.html-language-features"
   },
   "[django-html]": {
     "editor.formatOnSave": true,
@@ -112,16 +112,13 @@
     }
   },
   // "python.formatting.provider": "autopep8",
-  "python.formatting.autopep8Args": [
-    "--aggressive",
-    "--aggressive"
-  ],
+  "python.formatting.autopep8Args": ["--aggressive", "--aggressive"],
   "python.formatting.provider": "black",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
   "editor.formatOnSave": true,
-  "emmet.triggerExpansionOnTab": false,  // https://stackoverflow.com/questions/35519538/visual-studio-code-tab-key-does-not-insert-a-tab
+  "emmet.triggerExpansionOnTab": false, // https://stackoverflow.com/questions/35519538/visual-studio-code-tab-key-does-not-insert-a-tab
   "editor.renderControlCharacters": true,
   "workbench.colorTheme": "Monokai",
   "security.workspace.trust.untrustedFiles": "newWindow",
@@ -133,5 +130,6 @@
   "workbench.editor.untitled.hint": "hidden",
   "terminal.integrated.fontFamily": "'Hack Nerd Font'",
   "terminal.integrated.copyOnSelection": true,
-  "terminal.integrated.defaultProfile.linux": "zsh"
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "editor.unicodeHighlight.nonBasicASCII": false
 }
