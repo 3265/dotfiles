@@ -2,7 +2,9 @@
   "files.insertFinalNewline": true,
   "extensions.autoUpdate": "onlyEnabledExtensions",
   "eslint.enable": true,
-  "editor.rulers": [100],
+  "editor.rulers": [
+    100
+  ],
   "editor.fontSize": 10,
   "javascript.validate.enable": false,
   "workbench.activityBar.visible": true,
@@ -26,17 +28,31 @@
   "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["<C-n>"],
-      "commands": [":nohl"]
+      "before": [
+        "<C-n>"
+      ],
+      "commands": [
+        ":nohl"
+      ]
     },
     // https://github.com/VSCodeVim/Vim/issues/2903
     {
-      "before": [":", "W"],
-      "commands": [":w"]
+      "before": [
+        ":",
+        "W"
+      ],
+      "commands": [
+        ":w"
+      ]
     },
     {
-      "before": [":", "Q"],
-      "commands": [":q"]
+      "before": [
+        ":",
+        "Q"
+      ],
+      "commands": [
+        ":q"
+      ]
     }
   ],
   "vim.foldfix": true,
@@ -71,8 +87,12 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.disableLanguages": ["html"],
-  "emmet.includeLanguages": { "django-html": "html" },
+  "prettier.disableLanguages": [
+    "html",
+  ],
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
   // "files.associations": {
   //     "*.html": "html"
   // },
@@ -87,6 +107,21 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
+  },
+  // ##########################################
+  //                  HTML CSS
+  // ##########################################
+  "beautify.language": {
+    "css": [
+      "css",
+      "scss"
+    ],
+    "html": [
+      "htm",
+      "html",
+      "php"
+    ]
+    // ^^ providing just an array sets the VS Code file type
   },
   // ##########################################
   //                  Python
@@ -112,7 +147,10 @@
     }
   },
   // "python.formatting.provider": "autopep8",
-  "python.formatting.autopep8Args": ["--aggressive", "--aggressive"],
+  "python.formatting.autopep8Args": [
+    "--aggressive",
+    "--aggressive"
+  ],
   "python.formatting.provider": "black",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
