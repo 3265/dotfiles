@@ -125,3 +125,7 @@ yay -S --noconfirm wps-office
 # VNC for raspberry-pi
 # sudo pacman -S --noconfirm tigernvc
 yay -S --noconfirm realvnc-vnc-viewer
+
+# mindmap
+yay -S --noconfirm dropbox
+yay -S --noconfirm edrawmind-bin
