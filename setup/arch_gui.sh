@@ -2,7 +2,6 @@
 
 # X.org
 sudo pacman -S --noconfirm xorg-xmodmap
-
 # terminal
 # sudo pacman -S --noconfirm termite
 # sudo pacman -S --noconfirm terminator

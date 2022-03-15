@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # CC and tools
-sudo pacman -S gcc
-sudo pacman -S clang # https://github.com/pyenv/pyenv/issues/1889#issuecomment-833587851
-sudo pacman -S cmake
+sudo pacman -S --noconfirm gcc
+sudo pacman -S --noconfirm clang # https://github.com/pyenv/pyenv/issues/1889#issuecomment-833587851
+sudo pacman -S --noconfirm cmake
 
 # package managers
 sudo pacman -S --noconfirm yay
@@ -121,7 +121,7 @@ yay -S --noconfirm yank
 # yay -S --noconfirm vimpc-git
 
 # Language
-pacman -S libffi # i was needed this
+pacman -S --noconfirm libffi # i was needed this
 yay -S --noconfirm pyenv
 yay -S --noconfirm pyenv-virtualenv # to use pyenv virtualenv cmd
 sudo pacman -S --noconfirm python-pipenv

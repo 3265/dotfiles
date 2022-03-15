@@ -5,7 +5,7 @@ Manjaro/Arch KDE Plasma
 1. sudo pacman-mirrors --country Japan
 1. sudo pacman -Syyu --noconfirm
 1. sudo pacman -S --noconfirm base-devel
-1. git clone git@github.com:mgoldchild/dotfiles.git
+1. git clone https://github.com/mgoldchild/dotfiles
 1. cd dotfiles
 1. make arch
 
