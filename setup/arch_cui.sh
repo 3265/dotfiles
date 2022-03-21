@@ -115,6 +115,7 @@ yay -S --noconfirm ttf-ms-fonts # for MS office
 sudo pacman -S --noconfirm neofetch
 yay -S --noconfirm mdbook
 yay -S --noconfirm yank 
+# npm -i -g 1337
 
 # Music player
 # sudo pacman -S --noconfirm mpd

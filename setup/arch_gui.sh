@@ -17,7 +17,7 @@ sudo pacman -S --noconfirm ark # for compression context in dolphine
 # PW manager
 yay -S --noconfirm 1password
 
-# QT Theme changer 
+# QT Theme changer
 # https://forum.manjaro.org/t/i-cannot-set-dark-theme-on-menu-in-dolphin-manjaro-kde-plasma-with-awesome-wm/49960/5
 # sudo pacman -S --noconfirm qt5ct kvantum-qt5
 
