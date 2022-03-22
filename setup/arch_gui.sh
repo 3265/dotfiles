@@ -111,6 +111,7 @@ sudo pacman -S telegram-desktop
 
 # For Kindle
 # sudo pacman -S --noconfirm wine
+# sudo pacman -S --noconfirm playonlinux
 
 # Live OS writer
 yay -S --noconfirm etcher-bin
