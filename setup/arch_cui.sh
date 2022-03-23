@@ -108,6 +108,7 @@ yay -S --noconfirm aws-sam-cli-bin
 sudo pacman -S --noconfirm noto-fonts-cjk # for system
 yay -S --noconfirm nerd-fonts-hack # for programming
 yay -S --noconfirm ttf-ms-fonts # for MS office
+sudo pacman -S otf-ipafont # for jupyter
 
 # Other tools
 # yay -S --noconfirm mdp # markdown presentation tool.
