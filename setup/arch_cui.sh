@@ -139,6 +139,7 @@ yay -S --noconfirm nvm
 sudo pacman -S --noconfirm hugo
 # sudo pacman -S --noconfirm jdk8-openjdk
 # sudo pacman -S --noconfirm maven # for java
+sudo pacman -S --noconfirm tk
 
 # Database
 yay -S --noconfirm pgcli
