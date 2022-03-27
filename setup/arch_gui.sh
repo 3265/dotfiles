@@ -54,7 +54,8 @@ sudo pacman -S --noconfirm rofi
 
 # Browser
 yay -S --noconfirm google-chrome
-sudo pacman -S --noconfirm chromium
+yay -S --noconfirm google-chrome-dev
+# sudo pacman -S --noconfirm chromium
 # yay -S --noconfirm brave
 # sudo pacman -S --noconfirm firefox
 sudo pacman -S --noconfirm opera
