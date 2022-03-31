@@ -57,9 +57,11 @@ sudo pacman -S --noconfirm curl wget thefuck
 
 # Virtualization
 # KVM is not used
+# yay -S qemu libvirt ebtables dnsmasq virt-manager
 # sudo pacman -S --noconfirm virtualbox vagrant
 sudo pacman -S --noconfirm docker docker-compose
 # need to add mike into docker group, see mannual
+
 
 # VPN
 # NOTE: need to configure see mannual
