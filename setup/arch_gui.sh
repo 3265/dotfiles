@@ -116,6 +116,8 @@ sudo pacman -S telegram-desktop
 
 # Live OS writer
 yay -S --noconfirm etcher-bin
+yay -S --noconfirm woeusb-ng # ngじゃないとエラー
+# sudo woeusb --device ~/Downloads/Win10_21H2_English_x64.iso /dev/sdb --tgt-fs NTFS --verbose
 
 # VLC
 sudo pacman -S --noconfirm vlc
