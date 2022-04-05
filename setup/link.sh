@@ -212,3 +212,7 @@ ln -s -f ~/dotfiles/.local/share/konsole/Monokai.colorscheme ~/.local/share/kons
 # Alacritty
 mkdir -p ~/.local/share/applications
 ln -s -f ~/dotfiles/.local/share/applications/alacritty.desktop ~/.local/share/applications/alacritty.desktop
+
+# GPG
+mkdir -p ~/.gnupg/
+ln -s -f ~/dotfiles/.config/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
