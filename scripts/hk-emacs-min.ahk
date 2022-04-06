@@ -33,6 +33,8 @@ is_target()
     Return 1
   IfWinActive,ahk_class CASCADIA_HOSTING_WINDOW_CLASS ; Windows Terminal
     Return 1
+  IfWinActive,ahk_class Chrome_WidgetWin_1 ; VS Code
+    Return 1
 ;  IfWinActive,ahk_class SWT_Window0 ; Eclipse
 ;    Return 1
 ;   IfWinActive,ahk_class Xming X
