@@ -105,3 +105,10 @@ bindkey '^j' z_faj
 
 
 # MEMO: c^aとc^eとc^kとc^uはEmacsバインディングとして残したい。逆にc^fとc^bはc^vモードのvimモードで置き換える。
+
+# ctrl-enter = enter
+zsh-widget-noop () {
+    zle accept-line
+}
+zle -N zsh-widget-noop
+bindkey '^\n' zsh-widget-noop
