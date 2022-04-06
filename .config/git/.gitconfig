@@ -96,8 +96,8 @@
 #
 # blame -L
 [core]
-  autoCRLF = false
-  safecrlf = true
+	autocrlf = false
+	safecrlf = false
   excludesfile = ~/.gitignore
   editor = vim
   quotepath = false # git status 日本語文字化けのため
