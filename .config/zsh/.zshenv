@@ -169,3 +169,7 @@ fi
 
 # for pipenv on ubuntu
 export PATH="$HOME/.local/bin:$PATH"
+
+# for WSL
+export GPG_TTY=$(tty)
+
