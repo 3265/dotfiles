@@ -33,8 +33,8 @@ is_target()
     Return 1
   IfWinActive,ahk_class CASCADIA_HOSTING_WINDOW_CLASS ; Windows Terminal
     Return 1
-  IfWinActive,ahk_class Chrome_WidgetWin_1 ; VS Code
-    Return 1
+;  IfWinActive,ahk_class Chrome_WidgetWin_1 ; VSCode
+;    Return 1
 ;  IfWinActive,ahk_class SWT_Window0 ; Eclipse
 ;    Return 1
 ;   IfWinActive,ahk_class Xming X
@@ -47,6 +47,7 @@ is_target()
 ;     Return 1
   Return 0
 }
+
 
 delete_char()
 {
@@ -226,13 +227,16 @@ scroll_down()
   Return
 }
 
-
-^k::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    kill_line()
+;; NOTE: this is not perfect code.
+;; ref: https://stackoverflow.com/questions/46412932/how-do-i-delete-the-current-line-using-autohotkey
+delete_whole_line() {
+  SendInput {End}
+  SendInput +{Home}
+  SendInput ^+{Left}
+  SendInput {Delete}
   Return
+}
+
 ^a::
   If is_target()
     Send %A_ThisHotkey%
@@ -244,4 +248,16 @@ scroll_down()
     Send %A_ThisHotkey%
   Else
     move_end_of_line()
+  Return
+^u::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    delete_whole_line()
+  Return
+^k::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    kill_line()
   Return
