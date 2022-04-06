@@ -41,6 +41,7 @@ deb_install:
 	bash ./deb_cui.sh
 	bash ./deb_gui.sh
 	bash ./vscode.sh
+	bash ./lsd.sh
 
 .PHONY: deb
 deb: link deb_install term_core
