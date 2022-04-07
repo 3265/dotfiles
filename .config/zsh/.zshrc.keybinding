@@ -18,7 +18,6 @@ bindkey '^U' kill-whole-line
 bindkey '^K' kill-line
 bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
-bindkey -M viins 'jj' vi-cmd-mode # jjでinsert modeに
 bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
 
 bindkey '^v' edit-command-line # Emacs/Vimバインドとかぶらないようにする(see .zshenv)
