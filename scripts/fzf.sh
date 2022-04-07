@@ -58,19 +58,24 @@ fkill() {
 }
 
 #######################################
-# Grep
+# Grep (ag)
 #######################################
 
 # fuzzy grep open via ag
+# ref: ://superuser.com/questions/1314397/how-to-search-file-contents-grep-ag-rg-using-fzf 
 fg() {
   local file
-  file="$(ag --nobreak --noheading -l $@ | fzf --preview "ag $@"' {}' --prompt="Grep>" -0 -1 | awk -F: '{print $1}')"
+  local line
+
+  read -r file line <<<"$(ag --noheading --noheading .  | fzf -0 -1 | awk -F: '{print $1, $2}')"
 
   if [[ -n $file ]]
   then
-     $EDITOR $file
+    # ref: https://qiita.com/nareff/items/27cb38f88b0dc5f7c4f3
+    echo $file +$line | xargs -o vim
   fi
 }
+
 
 #######################################
 # Auto Jump

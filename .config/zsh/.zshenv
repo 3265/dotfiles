@@ -173,3 +173,6 @@ export PATH="$HOME/.local/bin:$PATH"
 # for WSL
 export GPG_TTY=$(tty)
 
+# screen dir
+export SCREENDIR=$HOME/.screen
+

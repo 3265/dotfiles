@@ -8,6 +8,8 @@ sudo apt install -y exa
 sudo apt install -y caffeine
 sudo apt install -y direnv
 sudo apt install -y cmake
+sudo apt install -y screen
+sudo apt install -y tmux
 
 # NOTE:
 # - way to install fzf on jetson agx xavier.
