@@ -89,6 +89,7 @@ function history_cmd() {
   # TODO: 一回enterおさないとコマンドが表示されていない
   fh;
   zle reset-prompt
+  zle accept-line
 }
 zle -N history_cmd
 bindkey '^h' history_cmd
@@ -99,6 +100,7 @@ z_faj() {
   faj;
   vcs_info # shows git branch
   zle reset-prompt
+  clear
 }
 zle -N z_faj
 bindkey '^g' z_faj
