@@ -67,7 +67,7 @@ fg() {
   local file
   local line
 
-  read -r file line <<<"$(ag --noheading --noheading .  | fzf -0 -1 | awk -F: '{print $1, $2}')"
+  read -r file line <<<"$(ag --noheading --noheading .  | fzf -0 -1 --prompt="Ag>" | awk -F: '{print $1, $2}')"
 
   if [[ -n $file ]]
   then
