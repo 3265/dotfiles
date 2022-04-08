@@ -10,6 +10,13 @@ sudo apt install -y direnv
 sudo apt install -y cmake
 sudo apt install -y screen
 sudo apt install -y tmux
+sudo apt install -y vim
+sudo apt install -y emacs
+
+# Python
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install -y python3.6
 
 # NOTE:
 # - way to install fzf on jetson agx xavier.
