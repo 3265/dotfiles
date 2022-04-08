@@ -13,6 +13,11 @@ sudo apt install -y tmux
 sudo apt install -y vim
 sudo apt install -y emacs
 
+# Pipenv
+sudo apt-get -y install python3-pip python3-distutils python3-dev
+sudo pip3 install --upgrade setuptools
+sudo pip3 install pipenv
+
 # Python
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
