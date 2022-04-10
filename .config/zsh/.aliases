@@ -312,3 +312,15 @@ extract() {
   esac
 }
 
+
+# windows subsystem for linux subcommand aliases
+win() {
+  case $1 in
+    open)
+      shift
+      command wslview $1;;
+    path)
+      shift
+      command wslpath -w $1;;
+  esac
+}
