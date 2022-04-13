@@ -14,6 +14,7 @@ winget install -q vscode --scope machine
 winget install Microsoft.VisualStudio.2022.Community
 winget install Arduino
 winget install Google.AndroidStudio 
+winge install RStudio.RStudio.OpenSource
 
 # IRC
 winget install messenger
