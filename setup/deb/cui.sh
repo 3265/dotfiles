@@ -5,13 +5,14 @@ sudo apt install -y fzf
 sudo apt install -y xsel # for copy command
 sudo apt install -y autojump
 sudo apt install -y exa
-sudo apt install -y caffeine
+sudo apt install -y sbcl # LISP
 sudo apt install -y direnv
 sudo apt install -y cmake
 sudo apt install -y screen
 sudo apt install -y tmux
 sudo apt install -y vim
 sudo apt install -y emacs
+sudo apt install -y caffeine
 
 # Pipenv
 sudo apt-get -y install python3-pip python3-distutils python3-dev

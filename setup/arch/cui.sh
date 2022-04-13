@@ -125,6 +125,7 @@ yay -S --noconfirm yank
 # yay -S --noconfirm vimpc-git
 
 # Language
+sudo pacman -S --noconfirm sbcl
 pacman -S --noconfirm libffi # i was needed this
 yay -S --noconfirm pyenv
 yay -S --noconfirm pyenv-virtualenv # to use pyenv virtualenv cmd
