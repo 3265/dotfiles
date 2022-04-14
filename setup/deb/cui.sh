@@ -5,7 +5,7 @@ sudo apt install -y fzf
 sudo apt install -y xsel # for copy command
 sudo apt install -y autojump
 sudo apt install -y exa
-sudo apt install -y sbcl # LISP
+sudo apt install -y clisp # LISP
 sudo apt install -y direnv
 sudo apt install -y cmake
 sudo apt install -y screen
