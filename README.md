@@ -19,3 +19,9 @@ Ubuntu/Debian Gnome 3
 1. cd dotfiles
 1. make deb
 
+Windows
+
+1. curl -o index.html https://superuser.com
+1. powershell -ExecutionPolicy Bypass -File apps.ps1
+1. rm apps.ps1
+
