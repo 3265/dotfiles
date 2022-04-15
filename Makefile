@@ -34,7 +34,7 @@ arch: link arch_install term_core
 deb_install:
 	cd $(SETUP_DIR)
 	bash ./deb/cui.sh
-	bash ./deb/gui.sh
+	# bash ./deb/gui.sh
 	bash ./deb/lsd.sh
 
 .PHONY: deb
