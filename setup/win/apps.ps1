@@ -15,7 +15,7 @@ winget install Microsoft.WindowsTerminal
 winget install -q vscode --scope machine # zsh setup/vscode.sh
 winget install Microsoft.VisualStudio.2022.Community
 
-# Dev
+# CUI Dev Tools
 winget install Git.Git
 winget install LLVM
 
@@ -24,7 +24,7 @@ winget install Postman.Postman
 winget install Arduino
 winget install Google.AndroidStudio 
 winget install RProject.R
-winge install RStudio.RStudio.OpenSource
+winget install RStudio.RStudio.OpenSource
 
 # Communication
 winget install messenger
@@ -33,10 +33,9 @@ winget install Zoom.zoom
 winget install Discord.Discord
 winget install Line.Line
 winget install Telegram.TelegramDesktop
-
-# NOTE: Lively Wallpaper
-winget install 9NTM2QC6QWS7
+winget install Tencent.WeChat
 
 # Others
+winget install rocksdanister.LivelyWallpaper
 winget install Amazon.Kindle
 winget install Dropbox.Dropbox
