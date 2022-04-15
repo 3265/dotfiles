@@ -21,7 +21,7 @@ Ubuntu/Debian Gnome 3
 
 Windows
 
-1. curl -o index.html https://superuser.com
+1. curl -o apps.ps1 https://raw.githubusercontent.com/mgoldchild/dotfiles/master/setup/win/apps.ps1 
 1. powershell -ExecutionPolicy Bypass -File apps.ps1
 1. rm apps.ps1
 
