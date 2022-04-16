@@ -143,11 +143,9 @@ if type "perl" > /dev/null; then
 fi
 
 # pyenv
-if type "pyenv" > /dev/null; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init --path)"
-fi
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 export PATH=$PATH:~/.cargo/bin/
 
