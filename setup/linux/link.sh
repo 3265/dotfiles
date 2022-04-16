@@ -216,3 +216,6 @@ ln -s -f ~/dotfiles/.local/share/applications/alacritty.desktop ~/.local/share/a
 # GPG
 mkdir -p ~/.gnupg/
 ln -s -f ~/dotfiles/.config/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+
+# WSL
+sudo ln -s -f /dotfiles/.config/wsl/wsl.conf /etc/wsl.conf
