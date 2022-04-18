@@ -33,6 +33,7 @@ arch: link arch_install term_core
 .ONESHELL:
 deb_install:
 	cd $(SETUP_DIR)
+	bash ./deb/font.sh
 	bash ./deb/cui.sh
 	bash ./deb/pyenv.sh
 	bash ./deb/lsd.sh
