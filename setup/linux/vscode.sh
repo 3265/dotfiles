@@ -17,12 +17,13 @@ pkglist=(
     esbenp.prettier-vscode
     njpwerner.autodocstring
     mechatroner.rainbow-csv
-)
 
-
-pkglist_django=(
+    # django
     batisteo.vscode-django
     mrorz.language-gettext
+
+    # go
+    golang.go
 )
 
 for i in ${pkglist[@]}; do
