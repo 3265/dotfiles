@@ -39,3 +39,4 @@ winget install Tencent.WeChat
 winget install rocksdanister.LivelyWallpaper
 winget install Amazon.Kindle
 winget install Dropbox.Dropbox
+winget install Adobe.Acrobat.Reader.64-bit
