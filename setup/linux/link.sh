@@ -219,6 +219,7 @@ ln -s -f ~/dotfiles/.config/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
 # WSL
 sudo ln -s -f ~/dotfiles/.config/wsl/wsl.conf /etc/wsl.conf
+sudo ln -s -f ~/dotfiles/.config/resolv/resolv.conf /etc/resolv.conf
 
 # Gaze
 sudo ln -s -f ~/dotfiles/.config/gaze/.gaze.yml ~/.gaze.yml
