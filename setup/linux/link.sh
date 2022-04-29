@@ -205,13 +205,13 @@ ln -s -f ~/dotfiles/.config/matplotlib/matplotlibrc ~/.config/matplotlib/matplot
 
 # Konsole
 mkdir -p ~/.local/share/konsole
-ln -s -f ~/dotfiles/.local/share/konsole/MyDefault.profile ~/.local/share/konsole/MyDefault.profile
-ln -s -f ~/dotfiles/.local/share/konsole/Solarized.colorscheme ~/.local/share/konsole/Solarized.colorscheme
-ln -s -f ~/dotfiles/.local/share/konsole/Monokai.colorscheme ~/.local/share/konsole/Monokai.colorscheme
+ln -s -f ~/dotfiles/.config/.local/share/konsole/MyDefault.profile ~/.local/share/konsole/MyDefault.profile
+ln -s -f ~/dotfiles/.config/.local/share/konsole/Solarized.colorscheme ~/.local/share/konsole/Solarized.colorscheme
+ln -s -f ~/dotfiles/.config/.local/share/konsole/Monokai.colorscheme ~/.local/share/konsole/Monokai.colorscheme
 
 # Alacritty
 mkdir -p ~/.local/share/applications
-ln -s -f ~/dotfiles/.local/share/applications/alacritty.desktop ~/.local/share/applications/alacritty.desktop
+ln -s -f ~/dotfiles/.config/.local/share/applications/alacritty.desktop ~/.local/share/applications/alacritty.desktop
 
 # GPG
 mkdir -p ~/.gnupg/
