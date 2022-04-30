@@ -9,7 +9,7 @@ sudo apt install -y autojump
 sudo apt install -y exa
 sudo apt install -y direnv
 sudo apt install -y cmake
-sudo apt install -y unzip
+sudo apt install -y zip unzip
 sudo apt install -y screen
 sudo apt install -y tmux
 sudo apt install -y vim
