@@ -2,6 +2,8 @@
 commands:
 - ext: .go
   cmd: go run "{{file}}"
+- ext: .go
+  cmd: go run "{{file}}"
 - ext: .py
   cmd: python3 "{{file}}"
 - ext: .rb
@@ -23,6 +25,10 @@ commands:
     rustc "{{file}}" -o"{{base0}}.out"
     ./"{{base0}}.out"
 - ext: .cpp
+  cmd: |
+    gcc "{{file}}" -o"{{base0}}.out"
+    ./"{{base0}}.out"
+- ext: .c
   cmd: |
     gcc "{{file}}" -o"{{base0}}.out"
     ./"{{base0}}.out"
