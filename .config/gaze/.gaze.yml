@@ -2,8 +2,6 @@
 commands:
 - ext: .go
   cmd: go run "{{file}}"
-- ext: .go
-  cmd: go run "{{file}}"
 - ext: .py
   cmd: python3 "{{file}}"
 - ext: .rb
