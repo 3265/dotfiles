@@ -34,6 +34,7 @@ winget install Discord.Discord
 winget install Line.Line
 winget install Telegram.TelegramDesktop
 winget install Tencent.WeChat
+winget install Grammarly.ForWindows
 
 # Others
 winget install rocksdanister.LivelyWallpaper
