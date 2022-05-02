@@ -174,3 +174,7 @@ export GPG_TTY=$(tty)
 # screen dir
 export SCREENDIR=$HOME/.screen
 
+# for VCPKG
+if [ -d ~/vcpkg/ ] ; then
+    export PATH=~/vcpkg/:$PATH
+fi
