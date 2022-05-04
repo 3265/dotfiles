@@ -25,6 +25,8 @@ winget install Arduino
 winget install Google.AndroidStudio 
 winget install RProject.R
 winget install RStudio.RStudio.OpenSource
+winget install Notepad++.Notepad++
+winget install Vim.Vim
 
 # Communication
 winget install messenger
