@@ -16,7 +16,7 @@ winget install -q vscode --scope machine # zsh setup/vscode.sh
 winget install Microsoft.VisualStudio.2022.Community
 
 # Finder
-winget install Files-Community.Files # Files App
+winget install 9NGHP3DX8HDX # Files-Community.Files 
 
 # CUI Dev Tools
 winget install Git.Git
