@@ -15,6 +15,9 @@ winget install Microsoft.WindowsTerminal
 winget install -q vscode --scope machine # zsh setup/vscode.sh
 winget install Microsoft.VisualStudio.2022.Community
 
+# Finder
+winget install Files-Community.Files # Files App
+
 # CUI Dev Tools
 winget install Git.Git
 winget install LLVM
