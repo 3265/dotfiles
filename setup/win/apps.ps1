@@ -30,6 +30,7 @@ winget install RProject.R
 winget install RStudio.RStudio.OpenSource
 winget install Notepad++.Notepad++
 winget install Vim.Vim
+winget install Neovim.Neovim
 
 # Communication
 winget install messenger
