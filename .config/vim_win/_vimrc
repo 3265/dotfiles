@@ -33,8 +33,9 @@ if _curfile == 'Makefile'
   set noexpandtab
 endif
 
-set belloff=all
 set noswapfile
+set belloff=all
 
-" GVIM win
-colorscheme torte
+# GUI
+colorscheme slate
+set guifont=Hack
