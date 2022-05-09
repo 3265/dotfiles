@@ -23,14 +23,15 @@ winget install Git.Git
 winget install LLVM
 
 # GUI Dev Tools
+winget install Vim.Vim
+winget install Neovim.Neovim
 winget install Postman.Postman
 winget install Arduino
 winget install Google.AndroidStudio 
 winget install RProject.R
 winget install RStudio.RStudio.OpenSource
 winget install Notepad++.Notepad++
-winget install Vim.Vim
-winget install Neovim.Neovim
+winget install -e --id JetBrains.IntelliJIDEA.Community
 
 # Communication
 winget install messenger
