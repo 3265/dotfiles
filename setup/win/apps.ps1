@@ -43,6 +43,7 @@ winget install Line.Line
 winget install Telegram.TelegramDesktop
 winget install Tencent.WeChat
 winget install Grammarly.ForWindows
+winget install -e --id DeepL.DeepL
 # Snapchat, Skype, Chatwork
 
 # Others
