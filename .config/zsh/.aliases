@@ -32,6 +32,11 @@ alias z='zsh'
 alias zen='python -m this'
 alias leet='l33t' # node-1337
 
+# i bothers
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
+
 runls() {
   if hash lsd 2>/dev/null; then
       lsd -la --group-dirs=first "$@"
