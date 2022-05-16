@@ -46,8 +46,11 @@ winget install Grammarly.ForWindows
 winget install -e --id DeepL.DeepL
 # Snapchat, Skype, Chatwork
 
-# Others
+# GUI
 winget install rocksdanister.LivelyWallpaper
+winget install 9PF4KZ2VN4W9 # TranslucentTB
+
+# Others
 winget install Amazon.Kindle
 winget install Dropbox.Dropbox
 winget install Adobe.Acrobat.Reader.64-bit
