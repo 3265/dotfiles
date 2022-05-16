@@ -138,6 +138,8 @@ nnoremap K :resize -5<cr>
 nnoremap L :vertical resize +5<cr>
 
 " GUI
-colorscheme slate
-set guifont=Hack
+if has("gui_running")
+    colorscheme slate
+    set guifont=Hack
+endif
 
