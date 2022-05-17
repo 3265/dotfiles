@@ -85,7 +85,6 @@ if _curfile == 'Makefile'
   set noexpandtab
 endif
 
-
 " Finder Settings
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -127,7 +126,7 @@ inoremap <C-t>l <Esc>:tabnext<CR>
 nnoremap <C-t><C-l> :tabnext<CR>
 inoremap <C-t><C-l> <Esc>:tabnext<CR>
 
-" windowのResize(Tmux風)
+" WindowのResize (Tmux風)
 nnoremap <C-w>H :vertical resize -5<cr>
 nnoremap <C-w>J :resize +5<cr>
 nnoremap <C-w>K :resize -5<cr>
