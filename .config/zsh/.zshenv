@@ -178,3 +178,8 @@ export SCREENDIR=$HOME/.screen
 if [ -d ~/vcpkg/ ] ; then
     export PATH=~/vcpkg/:$PATH
 fi
+
+# root
+if [ -d ~/root/ ] ; then
+    export PATH=~/root/bin:$PATH
+fi
