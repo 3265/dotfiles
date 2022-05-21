@@ -4,6 +4,7 @@ winget install AgileBits.1Password
 # Browser
 winget install Google.Chrome
 winget install Google.Chrome.Dev
+winget install Mozilla.Firefox
 
 # Hotkeys
 winget install Lexikos.AutoHotkey
