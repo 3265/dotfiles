@@ -9,7 +9,7 @@ set hidden " バッファを切替えてもundoの効力を失わない
 set t_vb= " ピープ音を消す
 set novisualbell " ビジュアルベルの無効化
 set noerrorbells " エラーメッセージの表示時にビープを鳴らさない
-set paste " 挿入で勝手にインデントさせない
+" set paste " 挿入で勝手にインデントさせない
 set timeout timeoutlen=1000 ttimeoutlen=75 " escの反応を早くする
 set switchbuf=usetab " 同じファイルを別タブで開かないようにする
 set autoread " vimrc更新後に自動読み込み
@@ -22,7 +22,7 @@ set clipboard^=unnamed,unnamedplus " クリップボードにコピー
 set tabstop=4 " 画面上でタブが占める幅
 set shiftwidth=4 " 自動インデントでずれる幅
 set softtabstop=4 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
-set smarttab 
+" set smarttab 
 set smartindent "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set autoindent "改行時に前の行のインデントを継続する
 set noexpandtab " タブをスペースに置き換えない
@@ -131,6 +131,15 @@ nnoremap H :vertical resize -5<cr>
 nnoremap J :resize +5<cr>
 nnoremap K :resize -5<cr>
 nnoremap L :vertical resize +5<cr>
+
+" 括弧の補完
+" inoremap {<Enter> {}<Left><CR><ESC><S-o>
+" inoremap [<Enter> []<Left><CR><ESC><S-o>
+" inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+" クォートの補完
+" inoremap " ""<LEFT>
+" inoremap ' ''<LEFT>
 
 " GUI
 if has("gui_running")
