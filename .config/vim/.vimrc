@@ -9,10 +9,13 @@ set hidden " バッファを切替えてもundoの効力を失わない
 set t_vb= " ピープ音を消す
 set novisualbell " ビジュアルベルの無効化
 set noerrorbells " エラーメッセージの表示時にビープを鳴らさない
-" set paste " 挿入で勝手にインデントさせない(補完できなくなるので無効)
+set paste " 挿入で勝手にインデントさせない
 set timeout timeoutlen=1000 ttimeoutlen=75 " escの反応を早くする
 set switchbuf=usetab " 同じファイルを別タブで開かないようにする
 set autoread " vimrc更新後に自動読み込み
+set belloff=all " beepを鳴らさない
+" see https://stackoverflow.com/questions/3961859/how-to-copy-to-clipboard-in-vim
+set clipboard^=unnamed,unnamedplus " クリップボードにコピー
 
 " タブ関連
 " https://www.nims.go.jp/cmsc/staff/arai/python/python-vim.html
@@ -55,7 +58,6 @@ set showmatch " 対応する括弧などをハイライト表示する
 set matchtime=3 " 対応括弧のハイライト表示を3秒にする
 set backspace=indent,eol,start " バックスペースでなんでも消せるようにする
 set pastetoggle=<F12> " F12でインサートモードでpaste modeをトグル
-set clipboard=unnamedplus  " yankでクリップボードにコピー
 
 " バックアップ
 set nowritebackup
@@ -72,12 +74,6 @@ set hlsearch
 noremap <C-n> :nohl<CR>
 vnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>
-
-" Copy selected text to clipboard (need to use vim of gvim)
-set clipboard=unnamedplus
-
-" Beepならさない
-set belloff=all
 
 " Makefile tab
 let _curfile=expand("%:r")
