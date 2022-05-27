@@ -54,4 +54,5 @@ winget install 9PF4KZ2VN4W9 # TranslucentTB
 # Others
 winget install Amazon.Kindle
 winget install Dropbox.Dropbox
+winget install Gimp.Gimp
 winget install Adobe.Acrobat.Reader.64-bit
