@@ -34,6 +34,7 @@ winget install RProject.R
 winget install RStudio.RStudio.OpenSource
 winget install Notepad++.Notepad++
 winget install -e --id JetBrains.IntelliJIDEA.Community
+winget install -e --id KiCad.KiCad
 
 # Communication
 winget install messenger
