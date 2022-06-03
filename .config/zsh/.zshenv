@@ -85,7 +85,8 @@ export PATH="$HOME/bin:$PATH"
 
 # JAVA
 if type "java" > /dev/null; then
-  export JAVA_HOME=/usr/lib/jvm/default
+  export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+  export PATT=$PATH:$JAVA_HOME/bin
 fi
 
 # Ruby Env

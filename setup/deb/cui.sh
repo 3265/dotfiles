@@ -17,5 +17,6 @@ sudo apt install -y emacs
 sudo apt install -y caffeine
 sudo apt install -y ranger
 sudo apt install -y golang
+sudo apt install -y default-jdk
 
 sudo apt install -y clisp # LISP

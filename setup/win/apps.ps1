@@ -53,6 +53,7 @@ winget install rocksdanister.LivelyWallpaper
 winget install 9PF4KZ2VN4W9 # TranslucentTB
 
 # Others
+winget install -e --id NirSoft.BlueScreenView
 winget install Amazon.Kindle
 winget install Dropbox.Dropbox
 winget install Gimp.Gimp
