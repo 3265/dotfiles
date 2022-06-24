@@ -15,7 +15,8 @@ winget install Microsoft.PowerToys # caps lock
 winget install Microsoft.WindowsTerminal
 
 # Finder
-winget install 9NGHP3DX8HDX # Files-Community.Files 
+winget install -e --id Microsoft.OneDrive
+# winget install 9NGHP3DX8HDX # Files-Community.Files 
 winget install voidtools.Everything
 
 # CUI Dev Tools
