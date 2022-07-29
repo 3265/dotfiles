@@ -76,10 +76,8 @@ vnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>
 
 " Makefile tab
-let _curfile=expand("%:r")
-if _curfile == 'Makefile'
-  set noexpandtab
-endif
+" https://superuser.com/questions/632657/how-to-setup-vim-to-edit-both-makefile-and-normal-code-files-with-two-different
+autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
 " Finder Settings
 let g:netrw_banner = 0
