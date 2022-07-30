@@ -8,7 +8,7 @@ function zle-line-init zle-keymap-select {
     export normal_mode="%{${fg[yellow]}%}N${reset_color}"
     export insert_mode="%{${fg[green]}%}I${reset_color}"
     VIMODE="${${KEYMAP/vicmd/[${normal_mode}]}/(main|viins)/[${insert_mode}]}"
-    export PROMPT=$tmp_prompt
+    export PROMPT=$tmp_prompt_ubuntu_like
     zle reset-prompt
 }
 zle -N zle-line-init
@@ -46,6 +46,7 @@ export date_slash="%w"
 export hh_mm_ss="%*"
 export yy_mm_dd="%D"
 export lambda="λ"
+export dollar="$"
 export reset_color="%{${reset_color}%}"
 
 ### Colored Const
@@ -56,22 +57,24 @@ export c_current_dir_fullpath="%{${fg[green]}%}${current_dir_fullpath}${reset_co
 export c_user_identifier="%{${fg[red]}%}${user_identifier}${reset_color}"  # if root { # } else { $ }
 export c_at_sign="%{${fg[white]}%}@%{${reset_color}%}"
 export c_lambda="%{${fg[cyan]}%}${lambda}%{${reset_color}%}"
+export c_dollar="%{${fg[white]}%}${dollar}%{${reset_color}%}"
 
 # 一般ユーザ時
 export tmp_prompt='[${c_user_name}${c_at_sign}${c_host_name} ${c_current_dir}][${hh_mm_ss}]${vcs_info_msg_0_}${CMD_STATUS}${VIMODE}> '
+export tmp_prompt_ubuntu_like='${c_user_name}${c_at_sign}${c_host_name}:${c_current_dir}${vcs_info_msg_0_}${c_dollar} '
 export tmp_prompt2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
 export tmp_rprompt="[${c_current_dir_fullpath}]"
 export tmp_sprompt="%{${fg[yellow]}%}%r is correct? [Yes, No, Abort, Edit]:%{${reset_color}%}"
 
 # rootユーザ時(太字にし、アンダーバーをつける)
 if [ ${UID} -eq 0 ]; then
-  export tmp_prompt="%B%U${tmp_prompt}%u%b"
+  export tmp_prompt_ubuntu_like="%B%U${tmp_prompt_ubuntu_like}%u%b"
   export tmp_prompt2="%B%U${tmp_prompt2}%u%b"
   export tmp_rprompt="%B%U${tmp_rprompt}%u%b"
   export tmp_sprompt="%B%U${tmp_sprompt}%u%b"
 fi
 
-export PROMPT=$tmp_prompt    # 通常のプロンプト
+export PROMPT=$tmp_prompt_ubuntu_like  # 通常のプロンプト
 export PROMPT2=$tmp_prompt2  # セカンダリのプロンプト(コマンドが2行以上の時に表示される)
 # export RPROMPT=$tmp_rprompt  # 右側のプロンプト (必要ないのでコメントアウトする)
 export SPROMPT=$tmp_sprompt  # スペル訂正用プロンプト
@@ -127,7 +130,7 @@ _OLD_RPROMPT="$RPROMPT"
 set_prompt () {
     VENV_NAME=`basename \"$VIRTUAL_ENV\"`
     if [ "$VENV_NAME" != '""' ]; then
-        RPROMPT="%{${fg_bold[white]}%}(env: %{${fg[green]}%}${VENV_NAME%\"}%{${fg_bold[white]}%})%{${reset_color}%}"
+        RPROMPT="(env: %{${fg[green]}%}${VENV_NAME%\"}%{${reset_color}%})"
     fi
 }
 autoload add-zsh-hook
