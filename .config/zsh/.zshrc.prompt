@@ -61,7 +61,7 @@ export c_dollar="%{${fg[white]}%}${dollar}%{${reset_color}%}"
 
 # 一般ユーザ時
 export tmp_prompt='[${c_user_name}${c_at_sign}${c_host_name} ${c_current_dir}][${hh_mm_ss}]${vcs_info_msg_0_}${CMD_STATUS}${VIMODE}> '
-export tmp_prompt_ubuntu_like='${c_user_name}${c_at_sign}${c_host_name}:${c_current_dir}${vcs_info_msg_0_}${c_dollar} '
+export tmp_prompt_ubuntu_like='${c_user_name}${c_at_sign}${c_host_name}:${c_current_dir}${vcs_info_msg_0_}${dollar} '
 export tmp_prompt2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
 export tmp_rprompt="[${c_current_dir_fullpath}]"
 export tmp_sprompt="%{${fg[yellow]}%}%r is correct? [Yes, No, Abort, Edit]:%{${reset_color}%}"
