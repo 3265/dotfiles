@@ -99,6 +99,7 @@ bindkey '^h' history_cmd
 z_faj() {
   faj;
   vcs_info # shows git branch
+  zle accept-line
   zle reset-prompt
   clear
 }
