@@ -32,6 +32,9 @@ winget install Vim.Vim
 winget install Neovim.Neovim
 winget install -q vscode --scope machine # zsh setup/vscode.sh
 
+# Programing Languages
+winget install -e --id Python.Python.3
+
 # GUI Dev Tools
 winget install Microsoft.VisualStudio.2022.Community
 winget install Postman.Postman
