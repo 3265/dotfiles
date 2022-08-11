@@ -1,3 +1,6 @@
+# To disable Git GPG signing for a single repository
+# git config commit.gpgsign false
+
 [user]
     name = 
     email = 
