@@ -1,19 +1,33 @@
 {
+  // ##########################################
+  //        Basic
+  // ##########################################
   "files.insertFinalNewline": true,
   "extensions.autoUpdate": "onlyEnabledExtensions",
-  "eslint.enable": true,
   "editor.rulers": [
     100
   ],
-  "editor.fontSize": 10,
-  "javascript.validate.enable": false,
   "workbench.activityBar.visible": true,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.sideBar.location": "left",
   "workbench.editor.enablePreview": false,
+  "workbench.colorTheme": "Monokai",
   "files.trimTrailingWhitespace": true,
   "editor.selectionHighlight": true,
   "editor.selectionClipboard": true,
+  "editor.fontSize": 10,
+  "emmet.triggerExpansionOnTab": false, // https://stackoverflow.com/questions/35519538/visual-studio-code-tab-key-does-not-insert-a-tab
+  "security.workspace.trust.untrustedFiles": "newWindow",
+  // ##########################################
+  //        Terminal
+  // ##########################################
+  "editor.accessibilitySupport": "off",
+  "workbench.editor.untitled.hint": "hidden",
+  "terminal.integrated.fontFamily": "'Hack Nerd Font'",
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "editor.renderControlCharacters": true,
+  "editor.unicodeHighlight.nonBasicASCII": false,
   // ##########################################
   //         disable ALT
   // https://stackoverflow.com/questions/48044429/override-alt-to-toggle-menu-bar-on-vs-code
@@ -62,7 +76,7 @@
   // ##########################################
   "glassit-linux.opacity": 90,
   // ##########################################
-  //         Languages
+  //         Ruby
   // ##########################################
   "ruby.lint": {
     "reek": true,
@@ -74,9 +88,17 @@
   },
   "workbench.tree.indent": 15,
   "explorer.confirmDragAndDrop": false,
+  // ##########################################
+  //         MD
+  // ##########################################
   "[markdown]": {
     "files.trimTrailingWhitespace": false
   },
+  // ##########################################
+  //         JS
+  // ##########################################
+  "javascript.validate.enable": false,
+  "eslint.enable": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "[javascript]": {
@@ -87,23 +109,12 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.disableLanguages": [
-    "html",
-  ],
-  "emmet.includeLanguages": {
-    "django-html": "html"
-  },
   // "files.associations": {
   //     "*.html": "html"
   // },
-  "[html]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
-  "[django-html]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
+  // ##########################################
+  //                  JSON
+  // ##########################################
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
@@ -123,51 +134,47 @@
     ]
     // ^^ providing just an array sets the VS Code file type
   },
+  "prettier.disableLanguages": [
+    "html",
+  ],
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
+  "[html]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[django-html]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
   // ##########################################
   //                  Python
   // ##########################################
   // Python Venv
   "python.venvPath": ".venv",
-  // Python typechecker
-  "python.linting.mypyEnabled": true,
-  // Python linter
-  "python.linting.pylintEnabled": false, // not use pylint
-  "python.linting.flake8Enabled": true,
-  "python.linting.blackEnabled": true,
-  "python.linting.flake8Args": [
-    "--max-line-length=120",
-    "--max-complexity",
-    "20"
-  ],
-  "python.linting.lintOnSave": true,
   "[python]": {
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.organizeImports": true // runs Isort automatically upon saving your document
     }
   },
-  // "python.formatting.provider": "autopep8",
-  "python.formatting.autopep8Args": [
-    "--aggressive",
-    "--aggressive"
-  ],
   "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": [
+    "--max-line-length=88",
+    "--ignore=E203,W503,W504,E501"
+  ],
+  "python.linting.lintOnSave": true,
+  "python.linting.mypyEnabled": true,
+  // ##########################################
+  //                  Jupyter
+  // ##########################################
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
-  "editor.formatOnSave": true,
-  "emmet.triggerExpansionOnTab": false, // https://stackoverflow.com/questions/35519538/visual-studio-code-tab-key-does-not-insert-a-tab
-  "editor.renderControlCharacters": true,
-  "workbench.colorTheme": "Monokai",
-  "security.workspace.trust.untrustedFiles": "newWindow",
   "notebook.cellToolbarLocation": {
     "default": "right",
     "jupyter-notebook": "left"
   },
-  "editor.accessibilitySupport": "off",
-  "workbench.editor.untitled.hint": "hidden",
-  "terminal.integrated.fontFamily": "'Hack Nerd Font'",
-  "terminal.integrated.copyOnSelection": true,
-  "terminal.integrated.defaultProfile.linux": "zsh",
-  "editor.unicodeHighlight.nonBasicASCII": false
 }

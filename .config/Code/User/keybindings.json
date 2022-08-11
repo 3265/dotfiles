@@ -2,12 +2,12 @@
     {
         "key": "ctrl+c",
         "command": "editor.action.clipboardCopyAction",
-         "when": "editorTextFocus && !inDebugRepl && vim.mode != 'Insert'"
+        "when": "editorTextFocus && !inDebugRepl && vim.mode != 'Insert'"
     },
     {
         "key": "ctrl+v",
         "command": "editor.action.clipboardPasteAction",
-         "when": "editorTextFocus && !inDebugRepl && vim.mode == 'Insert'"
+        "when": "editorTextFocus && !inDebugRepl && vim.mode == 'Insert'"
     },
     // Emacs binding for terminal.
     {
@@ -40,5 +40,22 @@
         "command": "ctrl+n",
         "when": "terminalFocus"
     },
+    // Ctrl-Q is for TWmux in terminal
+    {
+        "key": "ctrl+q",
+        "command": "ctrl+q",
+        "when": "terminalFocus"
+    },
+    // Ctrl-v is for VIm in terminal
+    {
+        "key": "ctrl+v",
+        "command": "ctrl+v",
+        "when": "terminalFocus"
+    },
+    // disable to close terminal by ctrl+j
+    {
+        "key": "ctrl+j",
+        "command": "ctrl+j",
+        "when": "terminalFocus"
+    },
 ]
-
