@@ -1,7 +1,9 @@
 [user]
   name = mgoldchild
   email = mgoldchild@gmail.com
-	signingkey = BDDB43041BF65C3E
+  signingkey = BDDB43041BF65C3E
+[includeIf "gitdir:~/workspace/"]
+  path = ~/workspace/.gitconfig
 [diff]
   renames = true
 [color]
