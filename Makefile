@@ -16,6 +16,7 @@ term_core:
 	bash ./linux/screen.sh
 	bash ./linux/tmux.sh
 	bash ./linux/vscode.sh
+	bash ./deb/poetry.sh
 	reboot
 
 .PHONY: arch_install

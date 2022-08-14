@@ -184,3 +184,8 @@ fi
 if [ -d ~/root/ ] ; then
     export PATH=~/root/bin:$PATH
 fi
+
+POETRY_FOLDER=$HOME/.poetry
+if [ -d "$POETRY_FOLDER" ]; then
+    source $HOME/.poetry/env
+fi
