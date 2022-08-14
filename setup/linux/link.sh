@@ -223,3 +223,7 @@ sudo ln -s -f ~/dotfiles/.config/resolv/resolv.conf /etc/resolv.conf
 
 # Gaze
 sudo ln -s -f ~/dotfiles/.config/gaze/.gaze.yml ~/.gaze.yml
+
+# Poetry
+mkdir -p ~/.config/pypoetry/
+ln -s -f ~/dotfiles/.config/pypoetry/config.toml ~/.config/pypoetry/config.toml
