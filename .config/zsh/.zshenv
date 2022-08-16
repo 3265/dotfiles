@@ -150,11 +150,9 @@ eval "$(pyenv init --path)"
 
 export PATH=$PATH:~/.cargo/bin/
 
-# NVM from ARU
-# NOTE: Too slow this is
-NVM_FILE=/usr/share/nvm/init-nvm.sh
-if [ -f "$NVM_FILE" ]; then
-    source $NVM_FILE --no-use
+NVM_DIR=~/.nvm
+if [ -s "$NVM_DIR/nvm.sh" ] ; then
+    "$NVM_DIR/nvm.sh"
 fi
 
 # Autojump
