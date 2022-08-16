@@ -152,7 +152,7 @@ export PATH=$PATH:~/.cargo/bin/
 
 NVM_DIR=~/.nvm
 if [ -s "$NVM_DIR/nvm.sh" ] ; then
-    "$NVM_DIR/nvm.sh"
+    sh "$NVM_DIR/nvm.sh"
 fi
 
 # Autojump
