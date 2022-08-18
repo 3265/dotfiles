@@ -232,4 +232,4 @@ ln -s -f ~/dotfiles/.config/pypoetry/config.toml ~/.config/pypoetry/config.toml
 mkdir -p ~/.config/vifm/
 mkdir -p ~/.config/vifm/colors/
 ln -s -f ~/dotfiles/.config/vifm/vifmrc ~/.config/vifm/vifmrc
-ln -s -f ~/dotfiles/.config/vifm/SolarizedDark.vim ~/.config/vifm/SolarizedDark.vim
+ln -s -f ~/dotfiles/.config/vifm/colors/SolarizedDark.vim ~/.config/vifm/colors/SolarizedDark.vim
