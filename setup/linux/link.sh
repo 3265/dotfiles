@@ -227,3 +227,9 @@ sudo ln -s -f ~/dotfiles/.config/gaze/.gaze.yml ~/.gaze.yml
 # Poetry
 mkdir -p ~/.config/pypoetry/
 ln -s -f ~/dotfiles/.config/pypoetry/config.toml ~/.config/pypoetry/config.toml
+
+# Vifm
+mkdir -p ~/.config/vifm/
+mkdir -p ~/.config/vifm/colors/
+ln -s -f ~/dotfiles/.config/vifm/vifmrc ~/.config/vifm/vifmrc
+ln -s -f ~/dotfiles/.config/vifm/SolarizedDark.vim ~/.config/vifm/SolarizedDark.vim
