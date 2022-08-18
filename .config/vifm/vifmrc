@@ -503,6 +503,11 @@ nnoremap q :quit<cr>
 " make directory
 nnoremap N :mkdir<space>
 
+" ctrl-b is back
+nmap <C-B> h
+nmap b h
+
+" Ruler
 set rulerformat="File %l Out Of %S [ total:%L filtered:%0- ]"
 
 windo set viewcolumns=-{name},6{size},11{perms},9{uname},-8{gname},16{mtime}
@@ -510,4 +515,5 @@ windo set viewcolumns=-{name},6{size},11{perms},9{uname},-8{gname},16{mtime}
 " Faster renaming
 nnoremap r cw
 
+" Icons
 source ~/.config/vifm/colors/favicons.vifm
