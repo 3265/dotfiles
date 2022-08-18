@@ -57,6 +57,10 @@ export REPORTTIME=3
 # for nvim
 export XDG_CONFIG_HOME=~/.config
 
+# Disable Gnu Screen C-x screen locking
+# ref: https://www.pantz.org/software/screen/disabling_gnu_screen_lock_screen.html#:~:text=Disabling%20lock%20screen&text=The%20way%20I%20found%20to,and%20start%20a%20new%20one.
+export LOCKPRG=/bin/true
+
 # ------------------------------
 # Programming Language Settings
 # ------------------------------
