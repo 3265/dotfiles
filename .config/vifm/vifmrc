@@ -506,11 +506,3 @@ nnoremap N :mkdir<space>
 set rulerformat="File %l Out Of %S [ total:%L filtered:%0- ]"
 
 windo set viewcolumns=-{name},6{size},11{perms},9{uname},-8{gname},16{mtime}
-
-command! FZFfind : set noquickview
-                \| let $FZF_PICK = term('find | fzf-tmux  2>/dev/tty')
-                \| if $FZF_PICK != ''
-                \|     execute 'goto' fnameescape($FZF_PICK)
-                \| endif
-
-nnoremap <a-f> :FZFfind<cr>
