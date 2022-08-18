@@ -233,3 +233,4 @@ mkdir -p ~/.config/vifm/
 mkdir -p ~/.config/vifm/colors/
 ln -s -f ~/dotfiles/.config/vifm/vifmrc ~/.config/vifm/vifmrc
 ln -s -f ~/dotfiles/.config/vifm/colors/SolarizedDark.vifm ~/.config/vifm/colors/SolarizedDark.vifm
+ln -s -f ~/dotfiles/.config/vifm/colors/favicons.vifm ~/.config/vifm/colors/favicons.vifm
