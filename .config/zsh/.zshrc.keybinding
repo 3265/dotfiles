@@ -119,7 +119,7 @@ bindkey '^s' z_fg
 # https://unix.stackexchange.com/questions/475310/how-to-bind-a-keyboard-shortcut-in-zsh-to-a-program-requiring-stdin
 run_vifm () {
     echo
-    vifm < $TTY
+    vifm . < $TTY
     zle reset-prompt
 }
 zle -N run_vifm
