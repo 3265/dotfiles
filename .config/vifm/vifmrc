@@ -482,41 +482,56 @@ nnoremap <f8> :delete<cr>
 "
 " let $VIFM_SERVER_NAME = v:servername
 
-
-
-fileview */ tree %c
-
+" horizontal split
 :split
 
+" one row
 only
 
 " show hiddden files in both panes
 windo normal zo
 
+" status line
 set timefmt=" %Y/%m/%d %H:%M:%S "
 set statusline="  %t  [%T]%= %A %10u:%-7g %15s %20d [%a free]"
 set sizefmt=units:iec,precision:3
 
+" Ruler
+set rulerformat="File %l Out Of %S [ total:%L filtered:%0- ]"
+
+" file info
+windo set viewcolumns=-{name},6{size},11{perms},9{uname},-8{gname},16{mtime}
+
+" Icons
+source ~/.config/vifm/colors/favicons.vifm
+
 " quit by q
 nnoremap q :quit<cr>
 
-" make directory
-nnoremap N :mkdir<space>
+" make dir
+nnoremap m :mkdir<space>
+
+" make file
+nnoremap n :edit<space>
+
+" rename file / folder
+nnoremap r cw
+
+" open by space
+nmap <Space> t
+
+" open by t
+nnoremap t<CR>
+
+" view file by v
+nnoremap v e 
 
 " ctrl-b is back
 nmap <C-B> h
 nmap b h
 
-" Ruler
-set rulerformat="File %l Out Of %S [ total:%L filtered:%0- ]"
+" i is info
+nmap i <C-g>
 
-windo set viewcolumns=-{name},6{size},11{perms},9{uname},-8{gname},16{mtime}
-
-" Faster renaming
-nnoremap r cw
-
-" space to enter
-nmap <Space> <CR>
-
-" Icons
-source ~/.config/vifm/colors/favicons.vifm
+" open by space
+nmap <C-c> ZZ
