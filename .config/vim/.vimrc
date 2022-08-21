@@ -37,7 +37,7 @@ set showtabline=2 "タブを常に表示する
 set cmdheight=1 "コマンドラインは1行
 set shortmess+=I " 起動時のメッセージを表示しない
 set cursorline " 横線の表示
-set cursorcolumn " 縦線の表示
+" set cursorcolumn " 縦線の表示
 set fileformats=unix,dos,mac " 改行コードの自動認識
 " set colorcolumn=100 " 100行目にラインをいれる
 set t_Co=256 " 256色
