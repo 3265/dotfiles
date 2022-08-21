@@ -145,3 +145,6 @@ if has("gui_running")
     set guifont=Hack
 endif
 
+" quick close
+nnoremap Z ZZ<CR>
+nnoremap q ZZ<CR>

@@ -505,33 +505,30 @@ windo set viewcolumns=-{name},6{size},11{perms},9{uname},-8{gname},16{mtime}
 " Icons
 source ~/.config/vifm/colors/favicons.vifm
 
-" quit by q
-nnoremap q :quit<cr>
+" Shortcuts like Vim file Explorer
+nnoremap D dd
+nnoremap R cw
+nnoremap % :edit<space>
+" nnoremap d :mkdir<space>
+nnoremap - h
 
-" make dir
-nnoremap m :mkdir<space>
-
-" make file
-nnoremap n :edit<space>
-
-" rename file / folder
-nnoremap r cw
-
-" open by space
-nmap <Space> t
-
-" open by t
-nnoremap t<CR>
-
-" view file by v
+" Common Shortcuts:
+"
+" Quit Rename Tab(open) Yank Info Paste
+" Sort Delete
+" View Back New Make
+"
 nnoremap v e 
-
-" ctrl-b is back
 nmap <C-B> h
 nmap b h
-
-" i is info
 nmap i <C-g>
-
-" open by space
-nmap <C-c> ZZ
+nnoremap m :mkdir<space>
+nnoremap n :edit<space>
+nmap <Space> t
+nnoremap t <CR>
+nnoremap r cw
+nnoremap e :echo 'noop'<cr>
+nnoremap d dd
+nnoremap y yy
+nnoremap q :quit<cr>
+nnoremap s :sort<cr>
