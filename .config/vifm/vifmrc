@@ -514,21 +514,19 @@ nnoremap - h
 
 " Common Shortcuts:
 "
-" Quit Rename Tab(open) Yank Info Paste
-" Sort Delete
-" View Back New Make
+" Quit E(Tree) Rename T(Open) Yank(yy) Info Paste
+" Sort Delete(dd)
+" View Back Next(Previous) Make(File/Folder)
 "
 nnoremap v e 
 nmap <C-B> h
 nmap b h
 nmap i <C-g>
-nnoremap m :mkdir<space>
-nnoremap n :edit<space>
+nnoremap m :edit<space>
+nnoremap M :mkdir<space>
 nmap <Space> t
 nnoremap t <CR>
+nnoremap e :tree!<CR>
 nnoremap r cw
-nnoremap e :echo 'noop'<cr>
-nnoremap d dd
-nnoremap y yy
 nnoremap q :quit<cr>
 nnoremap s :sort<cr>
