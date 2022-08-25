@@ -25,8 +25,9 @@ set -sg escape-time 0 # vimのescキーのディレイを減らす
 set -g base-index 1 # ウィンドウのインデックスを1から始める
 setw -g pane-base-index 1 # ペインのインデックスを1から始める
 
-# マウス操作を無効にする
-setw -g mouse off
+# スクロールで履歴ではなく画面をスクロールする
+set -g mouse on
+set -g terminal-overrides 'xterm*:smcup@:rmcup@'
 
 # 256色端末を使用する
 set -g default-terminal "screen-256color"
