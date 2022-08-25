@@ -46,3 +46,4 @@ set-option -g bell-action none
 # set -g lock-after-time 300
 # set-option -g lock-command cmatrix
 
+unbind -n MouseDown3Pane
