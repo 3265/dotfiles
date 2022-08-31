@@ -9,6 +9,7 @@ pipx install isort
 pipx install mypy
 pipx install flake8
 pipx install autoflake
+pipx install pytest
 
 pipx install codemod
 pipx install pycowsay
