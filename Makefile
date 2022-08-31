@@ -16,8 +16,9 @@ term_core:
 	bash ./linux/screen.sh
 	bash ./linux/tmux.sh
 	bash ./linux/vscode.sh
-	bash ./deb/poetry.sh
-	reboot
+	bash ./linux/pipx.sh
+	bash ./linux/py-cli.sh
+	# reboot
 
 .PHONY: arch_install
 .ONESHELL:
@@ -38,7 +39,6 @@ deb_install:
 	bash ./deb/cui.sh
 	bash ./deb/pyenv.sh
 	bash ./deb/lsd.sh
-	bash ./deb/pipenv.sh
 	# bash ./deb/gui.sh
 
 .PHONY: deb
