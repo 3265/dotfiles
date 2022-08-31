@@ -1,6 +1,7 @@
 #!/bin/bash
 
 pipx install poetry
+pipx install pipenv
 pipx install pip-tools
 
 pipx install black
