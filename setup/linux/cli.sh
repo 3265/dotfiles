@@ -10,6 +10,10 @@ pipx install mypy
 pipx install flake8
 pipx install autoflake
 pipx install pytest
+pipx install Fabric3
 
-pipx install codemod
+# pipx install codemod
+cargo install fastmod
+
 pipx install pycowsay
+

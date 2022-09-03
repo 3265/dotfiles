@@ -75,3 +75,6 @@ node_modules
 
 # WIN
 *:Zone.Identifier
+
+# py
+__pycache__

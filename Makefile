@@ -17,7 +17,7 @@ term_core:
 	bash ./linux/tmux.sh
 	bash ./linux/vscode.sh
 	bash ./linux/pipx.sh
-	bash ./linux/py-cli.sh
+	bash ./linux/cli.sh
 	# reboot
 
 .PHONY: arch_install
