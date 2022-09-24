@@ -43,6 +43,7 @@ winget install Google.AndroidStudio
 winget install RProject.R
 winget install RStudio.RStudio.OpenSource
 winget install Notepad++.Notepad++
+winget install -e --id dbeaver.dbeaver
 winget install -e --id JetBrains.IntelliJIDEA.Community
 winget install -e --id KiCad.KiCad
 
@@ -73,3 +74,4 @@ winget install Amazon.Kindle
 
 # Others
 winget install -e --id NirSoft.BlueScreenView
+
