@@ -20,5 +20,6 @@ sudo apt install -y golang
 sudo apt install -y rust-all
 sudo apt install -y vifm
 sudo apt install -y default-jdk
+sudo apt install -y qalc
 
 sudo apt install -y clisp # LISP
