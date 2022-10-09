@@ -13,6 +13,7 @@ winget install Microsoft.PowerToys # caps lock
 
 # Office
 # MS Office, OneNote, EdraMax
+winget install -e --id Qalculate.Qalculate
 
 # Terminal
 winget install Microsoft.WindowsTerminal
