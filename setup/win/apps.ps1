@@ -5,6 +5,7 @@ winget install AgileBits.1Password
 winget install Google.Chrome
 winget install Google.Chrome.Dev
 winget install Mozilla.Firefox
+winget install -e --id TorProject.TorBrowser
 
 # Hotkeys
 winget install Lexikos.AutoHotkey
