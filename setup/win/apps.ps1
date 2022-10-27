@@ -75,5 +75,6 @@ winget install Adobe.Acrobat.Reader.64-bit
 winget install Amazon.Kindle
 
 # Others
-winget install -e --id NirSoft.BlueScreenView
+winget install -e --id Automattic.Simplenote
+# winget install -e --id NirSoft.BlueScreenView
 
