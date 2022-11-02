@@ -63,9 +63,9 @@ winget install Tencent.WeChat
 winget install Grammarly.ForWindows
 winget install -e --id DeepL.DeepL
 
-# GUI Behavior
-winget install rocksdanister.LivelyWallpaper
-winget install 9PF4KZ2VN4W9 # TranslucentTB
+# Desktop Wallpper
+# winget install rocksdanister.LivelyWallpaper
+# winget install 9PF4KZ2VN4W9 # TranslucentTB
 
 # Graphics
 winget install Gimp.Gimp
@@ -77,4 +77,5 @@ winget install Amazon.Kindle
 # Others
 winget install -e --id Automattic.Simplenote
 # winget install -e --id NirSoft.BlueScreenView
+winget install -e --id Apache.DirectoryStudio
 
