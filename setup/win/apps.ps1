@@ -36,6 +36,7 @@ winget install -q vscode --scope machine # zsh setup/vscode.sh
 
 # Programing Languages
 winget install -e --id Python.Python.3
+winget install Microsoft.OpenJDK.17
 
 # GUI Dev Tools
 winget install Microsoft.VisualStudio.2022.Community
