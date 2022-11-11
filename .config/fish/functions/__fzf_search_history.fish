@@ -6,7 +6,7 @@ function __fzf_search_history --description "Search command history. Replace the
         fzf --read0 \
             --print0 \
             --multi \
-            --prompt 'History>' \
+            --prompt 'SearchHstory>' \
             --tiebreak=index \
             --query=(commandline) \
             --preview="echo '' {4..} | fish_indent --ansi" \
