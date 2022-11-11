@@ -5,11 +5,12 @@
 #   exec startx
 # fi
 
-if [ -f ~/.zshenv ]; then
-    . ~/.zshenv
-fi
-
+# if [ -f ~/.zshenv ]; then
+#     . ~/.zshenv
+# fi
+#
 # if [ -f ~/.bashrc ]; then
 #     . ~/.bashrc
 # fi
 
+exec fish

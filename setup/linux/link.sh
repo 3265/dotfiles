@@ -234,3 +234,25 @@ mkdir -p ~/.config/vifm/colors/
 ln -s -f ~/dotfiles/.config/vifm/vifmrc ~/.config/vifm/vifmrc
 ln -s -f ~/dotfiles/.config/vifm/colors/SolarizedDark.vifm ~/.config/vifm/colors/SolarizedDark.vifm
 ln -s -f ~/dotfiles/.config/vifm/colors/favicons.vifm ~/.config/vifm/colors/favicons.vifm
+
+# fish
+mkdir -p ~/.config/fish/
+mkdir -p ~/.config/fish/conf.d/
+mkdir -p ~/.config/fish/functions/
+ln -s -f ~/dotfiles/.config/fish/conf.d/fzf.fish ~/.config/fish/conf.d/fzf.fish
+ln -s -f ~/dotfiles/.config/fish/functions/__fzf_autojump.fish ~/.config/fish/functions/__fzf_autojump.fish
+ln -s -f ~/dotfiles/.config/fish/functions/__fzf_cd.fish ~/.config/fish/functions/__fzf_cd.fish
+ln -s -f ~/dotfiles/.config/fish/functions/__fzf_find_file.fish ~/.config/fish/functions/__fzf_find_file.fish
+ln -s -f ~/dotfiles/.config/fish/functions/__fzf_open.fish ~/.config/fish/functions/__fzf_open.fish
+ln -s -f ~/dotfiles/.config/fish/functions/__fzf_parse_commandline.fish ~/.config/fish/functions/__fzf_parse_commandline.fish
+ln -s -f ~/dotfiles/.config/fish/functions/__fzf_search_history.fish ~/.config/fish/functions/__fzf_search_history.fish
+mkdir -p ~/.config/fish/settings/
+ln -s -f ~/dotfiles/.config/fish/settings/alias.fish ~/.config/fish/settings/alias.fish
+ln -s -f ~/dotfiles/.config/fish/settings/basic.fish ~/.config/fish/settings/basic.fish
+ln -s -f ~/dotfiles/.config/fish/settings/env.fish ~/.config/fish/settings/env.fish
+ln -s -f ~/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
+ln -s -f ~/dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
+
+sudo chmod 777 ~/.config/fish/settings/alias.fish
+sudo chmod 777 ~/.config/fish/settings/basic.fish
+sudo chmod 777 ~/.config/fish/settings/env.fish
