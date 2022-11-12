@@ -16,7 +16,6 @@ term_core:
 	bash ./linux/screen.sh
 	bash ./linux/tmux.sh
 	bash ./linux/vscode.sh
-	bash ./linux/pipx.sh
 	bash ./linux/cli.sh
 	# reboot
 
