@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo apt install -y zsh
+sudo apt install -y fish
 sudo apt install -y silversearcher-ag
 sudo apt install -y tree
 sudo apt install -y fzf
@@ -21,5 +22,8 @@ sudo apt install -y rust-all
 sudo apt install -y vifm
 sudo apt install -y default-jdk
 sudo apt install -y qalc
+
+sudo apt install -y python3-pip
+sudo apt install -y python3-venv # needed by pipx
 
 sudo apt install -y clisp # LISP

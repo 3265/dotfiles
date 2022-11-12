@@ -10,7 +10,7 @@ link:
 .ONESHELL:
 term_core:
 	cd $(SETUP_DIR)
-	chsh -s /bin/zsh
+	chsh -s /bin/bash
 	bash ./linux/zsh.sh
 	bash ./linux/vim.sh
 	bash ./linux/screen.sh
@@ -39,6 +39,7 @@ deb_install:
 	bash ./deb/cui.sh
 	bash ./deb/pyenv.sh
 	bash ./deb/lsd.sh
+	bash ./deb/fish.sh
 	# bash ./deb/gui.sh
 
 .PHONY: deb
