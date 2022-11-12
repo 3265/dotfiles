@@ -9,7 +9,7 @@ function __fzf_search_history --description "Search command history. Replace the
             --prompt 'SearchHstory>' \
             --tiebreak=index \
             --query=(commandline) \
-            --preview="echo '' {4..} | fish_indent --ansi" \
+            --preview="echo {}" \
             --preview-window="bottom:3:wrap" \
             $fzf_history_opts |
         string split0 |
@@ -23,3 +23,4 @@ function __fzf_search_history --description "Search command history. Replace the
 
     commandline --function repaint
 end
+

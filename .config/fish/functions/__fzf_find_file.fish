@@ -11,7 +11,7 @@ function __fzf_find_file -d "List files and folders"
     -type l -print 2> /dev/null"
 
     begin
-        eval "$FZF_FIND_FILE_COMMAND | fzf -m --prompt=\"CopyFilePath>\" --preview-window=\"bottom:3:wrap\" --preview=\"echo {} | fish_indent --ansi\" --query \"$fzf_query\""  | while read -l s; set results $results $s; end
+        eval "$FZF_FIND_FILE_COMMAND | fzf -m --prompt=\"CopyFilePath>\" --preview-window=\"bottom:3:wrap\" --preview=\"echo {}\" --query \"$fzf_query\""  | while read -l s; set results $results $s; end
     end
 
     if test -z "$results"

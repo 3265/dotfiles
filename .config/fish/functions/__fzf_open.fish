@@ -10,7 +10,7 @@ function __fzf_open -d "Open files and directories."
     -type d -print \
     -type l -print 2> /dev/null "
 
-    set -l select (eval "$FZF_OPEN_COMMAND | fzf --prompt 'OpenFile>' --preview-window='bottom:3:wrap' --preview='echo {} | fish_indent --ansi' -m --query \"$fzf_query\"" | string escape)
+    set -l select (eval "$FZF_OPEN_COMMAND | fzf --prompt 'OpenFile>' --preview-window='bottom:3:wrap' --preview='echo {}' -m --query \"$fzf_query\"" | string escape)
 
     set -l open_status 0
     if not test -z "$select"
