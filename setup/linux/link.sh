@@ -251,7 +251,7 @@ ln -s -f ~/dotfiles/.config/fish/settings/alias.fish ~/.config/fish/settings/ali
 ln -s -f ~/dotfiles/.config/fish/settings/basic.fish ~/.config/fish/settings/basic.fish
 ln -s -f ~/dotfiles/.config/fish/settings/env.fish ~/.config/fish/settings/env.fish
 ln -s -f ~/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
-ln -s -f ~/dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
+# ln -s -f ~/dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
 
 sudo chmod 777 ~/.config/fish/settings/alias.fish
 sudo chmod 777 ~/.config/fish/settings/basic.fish
