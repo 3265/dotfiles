@@ -238,8 +238,8 @@ ln -s -f ~/dotfiles/.config/vifm/colors/favicons.vifm ~/.config/vifm/colors/favi
 # fish
 mkdir -p ~/.config/fish/
 mkdir -p ~/.config/fish/conf.d/
-mkdir -p ~/.config/fish/functions/
 ln -s -f ~/dotfiles/.config/fish/conf.d/fzf.fish ~/.config/fish/conf.d/fzf.fish
+mkdir -p ~/.config/fish/functions/
 ln -s -f ~/dotfiles/.config/fish/functions/__fzf_autojump.fish ~/.config/fish/functions/__fzf_autojump.fish
 ln -s -f ~/dotfiles/.config/fish/functions/__fzf_cd.fish ~/.config/fish/functions/__fzf_cd.fish
 ln -s -f ~/dotfiles/.config/fish/functions/__fzf_find_file.fish ~/.config/fish/functions/__fzf_find_file.fish
