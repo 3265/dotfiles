@@ -21,7 +21,7 @@ function edit_cmd --description 'Edit cmdline in editor'
     vim -c set\ ft=fish $f
     commandline -r (more $f)
     commandline -C $p
-    rm $f
+    rm -f $f
 end
 bind \cv edit_cmd
 
