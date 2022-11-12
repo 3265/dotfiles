@@ -1,5 +1,7 @@
 set fish_greeting # disable greeting
 
+# fish_update_completions
+
 # ##########################
 # settings
 # ##########################

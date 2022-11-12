@@ -10,10 +10,14 @@ alias l='runls'
 alias s='screen'
 alias v='vim'
 
+# quick directory transition
+alias nd='nextd'
+alias pd='prevd'
+
 # i brothers
-# alias rm='rm -i'
-# alias cp='cp -i'
-# alias mv='mv -i'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
 
 function runls
   if type -q "lsd"
