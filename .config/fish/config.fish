@@ -45,9 +45,9 @@ set __fish_git_prompt_color_upstream_ahead green
 set __fish_git_prompt_color_upstream_behind red
 
 # Status Chars
-set __fish_git_prompt_char_dirtystate 'dirty'
-set __fish_git_prompt_char_stagedstate 'staged'
-set __fish_git_prompt_char_untrackedfiles 'untrached'
-set __fish_git_prompt_char_stashstate 'stashed'
-set __fish_git_prompt_char_upstream_ahead ' ahead'
-set __fish_git_prompt_char_upstream_behind ' behind'
+set __fish_git_prompt_char_dirtystate 'Dirty'
+set __fish_git_prompt_char_stagedstate 'Staged'
+set __fish_git_prompt_char_untrackedfiles 'Untracked'
+set __fish_git_prompt_char_stashstate 'Stashed'
+set __fish_git_prompt_char_upstream_ahead 'Ahead'
+set __fish_git_prompt_char_upstream_behind 'Behind'

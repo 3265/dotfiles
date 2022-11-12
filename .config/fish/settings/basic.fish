@@ -24,8 +24,8 @@ export HISTSIZE=10000          # History size in memory
 export SAVEHIST=1000000        # The number of histsize
 export LISTMAX=100              # The size of asking history
 
-# XDG_Config
-export XDG_CONFIG_HOME=~/.config
+# XDG_Config (FISHだと、shellを開始開始した所に~がつくられるのでコメントアウト)
+# export XDG_CONFIG_HOME=~/.config
 
 # Disable Gnu Screen C-x screen locking
 # ref: https://www.pantz.org/software/screen/disabling_gnu_screen_lock_screen.html#:~:text=Disabling%20lock%20screen&text=The%20way%20I%20found%20to,and%20start%20a%20new%20one.
@@ -39,4 +39,3 @@ export SCREENDIR=$HOME/.screen
 
 # for WSL
 export GPG_TTY=$(tty)
-
