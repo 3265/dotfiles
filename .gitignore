@@ -78,3 +78,6 @@ node_modules
 
 # py
 __pycache__
+
+# mktemp
+tmp.*
