@@ -39,6 +39,7 @@ deb_install:
 	bash ./deb/pyenv.sh
 	bash ./deb/lsd.sh
 	bash ./deb/fish.sh
+	bash ./linux/cling.sh
 	# bash ./deb/gui.sh
 
 .PHONY: deb

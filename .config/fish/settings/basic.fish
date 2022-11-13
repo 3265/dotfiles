@@ -1,6 +1,7 @@
 #!/bin/fish
-export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 
+# basic path
+export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 
 export EDITOR=vim
 export PAGER=less

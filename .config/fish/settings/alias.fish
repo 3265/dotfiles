@@ -2,9 +2,10 @@
 
 # Command shortcut
 alias a="ag --hidden --ignore .git"
-# alias c='code'
+alias c='cling'
 alias d='docker'
 alias dc="docker-compose"
+alias p='python3'
 alias g='git'
 alias l='runls'
 alias s='screen'

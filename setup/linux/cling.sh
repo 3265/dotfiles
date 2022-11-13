@@ -7,3 +7,4 @@ wget https://root.cern/download/cling/cling_2020-11-05_ROOT-ubuntu2004.tar.bz2
 unar ./cling_2020-11-05_ROOT-ubuntu2004.tar.bz2 
 ./cling_2020-11-05_ROOT-ubuntu2004/bin/cling
 mv cling_2020-11-05_ROOT-ubuntu2004 ~/root
+rm -f cling_2020-11-05_ROOT-ubuntu2004.tar.bz2
