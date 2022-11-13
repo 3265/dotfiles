@@ -37,6 +37,37 @@ if test -d ~/vcpkg/
 end
 
 # ------------------------------
+# C/C++
+# ------------------------------
+
+# root (CRAN)
+if test -d ~/root/
+    fish_add_path ~/root/bin/ --path
+end
+
+# ------------------------------
+# Python
+# ------------------------------
+
+# Anaconda3
+set PATH "/home/mike/anaconda3/bin" $PATH
+
+# pyenv
+set PYENV_ROOT "$HOME/.pyenv"
+set PATH $PATH "$PYENV_ROOT/bin"
+eval "$(pyenv init --path)"
+
+# for pipenv on ubuntu
+set PATH $PATH "$HOME/.local/bin"
+
+# poetry
+set POETRY_FOLDER $HOME/.poetry
+if test -d "$POETRY_FOLDER"
+    source $HOME/.poetry/env
+end
+
+
+# ------------------------------
 # Java
 # ------------------------------
 
@@ -45,6 +76,15 @@ if type -q "java"
   set JAVA_HOME $(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
   set PATT $PATH $JAVA_HOME/bin
 end
+
+# ------------------------------
+# Node
+# ------------------------------
+
+# NVM
+# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
 
 # ------------------------------
 # Ruby
@@ -120,41 +160,3 @@ end
 # Rust
 set PATH $PATH ~/.cargo/bin/
 
-# ------------------------------
-# Node
-# ------------------------------
-
-# NVM
-# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-# ------------------------------
-# Root
-# ------------------------------
-
-# root (CRAN)
-if test -d ~/root/
-    set PATH $PATH "~/root/bin"
-end
-
-
-# ------------------------------
-# Python
-# ------------------------------
-
-# Anaconda3
-set PATH "/home/mike/anaconda3/bin" $PATH
-
-# pyenv
-set PYENV_ROOT "$HOME/.pyenv"
-set PATH $PATH "$PYENV_ROOT/bin"
-eval "$(pyenv init --path)"
-
-# for pipenv on ubuntu
-set PATH $PATH "$HOME/.local/bin"
-
-# poetry
-set POETRY_FOLDER $HOME/.poetry
-if test -d "$POETRY_FOLDER"
-    source $HOME/.poetry/env
-end
