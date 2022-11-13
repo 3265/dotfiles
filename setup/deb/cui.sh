@@ -17,12 +17,12 @@ sudo apt install -y vim
 sudo apt install -y emacs
 sudo apt install -y caffeine
 sudo apt install -y ranger
-sudo apt install -y golang
-sudo apt install -y rust-all
 sudo apt install -y vifm
-sudo apt install -y default-jdk
 sudo apt install -y qalc
 
+sudo apt install -y default-jdk
+sudo apt install -y golang
+sudo apt install -y rust-all
 sudo apt install -y python3-pip
 sudo apt install -y python3-venv # needed by pipx
 sudo apt install -y pipx
