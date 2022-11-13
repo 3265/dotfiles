@@ -37,6 +37,7 @@ alias py3='python3'
 alias gpg_off='git config commit.gpgsign false'
 alias copy='echo $PWD | xsel -b'
 alias ssh-igk='ssh -oUserKnownHostsFile=/dev/null -oStrictHostKeyChecking=no'
+alias clone="python3 ~/dotfiles/scripts/clone.py $argv"
 
 # permission
 alias 644='sudo chmod 644'
