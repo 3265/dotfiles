@@ -11,7 +11,7 @@
 if not test -d ~/bin
     mkdir ~/bin
 end
-set PATH $PATH "$HOME/bin"
+set -gx PATH "$HOME/bin" $PATH 
 
 # ------------------------------
 # ClI
@@ -33,7 +33,7 @@ source /usr/share/autojump/autojump.fish
 
 # for VCPKG
 if test -d ~/vcpkg/
-    set PATH $PATH ~/vcpkg/
+    set -gx PATH ~/vcpkg/ $PATH 
 end
 
 # ------------------------------
@@ -50,15 +50,15 @@ end
 # ------------------------------
 
 # Anaconda3
-set PATH "/home/mike/anaconda3/bin" $PATH
+set -gx PATH "/home/mike/anaconda3/bin" $PATH 
 
 # pyenv
-set PYENV_ROOT "$HOME/.pyenv"
-set PATH $PATH "$PYENV_ROOT/bin"
+set -gx PYENV_ROOT "$HOME/.pyenv"
+set -gx PATH "$PYENV_ROOT/bin" $PATH 
 eval "$(pyenv init --path)"
 
 # for pipenv on ubuntu
-set PATH $PATH "$HOME/.local/bin"
+set -gx PATH "$HOME/.local/bin" $PATH 
 
 # poetry
 set POETRY_FOLDER $HOME/.poetry
@@ -73,8 +73,8 @@ end
 
 # JAVA
 if type -q "java"
-  set JAVA_HOME $(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
-  set PATT $PATH $JAVA_HOME/bin
+  set -gx JAVA_HOME $(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+  set -gx PATH $JAVA_HOME/bin $PATH 
 end
 
 # ------------------------------
@@ -112,21 +112,11 @@ end
 
 # Golang
 if type "go" > /dev/null
-  set GOPATH $HOME/.go
-  set PATH $PATH $GOROOT $GOPATH $GOPATH/bin
+   set -gx GO111MODULE on
+   set -gx GOPATH "$HOME/go"
+   set -gx PATH $GOPATH/bin $PATH
 end
 
-
-# ------------------------------
-# Anyenv
-# ------------------------------
-
-# Anyenv
-# if [ -d ${HOME}/.anyenv ] ; then
-#   export PATH="$HOME/.anyenv/bin:$PATH"
-#   eval "$(anyenv init -)"
-# fi
-#
 
 # ------------------------------
 # GCP
@@ -158,5 +148,5 @@ end
 # ------------------------------
 
 # Rust
-set PATH $PATH ~/.cargo/bin/
+set -gx PATH  ~/.cargo/bin/ $PATH
 

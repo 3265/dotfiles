@@ -17,3 +17,4 @@ cargo install fastmod
 
 pipx install pycowsay
 
+go install github.com/x-motemen/ghq@latest

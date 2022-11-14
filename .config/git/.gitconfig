@@ -122,3 +122,5 @@
   gpgsign = true
 [gpg]
 	program = /usr/bin/gpg
+[ghq]
+	root = ~/workspace
