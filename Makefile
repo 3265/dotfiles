@@ -1,4 +1,7 @@
-SETUP_DIR = ~/dotfiles/setup
+ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+SETUP_DIR := ~/dotfiles/setup
+
+.DEFAULT: link
 
 .PHONY: link
 .ONESHELL:
