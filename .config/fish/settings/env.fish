@@ -150,3 +150,10 @@ end
 # Rust
 set -gx PATH  ~/.cargo/bin/ $PATH
 
+
+# ------------------------------
+# Code in Windows
+# ------------------------------
+
+set -gx PATH "/mnt/c/Program Files/Microsoft VS Code/bin" $PATH # C:\Program Files\Microsoft VS Code\bin\
+
