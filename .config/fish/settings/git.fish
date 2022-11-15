@@ -1,9 +1,9 @@
-function gb -d "Git checkout branch"
+function gc -d "Git checkout branch"
   set branch (git for-each-ref --format='%(refname:short)' refs/heads | fzf)
   git checkout $branch
 end
 
-function gb -d "Git push branch to origin server"
+function gh -d "Git push branch to origin server"
   set branch (git for-each-ref --format='%(refname:short)' refs/heads | fzf)
   git push origin $branch
 end
