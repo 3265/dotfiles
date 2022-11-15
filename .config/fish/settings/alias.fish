@@ -35,6 +35,7 @@ alias fastreset="echo -ne \\\0033\\\0143" # echo -ne '\0033\0143'
 alias se='sudoedit'
 alias ssh-igk='ssh -oUserKnownHostsFile=/dev/null -oStrictHostKeyChecking=no'
 alias open='xdg-open'
+alias cr='cd $(ghq list -p | fzf --reverse)'
 
 # permission
 alias 644='sudo chmod 644'
