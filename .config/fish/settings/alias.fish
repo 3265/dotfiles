@@ -28,16 +28,13 @@ function runls
   end
 end
 
-# Others
-alias zen='python -m this'
-alias se='sudoedit'
+# Util
 alias free='free -h'
-alias py='python'
-alias py3='python3'
-alias gpg_off='git config commit.gpgsign false'
-alias copy='echo $PWD | xsel -b'
+alias rename='mv'
+alias fastreset="echo -ne \\\0033\\\0143" # echo -ne '\0033\0143'
+alias se='sudoedit'
 alias ssh-igk='ssh -oUserKnownHostsFile=/dev/null -oStrictHostKeyChecking=no'
-alias clone="python3 ~/dotfiles/scripts/clone.py $argv"
+alias open='xdg-open'
 
 # permission
 alias 644='sudo chmod 644'
@@ -58,13 +55,6 @@ alias less='less -R'
 alias gitwatch='fswatch -0 . | xargs -0 -n 1 sh -c "clear && git status --short"' # to need to install fswatch
 
 # Others
-alias rename='mv'
-alias open='xdg-open'
-alias music='vimpc'
-alias reboot='reboot'
-alias shutdown='shutdown -h now'
-alias suspend='systemctl suspend'
-alias search='chromium-browser --app="https://google.com/"' # search
 
 # Shell
 alias bsh='bash'
@@ -77,3 +67,17 @@ alias vsh='virsh' # KVM
 # win
 alias win-open='wslview .'
 alias win-path='command wslpath -w .'
+
+# Others
+alias zen='python -m this'
+alias py='python'
+alias py3='python3'
+alias gpg_off='git config commit.gpgsign false'
+alias copy='echo $PWD | xsel -b'
+alias clone="python3 ~/dotfiles/scripts/clone.py $argv"
+alias music='vimpc'
+alias reboot='reboot'
+alias shutdown='shutdown -h now'
+alias suspend='systemctl suspend'
+alias search='chromium-browser --app="https://google.com/"' # search
+
