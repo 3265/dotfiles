@@ -5,6 +5,7 @@ sudo apt install -y fish
 sudo apt install -y silversearcher-ag
 sudo apt install -y tree
 sudo apt install -y fzf
+sudo apt install -y bat
 sudo apt install -y xsel # for copy command
 sudo apt install -y autojump
 sudo apt install -y direnv

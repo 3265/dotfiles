@@ -29,6 +29,8 @@ function runls
 end
 
 # Util
+alias cat='bat --style=plain'
+alias bat='/usr/bin/batcat'
 alias free='free -h'
 alias rename='mv'
 alias fastreset="echo -ne \\\0033\\\0143" # echo -ne '\0033\0143'
