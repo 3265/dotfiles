@@ -152,3 +152,17 @@ if executable(s:clip)
         autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
     augroup END
 endif
+
+" make a file by % in netrw
+" https://stackoverflow.com/questions/45536346/create-a-new-file-but-not-open-a-buffer-in-vim-netrw
+
+autocmd filetype netrw call Netrw_mappings()
+function! Netrw_mappings()
+  map <buffer>% :call MakeFileInFinder()<cr>
+endfunction
+
+function! MakeFileInFinder()
+  let l:filename = input("please enter filename: ")
+  execute 'silent !touch ' . b:netrw_curdir.'/'.l:filename
+  redraw!
+endf
