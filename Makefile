@@ -19,6 +19,7 @@ term_core:
 	bash ./linux/screen.sh
 	bash ./linux/tmux.sh
 	bash ./linux/vscode.sh
+	bash ./linux/poetry.sh
 	bash ./linux/cmds.sh
 	# reboot
 

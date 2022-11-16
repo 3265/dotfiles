@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pipx install poetry
+# pipx install poetry # => use poetry.sh
 pipx install pipenv
 pipx install pip-tools
 
