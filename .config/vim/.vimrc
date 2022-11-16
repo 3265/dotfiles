@@ -139,12 +139,6 @@ nnoremap L :vertical resize +5<cr>
 " inoremap " ""<LEFT>
 " inoremap ' ''<LEFT>
 
-" GUI
-if has("gui_running")
-    colorscheme slate
-    set guifont=Hack
-endif
-
 " quick close
 nnoremap Z ZZ<CR>
 nnoremap q ZZ<CR>
