@@ -1,7 +1,7 @@
 function g0 -d "Commit anon on git"
     git config --local user.name "John doe"
     git config --local user.email "me@example.com"
-    git config --local gpg.program gpg1
+    git config commit.gpgsign false
 end
 
 # ######################
