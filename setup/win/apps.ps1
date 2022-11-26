@@ -67,6 +67,7 @@ winget install -e --id DeepL.DeepL
 # Graphics
 winget install Gimp.Gimp
 winget install Adobe.Acrobat.Reader.64-bit
+winget install -e --id PDFsam.PDFsam
 
 # Book
 winget install Amazon.Kindle
