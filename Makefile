@@ -21,6 +21,7 @@ term_core:
 	bash ./linux/vscode.sh
 	bash ./linux/poetry.sh
 	bash ./linux/cmds.sh
+	sudo chsh -s /usr/bin/fish
 	# reboot
 
 .PHONY: arch_install

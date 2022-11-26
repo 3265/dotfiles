@@ -237,6 +237,7 @@ ln -s -f ~/dotfiles/.config/vifm/colors/favicons.vifm ~/.config/vifm/colors/favi
 
 # fish
 mkdir -p ~/.config/fish/
+ln -s -f ~/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
 mkdir -p ~/.config/fish/conf.d/
 ln -s -f ~/dotfiles/.config/fish/conf.d/* ~/.config/fish/conf.d/
 mkdir -p ~/.config/fish/functions/
