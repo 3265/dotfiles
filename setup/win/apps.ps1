@@ -85,4 +85,4 @@ winget install 7zip.7zip
 
 # Music
 winget install -e --id Apple.iTunes
-
+winget install -e --id LMMS.LMMS
