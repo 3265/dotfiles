@@ -83,3 +83,6 @@ winget install 7zip.7zip
 # winget install rocksdanister.LivelyWallpaper
 # winget install 9PF4KZ2VN4W9 # TranslucentTB
 
+# Music
+winget install -e --id Apple.iTunes
+
