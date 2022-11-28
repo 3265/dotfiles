@@ -15,6 +15,17 @@ source ~/.config/fish/settings/git.fish
 # bindings
 # ##########################
 
+function next_d --description 'Go to next directory'
+    nextd
+    commandline -f repaint
+end
+function prev_d --description 'Go to next directory'
+    nextd
+    commandline -f repaint
+end
+bind \e\[1\;5C next_d # forward-word
+bind \e\[1\;5D prev_d # backward-word
+
 function edit_cmd --description 'Edit cmdline in editor'
     set -l f (mktemp)
     set -l p (commandline -C)
@@ -31,6 +42,12 @@ function back_to_top_dir --description 'Go to top directory'
     commandline -f repaint
 end
 bind \cb back_to_top_dir
+
+function prev_d --description 'Go to previous directory'
+    prevd
+    commandline -f repaint
+end
+bind "\c[" prev_d
 
 # ##########################
 # GIt
