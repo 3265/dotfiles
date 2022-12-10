@@ -6,8 +6,8 @@
 # set -g utf8 on
 # set -g status-utf8 on
 
-# tmuxの起動シェルをzshにする
-set -g default-shell /bin/zsh
+# tmuxの起動シェルをfishにする
+set -g default-shell /bin/fish
 # set -g default-command ""
 # For electron bug.
 # see https://qiita.com/itkrt2y/items/dee87c406617d1bd45a6
