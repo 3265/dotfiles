@@ -15,6 +15,9 @@ ln -s -f ~/dotfiles/.config/net/.netrc ~/.netrc
 ln -s -f ~/dotfiles/.config/zsh/.zshrc ~/.zshrc
 ln -s -f ~/dotfiles/.config/zsh/.zshenv ~/.zshenv
 
+# SSH/Telnet
+ln -s -f ~/.config/.hushlogin ~/.hushlogin
+
 # Alias
 ln -s -f ~/dotfiles/.config/zsh/.aliases ~/.aliases
 
