@@ -8,7 +8,7 @@ alias dc="docker-compose"
 alias p='python3'
 alias g='git'
 alias l='runls'
-alias s='screen'
+alias s='screen -t project'
 alias v='vim'
 
 # quick directory transition

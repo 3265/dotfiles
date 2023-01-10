@@ -14,3 +14,8 @@ set-window-option -g window-status-current-style fg=black,bg=yellow
 # tmuxの選択中のウィンドウの画面のフォーマット(=10:で前方10文字のみ表示)
 set-window-option -g window-status-format "[#I: #{=10:window_name}]"
 set-window-option -g window-status-current-format "[#I: #{=10:window_name}]"
+
+# tmuxのwindowの初期名
+set-option -g status-interval 5
+set-option -g automatic-rename on
+set-option -g automatic-rename-format '#{b:pane_current_path}'
