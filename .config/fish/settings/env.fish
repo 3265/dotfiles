@@ -40,10 +40,10 @@ end
 # C/C++
 # ------------------------------
 
-# root (CRAN)
-if test -d ~/root/
-    fish_add_path ~/root/bin/ --path
-end
+# # root (CRAN)
+# if test -d ~/root/
+#     fish_add_path ~/root/bin/ --path
+# end
 
 # ------------------------------
 # Python

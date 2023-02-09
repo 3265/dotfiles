@@ -38,6 +38,7 @@ alias se='sudoedit'
 alias ssh-igk='ssh -oUserKnownHostsFile=/dev/null -oStrictHostKeyChecking=no'
 alias open='xdg-open'
 alias cr='cd $(ghq list -p | fzf --reverse)'
+alias clang-format='clang-format-14'
 
 # permission
 alias 644='sudo chmod 644'
