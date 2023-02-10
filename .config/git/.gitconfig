@@ -1,5 +1,5 @@
 [user]
-  name = neo2077
+  name = 3265
   email = mgoldchild@gmail.com
   signingkey = BDDB43041BF65C3E
 [includeIf "gitdir:~/workspace/"]
@@ -59,7 +59,7 @@
   clean-untracked = clean -f -d # remove untracked
   clean-change = git reset --hard # staged and working directory changes
   clean-all = clean -f -d -x # untracked and ignored files
-  mylog = log --author=neo2077
+  mylog = log --author=3265
   diff-stg = diff --cached
 
   # MEMO:
