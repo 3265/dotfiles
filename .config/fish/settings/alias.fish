@@ -2,14 +2,15 @@
 
 # Command shortcut
 alias a="ag --hidden --ignore .git"
-alias c='cling'
 alias d='docker'
 alias dc="docker-compose"
 alias p='python3'
 alias g='git'
+alias i='runi'
 alias l='runls'
 alias s='screen -t project'
 alias v='vim'
+alias r='source ~/.config/fish/config.fish'
 
 # quick directory transition
 alias nd='nextd'
@@ -26,6 +27,36 @@ function runls
    else
       LC_COLLATE=C ls -al --color=auto --human-readable --group-directories-first $argv
   end
+end
+
+function runi
+    set _branch $(git symbolic-ref --short HEAD)
+    set _stash_list $(git stash list | wc -l)
+    set _untracked $(git ls-files --others --exclude-standard | wc -l)
+    set _modified $(git status | grep 'modified:' | wc -l)
+
+    echo "- Machine:
+  - Username: $(whoami)
+  - Hostname: $(hostname)
+- File:
+  - Directory $(pwd)
+- Git:
+  - Branch: $_branch
+  - Modified : $_modified
+  - Untracked: $_untracked
+  - Stashed: $_stash_list
+- Venv:
+  - .venv: $(echo $VIRTUAL_ENV)"
+end
+
+function runpath
+    echo "- Path
+  - C: $(which c)
+  - C++: $(which c++)
+  - Python: $(which python)
+  - Go: $(which go)
+  - Java: $(which java)
+  - Node: $(which node)"
 end
 
 # Util
