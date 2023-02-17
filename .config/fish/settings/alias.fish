@@ -36,16 +36,23 @@ function runi
     set _modified $(git status | grep 'modified:' | wc -l)
     set _head $(git rev-parse --short HEAD)
     set _last_message $(git show -s --format=%s)
+    set _acs $(stat -c '%a (%A)' .)
+    set _uid $(stat -c '%U (%u)' .)
+    set _gid $(stat -c '%G (%g)' .)
 
     echo "- Machine:
   - Username: $(whoami)
   - Hostname: $(hostname)
 - File:
-  - Directory $(pwd)
-- Git:
-  - HEAD: $_head
+  - Directory: $(pwd)
+  - Access: $_acs
+  - Uid: $_uid
+  - Gid: $_gid
+- Commit:
+  - Hash: $_head
   - Message: $_last_message
   - Branch: $_branch
+- Status:
   - Modified : $_modified
   - Untracked: $_untracked
   - Stashed: $_stash_list
