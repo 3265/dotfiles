@@ -34,6 +34,8 @@ function runi
     set _stash_list $(git stash list | wc -l)
     set _untracked $(git ls-files --others --exclude-standard | wc -l)
     set _modified $(git status | grep 'modified:' | wc -l)
+    set _head $(git rev-parse --short HEAD)
+    set _last_message $(git show -s --format=%s)
 
     echo "- Machine:
   - Username: $(whoami)
@@ -41,6 +43,8 @@ function runi
 - File:
   - Directory $(pwd)
 - Git:
+  - HEAD: $_head
+  - Message: $_last_message
   - Branch: $_branch
   - Modified : $_modified
   - Untracked: $_untracked
