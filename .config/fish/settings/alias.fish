@@ -36,6 +36,7 @@ function runi
     set _modified $(git status   2> /dev/null | grep 'modified:' | wc -l)
     set _head $(git rev-parse --short HEAD 2> /dev/null)
     set _last_message $(git show -s --format=%s 2> /dev/null)
+    set _commit_date $(git log -1 --format='%cd' 2> /dev/null)
     set _acs $(stat -c '%a (%A)' .)
     set _uid $(stat -c '%U (%u)' .)
     set _gid $(stat -c '%G (%g)' .)
@@ -50,6 +51,7 @@ function runi
   - Gid: $_gid
 - Commit:
   - Hash: $_head
+  - Date: $_commit_date
   - Message: $_last_message
   - Branch: $_branch
 - Status:
