@@ -30,12 +30,12 @@ function runls
 end
 
 function runi
-    set _branch $(git symbolic-ref --short HEAD)
-    set _stash_list $(git stash list | wc -l)
-    set _untracked $(git ls-files --others --exclude-standard | wc -l)
-    set _modified $(git status | grep 'modified:' | wc -l)
-    set _head $(git rev-parse --short HEAD)
-    set _last_message $(git show -s --format=%s)
+    set _branch $(git symbolic-ref --short HEAD 2> /dev/null)
+    set _stash_list $(git stash list 2> /dev/null | wc -l)
+    set _untracked $(git ls-files --others --exclude-standard 2> /dev/null | wc -l)
+    set _modified $(git status   2> /dev/null | grep 'modified:' | wc -l)
+    set _head $(git rev-parse --short HEAD 2> /dev/null)
+    set _last_message $(git show -s --format=%s 2> /dev/null)
     set _acs $(stat -c '%a (%A)' .)
     set _uid $(stat -c '%U (%u)' .)
     set _gid $(stat -c '%G (%g)' .)
@@ -44,7 +44,7 @@ function runi
   - Username: $(whoami)
   - Hostname: $(hostname)
 - File:
-  - Directory: $(pwd)
+  - Path : $(pwd)
   - Access: $_acs
   - Uid: $_uid
   - Gid: $_gid
