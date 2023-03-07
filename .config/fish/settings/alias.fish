@@ -4,7 +4,7 @@
 alias a="ag --hidden --ignore .git"
 alias d='docker'
 alias dc="docker-compose"
-alias p='python3'
+alias p='pwd'
 alias g='git'
 alias i='runi'
 alias l='runls'
@@ -106,6 +106,7 @@ alias gitwatch='fswatch -0 . | xargs -0 -n 1 sh -c "clear && git status --short"
 
 # Shell
 alias bsh='bash'
+alias fsh='fish'
 alias zsh='zsh'
 alias msh='mosh'
 alias psh='parallel-ssh'
@@ -117,7 +118,7 @@ alias win-open='wslview .'
 alias win-path='command wslpath -w .'
 
 # Others
-alias zen='python -m this'
+alias zen='python3 -m this'
 alias py='python'
 alias py3='python3'
 alias gpg_off='git config commit.gpgsign false'
@@ -127,5 +128,5 @@ alias music='vimpc'
 alias reboot='reboot'
 alias shutdown='shutdown -h now'
 alias suspend='systemctl suspend'
-alias search='chromium-browser --app="https://google.com/"' # search
+alias search='chromium-browser --app="https://google.com/"'
 
