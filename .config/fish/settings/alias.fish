@@ -2,11 +2,11 @@
 
 # Command shortcut
 alias a="ag --hidden --ignore .git"
+alias c="cat"
 alias d='docker'
 alias dc="docker-compose"
 alias p='pwd'
 alias g='git'
-alias i='runi'
 alias l='runls'
 alias s='screen -t project'
 alias v='vim'

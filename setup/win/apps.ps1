@@ -50,6 +50,9 @@ winget install -e --id dbeaver.dbeaver
 winget install -e --id JetBrains.IntelliJIDEA.Community
 winget install -e --id KiCad.KiCad
 
+# backup
+winget install --id=Duplicati.Duplicati
+
 # Communication
 winget install messenger
 winget install SlackTechnologies.Slack
@@ -70,6 +73,7 @@ winget install Gimp.Gimp
 # Book
 winget install Adobe.Acrobat.Reader.64-bit
 winget install -e --id PDFsam.PDFsam
+winget install SumatraPDF
 winget install Amazon.Kindle
 winget install -e --id calibre.calibre
 
