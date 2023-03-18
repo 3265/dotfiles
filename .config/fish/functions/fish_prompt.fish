@@ -1,4 +1,8 @@
 function fish_prompt
-    prompt_pwd
     echo -n '> '
 end
+
+function fish_right_prompt
+    prompt_pwd
+end
+
