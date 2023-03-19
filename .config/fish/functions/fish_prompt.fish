@@ -1,3 +1,5 @@
+set -g fish_prompt_pwd_dir_length 4
+
 function fish_prompt
     echo -n '> '
 end
