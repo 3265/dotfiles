@@ -69,3 +69,27 @@ set __fish_git_prompt_char_untrackedfiles 'Untracked'
 set __fish_git_prompt_char_stashstate 'Stashed'
 set __fish_git_prompt_char_upstream_ahead ' Ahead'
 set __fish_git_prompt_char_upstream_behind ' Behind'
+
+
+# ##########################
+# NVM auto loading
+# ##########################
+
+# Set up NVM
+if test -e ~/.nvm/nvm.sh
+  set -x NVM_DIR ~/.nvm
+  source ~/.nvm/nvm.sh
+end
+
+# Automatically switch to the project's Node.js version
+function nvm_auto_use -d "Automatically switch to the project's Node.js version"
+  if test -e .nvmrc
+    nvm use
+  end
+end
+
+# Automatically run nvm_auto_use when changing directories
+function cd -d 'Change directory with auto NVM version switch' --no-scope-shadowing --description 'Change directory with auto NVM version switch'
+  builtin cd $argv
+  nvm_auto_use
+end
