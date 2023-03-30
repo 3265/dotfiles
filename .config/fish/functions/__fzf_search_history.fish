@@ -2,7 +2,7 @@ function __fzf_search_history --description "Search command history. Replace the
     # Delinate commands throughout pipeline using null rather than newlines because commands can be multi-line
     set commands_selected (
         # Reference https://devhints.io/strftime to understand strftime format symbols
-        builtin history --null --show-time="%m-%d %H:%M:%S │ " |
+        builtin history --null |
         fzf --read0 \
             --print0 \
             --multi \
