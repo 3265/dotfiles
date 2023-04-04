@@ -1,6 +1,7 @@
 #!/bin/fish
 
 # Command shortcut
+alias ai="chatgpt"
 alias a="ag --hidden --ignore .git"
 alias c="cat"
 alias d='docker'
