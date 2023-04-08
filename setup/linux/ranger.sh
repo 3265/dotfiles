@@ -1,5 +1,2 @@
-git clone https://github.com/alexanderjeurissen/ranger_devicons.git
-cd ranger_devicons
-make install
-cd ../
-rm -rf ranger_devicons
+# ref: https://github.com/alexanderjeurissen/ranger_devicons
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons

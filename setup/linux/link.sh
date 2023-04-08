@@ -248,6 +248,12 @@ ln -s -f ~/dotfiles/.config/fish/functions/* ~/.config/fish/functions/
 mkdir -p ~/.config/fish/settings/
 ln -s -f ~/dotfiles/.config/fish/settings/* ~/.config/fish/settings/
 
+# joshuto
+mkdir -p ~/.config/joshuto/
+ln -s -f ~/dotfiles/.config/joshuto/joshuto.toml ~/.config/joshuto/joshuto.toml
+ln -s -f ~/dotfiles/.config/joshuto/keymap.toml ~/.config/joshuto/keymap.toml
+
+
 sudo chmod 777 ~/.config/fish/settings/alias.fish
 sudo chmod 777 ~/.config/fish/settings/basic.fish
 sudo chmod 777 ~/.config/fish/settings/env.fish

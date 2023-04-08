@@ -49,6 +49,15 @@ function prev_d --description 'Go to previous directory'
 end
 bind "\c[" prev_d
 
+function joshuto_fish
+    joshuto --output-file /tmp/joshutodir
+    set LASTDIR (cat /tmp/joshutodir)
+    cd "$LASTDIR"
+end
+
+# ranger alternative
+bind \ct "joshuto_fish"
+
 # ##########################
 # GIt
 # ##########################

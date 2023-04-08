@@ -1,0 +1,13 @@
+[display]
+collapse_preview = true
+column_ratio = [1, 4, 4]
+show_borders = true
+show_hidden = true
+
+[keys]
+    q = "quit_with_cd"
+    Q = "quit_with_cd"
+
+[commands]
+    quit_with_cd = "echo %d > /tmp/joshuto_output; quit"
+

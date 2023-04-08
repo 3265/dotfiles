@@ -11,7 +11,8 @@ alias g='git'
 alias l='runls'
 alias s='screen -t project'
 alias v='vim'
-alias r='source ~/.config/fish/config.fish'
+
+alias reload='source ~/.config/fish/config.fish'
 
 # quick directory transition
 alias nd='nextd'
@@ -71,6 +72,18 @@ function runpath
   - Go: $(which go)
   - Java: $(which java)
   - Node: $(which node)"
+end
+
+function ranger_cd
+    set -l tempfile (mktemp)
+    set -q argv[1]; and set dir_initial $argv[1]; or set dir_initial (pwd)
+    ranger --choosedir="$tempfile" "$dir_initial"
+    if test -f "$tempfile"
+        set -l dir (cat "$tempfile")
+        rm -f "$tempfile"
+        cd -- "$dir"
+        commandline -f repaint
+    end
 end
 
 # Util
