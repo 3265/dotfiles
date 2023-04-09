@@ -253,6 +253,7 @@ mkdir -p ~/.config/joshuto/
 ln -s -f ~/dotfiles/.config/joshuto/joshuto.toml ~/.config/joshuto/joshuto.toml
 ln -s -f ~/dotfiles/.config/joshuto/keymap.toml ~/.config/joshuto/keymap.toml
 ln -s -f ~/dotfiles/.config/joshuto/mimetype.toml ~/.config/joshuto/mimetype.toml
+ln -s -f ~/dotfiles/.config/joshuto/theme.toml ~/.config/joshuto/theme.toml
 
 
 sudo chmod 777 ~/.config/fish/settings/alias.fish

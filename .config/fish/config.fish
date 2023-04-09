@@ -53,6 +53,8 @@ function joshuto_fish
     joshuto --output-file /tmp/joshutodir
     set LASTDIR (cat /tmp/joshutodir)
     cd "$LASTDIR"
+    commandline -f repaint
+    clear
 end
 
 # ranger alternative

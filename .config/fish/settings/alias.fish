@@ -4,6 +4,7 @@
 alias ai="chatgpt"
 alias a="ag --hidden --ignore .git"
 alias c="cat"
+alias f='joshuto' # finder
 alias d='docker'
 alias dc="docker-compose"
 alias p='python' # install python-is-python3
