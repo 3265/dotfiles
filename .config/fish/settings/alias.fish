@@ -4,7 +4,7 @@
 alias ai="chatgpt"
 alias a="ag --hidden --ignore .git"
 alias c="cat"
-alias f='joshuto' # finder
+alias f='joshuto_cd' # finder
 alias d='docker'
 alias dc="docker-compose"
 alias p='python' # install python-is-python3
@@ -30,6 +30,14 @@ function runls
    else
       LC_COLLATE=C ls -al --color=auto --human-readable --group-directories-first $argv
   end
+end
+
+function joshuto_cd
+    joshuto --output-file /tmp/joshutodir
+    set LASTDIR (cat /tmp/joshutodir)
+    cd "$LASTDIR"
+    commandline -f repaint
+    clear
 end
 
 function runi
