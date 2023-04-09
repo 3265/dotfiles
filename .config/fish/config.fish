@@ -56,7 +56,7 @@ function joshuto_fish
 end
 
 # ranger alternative
-bind \ct "joshuto_fish"
+bind \cg "joshuto_fish"
 
 # ##########################
 # GIt
