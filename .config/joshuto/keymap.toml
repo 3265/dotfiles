@@ -33,6 +33,7 @@ keymap = [
 
     # overwirde keymaps
 	{ keys = [ "ctrl+f" ],		command = "quit --output-current-directory" },
+	{ keys = [ "ctrl+c" ],		command = "quit --output-current-directory" },
 	{ keys = [ "ctrl+h" ],		command = "cd .." },
 	{ keys = [ "ctrl+l" ],		command = "open" },
 	{ keys = [ "ctrl+j" ],		command = "cursor_move_down" },
