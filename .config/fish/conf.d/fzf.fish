@@ -3,8 +3,8 @@
 #  - https://github.com/PatrickF1/fzf.fish
 
 bind \cs '__fzf_find_file'
-bind \cd '__fzf_cd'
-# f is for joshuto
-bind \cg '__fzf_open'
+bind \cd '__fzf_find_dir'
+# bind \cd '__fzf_cd'
+# bind \cg '__fzf_open'
 bind \cr '__fzf_autojump'
 bind \ch '__fzf_search_history'
