@@ -12,7 +12,6 @@ keymap = [
 
 	{ keys = [ "R" ],		command = "reload_dirlist" },
 	{ keys = [ "z", "h" ],		command = "toggle_hidden" },
-	{ keys = [ "ctrl+h" ],		command = "toggle_hidden" },
 	{ keys = [ "\t" ],		command = "tab_switch 1" },
 	{ keys = [ "backtab" ],		command = "tab_switch -1" },
 
@@ -31,6 +30,13 @@ keymap = [
 	{ keys = [ "7" ],		command = "numbered_command 7" },
 	{ keys = [ "8" ],		command = "numbered_command 8" },
 	{ keys = [ "9" ],		command = "numbered_command 9" },
+
+    # overwirde keymaps
+	{ keys = [ "ctrl+f" ],		command = "quit --output-current-directory" },
+	{ keys = [ "ctrl+h" ],		command = "cd .." },
+	{ keys = [ "ctrl+l" ],		command = "open" },
+	{ keys = [ "ctrl+j" ],		command = "cursor_move_down" },
+	{ keys = [ "ctrl+k" ],		command = "cursor_move_up" },
 
 	# arrow keys
 	{ keys = [ "arrow_up" ],	command = "cursor_move_up" },
