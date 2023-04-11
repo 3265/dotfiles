@@ -23,6 +23,8 @@ term_core:
 	bash ./linux/cmds.sh
 	sudo chsh -s /usr/bin/fish
 	bash ./linux/fisher.sh
+	bash ./linux/joshuto.sh
+	bash ./linux/poetry.sh
 	# reboot
 
 .PHONY: arch_install
