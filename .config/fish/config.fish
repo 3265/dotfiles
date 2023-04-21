@@ -104,3 +104,9 @@ function cd -d 'Change directory with auto NVM version switch' --no-scope-shadow
   builtin cd $argv
   nvm_auto_use
 end
+
+# ##########################
+# ruby env
+# ##########################
+set -gx PATH $HOME/.rbenv/bin $PATH
+status --is-interactive; and rbenv init -| source
