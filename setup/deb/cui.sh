@@ -18,6 +18,7 @@ sudo apt install -y vim
 sudo apt install -y emacs
 sudo apt install -y caffeine
 sudo apt install -y ranger
+sudo apt install -y jq
 sudo apt install -y vifm
 sudo apt install -y qalc
 

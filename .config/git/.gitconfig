@@ -104,6 +104,7 @@
   editor = vim
   quotepath = false # git status 日本語文字化けのため
   whitespace = cr-at-eol
+	longpaths = true
 [merge]
   tool = vimdiff
   ff = false # it means not to do FF. in other words, i always make a merge commit in merge
