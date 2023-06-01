@@ -1,5 +1,4 @@
 function __fzf_find_file -d "List files and folders"
-:q
     set -l commandline (__fzf_parse_commandline)
     set -l dir $commandline[1]
     set -l fzf_query $commandline[2]
