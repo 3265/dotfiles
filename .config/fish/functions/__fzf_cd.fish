@@ -21,3 +21,4 @@ function __fzf_cd -d "Change directory"
 
     commandline -f repaint
 end
+
