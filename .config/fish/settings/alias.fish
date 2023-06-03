@@ -1,17 +1,19 @@
 #!/bin/fish
 
 # Command shortcut
-alias ai="chatgpt"
+alias ai="chatgpt --model=gpt4"
 alias a="ag --hidden --ignore .git"
-alias c="cat"
+alias c="code"
 alias d='docker'
 alias dc="docker-compose"
+alias e='/mnt/c/Windows/explorer.exe'
 function searchfile
     find . -not -path './node_modules*' \
         -a -not -path '*.git*' \
         -iname "*"$argv"*"
 end
 alias f=searchfile
+alias h='history'
 alias p='python' # install python-is-python3
 alias g='git'
 alias l='runls'
