@@ -4,9 +4,12 @@
 alias ai="chatgpt"
 alias a="ag --hidden --ignore .git"
 alias c="cat"
-alias f='joshuto_cd' # finder
 alias d='docker'
 alias dc="docker-compose"
+function searchfile
+    find . -name "*"$argv"*"
+end
+alias f=searchfile
 alias p='python' # install python-is-python3
 alias g='git'
 alias l='runls'

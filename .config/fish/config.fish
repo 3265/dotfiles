@@ -58,7 +58,7 @@ function joshuto_fish
 end
 
 # ranger alternative
-bind \cf "joshuto_fish"
+bind \ct "vim ."
 
 # ##########################
 # GIt
