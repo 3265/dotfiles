@@ -7,7 +7,9 @@ alias c="cat"
 alias d='docker'
 alias dc="docker-compose"
 function searchfile
-    find . -name "*"$argv"*"
+    find . -not -path './node_modules*' \
+        -a -not -path '*.git*' \
+        -iname "*"$argv"*"
 end
 alias f=searchfile
 alias p='python' # install python-is-python3
