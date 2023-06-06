@@ -7,18 +7,16 @@ ln -s -f ~/dotfiles/.config/bash/.bashrc ~/.bashrc
 ln -s -f ~/dotfiles/.config/bash/.bashenv ~/.bashenv
 ln -s -f ~/dotfiles/.config/bash/.bash_profile ~/.bash_profile
 ln -s -f ~/dotfiles/.config/bash/.inputrc ~/.inputrc
+ln -s -f ~/dotfiles/.config/bash/.netrc ~/.netrc
 # ln -s -f ~/dotfiles/.xinitrc ~/.xinitrc
-ln -s -f ~/dotfiles/.config/net/.netrc ~/.netrc
 
 # ZSH
 ln -s -f ~/dotfiles/.config/zsh/.zshrc ~/.zshrc
 ln -s -f ~/dotfiles/.config/zsh/.zshenv ~/.zshenv
+ln -s -f ~/dotfiles/.config/zsh/.aliases ~/.aliases
 
 # SSH/Telnet
 ln -s -f ~/dotfiles/.config/.hushlogin ~/.hushlogin
-
-# Alias
-ln -s -f ~/dotfiles/.config/zsh/.aliases ~/.aliases
 
 # xinput
 # ln -s -f ~/dotfiles/.xinputrc ~/.xinputrc
@@ -37,7 +35,6 @@ ln -s -f ~/dotfiles/.config/pip/pip.conf ~/.config/pip/pip.conf
 # VCS
 ln -s -f ~/dotfiles/.config/git/.gitconfig ~/.gitconfig
 ln -s -f ~/dotfiles/.gitignore ~/.gitignore
-ln -s -f ~/dotfiles/.config/tig/.tigrc ~/.tigrc
 
 # bat
 mkdir -p ~/.config/bat
@@ -46,32 +43,12 @@ ln -s -f ~/dotfiles/.config/bat/config ~/.config/bat/config
 # AG
 ln -s -f ~/dotfiles/.config/ag/.agignore ~/.agignore
 ln -s -f ~/dotfiles/.config/editorconfig/.editorconfig ~/.editorconfig
-# ln -s -f ~/dotfiles/config.toml ~/.config/memo/config.toml
-
-# see https://askubuntu.com/questions/302736/solarized-color-name-not-defined
-# ln -s -f ~/dotfiles/.Xresources  ~/.Xresources
-
-# DB
-ln -s -f ~/dotfiles/.config/mysql/.my.cnf ~/.my.cnf
-
-# GTK-2.0
-mkdir -p ~/.config/gtk-2.0
-ln -s -f ~/dotfiles/.config/gtk-2.0/gtkfilechooser.ini ~/.config/gtk-2.0/gtkfilechooser.ini
-
-# GTK-3.0(for chromium)
-mkdir -p ~/.config/gtk-3.0
-ln -s -f ~/dotfiles/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
-
-# GTK-4.0
-mkdir -p ~/.config/gtk-4.0
-ln -s -f ~/dotfiles/.config/gtk-4.0/settings.ini ~/.config/gtk-4.0/settings.ini
 
 # pep8
 ln -s -f ~/dotfiles/.config/pep8 ~/.config/pep8
 
 # JS
 ln -s -f ~/dotfiles/.config/npm/.npmrc ~/.npmrc
-# ln -s -f ~/dotfiles/.tern-config ~/.tern-config
 
 # Ruby
 ln -s -f ~/dotfiles/.config/gem/.gemrc ~/.gemrc
