@@ -90,7 +90,7 @@ ln -s -f ~/dotfiles/.config/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
 # WSL
 sudo ln -s -f ~/dotfiles/.config/wsl/wsl.conf /etc/wsl.conf
-# sudo ln -s -f ~/dotfiles/.config/resolv/resolv.conf /etc/resolv.conf
+sudo ln -s -f ~/dotfiles/.config/wsl/resolv.conf /etc/resolv.conf
 
 # Poetry
 mkdir -p ~/.config/pypoetry/
