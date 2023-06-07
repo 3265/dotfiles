@@ -18,9 +18,6 @@ ln -s -f ~/dotfiles/.config/zsh/.aliases ~/.aliases
 # SSH/Telnet
 ln -s -f ~/dotfiles/.config/.hushlogin ~/.hushlogin
 
-# xinput
-# ln -s -f ~/dotfiles/.xinputrc ~/.xinputrc
-
 # VIM
 ln -s -f ~/dotfiles/.config/vim/.vimrc ~/.vimrc
 
@@ -28,24 +25,21 @@ ln -s -f ~/dotfiles/.config/vim/.vimrc ~/.vimrc
 ln -s -f ~/dotfiles/.config/screen/.screenrc ~/.screenrc
 ln -s -f ~/dotfiles/.config/tmux/.tmux.conf ~/.tmux.conf
 
-# Pip
-mkdir -p ~/.config/pip
-ln -s -f ~/dotfiles/.config/pip/pip.conf ~/.config/pip/pip.conf
-
 # VCS
 ln -s -f ~/dotfiles/.config/git/.gitconfig ~/.gitconfig
 ln -s -f ~/dotfiles/.gitignore ~/.gitignore
 
-# bat
-mkdir -p ~/.config/bat
-ln -s -f ~/dotfiles/.config/bat/config ~/.config/bat/config
-
 # AG
 ln -s -f ~/dotfiles/.config/ag/.agignore ~/.agignore
-ln -s -f ~/dotfiles/.config/editorconfig/.editorconfig ~/.editorconfig
 
-# pep8
-ln -s -f ~/dotfiles/.config/pep8 ~/.config/pep8
+# python
+ln -s -f ~/dotfiles/.config/python/pep8 ~/.config/pep8
+mkdir -p ~/.config/pip
+ln -s -f ~/dotfiles/.config/python/pip/pip.conf ~/.config/pip/pip.conf
+mkdir -p ~/.config/matplotlib/
+ln -s -f ~/dotfiles/.config/python/matplotlib/matplotlibrc ~/.config/matplotlib/matplotlibrc
+mkdir -p ~/.config/pypoetry/
+ln -s -f ~/dotfiles/.config/python/pypoetry/config.toml ~/.config/pypoetry/config.toml
 
 # JS
 ln -s -f ~/dotfiles/.config/npm/.npmrc ~/.npmrc
@@ -57,10 +51,6 @@ ln -s -f ~/dotfiles/.config/gem/.gemrc ~/.gemrc
 mkdir -p ~/.config/rstudio/
 ln -s -f ~/dotfiles/.config/rstudio/rstudio-prefs.json ~/.config/rstudio/rstudio-prefs.json
 
-# matplotlib
-mkdir -p ~/.config/matplotlib/
-ln -s -f ~/dotfiles/.config/matplotlib/matplotlibrc ~/.config/matplotlib/matplotlibrc
-
 # GPG
 mkdir -p ~/.gnupg/
 ln -s -f ~/dotfiles/.config/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
@@ -68,10 +58,6 @@ ln -s -f ~/dotfiles/.config/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 # WSL
 sudo ln -s -f ~/dotfiles/.config/wsl/wsl.conf /etc/wsl.conf
 sudo ln -s -f ~/dotfiles/.config/wsl/resolv.conf /etc/resolv.conf
-
-# Poetry
-mkdir -p ~/.config/pypoetry/
-ln -s -f ~/dotfiles/.config/pypoetry/config.toml ~/.config/pypoetry/config.toml
 
 # fish
 mkdir -p ~/.config/fish/
