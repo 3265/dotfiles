@@ -17,10 +17,12 @@ alias h='history'
 alias p='python' # install python-is-python3
 alias g='git'
 alias l='runls'
+alias m='make'
+alias reload='source ~/.config/fish/config.fish'
+alias r=reload
 alias s='screen -t project'
 alias v='vim'
 
-alias reload='source ~/.config/fish/config.fish'
 
 # quick directory transition
 alias nd='nextd'
