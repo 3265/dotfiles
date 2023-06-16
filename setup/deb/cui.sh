@@ -22,6 +22,7 @@ sudo apt install -y jq
 sudo apt install -y vifm
 sudo apt install -y qalc
 sudo apt install -y cmatrix
+sudo apt install -y vagrant
 
 sudo apt install -y python3-pip
 sudo apt install -y python3-venv # needed by pipx

@@ -146,14 +146,16 @@ end
 # ------------------------------
 # Rust
 # ------------------------------
-
-# Rust
 set -gx PATH  ~/.cargo/bin/ $PATH
 
-
 # ------------------------------
-# Code in Windows
+# Code
 # ------------------------------
-
 set -gx PATH "/mnt/c/Program Files/Microsoft VS Code/bin" $PATH # C:\Program Files\Microsoft VS Code\bin\
 
+# ------------------------------
+# Vagrant
+# ------------------------------
+set -gx VAGRANT_WSL_ENABLE_WINDOWS_ACCESS "1"
+set -gx PATH "/mnt/c/Windows/System32" $PATH  # cmd.exe
+set -gx PATH "/mnt/c/Program\\ Files/Oracle/VirtualBox" $PATH

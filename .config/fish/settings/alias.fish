@@ -23,7 +23,6 @@ alias r=reload
 alias s='screen -t project'
 alias v='vim'
 
-
 # quick directory transition
 alias nd='nextd'
 alias pd='prevd'
