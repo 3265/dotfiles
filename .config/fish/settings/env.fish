@@ -158,4 +158,5 @@ set -gx PATH "/mnt/c/Program Files/Microsoft VS Code/bin" $PATH # C:\Program Fil
 # ------------------------------
 set -gx VAGRANT_WSL_ENABLE_WINDOWS_ACCESS "1"
 set -gx PATH "/mnt/c/Windows/System32" $PATH  # cmd.exe
+set -gx PATH "/mnt/c/Windows/System32/WindowsPowerShell/v1.0" $PATH  # powershell
 set -gx PATH "/mnt/c/Program\\ Files/Oracle/VirtualBox" $PATH
