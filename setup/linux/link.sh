@@ -16,7 +16,7 @@ ln -s -f ~/dotfiles/.config/zsh/.zshenv ~/.zshenv
 ln -s -f ~/dotfiles/.config/zsh/.aliases ~/.aliases
 
 # SSH/Telnet
-ln -s -f ~/dotfiles/.config/.hushlogin ~/.hushlogin
+ln -s -f ~/dotfiles/.config/ssh/.hushlogin ~/.hushlogin
 
 # VIM
 ln -s -f ~/dotfiles/.config/vim/.vimrc ~/.vimrc
