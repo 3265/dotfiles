@@ -20,7 +20,7 @@ alias l='runls'
 alias m='make'
 alias reload='source ~/.config/fish/config.fish'
 alias r=reload
-alias s='screen -t project'
+alias s='screen -t pj'
 alias v='vim'
 
 # quick directory transition

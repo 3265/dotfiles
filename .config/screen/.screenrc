@@ -61,5 +61,5 @@ bind 0 select 10
 screen 1
 
 # Window名を自動化
-shelltitle '> |project'
+shelltitle '> |pj'
 hardstatus alwayslastline
