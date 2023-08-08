@@ -23,3 +23,4 @@ go install github.com/x-motemen/ghq@latest
 
 cargo install mdbook
 cargo install mdbook-pagetoc
+cargo install fastmod

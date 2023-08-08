@@ -1,3 +1,18 @@
+;------------------
+; Excel
+;------------------
+
+#IfWinActive ahk_exe EXCEL.EXE
+;Shift＋Enter→Alt＋Enterに割り当て
++sc01C::
+    Send, !{sc01C}
+Return
+#IfWinActive
+
+;------------------
+; IME
+;------------------
+
 ; 上部メニューがアクティブになるのを抑制
 *~LAlt:: Send {Blind}{vk07}
 *~RAlt:: Send {Blind}{vk07}
