@@ -30,7 +30,6 @@ sudo apt install -y python-is-python3
 sudo apt install -y nodejs
 sudo apt install -y default-jdk
 sudo apt install -y golang
-sudo apt install -y rust-all
 sudo apt install -y pipx
 
 sudo apt install -y clisp # LISP

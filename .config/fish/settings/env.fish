@@ -149,6 +149,12 @@ end
 set -gx PATH  ~/.cargo/bin/ $PATH
 
 # ------------------------------
+# Rustup
+# ------------------------------
+# source $HOME/.cargo/env
+set -U fish_user_paths $fish_user_paths $HOME/.cargo/bin
+
+# ------------------------------
 # Code
 # ------------------------------
 set -gx PATH "/mnt/c/Program Files/Microsoft VS Code/bin" $PATH 
