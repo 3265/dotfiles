@@ -103,6 +103,18 @@ function ranger_cd
     end
 end
 
+function codemod
+  set target_name $argv[1]
+  set new_name $argv[2]
+
+  if test -z "$target_name" -o -z "$new_name"
+    echo "Both target_name and new_name are required."
+    return 1
+  end
+
+  fastmod -m --extensions yaml,ts,tsx,yaml,yml,json,toml,js,py,css,Dockerfile,env,md,html,conf,template,properties,dart $target_name $new_name
+end
+
 # Util
 alias cat='bat --style=plain'
 alias bat='/usr/bin/batcat'

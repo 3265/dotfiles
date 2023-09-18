@@ -155,6 +155,12 @@ set -gx PATH  ~/.cargo/bin/ $PATH
 set -U fish_user_paths $fish_user_paths $HOME/.cargo/bin
 
 # ------------------------------
+# Home of Windows
+# ------------------------------
+
+set -gx WIN_HOME /mnt/c/Users/mike
+
+# ------------------------------
 # Code
 # ------------------------------
 set -gx PATH "/mnt/c/Program Files/Microsoft VS Code/bin" $PATH 
