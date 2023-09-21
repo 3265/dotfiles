@@ -3,7 +3,7 @@
 # Command shortcut
 alias ai="chatgpt --model=gpt4"
 alias a="ag --hidden --ignore .git"
-alias c="code"
+alias c="curl"
 alias d='docker'
 alias dc="docker-compose"
 alias e='/mnt/c/Windows/explorer.exe'
@@ -21,6 +21,7 @@ alias l='runls'
 alias reload='source ~/.config/fish/config.fish'
 alias r=reload
 alias s='screen -t pj'
+alias t='touch'
 alias v='vim'
 
 # quick directory transition
