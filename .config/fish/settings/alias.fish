@@ -34,6 +34,8 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # systemd
+alias systemctrl='systemctl'
+alias journalctrl='jounalctl'
 alias sys='systemctl'
 alias jou='jounalctl'
 
