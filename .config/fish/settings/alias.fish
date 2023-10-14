@@ -33,6 +33,10 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
+# systemd
+alias sys='systemctl'
+alias jou='jounalctl'
+
 function runls
   if type -q "lsd"
       lsd -la --group-dirs=first $argv
