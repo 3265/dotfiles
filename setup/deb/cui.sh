@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo apt install -y gkermit
 sudo apt install -y zsh
 sudo apt install -y fish
 sudo apt install -y silversearcher-ag
