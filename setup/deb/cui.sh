@@ -25,6 +25,7 @@ sudo apt install -y qalc
 sudo apt install -y cmatrix
 sudo apt install -y apache2-utils
 
+# sudo apt install -y fpc
 sudo apt install -y python3-pip
 sudo apt install -y python3-venv # needed by pipx
 sudo apt install -y python-is-python3
