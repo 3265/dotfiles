@@ -41,6 +41,9 @@ ln -s -f ~/dotfiles/.config/python/matplotlib/matplotlibrc ~/.config/matplotlib/
 mkdir -p ~/.config/pypoetry/
 ln -s -f ~/dotfiles/.config/python/pypoetry/config.toml ~/.config/pypoetry/config.toml
 
+# Conda
+ln -s -f ~/dotfiles/.config/python/conda/.condarc ~/.condarc
+
 # JS
 ln -s -f ~/dotfiles/.config/npm/.npmrc ~/.npmrc
 

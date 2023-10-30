@@ -110,3 +110,8 @@ end
 # ##########################
 set -gx PATH $HOME/.rbenv/bin $PATH
 status --is-interactive; and rbenv init -| source
+
+# ##########################
+# Conda
+# ##########################
+source (conda info --root)/etc/fish/conf.d/conda.fish
