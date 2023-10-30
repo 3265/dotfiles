@@ -15,7 +15,7 @@ set -g status-left-length 40
 run-shell "tmux set-environment -g TMUX_ENV_ICON Host"
 if-shell 'test -f /.dockerenv' "run-shell 'tmux set-environment -g TMUX_ENV_ICON Container'"
 if-shell 'test $(cat /sys/class/dmi/id/product_name) = "VirtualBox"' "run-shell 'tmux set-environment -g TMUX_ENV_ICON VM'"
-set -g status-left "#[fg=green]Session: #S #[fg=yellow]Pane: #I #[fg=cyan]Window: #P"
+set -g status-left "#[fg=green]Sess: #S #[fg=yellow]Pane: #I #[fg=cyan]Win: #P"
 # set -g status-right "Env: #{TMUX_ENV_ICON}  Net: #{online_status}  CPU:#{cpu_percentage}  Batt: #{battery_percentage} #[fg=cyan] %a %h-%d %H:%M"
 
 # シンプルに
