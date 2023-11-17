@@ -1,3 +1,6 @@
+# SDK
+# winget install -e --id Microsoft.WindowsSDK
+
 # PW Manager
 winget install AgileBits.1Password
 
