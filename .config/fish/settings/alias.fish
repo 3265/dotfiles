@@ -18,6 +18,7 @@ alias p='python' # install python-is-python3
 alias g='git'
 alias k='make'
 alias l='runls'
+alias m='make'
 alias reload='source ~/.config/fish/config.fish'
 alias r=reload
 alias s='screen -t pj'
