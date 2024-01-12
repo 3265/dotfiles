@@ -115,3 +115,10 @@ status --is-interactive; and rbenv init -| source
 # Conda
 # ##########################
 source (conda info --root)/etc/fish/conf.d/conda.fish
+
+# ##########################
+# Deno
+# ##########################
+
+set -gx DENO_INSTALL $HOME/.deno
+set -gx PATH $DENO_INSTALL/bin $PATH
