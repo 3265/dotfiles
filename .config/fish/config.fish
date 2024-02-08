@@ -114,7 +114,9 @@ status --is-interactive; and rbenv init -| source
 # ##########################
 # Conda
 # ##########################
-source (conda info --root)/etc/fish/conf.d/conda.fish
+if test -d ~/anaconda3
+  source (conda info --root)/etc/fish/conf.d/conda.fish
+end
 
 # ##########################
 # Deno
