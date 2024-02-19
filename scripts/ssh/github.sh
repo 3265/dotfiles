@@ -2,7 +2,7 @@
 
 # Usage
 #
-# 1. bash add_xxx.sh
+# 1. bash github.sh
 # 1. paste public key to github
 # 1. ssh -T git@github
 # 1. ssh -T git@github.com
