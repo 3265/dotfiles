@@ -3,6 +3,9 @@
 sudo apt update
 sudo locale-gen en_US.UTF-8 # これをしないとtmux on screenで文字化け
 
+# my working directories
+mkdir -p ~/{bin,workspace,playground}
+
 # sudo apt install -y gkermit
 sudo apt install -y zsh
 sudo apt install -y fish
