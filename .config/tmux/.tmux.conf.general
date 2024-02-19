@@ -19,7 +19,7 @@ set -g prefix C-q
 set -g history-limit 50000 # increase scrollback buffer size
 set -g display-time 4000 # tmux messages are displayed for 4 seconds
 set -g status-interval 5  # refresh 'status-left' and 'status-right' more often
-set -sg escape-time 0 # vimのescキーのディレイを減らす
+set -sg escape-time 10 # vimのescキーのディレイを減らす see  https://github.com/microsoft/WSL/issues/5931#issuecomment-693419318
 
 # インデックス
 set -g base-index 1 # ウィンドウのインデックスを1から始める

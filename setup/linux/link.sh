@@ -1,6 +1,14 @@
 #!/bin/bash
 
-# mkdir -p ~/.config/memo
+# NOTE: before installing rc files, fish shell is required as a default shell.
+if ! command -v fish &> /dev/null
+then
+    echo "fish could not be found"
+    exit 1
+fi
+
+
+mkdir -p ~/.config
 
 # Bash
 ln -s -f ~/dotfiles/.config/bash/.bashrc ~/.bashrc
@@ -11,9 +19,9 @@ ln -s -f ~/dotfiles/.config/bash/.netrc ~/.netrc
 # ln -s -f ~/dotfiles/.xinitrc ~/.xinitrc
 
 # ZSH
-ln -s -f ~/dotfiles/.config/zsh/.zshrc ~/.zshrc
-ln -s -f ~/dotfiles/.config/zsh/.zshenv ~/.zshenv
-ln -s -f ~/dotfiles/.config/zsh/.aliases ~/.aliases
+# ln -s -f ~/dotfiles/.config/zsh/.zshrc ~/.zshrc
+# ln -s -f ~/dotfiles/.config/zsh/.zshenv ~/.zshenv
+# ln -s -f ~/dotfiles/.config/zsh/.aliases ~/.aliases
 
 # SSH/Telnet
 ln -s -f ~/dotfiles/.config/ssh/.hushlogin ~/.hushlogin
@@ -59,8 +67,8 @@ mkdir -p ~/.gnupg/
 ln -s -f ~/dotfiles/.config/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
 # WSL
-sudo ln -s -f ~/dotfiles/.config/wsl/wsl.conf /etc/wsl.conf
-sudo ln -s -f ~/dotfiles/.config/wsl/resolv.conf /etc/resolv.conf
+# sudo ln -s -f ~/dotfiles/.config/wsl/wsl.conf /etc/wsl.conf
+# sudo ln -s -f ~/dotfiles/.config/wsl/resolv.conf /etc/resolv.conf
 
 # fish
 mkdir -p ~/.config/fish/

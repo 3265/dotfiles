@@ -1,41 +1,55 @@
+SHELL := /bin/bash
 ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-SETUP_DIR := ~/dotfiles/setup
+SETUP_DIR := ~/dotfiles/setup/linux
 
 .DEFAULT: link
-
 .PHONY: link
 .ONESHELL:
 link:
 	cd $(SETUP_DIR)
-	bash ./linux/link.sh
+	set -e
+	bash link.sh
 
-.PHONY: term_core
+.PHONY: terminal
 .ONESHELL:
-term_core:
+terminal:
 	cd $(SETUP_DIR)
-	chsh -s /bin/bash
-	bash ./linux/zsh.sh
-	bash ./linux/vim.sh
-	bash ./linux/screen.sh
-	bash ./linux/tmux.sh
-	bash ./linux/poetry.sh
-	bash ./linux/cmds.sh
+	set -e
+
+	# main
+	bash apt.sh
+	bash fish.sh
+	bash fisher.sh
+	bash lang.sh
+	bash vim.sh
+	bash screen.sh
+	bash tmux.sh
+	# bash zsh.sh
+
+	# rust
+	bash rust/rustup.sh
+	bash rust/lsd.sh
+	bash rust/mdbook.sh
+	bash rust/fastmod.sh
+
+	# go
+	bash go/golang.sh
+	bash go/ghq.sh
+	bash go/hugo.sh
+
+	# py
+	bash py/pyenv.sh
+	bash py/poetry.sh
+	bash py/conda.sh
+
+	# node
+	bash js/deno.sh
+
+	# ruby
+	bash ruby/rbenv.sh
+
 	sudo chsh -s /usr/bin/fish
-	bash ./linux/fisher.sh
 	# reboot
 
-.PHONY: deb_install
-.ONESHELL:
-deb_install:
-	cd $(SETUP_DIR)
-	bash ./deb/font.sh
-	bash ./deb/cui.sh
-	bash ./deb/pyenv.sh
-	bash ./deb/lsd.sh
-	bash ./deb/fish.sh
-	bash ./deb/golang.sh
-	bash ./linux/cling.sh
-
-.PHONY: deb
-deb: link deb_install term_core
-
+.PHONY: install
+install: link terminal

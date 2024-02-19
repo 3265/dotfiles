@@ -14,3 +14,4 @@
 # fi
 
 exec fish
+. "$HOME/.cargo/env"

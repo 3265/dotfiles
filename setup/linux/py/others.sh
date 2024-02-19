@@ -13,14 +13,6 @@ pipx install pytest
 pipx install Fabric3
 pipx install ipython
 pipx install ipdb
-
 # pipx install codemod
-cargo install fastmod
-
 pipx install pycowsay
 
-go install github.com/x-motemen/ghq@latest
-
-cargo install mdbook
-cargo install mdbook-pagetoc
-cargo install fastmod

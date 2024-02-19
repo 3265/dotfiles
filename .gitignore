@@ -84,3 +84,6 @@ tmp.*
 
 # vscode
 .vscode
+
+# test folder
+test/

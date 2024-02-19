@@ -1,17 +1,16 @@
 # SDK
-# winget install -e --id Microsoft.WindowsSDK
+winget install -e --id Microsoft.WindowsSDK
 
-# PW Manager
 winget install AgileBits.1Password
 
 # Browser
 winget install Google.Chrome
-winget install Google.Chrome.Dev
 winget install Mozilla.Firefox
+winget install Google.Chrome.Dev
 winget install -e --id TorProject.TorBrowser
 
 # Hotkeys
-winget install Lexikos.AutoHotkey
+# winget install Lexikos.AutoHotkey
 winget install Greenshot.Greenshot
 winget install Microsoft.PowerToys # caps lock
 
@@ -24,7 +23,6 @@ winget install Microsoft.WindowsTerminal
 
 # Finder
 winget install -e --id Microsoft.OneDrive
-# winget install 9NGHP3DX8HDX # Files-Community.Files 
 winget install voidtools.Everything
 winget install Dropbox.Dropbox
 
@@ -45,7 +43,7 @@ winget install Microsoft.OpenJDK.17
 winget install Microsoft.VisualStudio.2022.Community
 winget install Postman.Postman
 winget install Arduino
-winget install Google.AndroidStudio 
+winget install Google.AndroidStudio
 winget install RProject.R
 winget install RStudio.RStudio.OpenSource
 winget install Notepad++.Notepad++
@@ -73,7 +71,7 @@ winget install -e --id DeepL.DeepL
 # Graphics
 winget install Gimp.Gimp
 
-# Book
+# For Book
 winget install Adobe.Acrobat.Reader.64-bit
 winget install -e --id PDFsam.PDFsam
 winget install SumatraPDF
