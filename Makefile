@@ -19,7 +19,7 @@ terminal:
 	# main
 	bash apt.sh
 	bash fish.sh
-	bash fisher.sh
+	fish fisher.sh
 	bash lang.sh
 	bash vim.sh
 	bash screen.sh
