@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "pydevtools"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fabric3 = "^1.14.post1"
+ipython = "^8.21.0"
+ipdb = "^0.13.13"
+pipenv = "^2023.12.1"
+pip-tools = "^7.4.0"
+black = "^24.2.0"
+isort = "^5.13.2"
+mypy = "^1.8.0"
+flake8 = "^7.0.0"
+autoflake = "^2.3.0"
+pytest = "^8.0.1"
+codemod = "^1.0.0"
+pycowsay = "^0.0.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

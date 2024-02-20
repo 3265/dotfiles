@@ -87,3 +87,6 @@ tmp.*
 
 # test folder
 test/
+
+# python
+.venv
