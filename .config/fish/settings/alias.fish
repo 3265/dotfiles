@@ -14,7 +14,7 @@ function searchfile
 end
 alias f=searchfile
 alias h='history'
-alias p='python' # install python-is-python3
+alias p='pwd'
 alias g='git'
 alias k='make'
 alias l='runls'
@@ -39,6 +39,11 @@ alias systemctrl='systemctl'
 alias journalctrl='jounalctl'
 alias sys='systemctl'
 alias jou='jounalctl'
+
+# python
+alias py='python' # install python-is-python3
+alias pe='pyenv' # python environment
+alias pm='poetry' # python manamger
 
 function runls
   if type -q "lsd"
