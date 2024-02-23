@@ -3,6 +3,7 @@
 # Command shortcut
 alias ai="chatgpt --model=gpt4"
 alias a="ag --hidden --ignore .git"
+alias b="bash"
 alias c="code"
 alias d='docker'
 alias dc="docker-compose"
