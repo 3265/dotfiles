@@ -1,7 +1,0 @@
-# for VPN
-export VPN_SERVER_IP='your_vpn_server_ip'
-export VPN_IPSEC_PSK='your_ipsec_pre_shared_key'
-export VPN_USER='your_vpn_username'
-export VPN_PASSWORD='your_vpn_password'
-export VPN_ALGORITHM='here is the algorithm'
-export OPENAI_API_KEY=''
