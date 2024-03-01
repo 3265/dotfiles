@@ -1,5 +1,8 @@
 # SDK
-# winget install -e --id Microsoft.WindowsSDK
+winget install -e --id Microsoft.WindowsSDK
+
+# Background
+winget install rocksdanister.LivelyWallpaper
 
 # PW Manager
 #winget install AgileBits.1Password
@@ -12,9 +15,9 @@ winget install Google.Chrome
 winget install Mozilla.Firefox
 
 # Shortcut
+winget install Microsoft.PowerToys
 winget install voidtools.Everything
 winget install Greenshot.Greenshot
-winget install Microsoft.PowerToys
 
 # CUI Dev Tools
 winget install Git.Git
