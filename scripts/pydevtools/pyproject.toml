@@ -20,6 +20,7 @@ autoflake = "^2.3.0"
 pytest = "^8.0.1"
 codemod = "^1.0.0"
 pycowsay = "^0.0.0.2"
+pre-commit = "^3.6.2"
 
 
 [build-system]
