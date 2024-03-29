@@ -138,3 +138,5 @@ if executable(s:clip)
     augroup END
 endif
 
+" vim-code-dark
+colorscheme codedark
