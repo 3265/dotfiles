@@ -79,34 +79,12 @@ inoremap <C-n> :nohl<CR>
 " https://superuser.com/questions/632657/how-to-setup-vim-to-edit-both-makefile-and-normal-code-files-with-two-different
 autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
-" Finder Settings
+" Netrw Settings
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
-
-" Togglable Finder 
-" https://vi.stackexchange.com/questions/10988/toggle-explorer-window
-let g:NetrwIsOpen=0
-
-function! ToggleNetrw()
-    if g:NetrwIsOpen
-        let i = bufnr("$")
-        while (i >= 1)
-            if (getbufvar(i, "&filetype") == "netrw")
-                silent exe "bwipeout " . i 
-            endif
-            let i-=1
-        endwhile
-        let g:NetrwIsOpen=0
-    else
-        let g:NetrwIsOpen=1
-        silent Lexplore
-    endif
-endfunction
-
-noremap <silent> <C-E> :call ToggleNetrw()<CR>
 
 " Tab補完をwindowっぽく
 nnoremap <C-t><C-t> :tabprevious<CR>
@@ -143,6 +121,13 @@ nnoremap L :vertical resize +5<cr>
 nnoremap Z ZZ<CR>
 nnoremap q ZZ<CR>
 
+" Nerdtree
+map <C-e> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+
+" Marks
+noremap <C-m> :marks<CR>
+
 " WSL yank support
 " https://superuser.com/questions/1291425/windows-subsystem-linux-make-vim-use-the-clipboard
 let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
@@ -153,16 +138,3 @@ if executable(s:clip)
     augroup END
 endif
 
-" make a file by % in netrw
-" https://stackoverflow.com/questions/45536346/create-a-new-file-but-not-open-a-buffer-in-vim-netrw
-
-autocmd filetype netrw call Netrw_mappings()
-function! Netrw_mappings()
-  map <buffer>% :call MakeFileInFinder()<cr>
-endfunction
-
-function! MakeFileInFinder()
-  let l:filename = input("please enter filename: ")
-  execute 'silent !touch ' . b:netrw_curdir.'/'.l:filename
-  redraw!
-endf
