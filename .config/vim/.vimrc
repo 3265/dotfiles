@@ -108,15 +108,6 @@ nnoremap J :resize +5<cr>
 nnoremap K :resize -5<cr>
 nnoremap L :vertical resize +5<cr>
 
-" 括弧の補完
-" inoremap {<Enter> {}<Left><CR><ESC><S-o>
-" inoremap [<Enter> []<Left><CR><ESC><S-o>
-" inoremap (<Enter> ()<Left><CR><ESC><S-o>
-
-" クォートの補完
-" inoremap " ""<LEFT>
-" inoremap ' ''<LEFT>
-
 " quick close
 nnoremap Z ZZ<CR>
 nnoremap q ZZ<CR>
