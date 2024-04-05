@@ -24,7 +24,6 @@ terminal:
 	bash vim.sh
 	bash screen.sh
 	bash tmux.sh
-	# bash zsh.sh
 
 	# rust
 	bash rust/rustup.sh
