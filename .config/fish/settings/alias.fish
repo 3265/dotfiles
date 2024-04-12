@@ -17,7 +17,7 @@ alias f=searchfile
 alias h='history'
 alias p='pwd'
 alias g='git'
-alias k='make'
+alias k='kill'
 alias l='runls'
 alias m='make'
 alias reload='source ~/.config/fish/config.fish'
@@ -45,6 +45,7 @@ alias jou='jounalctl'
 alias py='python' # install python-is-python3
 alias pe='pyenv' # python environment
 alias pm='poetry' # python manamger
+alias pm='source .venv/bin/activate.fish'
 
 function runls
   if type -q "lsd"
