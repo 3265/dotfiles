@@ -45,7 +45,7 @@ alias jou='jounalctl'
 alias py='python' # install python-is-python3
 alias pe='pyenv' # python environment
 alias pm='poetry' # python manamger
-alias pm='source .venv/bin/activate.fish'
+alias pa='source .venv/bin/activate.fish'
 
 function runls
   if type -q "lsd"
