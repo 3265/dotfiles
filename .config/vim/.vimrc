@@ -131,3 +131,10 @@ endif
 
 " vim-code-dark
 colorscheme codedark
+
+
+" F12だと打ちづらいので、Insertモードの時にF2でペーストモードのトグル
+set pastetoggle=<F2>
+inoremap <F2> <C-O>:set invpaste<CR>
+
+
