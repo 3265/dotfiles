@@ -57,7 +57,7 @@ set switchbuf=useopen " 新しく開く代わりにすでに開いてあるバ�
 set showmatch " 対応する括弧などをハイライト表示する
 set matchtime=3 " 対応括弧のハイライト表示を3秒にする
 set backspace=indent,eol,start " バックスペースでなんでも消せるようにする
-set pastetoggle=<F12> " F12でインサートモードでpaste modeをトグル
+set pastetoggle=<F2> " Insertモードの時にF2でペーストモードのトグル
 
 " バックアップ
 set nowritebackup
@@ -131,10 +131,5 @@ endif
 
 " vim-code-dark
 colorscheme codedark
-
-
-" F12だと打ちづらいので、Insertモードの時にF2でペーストモードのトグル
-set pastetoggle=<F2>
-inoremap <F2> <C-O>:set invpaste<CR>
 
 
