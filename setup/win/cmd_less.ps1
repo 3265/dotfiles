@@ -32,3 +32,6 @@ winget install -e --id Python.Python.3.9
 # PDF
 winget install -e --id PDFsam.PDFsam
 winget install SumatraPDF
+
+# DL
+winget install yt-dlp
