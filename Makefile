@@ -35,6 +35,7 @@ terminal:
 	bash go/golang.sh
 	bash go/ghq.sh
 	bash go/hugo.sh
+	bash go/glow.sh
 
 	# py
 	bash py/pyenv.sh
