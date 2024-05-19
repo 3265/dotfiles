@@ -7,4 +7,3 @@ dnsTunneling=true
 [network]
 generateResolvConf = false
 
-
