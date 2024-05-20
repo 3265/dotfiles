@@ -44,6 +44,14 @@ alias pe='pyenv' # python environment
 alias pm='poetry' # python manamger
 alias pa='source .venv/bin/activate.fish'
 
+# makefile
+alias m1='make 1'
+alias m2='make 2'
+alias m3='make 3'
+alias m4='make 4'
+alias m5='make 5'
+alias m6='make 6'
+
 # Util
 alias cat='bat --style=plain'
 alias bat='/usr/bin/batcat'
