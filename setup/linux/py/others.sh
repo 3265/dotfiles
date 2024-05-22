@@ -16,3 +16,4 @@ pipx install ipdb
 # pipx install codemod
 pipx install pycowsay
 
+pipx install git-filter-repo
