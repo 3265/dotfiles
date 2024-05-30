@@ -30,7 +30,6 @@ ln -s -f ~/dotfiles/.config/tmux/.tmux.conf ~/.tmux.conf
 
 # VCS
 ln -s -f ~/dotfiles/.config/git/.gitconfig ~/.gitconfig
-ln -s -f ~/dotfiles/.gitignore ~/.gitignore
 
 # AG
 ln -s -f ~/dotfiles/.config/ag/.agignore ~/.agignore
