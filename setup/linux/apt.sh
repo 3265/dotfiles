@@ -28,6 +28,7 @@ sudo apt install -y emacs
 sudo apt install -y ranger
 sudo apt install -y cmatrix
 sudo apt install -y apache2-utils
+sudo apt install -y whois
 
 # for matplotlib
 sudo apt install -y fonts-ipafont

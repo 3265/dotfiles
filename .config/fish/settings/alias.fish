@@ -95,6 +95,11 @@ alias vsh='virsh' # KVM
 alias win-open='wslview .'
 alias win-path='command wslpath -w .'
 
+function cdw
+  set wsl_path (wslpath $argv[1])
+  cd $wsl_path
+end
+
 # Others
 alias zen='python3 -m this'
 alias py='python'
