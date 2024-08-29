@@ -72,10 +72,11 @@ function toggle_top_line
         set -g SHOW_TOP_LINE 0
         clear
         echo "Top line disabled"
+        fish_prompt
     else
         set -g SHOW_TOP_LINE 1
-        fish_update_top_line
         echo "Top line enabled"
+        fish_prompt
     end
 end
 
@@ -83,12 +84,18 @@ end
 bind \ct 'toggle_top_line'
 
 function fish_clear
-    clear
-    commandline -f repaint
-    fish_update_top_line
-    echo -en '\e[1E' # カーソルを次の行の先頭に移動
-    fish_prompt
-    echo -en '\e[2;3H' # カーソルを▶の直後に移動
+    if test "$SHOW_TOP_LINE" = "0"
+        clear
+        commandline -f repaint
+        fish_prompt
+    else
+        clear
+        commandline -f repaint
+        fish_update_top_line
+        echo -en '\e[1E' # カーソルを次の行の先頭に移動
+        fish_prompt
+        echo -en '\e[2;3H' # カーソルを▶の直後に移動
+    end
 end
 
 # ctrl+l に新しい関数をバインド
