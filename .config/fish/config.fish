@@ -57,11 +57,8 @@ function joshuto_fish
     clear
 end
 
-# ranger alternative
-bind \ct "vim ."
-
 # ##########################
-# GIt
+# Git
 # ##########################
 
 # Fish git prompt
