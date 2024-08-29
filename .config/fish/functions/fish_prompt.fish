@@ -20,7 +20,7 @@ function fish_update_top_line --on-variable PWD --on-variable fish_bind_mode --o
     set -l git_branch (git rev-parse --abbrev-ref HEAD 2>/dev/null)
     set -l git_info ""
     if test -n "$git_branch"
-        set git_info " ($git_branch)"
+        set git_info "($git_branch)"
     end
 
     # VENV info
