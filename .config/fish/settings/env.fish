@@ -49,6 +49,9 @@ end
 # Python
 # ------------------------------
 
+# disable venv prompt
+set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
+
 # Anaconda3
 set -gx PATH "/home/mike/anaconda3/bin" $PATH 
 
