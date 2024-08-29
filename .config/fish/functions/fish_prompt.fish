@@ -81,3 +81,16 @@ end
 
 # トップライン表示を切り替えるためのキーバインド（Ctrl+T）
 bind \ct 'toggle_top_line'
+
+function fish_clear
+    clear
+    commandline -f repaint
+    fish_update_top_line
+    echo -en '\e[1E' # カーソルを次の行の先頭に移動
+    fish_prompt
+    echo -en '\e[2;3H' # カーソルを▶の直後に移動
+end
+
+# ctrl+l に新しい関数をバインド
+bind \cl 'fish_clear'
+
