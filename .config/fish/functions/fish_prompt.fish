@@ -104,8 +104,13 @@ end
 # ctrl+l に新しい関数をバインド
 bind \cl 'fish_clear'
 
-# 初回起動時にトップラインを表示
+# 初回起動時にトップラインを表示し、自動的にEnterを押す
 if status --is-interactive
-    fish_update_top_line
+    function __auto_enter --on-event fish_prompt
+        if not set -q __fish_auto_enter_done
+            set -g __fish_auto_enter_done 1
+            commandline -f execute
+        end
+    end
 end
 
