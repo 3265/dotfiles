@@ -23,17 +23,29 @@ function fish_update_top_line --on-variable PWD --on-variable fish_bind_mode --o
         set git_info "($git_branch)"
     end
 
-    # VENV info
+    # Python version and VENV info
+    set -l python_version (python --version 2>&1 | cut -d' ' -f2)
+    set -l python_info "py=$python_version"
     set -l venv_info ""
     if set -q VIRTUAL_ENV
-        set -l python_version (python --version 2>&1 | cut -d' ' -f2)
-        set venv_info (basename "$VIRTUAL_ENV") "(py=$python_version)"
+        set venv_info " (venv="(basename "$VIRTUAL_ENV")")"
     end
+
+	# Node.js version (using nvm)
+    set -l node_version ""
+    if type -q nvm
+        set node_version (nvm current 2>/dev/null)
+        if test -n "$node_version"
+            set node_version "node=$node_version"
+        end
+    end
+
 
     set -l top_line (set_color cyan)"●"\
                     (set_color blue)(prompt_pwd)\
                     (set_color yellow)$git_info \
-                    (set_color green)$venv_info\
+                    (set_color green)$python_info$venv_info\
+                    (set_color magenta)$node_version\
                     (set_color normal)
     
     # カーソルを一番上の行に移動
