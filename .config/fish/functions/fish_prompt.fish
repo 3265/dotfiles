@@ -46,9 +46,6 @@ function fish_update_top_line --on-variable PWD --on-variable fish_bind_mode --o
     echo -en '\e[u'
 end
 
-# 初回実行（シェル起動時）
-fish_update_top_line
-
 # キー入力のたびに更新
 function fish_user_key_bindings
     for mode in insert default visual
@@ -66,17 +63,28 @@ function on_resize --on-signal WINCH
     fish_update_top_line
 end
 
+function clear2
+    # clear # NOE: こっちだと、ターミナルをスクロールアップすると履歴が0になってしまう
+    echo -en "\033c"
+end
+
+function clear_top_line
+    clear2
+    commandline -f repaint
+    fish_update_top_line
+    echo -en '\e[1E' # カーソルを次の行の先頭に移動
+    fish_prompt
+    echo -en '\e[2;3H' # カーソルを▶の直後に移動
+end
+
 # トップライン表示を切り替える関数
 function toggle_top_line
     if test "$SHOW_TOP_LINE" = "1"
         set -g SHOW_TOP_LINE 0
-        clear
-        echo "Top line disabled"
-        fish_prompt
+        fish_clear
     else
         set -g SHOW_TOP_LINE 1
-        echo "Top line enabled"
-        fish_prompt
+        fish_clear
     end
 end
 
@@ -84,20 +92,20 @@ end
 bind \ct 'toggle_top_line'
 
 function fish_clear
-    if test "$SHOW_TOP_LINE" = "0"
-        clear
-        commandline -f repaint
-        fish_prompt
+    if test "$SHOW_TOP_LINE" = "1"
+        clear_top_line
     else
-        clear
+        clear2
         commandline -f repaint
-        fish_update_top_line
-        echo -en '\e[1E' # カーソルを次の行の先頭に移動
         fish_prompt
-        echo -en '\e[2;3H' # カーソルを▶の直後に移動
     end
 end
 
 # ctrl+l に新しい関数をバインド
 bind \cl 'fish_clear'
+
+# 初回起動時にトップラインを表示
+if status --is-interactive
+    fish_update_top_line
+end
 
