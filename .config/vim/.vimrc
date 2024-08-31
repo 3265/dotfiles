@@ -132,4 +132,6 @@ endif
 " vim-code-dark
 colorscheme codedark
 
+" fish
+autocmd BufRead,BufNewFile *.fish set filetype=sh
 
