@@ -121,3 +121,14 @@ end
 
 set -gx DENO_INSTALL $HOME/.deno
 set -gx PATH $DENO_INSTALL/bin $PATH
+
+# ##########################
+#  VENV
+# see https://dsayling.medium.com/fix-the-annoying-virtual-environment-already-activated-error-7c20c81f5c6f
+# ##########################
+
+if set -q VIRTUAL_ENV
+    echo 'reactivating virtualenv'
+    source $VIRTUAL_ENV/bin/activate.fish
+end
+

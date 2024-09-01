@@ -21,7 +21,7 @@ function fish_prompt
         set -a prompt_info (set_color green)"py=$python_version"(set_color normal)
 
         if set -q VIRTUAL_ENV
-            set -a prompt_info (set_color green)"(venv="(basename "$VIRTUAL_ENV")")"(set_color normal)
+            set -a prompt_info (set_color green)"(venv)"(set_color normal)
         end
 
         if type -q nvm

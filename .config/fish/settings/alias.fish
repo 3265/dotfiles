@@ -149,3 +149,8 @@ function codemod
 
   fastmod -m --extensions yaml,ts,tsx,yaml,yml,json,toml,js,py,css,Dockerfile,env,md,html,conf,template,properties,dart $target_name $new_name
 end
+
+
+function remove_zone
+    find . -name "*:Zone.Identifier" -type f -delete
+end
