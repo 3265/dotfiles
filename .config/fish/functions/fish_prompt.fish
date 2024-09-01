@@ -20,9 +20,10 @@ function fish_prompt
         set -l python_version (python --version 2>&1 | cut -d' ' -f2)
         set -a prompt_info (set_color green)"py=$python_version"(set_color normal)
 
-        if set -q VIRTUAL_ENV
-            set -a prompt_info (set_color green)"(venv)"(set_color normal)
-        end
+		if set -q VIRTUAL_ENV
+            set -l venv_name (basename (dirname $VIRTUAL_ENV))
+		    set -a prompt_info (set_color green)"($venv_name)"(set_color normal)
+		end
 
         if type -q nvm
             set -l node_version (nvm current 2>/dev/null)
