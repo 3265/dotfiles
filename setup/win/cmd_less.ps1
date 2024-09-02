@@ -2,6 +2,7 @@
 winget install -e --id Microsoft.WindowsSDK
 
 # Background
+winget install Monitorian -s msstore
 winget install rocksdanister.LivelyWallpaper
 
 # PW Manager
@@ -18,6 +19,9 @@ winget install Mozilla.Firefox
 winget install Microsoft.PowerToys
 winget install voidtools.Everything
 winget install Greenshot.Greenshot
+
+# Editor
+winget install -q vscode --scope machine # zsh setup/vscode.sh
 
 # CUI Dev Tools
 winget install Git.Git
