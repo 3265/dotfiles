@@ -2,7 +2,7 @@
 
 # Command shortcut
 alias a="ag --hidden --ignore .git"
-alias b="bash"
+alias b='/usr/bin/batcat --style=plain'
 alias c="code"
 alias d='docker'
 alias dc="docker-compose"
@@ -53,8 +53,6 @@ alias m5='make 5'
 alias m6='make 6'
 
 # Util
-alias cat='bat --style=plain'
-alias bat='/usr/bin/batcat'
 alias free='free -h'
 alias rename='mv'
 alias fastreset="echo -ne \\\0033\\\0143" # echo -ne '\0033\0143'
