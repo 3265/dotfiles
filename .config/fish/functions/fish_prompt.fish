@@ -1,8 +1,7 @@
-set -g fish_prompt_pwd_dir_length 4
-
 # プロンプトモードを制御する変数（0: シンプル、1: 詳細）
 set -g PROMPT_MODE 1
 
+set -g fish_prompt_pwd_dir_length 4
 
 function fish_prompt
     set -l last_status $status
