@@ -39,3 +39,7 @@ winget install SumatraPDF
 
 # DL
 winget install yt-dlp
+
+
+# Refus
+winget install -e --id Rufus.Rufus
