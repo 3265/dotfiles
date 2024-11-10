@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # NOTE: before installing rc files, fish shell is required as a default shell.
-if ! command -v fish &> /dev/null
-then
-    echo "fish could not be found"
-    exit 1
-fi
+# if ! command -v fish &> /dev/null
+# then
+#     echo "fish could not be found"
+#     exit 1
+# fi
 
 
 mkdir -p ~/.config

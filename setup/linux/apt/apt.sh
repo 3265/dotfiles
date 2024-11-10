@@ -1,11 +1,5 @@
 #!/bin/bash
 
-sudo apt update
-sudo locale-gen en_US.UTF-8 # これをしないとtmux on screenで文字化け
-
-# my working directories
-mkdir -p ~/{bin,workspace,playground}
-
 sudo apt-get remove w3m
 
 # sudo apt install -y gkermit
@@ -29,7 +23,28 @@ sudo apt install -y ranger
 sudo apt install -y cmatrix
 sudo apt install -y apache2-utils
 sudo apt install -y whois
+sudo apt install -y curl
 
-# for matplotlib
-sudo apt install -y fonts-ipafont
-fc-cache -fv
+
+##############################
+#          lang
+##############################
+
+# sudo apt install -y fpc # Pascal
+# sudo apt install -y clisp # LISP
+
+sudo apt install -y jq
+
+sudo apt install -y python3-pip
+sudo apt install -y python3-venv # needed by pipx
+sudo apt install -y python-is-python3
+sudo apt install -y pipx
+
+sudo apt install -y nodejs
+
+sudo apt install -y default-jdk
+sudo apt install -y openjdk-8-jdk
+sudo apt install -y openjdk-11-jdk
+
+# sudo apt install -y golang
+# sudo apt install -y php7.4-cli

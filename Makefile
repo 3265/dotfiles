@@ -1,55 +1,38 @@
 SHELL := /bin/bash
 ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-SETUP_DIR := ~/dotfiles/setup/linux
+SETUP_DIR := $(ROOT_DIR)/setup/linux
 
 .DEFAULT: link
 .PHONY: link
 .ONESHELL:
 link:
-	cd $(SETUP_DIR)
-	set -e
-	bash link.sh
+	bash $(SETUP_DIR)/link.sh
 
-.PHONY: terminal
-.ONESHELL:
+.PHONY: apt fish terminal rust go py js ruby test
+
+apt:
+	$(MAKE) -C $(SETUP_DIR)/apt
+
+fish:
+	$(MAKE) -C $(SETUP_DIR)/fish
+
 terminal:
-	cd $(SETUP_DIR)
-	set -e
+	$(MAKE) -C $(SETUP_DIR)/terminal
 
-	# main
-	bash apt.sh
-	bash fish.sh
-	fish fisher.sh
-	bash lang.sh
-	bash vim.sh
-	bash screen.sh
-	bash tmux.sh
+rust:
+	$(MAKE) -C $(SETUP_DIR)/rust
 
-	# rust
-	bash rust/rustup.sh
-	bash rust/lsd.sh
-	bash rust/mdbook.sh
-	bash rust/fastmod.sh
+go:
+	$(MAKE) -C $(SETUP_DIR)/go
 
-	# go
-	bash go/golang.sh
-	bash go/ghq.sh
-	bash go/hugo.sh
-	bash go/glow.sh
+py:
+	$(MAKE) -C $(SETUP_DIR)/py
 
-	# py
-	bash py/pyenv.sh
-	bash py/poetry.sh
-	bash py/conda.sh
+js:
+	$(MAKE) -C $(SETUP_DIR)/js
 
-	# node
-	bash js/deno.sh
+ruby:
+	$(MAKE) -C $(SETUP_DIR)/ruby
 
-	# ruby
-	bash ruby/rbenv.sh
-
-	sudo chsh -s /usr/bin/fish
-	# reboot
-
-.PHONY: install
-install: link terminal
+test:
+	$(MAKE) -C $(SETUP_DIR)/test
