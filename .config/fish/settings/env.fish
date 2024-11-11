@@ -11,7 +11,7 @@
 if not test -d ~/bin
     mkdir ~/bin
 end
-set -gx PATH "$HOME/bin" $PATH 
+set -gx PATH "$HOME/bin" $PATH
 
 # ------------------------------
 # ClI
@@ -31,14 +31,14 @@ end
 # Autojump
 source /usr/share/autojump/autojump.fish
 
-# for VCPKG
-if test -d ~/vcpkg/
-    set -gx PATH ~/vcpkg/ $PATH 
-end
-
 # ------------------------------
 # C/C++
 # ------------------------------
+
+# for VCPKG
+if test -d ~/vcpkg/
+    set -gx PATH ~/vcpkg/ $PATH
+end
 
 # # root (CRAN)
 # if test -d ~/root/
@@ -52,16 +52,19 @@ end
 # disable venv prompt
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 
-# Anaconda3
-set -gx PATH "/home/mike/anaconda3/bin" $PATH 
+# Conda
+if test -d ~/anaconda3
+  set -gx PATH "/home/mike/anaconda3/bin" $PATH
+  source (conda info --root)/etc/fish/conf.d/conda.fish
+end
 
 # pyenv
 set -gx PYENV_ROOT "$HOME/.pyenv"
-set -gx PATH "$PYENV_ROOT/bin" $PATH 
+set -gx PATH "$PYENV_ROOT/bin" $PATH
 eval "$(pyenv init --path)"
 
 # for pipenv on ubuntu
-set -gx PATH "$HOME/.local/bin" $PATH 
+set -gx PATH "$HOME/.local/bin" $PATH
 
 # poetry
 set POETRY_FOLDER $HOME/.poetry
@@ -69,6 +72,12 @@ if test -d "$POETRY_FOLDER"
     source $HOME/.poetry/env
 end
 
+# VENV
+# see https://dsayling.medium.com/fix-the-annoying-virtual-environment-already-activated-error-7c20c81f5c6f
+if set -q VIRTUAL_ENV
+    echo 'reactivating virtualenv'
+    source $VIRTUAL_ENV/bin/activate.fish
+end
 
 # ------------------------------
 # Java
@@ -77,27 +86,15 @@ end
 # JAVA
 if type -q "java"
   set -gx JAVA_HOME $(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
-  set -gx PATH $JAVA_HOME/bin $PATH 
+  set -gx PATH $JAVA_HOME/bin $PATH
 end
-
-# ------------------------------
-# Node
-# ------------------------------
-
-# NVM
-# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
 
 # ------------------------------
 # Ruby
 # ------------------------------
 
-# # Ruby Env
-# if type "rbenv" > /dev/null; then
-#   export PATH="$HOME/.rbenv/bin:$PATH"
-#   eval "$(rbenv init -)"
-# fi
+set -gx PATH $HOME/.rbenv/bin $PATH
+status --is-interactive; and rbenv init -| source
 
 # ------------------------------
 # Android
@@ -166,11 +163,43 @@ set -gx WIN_HOME /mnt/c/Users/mike
 # ------------------------------
 # Code
 # ------------------------------
-set -gx PATH "/mnt/c/Program Files/Microsoft VS Code/bin" $PATH 
-set -gx PATH "/mnt/c/Users/mgold/AppData/Local/Programs/Microsoft VS Code/bin" $PATH 
+set -gx PATH "/mnt/c/Program Files/Microsoft VS Code/bin" $PATH
+set -gx PATH "/mnt/c/Users/mgold/AppData/Local/Programs/Microsoft VS Code/bin" $PATH
 
 # ------------------------------
 # Cmd and PowerShell
 # ------------------------------
 set -gx PATH "/mnt/c/Windows/System32" $PATH  # cmd.exe
 set -gx PATH "/mnt/c/Windows/System32/WindowsPowerShell/v1.0" $PATH  # powershell
+
+
+# ##########################
+# NVM auto loading
+# ##########################
+
+# Set up NVM
+if test -e ~/.nvm/nvm.sh
+  set -x NVM_DIR ~/.nvm
+  source ~/.nvm/nvm.sh
+end
+
+# Automatically switch to the project's Node.js version
+function nvm_auto_use -d "Automatically switch to the project's Node.js version"
+  if test -e .nvmrc
+    nvm use
+  end
+end
+
+# Automatically run nvm_auto_use when changing directories
+function cd -d 'Change directory with auto NVM version switch' --no-scope-shadowing --description 'Change directory with auto NVM version switch'
+  builtin cd $argv
+  nvm_auto_use
+end
+
+# ##########################
+# Deno
+# ##########################
+
+set -gx DENO_INSTALL $HOME/.deno
+set -gx PATH $DENO_INSTALL/bin $PATH
+
