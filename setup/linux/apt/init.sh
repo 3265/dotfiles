@@ -10,5 +10,6 @@ sudo timedatectl set-timezone Asia/Tokyo
 mkdir -p ~/{bin,workspace,playground}
 
 # for matplotlib
+sudo apt install -y fontconfig
 sudo apt install -y fonts-ipafont
 fc-cache -fv

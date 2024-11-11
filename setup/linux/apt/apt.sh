@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 sudo apt-get remove w3m
 
 # sudo apt install -y gkermit
@@ -18,32 +20,9 @@ sudo apt install -y screen
 sudo apt install -y tmux
 sudo apt install -y net-tools
 sudo apt install -y vim
-sudo apt install -y emacs
+sudo apt install -y --no-install-recommends emacs # postfixの設定がうざいので
 sudo apt install -y ranger
 sudo apt install -y cmatrix
 sudo apt install -y apache2-utils
 sudo apt install -y whois
 sudo apt install -y curl
-
-##############################
-#          lang
-##############################
-
-# sudo apt install -y fpc # Pascal
-# sudo apt install -y clisp # LISP
-
-sudo apt install -y jq
-
-sudo apt install -y python3-pip
-sudo apt install -y python3-venv # needed by pipx
-sudo apt install -y python-is-python3
-sudo apt install -y pipx
-
-sudo apt install -y nodejs
-
-sudo apt install -y default-jdk
-sudo apt install -y openjdk-8-jdk
-sudo apt install -y openjdk-11-jdk
-
-# sudo apt install -y golang
-# sudo apt install -y php7.4-cli

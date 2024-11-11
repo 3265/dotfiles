@@ -182,11 +182,8 @@ set -gx PATH "/mnt/c/Windows/System32/WindowsPowerShell/v1.0" $PATH  # powershel
 # NVM auto loading
 # ##########################
 
-# Set up NVM
-if test -e ~/.nvm/nvm.sh
-  set -x NVM_DIR ~/.nvm
-  source ~/.nvm/nvm.sh
-end
+# use fisher nvm plugin
+# fisher install jorgebucaran/nvm.fish
 
 # Automatically switch to the project's Node.js version
 function nvm_auto_use -d "Automatically switch to the project's Node.js version"
