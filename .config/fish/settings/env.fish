@@ -54,17 +54,23 @@ set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 
 # Conda
 if test -d ~/anaconda3
-  set -gx PATH "/home/mike/anaconda3/bin" $PATH
-  source (conda info --root)/etc/fish/conf.d/conda.fish
+    set -gx PATH "/home/mike/anaconda3/bin" $PATH
+    source (conda info --root)/etc/fish/conf.d/conda.fish
 end
+
+# for pipenv on ubuntu
+set -gx PATH "$HOME/.local/bin" $PATH
 
 # pyenv
 set -gx PYENV_ROOT "$HOME/.pyenv"
 set -gx PATH "$PYENV_ROOT/bin" $PATH
-eval "$(pyenv init --path)"
 
-# for pipenv on ubuntu
-set -gx PATH "$HOME/.local/bin" $PATH
+# pyenvの初期化（Fishシェル用）
+status --is-interactive; and pyenv init --path | source
+status --is-interactive; and pyenv init - | source
+
+# 必要に応じて、pyenvのシムをPATHの先頭に追加
+set -gx PATH "$PYENV_ROOT/shims" $PATH
 
 # poetry
 set POETRY_FOLDER $HOME/.poetry
@@ -73,7 +79,6 @@ if test -d "$POETRY_FOLDER"
 end
 
 # VENV
-# see https://dsayling.medium.com/fix-the-annoying-virtual-environment-already-activated-error-7c20c81f5c6f
 if set -q VIRTUAL_ENV
     echo 'reactivating virtualenv'
     source $VIRTUAL_ENV/bin/activate.fish
