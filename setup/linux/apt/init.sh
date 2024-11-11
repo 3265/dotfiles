@@ -7,9 +7,5 @@ sudo locale-gen en_US.UTF-8 # これをしないとtmux on screenで文字化け
 sudo timedatectl set-timezone Asia/Tokyo
 
 # my working directories
-mkdir -p ~/{bin,workspace,playground}
+mkdir -p ~/{workspace,playground}
 
-# for matplotlib
-sudo apt install -y fontconfig
-sudo apt install -y fonts-ipafont
-fc-cache -fv
