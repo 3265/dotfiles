@@ -25,7 +25,6 @@ sudo apt install -y apache2-utils
 sudo apt install -y whois
 sudo apt install -y curl
 
-
 ##############################
 #          lang
 ##############################
