@@ -53,8 +53,8 @@ end
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 
 # Conda
-if test -d ~/anaconda3
-    set -gx PATH "/home/mike/anaconda3/bin" $PATH
+if test -d ~/.anaconda3
+    set -gx PATH "/home/mike/.anaconda3/bin" $PATH
     source (conda info --root)/etc/fish/conf.d/conda.fish
 end
 
@@ -118,7 +118,7 @@ status --is-interactive; and rbenv init -| source
 # Golang
 if type "go" > /dev/null
    set -gx GO111MODULE on
-   set -gx GOPATH "$HOME/go"
+   set -gx GOPATH "$HOME/.go"
    set -gx PATH $GOPATH/bin $PATH
 end
 
