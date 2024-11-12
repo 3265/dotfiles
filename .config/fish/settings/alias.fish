@@ -6,6 +6,7 @@ alias b='/usr/bin/batcat --style=plain'
 alias c="code"
 alias d='docker'
 alias dc="docker compose"
+alias docker-compose="docker compose"
 alias e='/mnt/c/Windows/explorer.exe'
 alias f=search_file
 alias f-count=count_files
