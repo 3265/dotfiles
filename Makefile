@@ -35,4 +35,4 @@ ruby:
 	$(MAKE) -C $(SETUP_DIR)/ruby
 
 test:
-	$(MAKE) -C $(SETUP_DIR)/test
+	$(MAKE) -C setup/tests
