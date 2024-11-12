@@ -8,7 +8,12 @@ SETUP_DIR := $(ROOT_DIR)/setup/linux
 link:
 	bash $(SETUP_DIR)/link.sh
 
-.PHONY: apt fish terminal rust go py js ruby test
+.PHONY: link
+.ONESHELL:
+test:
+	$(MAKE) -C setup/tests
+
+.PHONY: apt fish terminal rust go py js ruby
 
 apt:
 	$(MAKE) -C $(SETUP_DIR)/apt
@@ -33,6 +38,3 @@ js:
 
 ruby:
 	$(MAKE) -C $(SETUP_DIR)/ruby
-
-test:
-	$(MAKE) -C setup/tests
