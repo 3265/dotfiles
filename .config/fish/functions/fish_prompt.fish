@@ -8,14 +8,17 @@ function fish_prompt
 
     if test "$PROMPT_MODE" = "1"
         # 詳細モード（2行）
+
         # First line
         set -l prompt_info
-        # プロンプト情報の作成（git, Python, Node.js）
-        set -l git_branch (git rev-parse --abbrev-ref HEAD 2>/dev/null)
-        if test -n "$git_branch"
-            set -a prompt_info (set_color yellow)"($git_branch)"(set_color normal)
+
+        # git
+        set -l git_info (__fish_git_prompt "%s")
+        if test -n "$git_info"
+            set -a prompt_info (set_color yellow)'('(set_color normal)$git_info(set_color yellow)')'(set_color normal)
         end
 
+        # python
         set -l python_version (python --version 2>&1 | cut -d' ' -f2)
         set -a prompt_info (set_color green)"py=$python_version"(set_color normal)
 
@@ -24,6 +27,7 @@ function fish_prompt
 		    set -a prompt_info (set_color green)"($venv_name)"(set_color normal)
 		end
 
+        # nvm
         if type -q nvm
             set -l node_version (nvm current 2>/dev/null)
             if test -n "$node_version"
@@ -31,6 +35,7 @@ function fish_prompt
             end
         end
 
+        # prompt symbol
         echo -n (set_color yellow)"┌──"(set_color normal)" "
         echo -n (set_color blue)(prompt_pwd)(set_color normal)
         for info in $prompt_info

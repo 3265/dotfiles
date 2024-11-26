@@ -78,4 +78,3 @@ set __fish_git_prompt_char_stashstate 'Stashed'
 set __fish_git_prompt_char_upstream_ahead ' Ahead'
 set __fish_git_prompt_char_upstream_behind ' Behind'
 
-
