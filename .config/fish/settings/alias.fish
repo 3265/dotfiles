@@ -14,6 +14,7 @@ alias f-stats=extension_stats
 alias h='history'
 alias p='python'
 alias g='git'
+alias gf='git fetch'
 alias i=runi
 alias k='kill'
 alias l='runls'
