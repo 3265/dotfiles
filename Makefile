@@ -16,7 +16,10 @@ test:
 .PHONY: apt fish terminal rust go py js ruby
 
 apt:
-	$(MAKE) -C $(SETUP_DIR)/apt
+	$(MAKE) -C $(SETUP_DIR)/apt apt
+
+font:
+	$(MAKE) -C $(SETUP_DIR)/apt font
 
 fish:
 	$(MAKE) -C $(SETUP_DIR)/terminal fish

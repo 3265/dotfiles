@@ -15,3 +15,5 @@ fc-cache -fv
 fc-list | grep "Hack"
 fc-list | grep "IPA"
 
+rm Hack.zip
+rm -rf Hack
