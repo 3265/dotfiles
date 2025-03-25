@@ -14,4 +14,4 @@ fish:
 	fish fisher.sh
 	# fisher install jorgebucaran/nvm.fish
 
-	sudo chsh -s /usr/bin/fish
+	sudo chsh -s /bin/fish
