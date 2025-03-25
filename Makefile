@@ -22,7 +22,7 @@ fish:
 	$(MAKE) -C $(SETUP_DIR)/terminal fish
 
 terminal:
-	$(MAKE) -C $(SETUP_DIR)/terminal
+	$(MAKE) -C $(SETUP_DIR)/terminal terminal
 
 rust:
 	$(MAKE) -C $(SETUP_DIR)/rust
