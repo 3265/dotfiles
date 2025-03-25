@@ -18,6 +18,9 @@ ln -s -f ~/dotfiles/.config/bash/.inputrc ~/.inputrc
 ln -s -f ~/dotfiles/.config/bash/.netrc ~/.netrc
 # ln -s -f ~/dotfiles/.xinitrc ~/.xinitrc
 
+# IME
+ln -s -f ~/dotfiles/.config/x/.xprofile ~/.xprofile
+
 # SSH/Telnet
 ln -s -f ~/dotfiles/.config/ssh/.hushlogin ~/.hushlogin
 
