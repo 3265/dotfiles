@@ -19,7 +19,7 @@ apt:
 	$(MAKE) -C $(SETUP_DIR)/apt
 
 fish:
-	$(MAKE) -C $(SETUP_DIR)/fish
+	$(MAKE) -C $(SETUP_DIR)/terminal fish
 
 terminal:
 	$(MAKE) -C $(SETUP_DIR)/terminal

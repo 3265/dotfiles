@@ -1,4 +1,3 @@
-
 .PHONY: terminal
 .ONESHELL:
 terminal:
@@ -13,6 +12,6 @@ fish:
 	set -e
 	bash fish.sh
 	fish fisher.sh
-	fisher install jorgebucaran/nvm.fish
+	# fisher install jorgebucaran/nvm.fish
 
 	sudo chsh -s /usr/bin/fish

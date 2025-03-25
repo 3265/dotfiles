@@ -90,3 +90,8 @@ test/
 
 # python
 .venv
+
+
+# for font
+*.zip
+Hack

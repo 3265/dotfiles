@@ -6,3 +6,4 @@ init:
 
 	bash init.sh
 	bash apt.sh
+	bash font.sh
