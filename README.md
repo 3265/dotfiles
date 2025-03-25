@@ -1,7 +1,5 @@
 # dotfiles
 
-1. gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']" 
-1. gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 1. sudo update-alternatives --set editor /usr/bin/vim.basic
 1. sudo apt update
 1. sudo apt install -y build-essential
