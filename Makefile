@@ -21,6 +21,9 @@ apt:
 font:
 	$(MAKE) -C $(SETUP_DIR)/apt font
 
+ime:
+	$(MAKE) -C $(SETUP_DIR)/apt ime
+
 fish:
 	$(MAKE) -C $(SETUP_DIR)/terminal fish
 

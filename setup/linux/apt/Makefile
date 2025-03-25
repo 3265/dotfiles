@@ -12,3 +12,9 @@ init:
 font:
 	set -e
 	bash font.sh
+
+.PHONY: ime
+.ONESHELL:
+ime:
+	set -e
+	bash ime.sh

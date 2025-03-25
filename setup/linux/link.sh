@@ -19,7 +19,9 @@ ln -s -f ~/dotfiles/.config/bash/.netrc ~/.netrc
 # ln -s -f ~/dotfiles/.xinitrc ~/.xinitrc
 
 # IME
-ln -s -f ~/dotfiles/.config/x/.xprofile ~/.xprofile
+mkdir -p ~/.config/plasma-workspace/env
+ln -s -f ~/dotfiles/.config/plasma-workspace/env/fcitx5.sh ~/.config/plasma-workspace/env/fcitx5.sh 
+sudo chmod +x ~/.config/plasma-workspace/env/fcitx5.sh  
 
 # SSH/Telnet
 ln -s -f ~/dotfiles/.config/ssh/.hushlogin ~/.hushlogin
