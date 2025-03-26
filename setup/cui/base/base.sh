@@ -2,7 +2,7 @@
 
 set -e
 
-sudo apt-get remove w3m
+sudo apt install -y build-essential
 
 # sudo apt install -y gkermit
 # sudo apt install -y zsh
