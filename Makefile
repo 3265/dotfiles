@@ -1,6 +1,15 @@
 SHELL := /bin/bash
 ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-SETUP_DIR := $(ROOT_DIR)/setup/linux
+SETUP_DIR := $(ROOT_DIR)/setup
+
+ARGS := $(filter-out $@,$(MAKECMDGOALS))
+FIRST_ARG := $(word 1, $(ARGS))
+SECOND_ARG := $(word 2, $(ARGS))
+
+
+############################
+#       link
+############################
 
 .DEFAULT: link
 .PHONY: link
@@ -8,44 +17,57 @@ SETUP_DIR := $(ROOT_DIR)/setup/linux
 link:
 	bash $(SETUP_DIR)/link.sh
 
+############################
+#      test
+############################
+
 .PHONY: test
 .ONESHELL:
 test:
-	$(MAKE) -C setup/tests
+	$(MAKE) -C $(SETUP_DIR)/_tests
 
 .PHONY: test2
 .ONESHELL:
 test2:
-	$(MAKE) -C setup/tests test2
+	echo $(SECOND_ARG)
+	$(MAKE) -C $(SETUP_DIR)/_tests test2
 
-.PHONY: apt fish terminal rust go py js ruby
+############################
+#     github
+############################
 
-apt:
-	$(MAKE) -C $(SETUP_DIR)/apt apt
+github:
+	bash $(SETUP_DIR)/github.sh $(SECOND_ARG)
 
-font:
-	$(MAKE) -C $(SETUP_DIR)/apt font
+############################
+#     basic
+############################
 
-ime:
-	$(MAKE) -C $(SETUP_DIR)/apt ime
+basic:
+	$(MAKE) -C $(SETUP_DIR)/cui/basic
 
-fish:
-	$(MAKE) -C $(SETUP_DIR)/terminal fish
 
-terminal:
-	$(MAKE) -C $(SETUP_DIR)/terminal terminal
+############################
+#     shell
+############################
+shell:
+	$(MAKE) -C $(SETUP_DIR)/cui/shell terminal
 
-rust:
-	$(MAKE) -C $(SETUP_DIR)/rust
+############################
+#      app
+############################
 
-go:
-	$(MAKE) -C $(SETUP_DIR)/go
+app:
+	$(MAKE) -C $(SETUP_DIR)/cui/app font
+	$(MAKE) -C $(SETUP_DIR)/cui/app go
+	$(MAKE) -C $(SETUP_DIR)/cui/app ime
+	$(MAKE) -C $(SETUP_DIR)/cui/app fusuma
+	#$(MAKE) -C $(SETUP_DIR)/cui/app docker
 
-py:
-	$(MAKE) -C $(SETUP_DIR)/py
+############################
+#      Lang
+############################
 
-js:
-	$(MAKE) -C $(SETUP_DIR)/js
-
-ruby:
-	$(MAKE) -C $(SETUP_DIR)/ruby
+lang:
+	$(MAKE) -C $(SETUP_DIR)/cui/py
+	$(MAKE) -C $(SETUP_DIR)/cui/rust
