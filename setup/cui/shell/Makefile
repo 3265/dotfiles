@@ -1,6 +1,6 @@
-.PHONY: terminal
+.PHONY: std
 .ONESHELL:
-terminal:
+std:
 	set -e
 	bash vim.sh
 	bash screen.sh

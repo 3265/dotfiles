@@ -40,28 +40,34 @@ github:
 	bash $(SETUP_DIR)/github.sh $(SECOND_ARG)
 
 ############################
-#     basic
+#     base
 ############################
 
-basic:
-	$(MAKE) -C $(SETUP_DIR)/cui/basic
+base:
+	$(MAKE) -C $(SETUP_DIR)/cui/base
 
 
 ############################
 #     shell
 ############################
 shell:
-	$(MAKE) -C $(SETUP_DIR)/cui/shell terminal
+	$(MAKE) -C $(SETUP_DIR)/cui/shell std
+
+############################
+#      terminal
+############################
+
+terminal:
+	$(MAKE) -C $(SETUP_DIR)/cui/terminal font
+	$(MAKE) -C $(SETUP_DIR)/cui/terminal ime
+	$(MAKE) -C $(SETUP_DIR)/cui/terminal fusuma
 
 ############################
 #      app
 ############################
 
 app:
-	$(MAKE) -C $(SETUP_DIR)/cui/app font
 	$(MAKE) -C $(SETUP_DIR)/cui/app go
-	$(MAKE) -C $(SETUP_DIR)/cui/app ime
-	$(MAKE) -C $(SETUP_DIR)/cui/app fusuma
 	#$(MAKE) -C $(SETUP_DIR)/cui/app docker
 
 ############################

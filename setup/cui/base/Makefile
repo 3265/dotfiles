@@ -1,9 +1,9 @@
 
-.PHONY: basic
+.PHONY: base
 .ONESHELL:
-basic:
+base:
 	set -e
 
 	bash init.sh
-	bash basic.sh
+	bash base.sh
 
