@@ -1,5 +1,5 @@
 .PHONY: ruby
 .ONESHELL:
 ruby:
-	# ruby
-	bash rbenv.sh
+	bash fusuma.sh
+	# bash rbenv.sh

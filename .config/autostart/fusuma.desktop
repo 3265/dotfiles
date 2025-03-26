@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/local/bin/fusuma
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Fusuma
+Comment=Touchpad gesture support with Fusuma
+
