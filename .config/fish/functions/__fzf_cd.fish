@@ -1,27 +1,30 @@
 function __fzf_cd -d "Change directory or paste path"
-    # 現在のコマンドラインの状態を取得
-    set -l commandline (__fzf_parse_commandline)
-    set -l dir $commandline[1]
-    set -l fzf_query $commandline[2]
-
+    # 現在のプロンプトの状態を取得
     set -l full_input (commandline)
+    set -l current_token (commandline -t)
 
-    set -q COMMAND
-    or set -l COMMAND "
-    command find -L \$dir \
-    \\( -path '*/\\.git*' -o -fstype 'dev' -o -fstype 'proc' \\) -prune \
-    -o -type d -print 2> /dev/null | sed 1d | cut -b3-"
+    set -l fzf_query ""
+    if test -n "$current_token"
+        set fzf_query "$current_token"
+    end
 
-    # fzfでディレクトリ選択
-    eval "$COMMAND | fzf --prompt 'ChangeDirectory>' --preview-window='bottom:3:wrap' --preview='echo {}' +m --query \"$fzf_query\"" | read -l select
+    # ディレクトリ一覧を検索対象（.git, /dev, /proc 除外）
+    set -l select (command find -L . \
+        \( -path '*/.git*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
+        -o -type d -print 2> /dev/null \
+        | sed 1d | cut -b3- \
+        | fzf --prompt 'ChangeDirectory>' \
+              --preview-window='bottom:3:wrap' \
+              --preview='tree -L 1 {} | head -n 20' \
+              +m --query "$fzf_query")
 
-    if not test -z "$select"
+    if test -n "$select"
         if test -n "$full_input"
-            # すでに入力がある → パスとして貼り付ける
+            # すでに何か入力中 → パスとして貼り付け
             commandline -t ""
             commandline -it -- (string escape -- "$select/")
         else
-            # 入力がない → cd する
+            # 入力が空 → cd 実行
             builtin cd "$select"
         end
     end
