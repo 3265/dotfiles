@@ -61,16 +61,15 @@ set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 # for pipenv on ubuntu
 set -gx PATH "$HOME/.local/bin" $PATH
 
-# pyenv
-set -gx PYENV_ROOT "$HOME/.pyenv"
-set -gx PATH "$PYENV_ROOT/bin" $PATH
-
-# pyenvの初期化（Fishシェル用）
-status --is-interactive; and pyenv init --path | source
-status --is-interactive; and pyenv init - | source
-
-# 必要に応じて、pyenvのシムをPATHの先頭に追加
-set -gx PATH "$PYENV_ROOT/shims" $PATH
+# Pyenvが遅いので基本的にdeadsnakeを使う
+# # pyenv
+# set -gx PYENV_ROOT "$HOME/.pyenv"
+# set -gx PATH "$PYENV_ROOT/bin" $PATH
+# # pyenvの初期化（Fishシェル用）
+# status --is-interactive; and pyenv init --path | source
+# status --is-interactive; and pyenv init - | source
+# # 必要に応じて、pyenvのシムをPATHの先頭に追加
+# set -gx PATH "$PYENV_ROOT/shims" $PATH
 
 # poetry
 set POETRY_FOLDER $HOME/.poetry

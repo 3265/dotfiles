@@ -12,6 +12,6 @@ sudo apt install -y pipx
 ##############
 # DEAD SNAKES
 ##############
-# sudo add-apt-repository --yes ppa:deadsnakes/ppa
-# sudo apt update
-# sudo apt install -y python3.6
+sudo add-apt-repository --yes ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install -y python3.7
