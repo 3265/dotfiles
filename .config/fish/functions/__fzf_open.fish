@@ -1,6 +1,7 @@
 function __fzf_open -d "Open files and directories."
-    set -l commandline (__fzf_parse_commandline)
-    set -l dir $commandline[1]
+    # 現在のディレクトリからにする
+    set dir "."
+
     set -l fzf_query $commandline[2]
 
     set -q FZF_OPEN_COMMAND
