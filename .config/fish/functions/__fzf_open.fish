@@ -1,24 +1,42 @@
-function __fzf_open -d "Open files and directories."
-    # 現在のディレクトリからにする
-    set dir "."
+function __fzf_open -d "Open files only with fzf"
+    # 現在の入力文字列
+    set -l current_input (commandline -t)
+    set -l full_input (commandline)
 
-    set -l fzf_query $commandline[2]
+    # 検索対象のディレクトリ
+    set -l dir "."
 
-    set -q FZF_OPEN_COMMAND
-    or set -l FZF_OPEN_COMMAND "
-    command find -L \$dir \
-    -type f -print \
-    -type d -print \
-    -type l -print 2> /dev/null "
+    # fzfの初期検索クエリ（入力されていたら使う）
+    set -l fzf_query ""
+    if test -n "$current_input"
+        set fzf_query "$current_input"
+    end
 
-    set -l select (eval "$FZF_OPEN_COMMAND | fzf --prompt 'OpenFile>' --preview-window='bottom:3:wrap' --preview='echo {}' -m --query \"$fzf_query\"" | string escape)
+    # fzf を使ってファイルを選択
+    set -l raw_select (command find -L $dir -type f -print 2> /dev/null \
+        | fzf --prompt='OpenFile>' \
+              --preview-window='bottom:3:wrap' \
+              --preview='echo {}' \
+              -m --query "$fzf_query")
+
+    # 空でなければ escape
+    set -l select (string escape $raw_select)
 
     set -l open_status 0
-    if not test -z "$select"
-        commandline "$EDITOR $select"; and commandline -f execute
-        set open_status $status
+    if test -n "$select"
+        if test -n "$full_input"
+            # 何か入力中（catなど）→ 選択ファイルを貼り付け
+            commandline -t ""
+            commandline -it "$select "
+        else
+            # 何も入力していない → エディタで開く
+            commandline "$EDITOR $select"
+            commandline -f execute
+            set open_status $status
+        end
     end
 
     commandline -f repaint
     return $open_status
 end
+

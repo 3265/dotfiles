@@ -1,7 +1,10 @@
-function __fzf_cd -d "Change directory"
+function __fzf_cd -d "Change directory or paste path"
+    # 現在のコマンドラインの状態を取得
     set -l commandline (__fzf_parse_commandline)
     set -l dir $commandline[1]
     set -l fzf_query $commandline[2]
+
+    set -l full_input (commandline)
 
     set -q COMMAND
     or set -l COMMAND "
@@ -9,14 +12,18 @@ function __fzf_cd -d "Change directory"
     \\( -path '*/\\.git*' -o -fstype 'dev' -o -fstype 'proc' \\) -prune \
     -o -type d -print 2> /dev/null | sed 1d | cut -b3-"
 
-    # eval "$COMMAND | fzf +m $FZF_CD_OPTS --query \"$fzf_query\"" | read -l select
-    eval "$COMMAND | fzf --prompt 'ChangeDirctory>' --preview-window='bottom:3:wrap' --preview='echo {}' +m --query \"$fzf_query\"" | read -l select
+    # fzfでディレクトリ選択
+    eval "$COMMAND | fzf --prompt 'ChangeDirectory>' --preview-window='bottom:3:wrap' --preview='echo {}' +m --query \"$fzf_query\"" | read -l select
 
     if not test -z "$select"
-        builtin cd "$select"
-
-        # Remove last token from commandline.
-        commandline -t ""
+        if test -n "$full_input"
+            # すでに入力がある → パスとして貼り付ける
+            commandline -t ""
+            commandline -it -- (string escape -- "$select/")
+        else
+            # 入力がない → cd する
+            builtin cd "$select"
+        end
     end
 
     commandline -f repaint
