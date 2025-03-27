@@ -7,10 +7,10 @@ set -e
 
 sudo apt install -y jq
 
-sudo apt install -y python3-pip
-sudo apt install -y python3-venv # needed by pipx
-sudo apt install -y python-is-python3
-sudo apt install -y pipx
+# sudo apt install -y python3-pip
+# sudo apt install -y python3-venv # needed by pipx
+# sudo apt install -y python-is-python3
+# sudo apt install -y pipx
 
 sudo apt install -y nodejs
 # sudo apt install -y ruby

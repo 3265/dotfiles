@@ -53,10 +53,10 @@ end
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 
 # Conda
-if test -d ~/.anaconda3
-    set -gx PATH "/home/mike/.anaconda3/bin" $PATH
-    source (conda info --root)/etc/fish/conf.d/conda.fish
-end
+# if test -d ~/.anaconda3
+#     set -gx PATH "/home/mike/.anaconda3/bin" $PATH
+#     source (conda info --root)/etc/fish/conf.d/conda.fish
+# end
 
 # for pipenv on ubuntu
 set -gx PATH "$HOME/.local/bin" $PATH
@@ -98,8 +98,8 @@ end
 # Ruby
 # ------------------------------
 
-set -gx PATH $HOME/.rbenv/bin $PATH
-status --is-interactive; and rbenv init -| source
+# set -gx PATH $HOME/.rbenv/bin $PATH
+# status --is-interactive; and rbenv init -| source
 
 # ------------------------------
 # Android
