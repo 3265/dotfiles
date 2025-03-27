@@ -19,7 +19,7 @@ set -g status-left "#[fg=green]Sess: #S #[fg=yellow]Pane: #I #[fg=cyan]Win: #P"
 # set -g status-right "Env: #{TMUX_ENV_ICON}  Net: #{online_status}  CPU:#{cpu_percentage}  Batt: #{battery_percentage} #[fg=cyan] %a %h-%d %H:%M"
 
 # シンプルに
-set -g status-right "#[fg=cyan] %a %h-%d %H:%M"
+set -g status-right "#[fg=cyan] %Y-%m-%d (%a) %H:%M"
 
 # リフレッシュの間隔を設定する(デフォルト 15秒)
 set -g status-interval 60
