@@ -19,7 +19,7 @@ sudo apt install -y zip unzip
 sudo apt install -y screen
 sudo apt install -y tmux
 sudo apt install -y net-tools
-sudo apt install -y vim
+sudo apt install -y vim-gtk3 # vim-gtk3は+clipboard付き
 sudo apt install -y --no-install-recommends emacs # postfixの設定がうざいので
 # sudo apt install -y ranger
 sudo apt install -y cmatrix

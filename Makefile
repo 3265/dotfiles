@@ -51,7 +51,7 @@ base:
 #     shell
 ############################
 shell:
-	$(MAKE) -C $(SETUP_DIR)/cui/shell std
+	$(MAKE) -C $(SETUP_DIR)/cui/shell
 
 ############################
 #      terminal
