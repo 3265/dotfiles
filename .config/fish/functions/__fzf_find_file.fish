@@ -14,7 +14,7 @@ function __fzf_open -d "Open files only with fzf"
 
     # fzf を使ってファイルを選択
     set -l raw_select (command find -L $dir -type f -print 2> /dev/null \
-        | fzf --prompt='OpenFile>' \
+        | fzf --prompt='FindFile>' \
               --preview-window='bottom:3:wrap' \
               --preview='echo {}' \
               -m --query "$fzf_query")

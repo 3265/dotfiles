@@ -13,7 +13,7 @@ function __fzf_cd -d "Change directory or paste path"
         \( -path '*/.git*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
         -o -type d -print 2> /dev/null \
         | sed 1d | cut -b3- \
-        | fzf --prompt 'ChangeDirectory>' \
+        | fzf --prompt 'FindDirectory>' \
               --preview-window='bottom:3:wrap' \
               --preview='tree -L 1 {} | head -n 20' \
               +m --query "$fzf_query")
