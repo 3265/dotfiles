@@ -1,4 +1,4 @@
-function __fzf_cd -d "Change directory or paste path"
+function __fzf_find_dir -d "Change directory or paste path"
     # 現在のプロンプトの状態を取得
     set -l full_input (commandline)
     set -l current_token (commandline -t)

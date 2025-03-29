@@ -1,4 +1,4 @@
-function __fzf_open -d "Open files only with fzf"
+function __fzf_find_file -d "Open files only with fzf"
     # 現在の入力文字列
     set -l current_input (commandline -t)
     set -l full_input (commandline)
