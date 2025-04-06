@@ -26,3 +26,5 @@ sudo apt install -y cmatrix
 sudo apt install -y apache2-utils
 sudo apt install -y whois
 sudo apt install -y curl
+sudo apt install -y inxi
+
