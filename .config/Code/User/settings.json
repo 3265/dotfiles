@@ -1,0 +1,332 @@
+{
+  // ##########################################
+  //        Basic
+  // ##########################################
+  "files.insertFinalNewline": true,
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  "editor.rulers": [100],
+  "files.trimTrailingWhitespace": true,
+  "editor.selectionHighlight": true,
+  "editor.fontSize": 12,
+  "emmet.triggerExpansionOnTab": false, // https://stackoverflow.com/questions/35519538/visual-studio-code-tab-key-does-not-insert-a-tab
+  "security.workspace.trust.untrustedFiles": "newWindow",
+  "workbench.colorTheme": "Monokai",
+  "workbench.iconTheme": "vscode-icons",
+  // ##########################################
+  //        Workbench Tab
+  // ##########################################
+  "workbench.colorCustomizations": {
+    //https://stackoverflow.com/questions/59121072/is-there-a-way-of-making-the-active-tab-border-highlighted-on-top-instead-of-at
+    "tab.activeBorder": "#ff0000",
+    "tab.unfocusedActiveBorder": "#000000"
+  },
+  "workbench.editor.wrapTabs": true, // tabはラップして全部表示する
+  // ##########################################
+  //        Workbench editor
+  // ##########################################
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+    // "*.md": "vscode.markdown.preview.editor",
+  },
+  // ##########################################
+  //        Terminal Intergrated
+  // ##########################################
+  // "terminal.integrated.fontFamily": "Consolas", // これじゃないと文字がジャギーになる問題が起きた
+  "terminal.integrated.fontFamily": "'Hack Nerd Font'",
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.defaultProfile.linux": "fish",
+  "terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
+  "terminal.integrated.profiles.linux": {
+    "【◉】": {
+      // "overrideName": true,
+      "path": "/bin/fish",
+      "icon": "pass-filled",
+      "color": "terminal.ansiRed"
+      // "color": "terminal.ansiBlue"
+      // "color": "terminal.ansiYellow"
+    },
+    // "【＋】": {
+    //   // "overrideName": true,
+    //   "path": "/bin/fish",
+    //   "icon": "plus",
+    // },
+  },
+  // ##########################################
+  //        Terminal extensions
+  // #########################################
+  "editor.accessibilitySupport": "off",
+  "editor.renderControlCharacters": true,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "window.customMenuBarAltFocus": false,
+  "window.enableMenuBarMnemonics": false,
+  // ##########################################
+  //         Explorer
+  // ##########################################
+  "workbench.tree.indent": 15,
+  "explorer.confirmDragAndDrop": false, // エクスプローラーでドラッグアンドドロップするときに確認しない
+  // 不要なExplorerのJumpはしない
+  "explorer.autoRevealExclude": {
+    "**/node_modules": true,
+    "**/.venv": true,
+    "**/.anaconda3": true,
+  },
+  // ##########################################
+  //         VIM
+  // ##########################################
+  "vim.hlsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    // https://github.com/VSCodeVim/Vim/issues/2903
+    {
+      "before": [":", "W"],
+      "commands": [":w"]
+    },
+    {
+      "before": [":", "Q"],
+      "commands": [":q"]
+    },
+    // paste in new line
+    {
+      "before": ["P"],
+      "commands": [":pu"]
+    }
+  ],
+  "vim.foldfix": true,
+  "vim.handleKeys": {
+    "<C-f>": false
+  },
+  // ##########################################
+  //         MD
+  // ##########################################
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
+  // ##########################################
+  //         JS
+  // ##########################################
+  "javascript.validate.enable": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  // ##########################################
+  //         TS
+  //
+  // 使っているExtensions
+  // - Pretty TypeScript Errors
+  // ##########################################
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
+  // ##########################################
+  //                  JSON
+  // ##########################################
+  "[json]": {
+    "editor.formatOnSave": true
+  },
+  // ##########################################
+  //                  HTML CSS
+  // ##########################################
+  "beautify.language": {
+    "css": ["css", "scss"],
+    "html": ["htm", "html", "php"]
+    // ^^ providing just an array sets the VS Code file type
+  },
+  "[django-html]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.autoIndent": "full"
+  },
+  "python.venvPath": ".venv",
+  // ######################################################
+  //              Python
+  //
+  //  pythonの設定は次、それぞれをExtensionをインストールする。
+  //    - black
+  //    - autopep8
+  //    - isort
+  //    - Flake8
+  //  なお、右下に表示されている.venvにもモジュールを入れる必要はない。
+  //    - poetry add --dev black autopep8 isort flake8 mypy
+  //  NOTE:
+  //   - もしExtensionsを入れても動かない場合は、pre-releaseを試すとよい
+  //   - または、ctrl + shift + pでpython clear cacheを選ぶ
+  //  その他の設定
+  //    - https://mirumi.tech/python-linter-and-formatter/
+  // ######################################################
+  // ######################################################
+  //   Saveの設定 + Black Formatterの設定
+  // ######################################################
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit" // true
+    },
+    "editor.formatOnType": true,
+  },
+  "python.terminal.activateEnvironment": false,
+  // ######################################################
+  //   isortの設定
+  // ######################################################
+  "isort.args":["--profile", "black"],
+  // ######################################################
+  //          flake8の設定
+  // ######################################################
+  "flake8.args": [
+    "--max-line-length=200",
+  ],
+  // ######################################################
+  //          mypyの設定
+  // ######################################################
+  "mypy-type-checker.args": [
+    "--ignore-missing-imports",
+    "--disallow-untyped-defs",
+  ],
+  // ######################################################
+  //              python Test
+  // ref: https://code.visualstudio.com/docs/python/testing
+  // ######################################################
+  "python.envFile": "${workspaceFolder}/2dfr-app/test.env",
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": true,
+  "python.testing.cwd": "${workspaceFolder}/2dfr-app/",
+  // ######################################################
+  //              pylanceの解析設定
+  // ######################################################
+  "python.autoComplete.extraPaths": [
+    // ----------basic--------------
+    "${workspaceFolder}/.venv/lib/python3.7/site-packages/",
+    "${workspaceFolder}/.venv/lib/python3.8/site-packages/",
+    "${workspaceFolder}/.venv/lib/python3.9/site-packages/",
+    "${workspaceFolder}/.venv/lib/python3.10/site-packages/",
+    "${workspaceFolder}/.venv/lib/python3.11/site-packages/",
+    "${workspaceFolder}/.venv/lib/python3.12/site-packages/",
+    // ----------dendroid--------------
+    "${workspaceFolder}/workspace/github.com/yoyo-dyne/dendroid/docker/django/.venv/lib/python3.12/site-packages/",
+    "${workspaceFolder}/workspace/github.com/yoyo-dyne/dendroid/docker/django/deps/.venv/lib/python3.12/site-packages/",
+    // ----------automan--------------
+    "${workspaceFolder}/workspace/github.com/yoyo-dyne/automan/.venv/lib/python3.12/site-packages/",
+  ],
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.extraPaths": [
+    // ----------basic--------------
+    "${workspaceFolder}/.venv/lib/python3.7/site-packages/",
+    "${workspaceFolder}/.venv/lib/python3.8/site-packages/",
+    "${workspaceFolder}/.venv/lib/python3.9/site-packages/",
+    "${workspaceFolder}/.venv/lib/python3.10/site-packages/",
+    "${workspaceFolder}/.venv/lib/python3.11/site-packages/",
+    "${workspaceFolder}/.venv/lib/python3.12/site-packages/",
+    // ----------dendroid--------------
+    "${workspaceFolder}/workspace/github.com/yoyo-dyne/dendroid/docker/django/.venv/lib/python3.12/site-packages/",
+    "${workspaceFolder}/workspace/github.com/yoyo-dyne/dendroid/docker/django/deps/.venv/lib/python3.12/site-packages/",
+    // ----------automan--------------
+    "${workspaceFolder}/workspace/github.com/yoyo-dyne/automan/.venv/lib/python3.12/site-packages/",
+  ],
+  "python.analysis.indexing": true,
+  "python.analysis.packageIndexDepths": [
+    ["dendroid", 20, true],
+    ["wagtail", 30, true],
+    ["django", 20, true]
+  ],
+  // ##########################################
+  //                  Jupyter
+  // ##########################################
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "remote.SSH.remotePlatform": {
+    "ec2-ssh": "linux",
+    "f91": "linux",
+    "dyne_jp": "linux",
+    "ec2-ssh-amit": "linux",
+    "ec2-ssh-temp": "linux",
+    "ec2-ssh-x": "linux",
+    "gmo": "linux",
+    "mini": "linux",
+    "dev": "linux"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  // ##########################################
+  //                  Go
+  // ##########################################
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": false,
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4,
+    "editor.formatOnSaveMode": "file"
+  },
+  // ##########################################
+  //             Vscode Icons
+  // ##########################################
+  "vsicons.dontShowNewVersionMessage": true,
+  // ##########################################
+  //                Copilot
+  // ##########################################
+  "github.copilot.editor.enableAutoCompletions": true,
+  // ##########################################
+  //                ZipFS
+  // ##########################################
+  "settingsSync.ignoredExtensions": ["arcanis.vscode-zipfs"],
+  // ##########################################
+  //                CSpell
+  // ##########################################
+  "cSpell.userWords": ["bizdev", "potentia", "ROIC", "scientia", "TTPS"],
+  // ##########################################
+  //          GlassIt-VSCの透明度の設定
+  // ##########################################
+  "glassit.alpha": 245,
+  // ##########################################
+  //                その他の設定
+  // ##########################################
+  "cmake.showOptionsMovedNotification": false,
+  "redhat.telemetry.enabled": false,
+  "peacock.favoriteColors": [
+    {
+      "name": "Angular Red",
+      "value": "#dd0531"
+    },
+    {
+      "name": "Azure Blue",
+      "value": "#007fff"
+    },
+    {
+      "name": "JavaScript Yellow",
+      "value": "#f9e64f"
+    },
+    {
+      "name": "Mandalorian Blue",
+      "value": "#1857a4"
+    },
+    {
+      "name": "Node Green",
+      "value": "#215732"
+    },
+    {
+      "name": "React Blue",
+      "value": "#61dafb"
+    },
+    {
+      "name": "Something Different",
+      "value": "#832561"
+    },
+    {
+      "name": "Svelte Orange",
+      "value": "#ff3d00"
+    },
+    {
+      "name": "Vue Green",
+      "value": "#42b883"
+    }
+  ],
+  "makefile.configureOnOpen": false,
+}

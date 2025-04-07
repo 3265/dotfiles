@@ -1,0 +1,14 @@
+// 既定値を上書きするには、このファイル内にキー バインドを挿入します
+[
+  // terminalでctrl+eでemacsのように行末に移動
+  {
+    "key": "ctrl+e",
+    "command": "cursorHome",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "deleteAllRight",
+    "when": "terminalFocus"
+  }
+]
