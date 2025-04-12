@@ -42,6 +42,11 @@ ln -s -f ~/dotfiles/.config/ssh/.hushlogin ~/.hushlogin
 ln -s -f ~/dotfiles/.config/vim/.vimrc ~/.vimrc
 
 ########################
+#   VIM in IntelliJ IDEA
+########################
+ln -s -f ~/dotfiles/.config/vim/.ideavimrc ~/.ideavimrc
+
+########################
 # Terminal multiplexer
 ########################
 
