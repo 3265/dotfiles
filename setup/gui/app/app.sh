@@ -7,3 +7,4 @@ sudo apt install -y mousepad
 
 sudo apt install -y thunderbird
 sudo apt install -y filezilla
+
