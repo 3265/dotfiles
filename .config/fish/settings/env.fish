@@ -208,5 +208,5 @@ set -gx PATH $DENO_INSTALL/bin $PATH
 # Flutter
 # ##########################
 
-set -Ux PATH $PATH $HOME/flutter/bin
+set -gx PATH $PATH $HOME/flutter/bin
 
