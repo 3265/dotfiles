@@ -27,5 +27,6 @@ sudo apt install -y cmatrix
 sudo apt install -y apache2-utils
 sudo apt install -y whois
 sudo apt install -y curl
-sudo apt install -y inxi
+sudo apt install -y inxi # システム情報表示ツール
+sudo apt install -y xclip # for copy alias
 

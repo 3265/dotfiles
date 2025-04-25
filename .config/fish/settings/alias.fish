@@ -26,6 +26,9 @@ alias t='touch'
 alias v='vim'
 alias gap='~/gap/build/gap'
 
+# copy
+alias copy='xclip -selection clipboard <'
+
 # quick directory transition
 alias nd='nextd'
 alias pd='prevd'
