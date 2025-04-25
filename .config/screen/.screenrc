@@ -9,7 +9,7 @@ maptimeout 0
 
 # ステータスバーの有効化
 hardstatus on
-hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{= gw}%n: %t%{-}%+w %-17<%=%{= .y} Load Average(%l)'
+hardstatus alwayslastline '%-w%45L>%{= gw}%n %t%{-}%+w'
 
 # キャプション
 caption always '%?%F%{= gW}%:%{= Kk}%?%2n%f%07=%t%='
@@ -61,5 +61,5 @@ bind 0 select 10
 screen 1
 
 # Window名を自動化
-shelltitle '> |pj'
+shelltitle '> |-'
 hardstatus alwayslastline
