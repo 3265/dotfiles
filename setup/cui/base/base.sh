@@ -3,6 +3,7 @@
 set -e
 
 sudo apt install -y build-essential
+sudo apt install -y bsdmainutils # for cal
 sudo apt install -y zram-config
 
 # sudo apt install -y gkermit
