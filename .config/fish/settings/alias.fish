@@ -24,6 +24,7 @@ alias r='glow' # for README.md
 alias s='screen -t pj'
 alias t='touch'
 alias v='vim'
+alias y='yes'
 alias gap='~/gap/build/gap'
 
 # copy
