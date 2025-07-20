@@ -35,8 +35,12 @@ function fish_prompt
             end
         end
 
+        # hostname
+        set -l host (hostname -s)  # -s で短縮ホスト名を取得
+
         # prompt symbol
         echo -n (set_color yellow)"┌──"(set_color normal)" "
+        echo -n (set_color magenta)$host(set_color normal)" "
         echo -n (set_color blue)(prompt_pwd)(set_color normal)
         for info in $prompt_info
             echo -n " $info"
