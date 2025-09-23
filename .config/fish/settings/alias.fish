@@ -108,6 +108,11 @@ function cdw
   cd $wsl_path
 end
 
+# wifi
+function wifi
+    sudo systemctl restart NetworkManager
+end
+
 # Others
 alias zen='python3 -m this'
 alias py='python'
