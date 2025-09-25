@@ -2,8 +2,6 @@
 
 # ref: https://stackoverflow.com/questions/43235179/how-to-execute-ssh-keygen-without-prompt
 
-#!/bin/bash
-
 # Check if argument is provided
 if [ $# -ne 1 ]; then
     echo "Error: Please provide a name for the SSH key"
