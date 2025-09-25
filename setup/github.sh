@@ -38,4 +38,4 @@ EOF
 # Display public key
 cat ~/.ssh/id_${KEY_NAME}_rsa.pub
 
-echo "next: ssh -T ssh@github.com"
+echo "next: ssh -T git@github.com"
