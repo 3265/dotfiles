@@ -10,3 +10,6 @@ sudo apt install -y filezilla
 
 sudo apt install -y nautilus-dropbox
 
+# office
+sudo apt install onlyoffice-desktopeditors
+
