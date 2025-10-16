@@ -44,8 +44,8 @@ set-option -g bell-action none
 # スクリーンセイバー
 # set -g lock-after-time 300
 # set-option -g lock-command cmatrix
-set -g lock-after-time 300
-set -g lock-command "/usr/games/pipes -p 6 -f 100 -R"
+# set -g lock-after-time 300
+# set -g lock-command "/usr/games/pipes -p 6 -f 100 -R"
 
 
 unbind -n MouseDown3Pane
