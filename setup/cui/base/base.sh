@@ -25,6 +25,7 @@ sudo apt install -y vim-gtk3 # vim-gtk3は+clipboard付き
 sudo apt install -y --no-install-recommends emacs # postfixの設定がうざいので
 # sudo apt install -y ranger
 sudo apt install -y cmatrix
+sudo apt install -y pipes-sh
 sudo apt install -y apache2-utils
 sudo apt install -y whois
 sudo apt install -y curl

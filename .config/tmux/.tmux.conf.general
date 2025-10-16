@@ -40,10 +40,12 @@ set-option -g visual-silence off
 set-window-option -g monitor-activity off
 set-option -g bell-action none
 
-# i'll turn off this feature coz cmatrix was high lod
+# i'll turn off this feature coz cmatrix was high load
 # スクリーンセイバー
-# NOTE: need to install cmatrix
 # set -g lock-after-time 300
 # set-option -g lock-command cmatrix
+set -g lock-after-time 300
+set -g lock-command "/usr/games/pipes -p 6 -f 100 -R"
+
 
 unbind -n MouseDown3Pane
