@@ -1,0 +1,12 @@
+{
+    "servers":
+    {
+        "markdown": 
+        {
+            "command": ["marksman", "server"],
+            "rootIndicatorFileNames": [".git", ".marksman.toml"],
+            "url": "https://github.com/artempyanykh/marksman",
+            "highlightingModeRegex": "^Markdown$"
+        }
+    }
+}

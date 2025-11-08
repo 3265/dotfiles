@@ -135,3 +135,9 @@ sudo chmod +x ~/dotfiles/.config/autostart/fusuma.desktop
 ln -s -f ~/dotfiles/.config/autostart/fusuma.desktop ~/.config/autostart/fusuma.desktop  
 # mkdir -p ~/.config/fusuma/
 # ln -s -f ~/dotfiles/.config/fusuma/config.yml ~/.config/fusuma/config.yml
+
+########################
+#  Kate
+########################
+mkdir -p ~/.config/kate/lspclient
+ln -s -f ~/dotfiles/.config/kate/lspclient/settings.json ~/.config/kate/lspclient/settings.json
