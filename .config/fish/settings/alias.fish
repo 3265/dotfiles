@@ -48,8 +48,8 @@ alias jou='jounalctl'
 # python
 alias py='python' # install python-is-python3
 alias pe='pyenv' # python environment
-alias pm='poetry' # python manamger
-alias pa='source .venv/bin/activate.fish'
+alias pm='uv' # python manamger
+alias pa='source .venv/bin/activate.fish' # python activation
 
 # makefile
 alias m1='make 1'
