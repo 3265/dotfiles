@@ -4,6 +4,7 @@
 
 # VSCode
 # Google Chrome
+sudo apt install -y gparted
 
 sudo apt install -y thunderbird
 sudo apt install -y filezilla
