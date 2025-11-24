@@ -86,7 +86,8 @@
   :init
   (setq imenu-list-position 'right
         imenu-list-size 0.5         ;; フレーム幅の30%
-        imenu-list-auto-resize t)
+        )
+        ;; imenu-list-auto-resize t)
   :hook
   (org-mode . imenu-list-minor-mode)) ;; ← .org を開いたときだけ自動ON
 
