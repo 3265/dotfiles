@@ -9,5 +9,5 @@ sudo timedatectl set-timezone Asia/Tokyo
 sudo update-alternatives --set editor /usr/bin/vim.basic
 
 # my working directories
-mkdir -p ~/{workspace,playground}
+mkdir -p ~/{workspace,playground,org}
 

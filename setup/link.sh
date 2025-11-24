@@ -47,6 +47,13 @@ ln -s -f ~/dotfiles/.config/vim/.vimrc ~/.vimrc
 ln -s -f ~/dotfiles/.config/vim/.ideavimrc ~/.ideavimrc
 
 ########################
+#   Emacs
+########################
+
+mkdir -p ~/.emacs.d
+ln -s -f ~/dotfiles/.config/emacs/init.el ~/.emacs.d/init.el
+
+########################
 # Terminal multiplexer
 ########################
 
