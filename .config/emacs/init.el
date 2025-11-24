@@ -25,6 +25,10 @@
 ;; for orgmode calendar format
 (setq system-time-locale "C")
 
+;; agenda用
+(setq org-agenda-restore-windows-after-quit t)         ;; q で元のレイアウトを復元
+
+
 ;; Evil / Evil-collection
 (setq evil-want-keybinding nil)
 (unless (package-installed-p 'evil)
@@ -46,10 +50,12 @@
   ;; page up
   (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
   (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
+  ;; コマンド間違い用
   (evil-ex-define-cmd "W"  'evil-write)
   (evil-ex-define-cmd "Q"  'evil-quit)
   (evil-ex-define-cmd "WQ" 'evil-save-and-close)
   (evil-ex-define-cmd "Wq" 'evil-save-and-close)
+  ;; enterでファイルを開けるように
   (evil-define-key 'normal dired-mode-map
     ;; evilでもDiredでenterでファイルを開けるようにする
     (kbd "RET") 'dired-find-file
