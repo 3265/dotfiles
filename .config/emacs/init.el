@@ -11,6 +11,13 @@
 (setq inhibit-startup-screen t)         ;; スタートアップ画面を消す
 (setq initial-buffer-choice default-directory)
 
+;; バックアップ & 自動保存の整理
+(setq backup-directory-alist
+      `((".*" . ,(expand-file-name "backups/" user-emacs-directory))))
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name "auto-saves/" user-emacs-directory) t)))
+
+
 ;; for orgmode calendar format
 (setq system-time-locale "C")
 
@@ -52,7 +59,9 @@
 ;; Org 基本設定
 (require 'org)
 (global-set-key (kbd "C-c a") 'org-agenda)
-(setq org-agenda-files '("~/org"))
+(setq org-agenda-files
+      (append
+       (directory-files-recursively "~/Dropbox/org" "\\.org\\'")))
 
 ;; 
 (use-package doom-themes
