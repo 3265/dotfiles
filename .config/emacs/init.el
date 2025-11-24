@@ -7,9 +7,13 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
+;; ネイティブコンパイルの warning を黙らせる
+(when (boundp 'native-comp-async-report-warnings-errors)
+  (setq native-comp-async-report-warnings-errors 'silent))
+
 ;; 起動時にカレントディレクトリを Dired で開く
 (setq inhibit-startup-screen t)         ;; スタートアップ画面を消す
-(setq initial-buffer-choice default-directory)
+;; (setq initial-buffer-choice default-directory)
 
 ;; バックアップ & 自動保存の整理
 (setq backup-directory-alist
@@ -50,6 +54,18 @@
     ;; evilでもDiredでenterでファイルを開けるようにする
     (kbd "RET") 'dired-find-file
   )
+  
+  ;; imenu-listを自動で閉じるための処理
+  (defun my/close-imenu-before-evil-quit (&rest _args)
+  "evil-quit の前に imenu-list のウィンドウがあれば閉じる。"
+  (when (and (boundp 'imenu-list-buffer-name)
+             (get-buffer-window imenu-list-buffer-name)
+             (fboundp 'imenu-list-quit-window))
+    (with-selected-window (get-buffer-window imenu-list-buffer-name)
+      (imenu-list-quit-window))))
+
+  ;; :q / :q! / evil-quit が呼ばれる前に必ず実行
+  (advice-add 'evil-quit :before #'my/close-imenu-before-evil-quit)
 )
 
 
@@ -63,7 +79,18 @@
       (append
        (directory-files-recursively "~/Dropbox/org" "\\.org\\'")))
 
-;; 
+;; outline on right pane
+(use-package imenu-list
+  :ensure t
+  :bind (("C-c i" . imenu-list-smart-toggle))
+  :init
+  (setq imenu-list-position 'right
+        imenu-list-size 0.5         ;; フレーム幅の30%
+        imenu-list-auto-resize t)
+  :hook
+  (org-mode . imenu-list-minor-mode)) ;; ← .org を開いたときだけ自動ON
+
+;; theme
 (use-package doom-themes
   :ensure t
   :config
