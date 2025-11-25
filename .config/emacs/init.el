@@ -15,12 +15,14 @@
 (setq inhibit-startup-screen t)         ;; スタートアップ画面を消す
 ;; (setq initial-buffer-choice default-directory)
 
-;; バックアップ & 自動保存の整理
-(setq backup-directory-alist
-      `((".*" . ,(expand-file-name "backups/" user-emacs-directory))))
-(setq auto-save-file-name-transforms
-      `((".*" ,(expand-file-name "auto-saves/" user-emacs-directory) t)))
+;; バックアップファイル（~ が付くやつ）を作らない
+(setq make-backup-files nil)
 
+;; 自動保存ファイル（#...#）も作らない
+(setq auto-save-default nil)
+
+;; ロックファイル（.#filename）もいらないなら
+(setq create-lockfiles nil)
 
 ;; for orgmode calendar format
 (setq system-time-locale "C")
@@ -28,14 +30,14 @@
 ;; agenda用
 (setq org-agenda-restore-windows-after-quit t)         ;; q で元のレイアウトを復元
 
-
-;; Evil / Evil-collection
-(setq evil-want-keybinding nil)
+;; install Evil / Evil-collection
 (unless (package-installed-p 'evil)
   (package-install 'evil))
 (unless (package-installed-p 'evil-collection)
   (package-install 'evil-collection))
 
+;; evil settings
+(setq evil-want-keybinding nil)
 (with-eval-after-load 'evil
   (define-key evil-insert-state-map (kbd "<escape>") 'evil-normal-state)
   (define-key evil-insert-state-map (kbd "C-[") 'evil-normal-state)
