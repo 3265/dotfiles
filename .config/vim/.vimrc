@@ -22,7 +22,7 @@ set clipboard^=unnamed,unnamedplus " クリップボードにコピー
 set tabstop=4 " 画面上でタブが占める幅
 set shiftwidth=4 " 自動インデントでずれる幅
 set softtabstop=4 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
-" set smarttab 
+" set smarttab
 set smartindent "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set autoindent "改行時に前の行のインデントを継続する
 set noexpandtab " タブをスペースに置き換えない
@@ -119,19 +119,26 @@ let NERDTreeShowHidden=1
 " Marks
 noremap <C-m> :marks<CR>
 
-" WSL yank support
-" https://superuser.com/questions/1291425/windows-subsystem-linux-make-vim-use-the-clipboard
-let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
-if executable(s:clip)
-    augroup WSLYank
-        autocmd!
-        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
-    augroup END
-endif
-
 " vim-code-dark
 colorscheme codedark
 
 " fish
 autocmd BufRead,BufNewFile *.fish set filetype=sh
 
+" org-mode
+let g:org_agenda_files = ['~/org/*.org', '~/Dropbox/org/*.org']
+let g:org_todo_keywords = ['TODO', 'NEXT', '|', 'DONE']
+" let g:org_heading_shade_leading_stars = 1
+" let g:org_indent = 1
+
+" org ファイルのときだけ Folded の色を変える例
+augroup OrgFoldColor
+  autocmd!
+  " Normal と同じ色にして背景も透明にする
+  autocmd FileType org highlight Folded ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+  " もしくは Normal にリンクさせる
+  autocmd FileType org highlight! link Folded Normal
+augroup END
+
+" プラグイン読み込み
+filetype plugin indent on
