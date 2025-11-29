@@ -123,17 +123,25 @@ noremap <C-m> :marks<CR>
 let mapleader = "\<space>"
 nnoremap <Leader>a :echo "Hello"<CR>
 
-" vim-code-dark
-colorscheme codedark
-
 " fish
 autocmd BufRead,BufNewFile *.fish set filetype=sh
 
 " org-mode
 let g:org_agenda_files = ['~/org/*.org', '~/Dropbox/org/*.org']
 let g:org_todo_keywords = ['TODO', 'NEXT', '|', 'DONE']
-" let g:org_heading_shade_leading_stars = 1
-" let g:org_indent = 1
+autocmd FileType org setlocal nonumber " orgmodeのとき行番号を消す
 
 " プラグイン読み込み
 filetype plugin indent on
+
+" vim-code-dark
+colorscheme codedark
+
+" org-mode ハイライト色（colorschemeの後に設定）
+hi org_heading1 ctermfg=75 cterm=bold
+hi org_heading2 ctermfg=114 cterm=bold
+hi org_heading3 ctermfg=180 cterm=bold
+hi org_heading4 ctermfg=140
+hi org_todo ctermfg=214 cterm=bold
+hi org_done ctermfg=150 cterm=bold
+hi Folded ctermfg=145 ctermbg=237 cterm=none " 折りたたまれた見出しの色
