@@ -119,6 +119,10 @@ let NERDTreeShowHidden=1
 " Marks
 noremap <C-m> :marks<CR>
 
+" leader key
+let mapleader = "\<space>"
+nnoremap <Leader>a :echo "Hello"<CR>
+
 " vim-code-dark
 colorscheme codedark
 
@@ -130,15 +134,6 @@ let g:org_agenda_files = ['~/org/*.org', '~/Dropbox/org/*.org']
 let g:org_todo_keywords = ['TODO', 'NEXT', '|', 'DONE']
 " let g:org_heading_shade_leading_stars = 1
 " let g:org_indent = 1
-
-" org ファイルのときだけ Folded の色を変える例
-augroup OrgFoldColor
-  autocmd!
-  " Normal と同じ色にして背景も透明にする
-  autocmd FileType org highlight Folded ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
-  " もしくは Normal にリンクさせる
-  autocmd FileType org highlight! link Folded Normal
-augroup END
 
 " プラグイン読み込み
 filetype plugin indent on
