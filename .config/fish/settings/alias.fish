@@ -1,14 +1,14 @@
 #!/bin/fish
 
 # Command shortcut
-alias a="ag --hidden --ignore .git"
+alias a="alias"
 alias b='/usr/bin/batcat --style=plain'
 alias c="code"
 alias d='docker'
 alias dc="docker compose"
 alias docker-compose="docker compose"
-alias e='emacs -nw'
-alias f='explorer'
+alias e='explorer'
+alias f="ag --hidden --ignore .git"
 alias f-count=count_files
 alias f-stats=extension_stats
 alias h='history'

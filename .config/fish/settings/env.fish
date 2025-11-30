@@ -199,7 +199,11 @@ end
 
 # Automatically run nvm_auto_use when changing directories
 function cd -d 'Change directory with auto NVM version switch' --no-scope-shadowing --description 'Change directory with auto NVM version switch'
-  builtin cd $argv
+  if test (count $argv) -eq 0
+    builtin cd ~
+  else
+    builtin cd $argv
+  end
   nvm_auto_use
 end
 
