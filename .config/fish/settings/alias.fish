@@ -100,15 +100,6 @@ alias vsh='virsh' # KVM
 # GUI
 alias kderestart='killall plsmashell && kstart5 plasmashell'
 
-# win
-alias win-open='wslview .'
-alias win-path='command wslpath -w .'
-
-function cdw
-  set wsl_path (wslpath $argv[1])
-  cd $wsl_path
-end
-
 # wifi
 function wifi
     sudo systemctl restart NetworkManager

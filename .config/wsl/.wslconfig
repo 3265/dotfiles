@@ -1,9 +1,0 @@
-# [wsl2]
-# memory=24GB
-
-[external]
-dnsTunneling=true
-
-[network]
-generateResolvConf = false
-
