@@ -30,6 +30,7 @@ alias gap='~/gap/build/gap'
 
 # copy
 alias co='xclip -selection clipboard <'
+alias screen-copy='scrcpy'
 
 # quick directory transition
 alias nd='nextd'

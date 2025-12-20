@@ -12,5 +12,11 @@ sudo apt install -y filezilla
 sudo apt install -y nautilus-dropbox
 
 # office
-sudo apt install onlyoffice-desktopeditors
+sudo apt install -y onlyoffice-desktopeditors
+
+# markdown
+# obsidian deb
+
+# android app
+sudo apt install -y scrcpy
 
