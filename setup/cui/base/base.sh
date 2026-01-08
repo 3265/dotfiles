@@ -31,5 +31,6 @@ sudo apt install -y whois
 sudo apt install -y curl
 sudo apt install -y inxi # システム情報表示ツール
 sudo apt install -y xclip # for copy alias
+sudo apt install -y htop
 
 
