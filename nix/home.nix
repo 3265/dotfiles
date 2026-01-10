@@ -27,9 +27,5 @@
   # Git configuration
   programs.git = {
     enable = true;
-    settings = {
-      user.name = "mike";
-      user.email = "your-email@example.com";
-    };
   };
 }

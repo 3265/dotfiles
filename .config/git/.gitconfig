@@ -1,6 +1,6 @@
 [user]
   name = 3265
-  email = mgoldchild@gmail.com
+  email = 8959761+3265@users.noreply.github.com
   signingkey = BDDB43041BF65C3E
 [includeIf "gitdir:~/workspace/"]
   path = ~/workspace/.gitconfig
