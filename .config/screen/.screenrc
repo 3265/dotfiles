@@ -1,6 +1,9 @@
 # prefix key(Ctrl-z)
 escape ^Zz
 
+# UTF-8 support
+# defutf8 on
+
 # screen起動のシェルをtmuxに変更する
 shell "tmux"
 

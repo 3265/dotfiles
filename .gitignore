@@ -73,6 +73,11 @@ node_modules
 # VIM
 *.swp
 
+# Emacs backup files
+*~
+\#*\#
+.\#*
+
 # WIN
 *:Zone.Identifier
 

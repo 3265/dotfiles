@@ -15,3 +15,5 @@
 
 exec fish
 . "$HOME/.cargo/env"
+
+if [ -e /home/mike/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mike/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

@@ -77,3 +77,20 @@ app:
 lang:
 	$(MAKE) -C $(SETUP_DIR)/cui/py
 	$(MAKE) -C $(SETUP_DIR)/cui/rust
+
+
+# update
+
+update:
+	git add -N . 2>/dev/null || true
+	nix run home-manager/master -- switch --flake .#mike --impure -b backup
+
+generations:
+	nix run home-manager/master -- generations
+
+switch:
+	nix run home-manager/master -- switch --switch-generation $(FIRST_ARG)
+
+clean:
+	nix-collect-garbage -d
+	du -sh /nix/store
