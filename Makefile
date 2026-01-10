@@ -52,7 +52,7 @@ generations:
 	nix run home-manager/master -- generations
 
 switch:
-	nix run home-manager/master -- switch --switch-generation $(FIRST_ARG)
+	nix run home-manager/master -- switch --switch-generation $(SECOND_ARG)
 
 clean:
 	nix-collect-garbage -d
