@@ -1,5 +1,5 @@
 {
-  description = "Mike's dotfiles";
+  description = "My dotfiles";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";  # 最新版
@@ -13,7 +13,7 @@
   outputs = { nixpkgs, nixpkgs-stable, home-manager, ... }: {
     homeConfigurations."mike" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      modules = [ 
+      modules = [
         ./home.nix
         {
           _module.args.pkgs-stable = nixpkgs-stable.legacyPackages.x86_64-linux;
