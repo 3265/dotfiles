@@ -8,7 +8,7 @@
     ./modules/python.nix
     ./modules/blog.nix
     ./modules/languages.nix
-    ./modules/optional.nix  # AWS tools
+    ./modules/cloud.nix
     # ./modules/gui.nix       # GUI applications
   ];
 

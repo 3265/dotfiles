@@ -5,7 +5,7 @@
     python312Packages.pipx
     poetry
     uv
-    
+
     # Python development tools
     pipenv
     python3Packages.pip-tools
@@ -18,10 +18,11 @@
     python312Packages.ipython
     python312Packages.ipdb
     git-filter-repo
-    
+
     # conda  # Uncomment if needed (not recommended with Nix)
+    # pyenv
   ];
-  
+
   # Link Python config files
   home.file = {
     ".config/pep8".source = ../../.config/python/pep8;

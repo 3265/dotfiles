@@ -6,6 +6,23 @@ ARGS := $(filter-out $@,$(MAKECMDGOALS))
 FIRST_ARG := $(word 1, $(ARGS))
 SECOND_ARG := $(word 2, $(ARGS))
 
+############################
+#    Nix Home Manager
+############################
+
+update:
+	git add -N . 2>/dev/null || true
+	nix run home-manager/master -- switch --flake .#mike --impure -b backup
+
+generations:
+	nix run home-manager/master -- generations
+
+switch:
+	nix run home-manager/master -- switch --switch-generation $(SECOND_ARG)
+
+clean:
+	nix-collect-garbage -d
+	du -sh /nix/store
 
 ############################
 #       link
@@ -38,22 +55,3 @@ test2:
 
 github:
 	bash $(SETUP_DIR)/github.sh $(SECOND_ARG)
-
-############################
-#    Nix Home Manager
-############################
-
-up:
-update:
-	git add -N . 2>/dev/null || true
-	nix run home-manager/master -- switch --flake .#mike --impure -b backup
-
-generations:
-	nix run home-manager/master -- generations
-
-switch:
-	nix run home-manager/master -- switch --switch-generation $(SECOND_ARG)
-
-clean:
-	nix-collect-garbage -d
-	du -sh /nix/store

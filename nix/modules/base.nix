@@ -30,9 +30,9 @@
     ghq
 
     # Docker (note: Docker daemon needs system-level setup)
-    docker
-    docker-compose
-    lazydocker
+    # docker
+    # docker-compose
+    # lazydocker
   ];
 
   home.file = {

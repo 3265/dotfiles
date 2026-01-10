@@ -26,7 +26,7 @@
     jetbrains.idea-oss  # formerly jetbrains.idea-community
 
     # Cloud
-    dropbox # deamon will need to be started manually
+    # dropbox # deamon will need to be started manually
 
     # Commented out (install manually or uncomment if available)
     # google-chrome
