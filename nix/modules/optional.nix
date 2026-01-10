@@ -6,8 +6,5 @@
     nodePackages.aws-cdk
     aws-sam-cli
     # amazon-q-developer-cli  # If available
-
-    # Markdown
-    marksman
   ];
 }

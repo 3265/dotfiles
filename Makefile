@@ -39,11 +39,11 @@ test2:
 github:
 	bash $(SETUP_DIR)/github.sh $(SECOND_ARG)
 
-
 ############################
 #    Nix Home Manager
 ############################
 
+up:
 update:
 	git add -N . 2>/dev/null || true
 	nix run home-manager/master -- switch --flake .#mike --impure -b backup

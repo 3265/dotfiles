@@ -3,9 +3,10 @@
   imports = [
     ./modules/base.nix
     ./modules/shell.nix
+    ./modules/editor.nix
+    ./modules/terminal.nix
     ./modules/python.nix
-    ./modules/rust.nix
-    ./modules/apps.nix
+    ./modules/blog.nix
     ./modules/languages.nix
     ./modules/optional.nix  # AWS tools
     # ./modules/gui.nix       # GUI applications

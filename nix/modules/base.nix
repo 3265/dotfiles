@@ -1,4 +1,4 @@
-{ pkgs, pkgs-stable, ... }: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     # Build tools
     gcc
@@ -19,18 +19,25 @@
     zip
     unzip
     nettools
-    emacs
     cmatrix
     apacheHttpd
     whois
     curl
     inxi
     htop
-    vim
-    marksman  # Markdown LSP for Kate
-  ] ++ [
-    # Stable packages
-    pkgs-stable.tmux    # tmux 3.4
-    pkgs-stable.screen
+    lsd
+    fastmod
+    ghq
+
+    # Docker (note: Docker daemon needs system-level setup)
+    docker
+    docker-compose
+    lazydocker
   ];
+
+  home.file = {
+    ".gitconfig".source = ../../.config/git/.gitconfig;
+    ".agignore".source = ../../.config/ag/.agignore;
+    ".gnupg/gpg-agent.conf".source = ../../.config/gnupg/gpg-agent.conf;
+  };
 }

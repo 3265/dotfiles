@@ -1,8 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    rustup
-    lsd
-    fastmod
     mdbook
+    marksman  # Markdown LSP for Kate
+    hugo
   ];
 }
