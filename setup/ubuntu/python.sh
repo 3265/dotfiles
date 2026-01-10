@@ -1,5 +1,5 @@
 #!/bin/bash
 
-pipx install Fabric3      # ❌ Nixにない
-pipx install pycowsay     # ❌ Nixにない
+pipx install Fabric3
+pipx install pycowsay
 
