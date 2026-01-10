@@ -2,7 +2,9 @@
 escape ^Zz
 
 # UTF-8 support
+# 動かなかったので、 screen -Uを使って起動することにした
 # defutf8 on
+# encoding utf8 utf8
 
 # screen起動のシェルをtmuxに変更する
 shell "tmux"

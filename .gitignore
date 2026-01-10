@@ -100,3 +100,4 @@ test/
 # for font
 *.zip
 Hack
+.config/fish/fish_variables

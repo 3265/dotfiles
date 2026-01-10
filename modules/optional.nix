@@ -7,16 +7,6 @@
     aws-sam-cli
     # amazon-q-developer-cli  # If available
 
-    # Java
-    # jdk
-    # maven
-
-    # PHP
-    # php
-
-    # C++
-    # vcpkg
-
     # Markdown
     marksman
   ];
