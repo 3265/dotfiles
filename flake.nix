@@ -14,7 +14,7 @@
     homeConfigurations."mike" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       modules = [
-        ./home.nix
+        ./nix/home.nix
         {
           _module.args.pkgs-stable = nixpkgs-stable.legacyPackages.x86_64-linux;
         }

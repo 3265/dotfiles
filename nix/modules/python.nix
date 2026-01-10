@@ -24,10 +24,10 @@
   
   # Link Python config files
   home.file = {
-    ".config/pep8".source = ../.config/python/pep8;
-    ".config/pip/pip.conf".source = ../.config/python/pip/pip.conf;
-    ".config/matplotlib/matplotlibrc".source = ../.config/python/matplotlib/matplotlibrc;
-    ".config/pypoetry/config.toml".source = ../.config/python/pypoetry/config.toml;
-    ".condarc".source = ../.config/python/conda/.condarc;
+    ".config/pep8".source = ../../.config/python/pep8;
+    ".config/pip/pip.conf".source = ../../.config/python/pip/pip.conf;
+    ".config/matplotlib/matplotlibrc".source = ../../.config/python/matplotlib/matplotlibrc;
+    ".config/pypoetry/config.toml".source = ../../.config/python/pypoetry/config.toml;
+    ".condarc".source = ../../.config/python/conda/.condarc;
   };
 }
