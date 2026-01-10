@@ -39,47 +39,10 @@ test2:
 github:
 	bash $(SETUP_DIR)/github.sh $(SECOND_ARG)
 
-############################
-#     base
-############################
-
-base:
-	$(MAKE) -C $(SETUP_DIR)/cui/base
-
 
 ############################
-#     shell
+#    Nix Home Manager
 ############################
-shell:
-	$(MAKE) -C $(SETUP_DIR)/cui/shell
-
-############################
-#      terminal
-############################
-
-terminal:
-	$(MAKE) -C $(SETUP_DIR)/cui/terminal font
-	$(MAKE) -C $(SETUP_DIR)/cui/terminal ime
-	$(MAKE) -C $(SETUP_DIR)/cui/terminal fusuma
-
-############################
-#      app
-############################
-
-app:
-	$(MAKE) -C $(SETUP_DIR)/cui/app go
-	#$(MAKE) -C $(SETUP_DIR)/cui/app docker
-
-############################
-#      Lang
-############################
-
-lang:
-	$(MAKE) -C $(SETUP_DIR)/cui/py
-	$(MAKE) -C $(SETUP_DIR)/cui/rust
-
-
-# update
 
 update:
 	git add -N . 2>/dev/null || true

@@ -8,7 +8,7 @@
     ./modules/apps.nix
     ./modules/languages.nix
     ./modules/optional.nix  # AWS tools
-    ./modules/gui.nix       # GUI applications
+    # ./modules/gui.nix       # GUI applications
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage

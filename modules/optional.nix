@@ -16,5 +16,8 @@
 
     # C++
     # vcpkg
+
+    # Markdown
+    marksman
   ];
 }
