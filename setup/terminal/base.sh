@@ -18,14 +18,15 @@ sudo apt install -y autojump
 sudo apt install -y direnv
 sudo apt install -y cmake
 sudo apt install -y zip unzip
+sudo apt install -y net-tools
+
 sudo apt install -y screen
 sudo apt install -y tmux
-sudo apt install -y net-tools
+
 sudo apt install -y vim-gtk3 # vim-gtk3は+clipboard付き
 sudo apt install -y --no-install-recommends emacs # postfixの設定がうざいので
 # sudo apt install -y ranger
-sudo apt install -y cmatrix
-sudo apt install -y pipes-sh
+
 sudo apt install -y apache2-utils
 sudo apt install -y whois
 sudo apt install -y curl
@@ -33,4 +34,9 @@ sudo apt install -y inxi # システム情報表示ツール
 sudo apt install -y xclip # for copy alias
 sudo apt install -y htop
 
+sudo apt install -y cmatrix
+sudo apt install -y pipes-sh
 
+sudo apt install -y snapd
+sudo snap install -y scrcpy
+sudo snap connect scrcpy:raw-usb
