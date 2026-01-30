@@ -7,6 +7,6 @@
   home.file = {
     # Terminal multiplexer
     ".screenrc".source = ../../.config/screen/.screenrc;
-    ".config/tmux".source = ../../.config/tmux;
+    ".config/tmux/tmux.conf".source = ../../.config/tmux/.tmux.conf;
   };
 }
