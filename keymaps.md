@@ -92,3 +92,9 @@ FZF default opts:
 - `Ctrl-b`: backward one character
 - `Ctrl-f`: forward one character
 - `Ctrl-c`: cancel/interrupt current input
+
+## IME
+
+- `Left Alt`: English mode
+- `Right Alt`: Japanese mode
+- `Ctrl-;`: paste mode
