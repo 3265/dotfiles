@@ -18,4 +18,18 @@ vim -u NONE -c "helptags ~/.vim/pack/vendor/start/vim-orgmode/doc" -c q
 
 # color
 git clone https://github.com/tomasiser/vim-code-dark.git ~/.vim/bundle/vim-code-dark.git
-ln -s ~/.vim/bundle/vim-code-dark.git/colors/codedark.vim ~/.vim/colors/codedark.vim
+ln -sf ~/.vim/bundle/vim-code-dark.git/colors/codedark.vim ~/.vim/colors/codedark.vim
+
+
+# orgmode: force vim-orgmode after Vim's built-in org
+mkdir -p ~/.vim/after/ftplugin ~/.vim/after/syntax
+
+cat > ~/.vim/after/ftplugin/org.vim <<'EOF'
+" Ensure vim-orgmode ftplugin wins over Vim's built-in org ftplugin
+runtime! pack/vendor/start/vim-orgmode/ftplugin/org.vim
+EOF
+
+cat > ~/.vim/after/syntax/org.vim <<'EOF'
+" Ensure vim-orgmode syntax wins over Vim's built-in org syntax
+runtime! pack/vendor/start/vim-orgmode/syntax/org.vim
+EOF

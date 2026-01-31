@@ -11,8 +11,6 @@ set novisualbell " ビジュアルベルの無効化
 set noerrorbells " エラーメッセージの表示時にビープを鳴らさない
 " set paste " 挿入で勝手にインデントさせない
 set timeout timeoutlen=1000 ttimeoutlen=75 " escの反応を早くする
-set switchbuf=usetab " 同じファイルを別タブで開かないようにする
-set autoread " vimrc更新後に自動読み込み
 set belloff=all " beepを鳴らさない
 " see https://stackoverflow.com/questions/3961859/how-to-copy-to-clipboard-in-vim
 set clipboard^=unnamed,unnamedplus " クリップボードにコピー
@@ -53,7 +51,7 @@ set incsearch " 検索マッチテキストをハイライト
 set hlsearch " バックスラッシュやクエスチョンを状況に合わせ自動的にエスケープ
 set infercase " 補完時に大文字小文字を区別しない
 set virtualedit=all " カーソルを文字が存在しない部分でも動けるようにする
-set switchbuf=useopen " 新しく開く代わりにすでに開いてあるバッファを開く
+set switchbuf=usetab " 新しく開く代わりにすでに開いてあるバッファを開く(タブも考慮)
 set showmatch " 対応する括弧などをハイライト表示する
 set matchtime=3 " 対応括弧のハイライト表示を3秒にする
 set backspace=indent,eol,start " バックスペースでなんでも消せるようにする
@@ -70,7 +68,6 @@ command! Q :q
 command! Wq :wq
 
 " Highlight
-set hlsearch
 noremap <C-n> :nohl<CR>
 vnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>
@@ -126,10 +123,14 @@ nnoremap <Leader>a :echo "Hello"<CR>
 " fish
 autocmd BufRead,BufNewFile *.fish set filetype=sh
 
-" org-mode
+" org-mode（変数系は先に設定しておく：プラグインが読むため）
 let g:org_agenda_files = ['~/org/*.org', '~/Dropbox/org/*.org']
 let g:org_todo_keywords = ['TODO', 'NEXT', '|', 'DONE']
-autocmd FileType org setlocal nonumber " orgmodeのとき行番号を消す
+let g:org_todo_keyword_faces = [
+      \ ['TODO', [':foreground red',    ':weight bold']],
+      \ ['NEXT', [':foreground yellow', ':weight bold']],
+      \ ['DONE', [':foreground grey',   ':weight bold']],
+      \ ]
 
 " プラグイン読み込み
 filetype plugin indent on
@@ -137,11 +138,18 @@ filetype plugin indent on
 " vim-code-dark
 colorscheme codedark
 
-" org-mode ハイライト色（colorschemeの後に設定）
-hi org_heading1 ctermfg=75 cterm=bold
-hi org_heading2 ctermfg=114 cterm=bold
-hi org_heading3 ctermfg=180 cterm=bold
-hi org_heading4 ctermfg=140
-hi org_todo ctermfg=214 cterm=bold
-hi org_done ctermfg=150 cterm=bold
-hi Folded ctermfg=145 ctermbg=237 cterm=none " 折りたたまれた見出しの色
+" org の見た目（上書き系は FileType org で最後に当てる）
+augroup MyOrgSettings
+  autocmd!
+  autocmd FileType org call s:apply_org_highlights()
+augroup END
+
+function! s:apply_org_highlights() abort
+  hi org_heading1 ctermfg=75  cterm=bold
+  hi org_heading2 ctermfg=114 cterm=bold
+  hi org_heading3 ctermfg=180 cterm=bold
+  hi org_heading4 ctermfg=140
+  hi Folded ctermfg=145 ctermbg=237 cterm=none
+
+  hi link org_shade_stars org_heading2
+endfunction
