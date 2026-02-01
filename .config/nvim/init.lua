@@ -31,8 +31,10 @@ require("lazy").setup({
     config = function()
       require("orgmode").setup({
         org_startup_folded = "overview",
+        org_log_done = "time",
+        org_log_into_drawer = "LOGBOOK"
       })
-    end,
+    end
   },
   {
     "rebelot/kanagawa.nvim",
@@ -135,7 +137,6 @@ vim.keymap.set("n", "q", "ZZ")
 vim.keymap.set("n", "<C-e>", "<Cmd>NERDTreeToggle<CR>", { silent = true })
 vim.keymap.set("i", "<C-e>", "<Esc><Cmd>NERDTreeToggle<CR>", { silent = true })
 
-vim.keymap.set("n", "<C-m>", "<Cmd>marks<CR>")
 
 vim.keymap.set("n", "<Leader>a", '<Cmd>echo "Hello"<CR>')
 vim.keymap.set("n", "<Leader>t", "<Cmd>botright split | terminal<CR>", { silent = true })
@@ -160,6 +161,22 @@ vim.g.netrw_winsize = 25
 
 -- Nerdtree settings
 vim.g.NERDTreeShowHidden = 1
+
+-- Orgmode: Shift+Left/Right to cycle TODO states
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "org",
+  callback = function(ev)
+    vim.keymap.set("n", "<S-Right>", function()
+      require("orgmode").action("org_mappings.todo")
+    end, { buffer = ev.buf, silent = true })
+    vim.keymap.set("n", "<S-Left>", function()
+      require("orgmode").action("org_mappings.todo_prev")
+    end, { buffer = ev.buf })
+    vim.keymap.set("n", "<CR>", function()
+      require("orgmode").action("org_mappings.org_insert_heading_respect_content")
+    end, { buffer = ev.buf, silent = true })
+  end,
+})
 
 vim.cmd("filetype plugin indent on")
 
