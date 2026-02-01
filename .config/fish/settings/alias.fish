@@ -18,6 +18,7 @@ alias i=runi
 alias k='kill'
 alias l='runls'
 alias m='make'
+alias n='nvim'
 alias p='autojump --purge'
 alias q='kiro-cli'
 alias reload='source ~/.config/fish/config.fish'

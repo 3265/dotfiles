@@ -26,6 +26,15 @@ require("lazy").setup({
     },
   },
   {
+    "nvim-orgmode/orgmode",
+    ft = { "org" },
+    config = function()
+      require("orgmode").setup({
+        org_startup_folded = "overview",
+      })
+    end,
+  },
+  {
     "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
