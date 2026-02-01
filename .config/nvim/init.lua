@@ -134,7 +134,7 @@ vim.keymap.set("n", "<Leader>t", "<Cmd>botright split | terminal<CR>", { silent 
 -- Autocmds
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "make",
-  command = "set noexpandtab shiftwidth=8 softtabstop=0",
+  command = "set noexpandtab shiftwidth=4 softtabstop=0",
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
