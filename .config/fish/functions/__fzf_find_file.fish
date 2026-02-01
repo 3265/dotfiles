@@ -39,4 +39,3 @@ function __fzf_find_file -d "Open files only with fzf"
     commandline -f repaint
     return $open_status
 end
-

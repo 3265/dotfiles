@@ -6,10 +6,10 @@ set fish_greeting # disable greeting
 # settings
 # ##########################
 
-source ~/.config/fish/settings/basic.fish
-source ~/.config/fish/settings/alias.fish
-source ~/.config/fish/settings/env.fish
-source ~/.config/fish/settings/git.fish
+source ~/dotfiles/.config/fish/settings/basic.fish
+source ~/dotfiles/.config/fish/settings/alias.fish
+source ~/dotfiles/.config/fish/settings/env.fish
+source ~/dotfiles/.config/fish/settings/git.fish
 
 # ##########################
 # bindings
@@ -30,7 +30,7 @@ function edit_cmd --description 'Edit cmdline in editor'
     set -l f (mktemp)
     set -l p (commandline -C)
     commandline -b > $f
-    vim -c set\ ft=fish $f
+    $EDITOR -c set\ ft=fish $f
     commandline -r (more $f)
     commandline -C $p
     rm -f $f
@@ -77,4 +77,3 @@ set __fish_git_prompt_char_untrackedfiles 'Untracked'
 set __fish_git_prompt_char_stashstate 'Stashed'
 set __fish_git_prompt_char_upstream_ahead ' Ahead'
 set __fish_git_prompt_char_upstream_behind ' Behind'
-
