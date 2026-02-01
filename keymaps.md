@@ -91,6 +91,8 @@ FZF default opts:
 - `Ctrl-a`: move to line start
 - `Ctrl-b`: backward one character
 - `Ctrl-f`: forward one character
+- `Ctrl-u`: kill from cursor to beginning of line
+- `Ctrl-k`: kill from cursor to end of line
 - `Ctrl-c`: cancel/interrupt current input
 
 ## IME

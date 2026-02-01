@@ -9,7 +9,7 @@
     # Vim
     ".vimrc".source = ../../.config/vim/.vimrc;
     ".ideavimrc".source = ../../.config/vim/.ideavimrc;
-    ".config/nvim/init.vim".source = ../../.config/nvim/init.vim;
+    ".config/nvim/init.lua".source = ../../.config/nvim/init.lua;
 
     # Emacs
     ".emacs.d/init.el".source = ../../.config/emacs/init.el;
