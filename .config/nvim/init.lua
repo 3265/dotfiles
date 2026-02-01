@@ -173,7 +173,7 @@ vim.api.nvim_create_autocmd("FileType", {
       require("orgmode").action("org_mappings.todo_prev")
     end, { buffer = ev.buf })
     vim.keymap.set("n", "<CR>", function()
-      require("orgmode").action("org_mappings.org_insert_heading_respect_content")
+      require("orgmode").action("org_mappings.insert_heading_respect_content")
     end, { buffer = ev.buf, silent = true })
   end,
 })
