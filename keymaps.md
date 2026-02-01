@@ -2,7 +2,7 @@
 
 This is a quick reference extracted from the current dotfiles.
 
-## tmux
+## Tmux
 
 ### Basic
 
@@ -16,12 +16,12 @@ This is a quick reference extracted from the current dotfiles.
 - Pane move (Ctrl): `prefix` then `Ctrl-h/j/k/l`
 - Window move (Ctrl): `prefix` then `Ctrl-h` (prev), `Ctrl-l` (next)
 - Pane resize: `prefix` then `H/J/K/L`
-- Split: `prefix` then `|` (vertical), `-` (horizontal)
+- Split: `prefix` then `|` (vertic
 - Window switch: `prefix` then `p` (prev), `n` (next)
 - Window switch (screen-like): `prefix` then `Ctrl-n` (next), `Ctrl-p` (prev)
 - Window switch (double prefix): `Ctrl-q` then `Ctrl-q` (prev)
 
-### tmux copy mode
+### Tmux copy mode
 
 - Enter copy mode: `Ctrl-q` then `[`
 - Select line (visual line): `Ctrl-q` then `Shift-v`
@@ -76,24 +76,21 @@ Default orgmode mappings. `LocalLeader` is `\` unless `maplocalleader` is set.
 - `Esc` (`Ctrl-[`): previous directory (`prevd`)
 - `Ctrl-t`: toggle terminal mode
 
-### FZF fish bindings
+### FZF bindings
 
 - `Ctrl-d`: find directory
 - `Ctrl-f`: find file
 - `Ctrl-r`: autojump
 - `Ctrl-h`: search history
 
-FZF default opts:
-- `Ctrl-d`: page-down, `Ctrl-u`: page-up
-
 ### Emacs-style line editing
 
 - `Ctrl-a`: move to line start
-- `Ctrl-b`: backward one character
-- `Ctrl-f`: forward one character
+- `Ctrl-e`: move to line end
+- ~~`Ctrl-b`: backward one character~~
+- ~~`Ctrl-f`: forward one character~~
 - `Ctrl-u`: kill from cursor to beginning of line
 - `Ctrl-k`: kill from cursor to end of line
-- `Ctrl-c`: cancel/interrupt current input
 
 ## IME
 
