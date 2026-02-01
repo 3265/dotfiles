@@ -6,10 +6,10 @@ set fish_greeting # disable greeting
 # settings
 # ##########################
 
-source ~/dotfiles/.config/fish/settings/basic.fish
-source ~/dotfiles/.config/fish/settings/alias.fish
-source ~/dotfiles/.config/fish/settings/env.fish
-source ~/dotfiles/.config/fish/settings/git.fish
+source ~/.config/fish/settings/basic.fish
+source ~/.config/fish/settings/alias.fish
+source ~/.config/fish/settings/env.fish
+source ~/.config/fish/settings/git.fish
 
 # ##########################
 # bindings
