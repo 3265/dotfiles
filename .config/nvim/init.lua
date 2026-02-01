@@ -166,12 +166,9 @@ vim.g.NERDTreeShowHidden = 1
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "org",
   callback = function(ev)
-    vim.keymap.set("n", "<S-Right>", function()
-      require("orgmode").action("org_mappings.todo")
+    vim.keymap.set("n", "t", function()
+      require("orgmode").action("org_mappings.todo_next_state")
     end, { buffer = ev.buf, silent = true })
-    vim.keymap.set("n", "<S-Left>", function()
-      require("orgmode").action("org_mappings.todo_prev")
-    end, { buffer = ev.buf })
     vim.keymap.set("n", "<CR>", function()
       require("orgmode").action("org_mappings.insert_heading_respect_content")
     end, { buffer = ev.buf, silent = true })
