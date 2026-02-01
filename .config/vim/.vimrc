@@ -123,14 +123,6 @@ nnoremap <Leader>a :echo "Hello"<CR>
 " fish
 autocmd BufRead,BufNewFile *.fish set filetype=sh
 
-" org-mode（変数系は先に設定しておく：プラグインが読むため）
-let g:org_agenda_files = ['~/org/*.org', '~/Dropbox/org/*.org']
-let g:org_todo_keywords = ['TODO', 'NEXT', '|', 'DONE']
-let g:org_todo_keyword_faces = [
-      \ ['TODO', [':foreground red',    ':weight bold']],
-      \ ['NEXT', [':foreground yellow', ':weight bold']],
-      \ ['DONE', [':foreground grey',   ':weight bold']],
-      \ ]
 
 " プラグイン読み込み
 filetype plugin indent on
@@ -138,18 +130,3 @@ filetype plugin indent on
 " vim-code-dark
 colorscheme codedark
 
-" org の見た目（上書き系は FileType org で最後に当てる）
-augroup MyOrgSettings
-  autocmd!
-  autocmd FileType org call s:apply_org_highlights()
-augroup END
-
-function! s:apply_org_highlights() abort
-  hi org_heading1 ctermfg=75  cterm=bold
-  hi org_heading2 ctermfg=114 cterm=bold
-  hi org_heading3 ctermfg=180 cterm=bold
-  hi org_heading4 ctermfg=140
-  hi Folded ctermfg=145 ctermbg=237 cterm=none
-
-  hi link org_shade_stars org_heading2
-endfunction

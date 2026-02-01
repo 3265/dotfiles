@@ -25,7 +25,15 @@ require("lazy").setup({
       "ryanoasis/vim-devicons",
     },
   },
-  "tomasiser/vim-code-dark",
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+  },
 })
 
 -- Options
@@ -147,4 +155,4 @@ vim.g.NERDTreeShowHidden = 1
 vim.cmd("filetype plugin indent on")
 
 -- Colorscheme
-vim.cmd("colorscheme codedark")
+vim.cmd("colorscheme kanagawa")
