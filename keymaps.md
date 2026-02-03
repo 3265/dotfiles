@@ -135,3 +135,15 @@ This is a quick reference extracted from the current dotfiles.
 - `Left Alt`: English mode
 - `Right Alt`: Japanese mode
 - `Ctrl-;`: paste mode
+
+## VS Code
+
+### Terminal
+
+- `Ctrl-e`: move cursor to line start (`cursorHome`)
+- `Ctrl-k`: delete to end of line (`deleteAllRight`)
+
+### Markdown preview
+
+- `Ctrl-e` (editor): open Markdown preview
+- `Ctrl-e` (preview): close active preview tab
