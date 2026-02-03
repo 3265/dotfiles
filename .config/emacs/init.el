@@ -9,9 +9,15 @@
   (package-refresh-contents))
 
 ;; Install packages if missing
-(dolist (pkg '(evil neotree org))
+(defun my/install-package-if-missing (pkg)
   (unless (package-installed-p pkg)
-    (package-install pkg)))
+    (condition-case err
+        (package-install pkg)
+      (error
+       (message "Skipping package install for %s: %s" pkg (error-message-string err))))))
+
+(dolist (pkg '(evil neotree org))
+  (my/install-package-if-missing pkg))
 
 ;; Evil mode
 (setq evil-want-C-u-scroll t)
@@ -19,6 +25,18 @@
 (evil-mode 1)
 (tab-bar-mode 1)
 (global-set-key (kbd "C-c r") #'eval-buffer)
+(global-set-key (kbd "C-s") #'save-buffer)
+
+;; Use Hack Nerd Font in GUI Emacs when available.
+(when (display-graphic-p)
+  (let ((hack-font (or (car (seq-filter (lambda (name)
+                                          (find-font (font-spec :family name)))
+                                        '("Hack Nerd Font Mono"
+                                          "Hack Nerd Font")))
+                       "Hack Nerd Font")))
+    (set-face-attribute 'default nil :family hack-font :height 150)
+    (set-face-attribute 'fixed-pitch nil :family hack-font :height 150)
+    (set-face-attribute 'variable-pitch nil :family hack-font :height 150)))
 
 ;; NERDTree-like file tree
 (require 'neotree)
@@ -52,6 +70,21 @@
 ;; Start Org buffers in folded "overview" state
 (setq org-startup-folded 'overview)
 (with-eval-after-load 'org
+  ;; Improve Org readability.
+  (setq org-startup-indented t
+        org-hide-emphasis-markers t
+        org-pretty-entities t
+        org-ellipsis "...")
+  (add-hook 'org-mode-hook #'org-indent-mode)
+  (add-hook 'org-mode-hook #'visual-line-mode)
+  (when (require 'org-modern nil t)
+    (add-hook 'org-mode-hook #'org-modern-mode))
+  (set-face-attribute 'org-level-1 nil :weight 'bold :height 1.2)
+  (set-face-attribute 'org-level-2 nil :weight 'bold :height 1.12)
+  (set-face-attribute 'org-level-3 nil :weight 'bold :height 1.06)
+  (set-face-attribute 'org-block nil :background "#1f1f1f" :extend t)
+  (set-face-attribute 'org-block-begin-line nil :foreground "#8a8a8a" :extend t)
+  (set-face-attribute 'org-block-end-line nil :foreground "#8a8a8a" :extend t)
   ;; In Org buffers, TAB reveals/cycles the subtree at point.
   (define-key org-mode-map (kbd "TAB") #'org-cycle)
   (define-key org-mode-map (kbd "<tab>") #'org-cycle)

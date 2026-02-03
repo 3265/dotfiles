@@ -65,11 +65,14 @@ This is a quick reference extracted from the current dotfiles.
 
 ### Basic
 
+- `Ctrl-s`: Save buffer
 - `Ctrl-x Ctrl-s`: Save buffer
 - `Ctrl-x Ctrl-f`: Find file
 - `Ctrl-x Ctrl-c`: Quit Emacs
 - `Ctrl-g`: Cancel/Quit
 - `Alt-x`: Execute command
+- `Ctrl-c r`: Reload current buffer config (`eval-buffer`)
+- `Ctrl-u` (Evil normal): Scroll half-page up
 
 ### NeoTree
 
@@ -111,13 +114,6 @@ This is a quick reference extracted from the current dotfiles.
 - `Esc` (`Ctrl-[`): previous directory (`prevd`)
 - `Ctrl-t`: toggle terminal mode
 
-### FZF bindings
-
-- `Ctrl-d`: find directory
-- `Ctrl-f`: find file
-- `Ctrl-r`: autojump
-- `Ctrl-h`: search history
-
 ### Emacs-style line editing
 
 - `Ctrl-a`: move to line start
@@ -126,6 +122,13 @@ This is a quick reference extracted from the current dotfiles.
 - ~~`Ctrl-f`: forward one character~~
 - `Ctrl-u`: kill from cursor to beginning of line
 - `Ctrl-k`: kill from cursor to end of line
+
+### FZF bindings
+
+- `Ctrl-d`: find directory
+- `Ctrl-f`: find file
+- `Ctrl-r`: autojump
+- `Ctrl-h`: search history
 
 ## IME
 
