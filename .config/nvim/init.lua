@@ -60,8 +60,8 @@ opt.hidden = true
 opt.visualbell = false
 opt.errorbells = false
 opt.timeout = true
-opt.timeoutlen = 1000
-opt.ttimeoutlen = 75
+opt.timeoutlen = 300
+opt.ttimeoutlen = 10
 opt.belloff = "all"
 opt.clipboard:prepend({ "unnamed", "unnamedplus" })
 

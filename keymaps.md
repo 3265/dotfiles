@@ -56,13 +56,41 @@ This is a quick reference extracted from the current dotfiles.
 Default orgmode mappings. `LocalLeader` is `\` unless `maplocalleader` is set.
 
 - Cycle visibility (folding): `Tab`
-- Rotate TODO state: `LocalLeader` then `ct`
-- Select TODO keyword: `LocalLeader` then `d`
-- TODO keyword previous/next: `Shift-Left` / `Shift-Right`
-- Agenda (week): `LocalLeader` then `caa`
-- Agenda (all TODOs): `LocalLeader` then `cat`
-- Agenda (week, current buffer): `LocalLeader` then `caA`
-- Agenda (all TODOs, current buffer): `LocalLeader` then `caT`
+- Cycle global visibility: `Shift-Tab`
+- Rotate TODO state: `t`
+- Demote heading: `>>`
+- Promote heading: `<<`
+- Insert heading: `Shift+Enter`
+
+## Emacs
+
+### Basic
+
+- `Ctrl-x Ctrl-s`: Save buffer
+- `Ctrl-x Ctrl-f`: Find file
+- `Ctrl-x Ctrl-c`: Quit Emacs
+- `Ctrl-g`: Cancel/Quit
+- `Alt-x`: Execute command
+
+### Org mode
+
+- Cycle visibility: `Tab`
+- Cycle global visibility: `Shift-Tab`
+- Insert heading: `Alt-Enter`
+- Promote/Demote heading: `Alt-Left` / `Alt-Right`
+- Move subtree up/down: `Alt-Up` / `Alt-Down`
+- Cycle TODO state: `Ctrl-c Ctrl-t`
+- Insert TODO heading: `Alt-Shift-Enter`
+- Schedule item: `Ctrl-c Ctrl-s`
+- Deadline item: `Ctrl-c Ctrl-d`
+- Insert timestamp: `Ctrl-c .`
+- Toggle checkbox: `Ctrl-c Ctrl-c`
+- Insert/Edit link: `Ctrl-c Ctrl-l`
+- Set tags: `Ctrl-c Ctrl-q`
+- Refile subtree: `Ctrl-c Ctrl-w`
+- Export dispatch: `Ctrl-c Ctrl-e`
+- Sparse tree (search): `Ctrl-c /`
+- Promote/Demote subtree: `Alt-Shift-Left` / `Alt-Shift-Right`
 
 ## Fish bindings
 
