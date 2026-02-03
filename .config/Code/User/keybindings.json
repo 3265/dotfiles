@@ -1,6 +1,7 @@
-// 既定値を上書きするには、このファイル内にキー バインドを挿入します
 [
-  // terminalでctrl+eでemacsのように行末に移動
+  // ###############################################################
+  //          Emacs Like bindings in terminal
+  // ###############################################################
   {
     "key": "ctrl+e",
     "command": "cursorHome",
@@ -10,5 +11,36 @@
     "key": "ctrl+k",
     "command": "deleteAllRight",
     "when": "terminalFocus"
-  }
+  },
+  // ###############################################################
+  //          terminal features disabled
+  // ###############################################################
+  {
+    "key": "ctrl+m",
+    "command": "-editor.action.toggleTabFocusMode"
+  },
+  {
+    "key": "ctrl+shift+v",
+    "command": "-markdown.showPreview",
+    "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "-workbench.action.terminal.focusFind",
+    "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
+  },
+  // ###############################################################
+  //          Obsidian like Keybindings
+  // ###############################################################
+  {
+    "key": "ctrl+e",
+    "command": "markdown.showPreview",
+    "when": "editorLangId == 'markdown' && editorTextFocus"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "activeWebviewPanelId == 'markdown.preview' || markdownPreviewFocus"
+  },
 ]
+
