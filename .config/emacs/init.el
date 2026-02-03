@@ -14,9 +14,11 @@
     (package-install pkg)))
 
 ;; Evil mode
+(setq evil-want-C-u-scroll t)
 (require 'evil)
 (evil-mode 1)
 (tab-bar-mode 1)
+(global-set-key (kbd "C-c r") #'eval-buffer)
 
 ;; NERDTree-like file tree
 (require 'neotree)
@@ -27,6 +29,8 @@
   ;; Match common NERDTree habits in tree buffer.
   (define-key neotree-mode-map (kbd "q") #'neotree-hide)
   (define-key neotree-mode-map (kbd "C-e") #'neotree-hide)
+  (define-key neotree-mode-map (kbd "RET") #'neotree-enter)
+  (define-key neotree-mode-map (kbd "<return>") #'neotree-enter)
   (define-key neotree-mode-map (kbd "o") #'neotree-enter)
   (defun my/neotree-open-in-new-tab ()
     (interactive)
@@ -38,6 +42,8 @@
   ;; Evil normal state overrides many single-key bindings (like "t").
   (evil-define-key 'normal neotree-mode-map (kbd "q") #'neotree-hide)
   (evil-define-key 'normal neotree-mode-map (kbd "C-e") #'neotree-hide)
+  (evil-define-key 'normal neotree-mode-map (kbd "RET") #'neotree-enter)
+  (evil-define-key 'normal neotree-mode-map (kbd "<return>") #'neotree-enter)
   (evil-define-key 'normal neotree-mode-map (kbd "o") #'neotree-enter)
   (evil-define-key 'normal neotree-mode-map (kbd "t") #'my/neotree-open-in-new-tab))
 
@@ -45,6 +51,14 @@
 (require 'org)
 ;; Start Org buffers in folded "overview" state
 (setq org-startup-folded 'overview)
+(with-eval-after-load 'org
+  ;; In Org buffers, TAB reveals/cycles the subtree at point.
+  (define-key org-mode-map (kbd "TAB") #'org-cycle)
+  (define-key org-mode-map (kbd "<tab>") #'org-cycle)
+  (define-key org-mode-map (kbd "<backtab>") #'org-shifttab)
+  (evil-define-key 'normal org-mode-map (kbd "TAB") #'org-cycle)
+  (evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle)
+  (evil-define-key 'normal org-mode-map (kbd "<backtab>") #'org-shifttab))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

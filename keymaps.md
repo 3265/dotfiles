@@ -21,7 +21,7 @@ This is a quick reference extracted from the current dotfiles.
 - Window switch (screen-like): `prefix` then `Ctrl-n` (next), `Ctrl-p` (prev)
 - Window switch (double prefix): `Ctrl-q` then `Ctrl-q` (prev)
 
-### Tmux copy mode
+### Copy mode
 
 - Enter copy mode: `Ctrl-q` then `[`
 - Select line (visual line): `Ctrl-q` then `Shift-v`
@@ -51,16 +51,15 @@ This is a quick reference extracted from the current dotfiles.
 - Leader: `Space`
 - Leader example: `Leader` then `a`
 
-### Vim orgmode
+### NerdTree
 
-Default orgmode mappings. `LocalLeader` is `\` unless `maplocalleader` is set.
-
-- Cycle visibility (folding): `Tab`
-- Cycle global visibility: `Shift-Tab`
-- Rotate TODO state: `t`
-- Demote heading: `>>`
-- Promote heading: `<<`
-- Insert heading: `Shift+Enter`
+- Toggle tree: `Ctrl-e`
+- Show hidden files: enabled (`NERDTreeShowHidden=1`)
+- Open node: `Enter` or `o`
+- Open in new tab: `t` (`T` keeps focus in NERDTree)
+- File operations menu: `m` (create/rename/delete/copy/move, etc.)
+- In the `m` menu: `a` = add child (file/dir), `d` = delete
+- Show/hide NERDTree quick help: `?`
 
 ## Emacs
 
@@ -71,6 +70,14 @@ Default orgmode mappings. `LocalLeader` is `\` unless `maplocalleader` is set.
 - `Ctrl-x Ctrl-c`: Quit Emacs
 - `Ctrl-g`: Cancel/Quit
 - `Alt-x`: Execute command
+
+### NeoTree
+
+- Toggle tree: `Ctrl-e` (Evil normal) / `F8`
+- Close tree: `q` or `Ctrl-e` (inside NeoTree)
+- Open file/directory: `Enter` or `o`
+- Open file in new Emacs tab: `t`
+- Show hidden files: enabled
 
 ### Org mode
 

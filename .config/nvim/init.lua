@@ -26,17 +26,6 @@ require("lazy").setup({
     },
   },
   {
-    "nvim-orgmode/orgmode",
-    ft = { "org" },
-    config = function()
-      require("orgmode").setup({
-        org_startup_folded = "overview",
-        org_log_done = "time",
-        org_log_into_drawer = "LOGBOOK"
-      })
-    end
-  },
-  {
     "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
@@ -161,30 +150,6 @@ vim.g.netrw_winsize = 25
 
 -- Nerdtree settings
 vim.g.NERDTreeShowHidden = 1
-
--- Orgmode: Shift+Left/Right to cycle TODO states
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "org",
-  callback = function(ev)
-    vim.keymap.set("n", "t", function()
-      require("orgmode").action("org_mappings.todo_next_state")
-    end, { buffer = ev.buf, silent = true })
-    vim.keymap.set("n", "<CR>", function()
-      require("orgmode").action("org_mappings.insert_heading_respect_content")
-    end, { buffer = ev.buf, silent = true })
-    -- Add progress cookie [0/0] to current headline
-    vim.keymap.set("n", "<Leader>op", function()
-      local line = vim.api.nvim_get_current_line()
-      if not line:match("^%*+%s") then
-        return
-      end
-      if line:match("%[%d+/%d+%]") or line:match("%[%d+%%%]") then
-        return
-      end
-      vim.api.nvim_set_current_line(line .. " [0/0]")
-    end, { buffer = ev.buf, silent = true })
-  end,
-})
 
 vim.cmd("filetype plugin indent on")
 
