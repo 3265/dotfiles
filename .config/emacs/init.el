@@ -27,6 +27,11 @@
 (global-set-key (kbd "C-c r") #'eval-buffer)
 (global-set-key (kbd "C-s") #'save-buffer)
 
+;; Keep working tree clean: disable backup/auto-save/lock files.
+(setq make-backup-files nil   ; stops `filename~`
+      auto-save-default nil   ; stops `#filename#`
+      create-lockfiles nil)   ; stops `.#filename`
+
 ;; Use Hack Nerd Font in GUI Emacs when available.
 (when (display-graphic-p)
   (let ((hack-font (or (car (seq-filter (lambda (name)
@@ -41,6 +46,8 @@
 ;; NERDTree-like file tree
 (require 'neotree)
 (setq neo-show-hidden-files t)
+(setq neo-hidden-regexp-list
+      (append neo-hidden-regexp-list '("^#.*#$" "~$" "^\\.#")))
 (global-set-key (kbd "<f8>") #'neotree-toggle)
 (define-key evil-normal-state-map (kbd "C-e") #'neotree-toggle)
 (with-eval-after-load 'neotree
