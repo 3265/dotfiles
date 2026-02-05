@@ -41,6 +41,16 @@
       auto-save-default nil   ; stops `#filename#`
       create-lockfiles nil)   ; stops `.#filename`
 
+;; Dark-mode friendly UI (GUI/terminal, including daemon-created frames).
+(defun my/apply-dark-theme (&optional frame)
+  (with-selected-frame (or frame (selected-frame))
+    (setq frame-background-mode 'dark)
+    (mapc #'disable-theme custom-enabled-themes)
+    (load-theme 'tango-dark t)))
+
+(my/apply-dark-theme)
+(add-hook 'after-make-frame-functions #'my/apply-dark-theme)
+
 ;; Use Hack Nerd Font in GUI Emacs when available.
 (when (display-graphic-p)
   (let ((hack-font (or (car (seq-filter (lambda (name)
