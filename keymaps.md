@@ -66,6 +66,10 @@ This is a quick reference extracted from the current dotfiles.
 ### Basic
 
 - `Ctrl-s`: Save buffer
+- `Ctrl-t h`: Previous tab
+- `Ctrl-t l`: Next tab
+- `Ctrl-t Ctrl-h`: Previous tab
+- `Ctrl-t Ctrl-l`: Next tab
 - `Ctrl-x Ctrl-s`: Save buffer
 - `Ctrl-x Ctrl-f`: Find file
 - `Ctrl-x Ctrl-c`: Quit Emacs

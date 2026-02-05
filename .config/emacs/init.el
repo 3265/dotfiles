@@ -27,6 +27,15 @@
 (global-set-key (kbd "C-c r") #'eval-buffer)
 (global-set-key (kbd "C-s") #'save-buffer)
 
+;; `C-t h/l` to move between tabs, similar to terminal/vim habits.
+(define-prefix-command 'my/tab-prefix-map)
+(global-set-key (kbd "C-t") #'my/tab-prefix-map)
+(define-key my/tab-prefix-map (kbd "h") #'tab-bar-switch-to-prev-tab)
+(define-key my/tab-prefix-map (kbd "l") #'tab-bar-switch-to-next-tab)
+(define-key my/tab-prefix-map (kbd "C-h") #'tab-bar-switch-to-prev-tab)
+(define-key my/tab-prefix-map (kbd "C-l") #'tab-bar-switch-to-next-tab)
+(evil-define-key 'normal 'global (kbd "C-t") #'my/tab-prefix-map)
+
 ;; Keep working tree clean: disable backup/auto-save/lock files.
 (setq make-backup-files nil   ; stops `filename~`
       auto-save-default nil   ; stops `#filename#`
