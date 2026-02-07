@@ -59,8 +59,11 @@
                                           "Hack Nerd Font")))
                        "Hack Nerd Font")))
     (set-face-attribute 'default nil :family hack-font :height 150)
-    (set-face-attribute 'fixed-pitch nil :family hack-font :height 150)
-    (set-face-attribute 'variable-pitch nil :family hack-font :height 150)))
+(set-face-attribute 'fixed-pitch nil :family hack-font :height 150)
+(set-face-attribute 'variable-pitch nil :family hack-font :height 150)))
+
+;; Vim-like line numbers.
+(global-display-line-numbers-mode 1)
 
 ;; NERDTree-like file tree
 (require 'neotree)
@@ -96,6 +99,7 @@
 (with-eval-after-load 'org
   ;; Improve Org readability.
   (setq org-startup-indented t
+        org-startup-folded 'overview
         org-hide-emphasis-markers t
         org-pretty-entities t
         org-ellipsis "...")
