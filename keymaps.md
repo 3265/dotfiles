@@ -74,7 +74,7 @@ This is a quick reference extracted from the current dotfiles.
 - `Ctrl-x Ctrl-f`: Find file
 - `Ctrl-x Ctrl-c`: Quit Emacs
 - `Ctrl-g`: Cancel/Quit
-- `Alt-x`: Execute command
+- `M-x` (`Alt-x`): Execute command
 - `Ctrl-c r`: Reload current buffer config (`eval-buffer`)
 - `Ctrl-u` (Evil normal): Scroll half-page up
 
@@ -97,7 +97,7 @@ This is a quick reference extracted from the current dotfiles.
 - Insert TODO heading: `Alt-Shift-Enter`
 - Schedule item: `Ctrl-c Ctrl-s`
 - Deadline item: `Ctrl-c Ctrl-d`
-- Insert timestamp: `Ctrl-c .`
+- Insert timestamp: `Ctrl-c .` (not `Ctrl-.`)
 - Toggle checkbox: `Ctrl-c Ctrl-c`
 - Insert/Edit link: `Ctrl-c Ctrl-l`
 - Set tags: `Ctrl-c Ctrl-q`
