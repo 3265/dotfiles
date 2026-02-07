@@ -93,8 +93,6 @@
 
 ;; Org mode defaults
 (require 'org)
-;; Start Org buffers in folded "overview" state
-(setq org-startup-folded 'overview)
 (with-eval-after-load 'org
   ;; Improve Org readability.
   (setq org-startup-indented t
@@ -115,6 +113,8 @@
   (define-key org-mode-map (kbd "TAB") #'org-cycle)
   (define-key org-mode-map (kbd "<tab>") #'org-cycle)
   (define-key org-mode-map (kbd "<backtab>") #'org-shifttab)
+  ;; Right-click on a heading to toggle its subtree.
+  (define-key org-mode-map (kbd "<mouse-3>") #'org-cycle)
   (evil-define-key 'normal org-mode-map (kbd "TAB") #'org-cycle)
   (evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle)
   (evil-define-key 'normal org-mode-map (kbd "<backtab>") #'org-shifttab))
