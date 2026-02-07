@@ -100,9 +100,12 @@
   ;; Improve Org readability.
   (setq org-startup-indented t
         org-startup-folded 'overview
+        org-time-stamp-formats '("%m/%d/%Y %a" . "%m/%d/%Y %a %H:%M")
         org-hide-emphasis-markers t
         org-pretty-entities t
         org-ellipsis "...")
+  ;; Force English day/month names in time stamps.
+  (setq system-time-locale "C")
   (add-hook 'org-mode-hook #'org-indent-mode)
   (add-hook 'org-mode-hook #'visual-line-mode)
   (when (require 'org-modern nil t)
