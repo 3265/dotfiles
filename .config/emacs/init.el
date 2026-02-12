@@ -95,12 +95,12 @@
   (evil-define-key 'normal neotree-mode-map (kbd "t") #'my/neotree-open-in-new-tab))
 
 ;; Org mode defaults
+(setq org-startup-indented t
+      org-startup-folded t)
 (require 'org)
 (with-eval-after-load 'org
   ;; Improve Org readability.
-  (setq org-startup-indented t
-        org-startup-folded 'overview
-        org-time-stamp-formats '("%m/%d/%Y %a" . "%m/%d/%Y %a %H:%M")
+  (setq org-time-stamp-formats '("%m/%d/%Y %a" . "%m/%d/%Y %a %H:%M")
         org-hide-emphasis-markers t
         org-pretty-entities t
         org-ellipsis "...")
