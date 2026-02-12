@@ -59,8 +59,8 @@
                                           "Hack Nerd Font")))
                        "Hack Nerd Font")))
     (set-face-attribute 'default nil :family hack-font :height 150)
-(set-face-attribute 'fixed-pitch nil :family hack-font :height 150)
-(set-face-attribute 'variable-pitch nil :family hack-font :height 150)))
+    (set-face-attribute 'fixed-pitch nil :family hack-font :height 150)
+    (set-face-attribute 'variable-pitch nil :family hack-font :height 150)))
 
 ;; Vim-like line numbers.
 (global-display-line-numbers-mode 1)
