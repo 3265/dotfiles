@@ -97,7 +97,10 @@ This is a quick reference extracted from the current dotfiles.
 - Insert TODO heading: `Alt-Shift-Enter`
 - Schedule item: `Ctrl-c Ctrl-s`
 - Deadline item: `Ctrl-c Ctrl-d`
-- Insert timestamp: `Ctrl-c .` (not `Ctrl-.`)
+- Insert active timestamp: `Ctrl-c .` (not `Ctrl-.`)
+- Insert inactive timestamp: `Ctrl-c !`
+- Insert active timestamp with time: `Ctrl-u Ctrl-c .`
+- Insert inactive timestamp with time: `Ctrl-u Ctrl-c !`
 - Toggle checkbox: `Ctrl-c Ctrl-c`
 - Insert/Edit link: `Ctrl-c Ctrl-l`
 - Set tags: `Ctrl-c Ctrl-q`
