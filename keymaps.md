@@ -75,6 +75,9 @@ This is a quick reference extracted from the current dotfiles.
 - `Ctrl-x Ctrl-c`: Quit Emacs
 - `Ctrl-g`: Cancel/Quit
 - `M-x` (`Alt-x`): Execute command
+- `Ctrl-x Ctrl-+` (`Ctrl-x Ctrl-=`): Increase text scale
+- `Ctrl-x Ctrl--`: Decrease text scale
+- `Ctrl-x Ctrl-0`: Reset text scale
 - `Ctrl-c r`: Reload current buffer config (`eval-buffer`)
 - `Ctrl-u` (Evil normal): Scroll half-page up
 
