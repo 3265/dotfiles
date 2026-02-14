@@ -65,6 +65,10 @@
 ;; Vim-like line numbers.
 (global-display-line-numbers-mode 1)
 
+;; Auto-reload buffers when files change on disk.
+(global-auto-revert-mode 1)
+(setq auto-revert-verbose nil)
+
 ;; NERDTree-like file tree
 (require 'neotree)
 (setq neo-show-hidden-files t)
