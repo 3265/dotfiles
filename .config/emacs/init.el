@@ -97,13 +97,25 @@
         (tab-bar-new-tab)
         (find-file path))))
   (define-key neotree-mode-map (kbd "t") #'my/neotree-open-in-new-tab)
+  (defun my/neotree-nerdtree-menu ()
+    "Simulate NERDTree 'm' menu."
+    (interactive)
+    (message "(a)dd, (d)elete, (r)ename, (c)opy")
+    (let ((c (read-char)))
+      (cond
+       ((eq c ?a) (call-interactively 'neotree-create-node))
+       ((eq c ?d) (call-interactively 'neotree-delete-node))
+       ((eq c ?r) (call-interactively 'neotree-rename-node))
+       ((eq c ?c) (call-interactively 'neotree-copy-node)))))
+  (define-key neotree-mode-map (kbd "m") #'my/neotree-nerdtree-menu)
   ;; Evil normal state overrides many single-key bindings (like "t").
   (evil-define-key 'normal neotree-mode-map (kbd "q") #'neotree-hide)
   (evil-define-key 'normal neotree-mode-map (kbd "C-e") #'neotree-hide)
   (evil-define-key 'normal neotree-mode-map (kbd "RET") #'neotree-enter)
   (evil-define-key 'normal neotree-mode-map (kbd "<return>") #'neotree-enter)
   (evil-define-key 'normal neotree-mode-map (kbd "o") #'neotree-enter)
-  (evil-define-key 'normal neotree-mode-map (kbd "t") #'my/neotree-open-in-new-tab))
+  (evil-define-key 'normal neotree-mode-map (kbd "t") #'my/neotree-open-in-new-tab)
+  (evil-define-key 'normal neotree-mode-map (kbd "m") #'my/neotree-nerdtree-menu))
 
 ;; Org mode defaults
 (setq org-startup-indented t
