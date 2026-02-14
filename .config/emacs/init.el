@@ -26,6 +26,13 @@
 (tab-bar-mode 1)
 (global-set-key (kbd "C-c r") #'eval-buffer)
 (global-set-key (kbd "C-s") #'save-buffer)
+;; Accept common uppercase Ex commands by habit (:W, :Q, etc.).
+(evil-ex-define-cmd "W" #'save-buffer)
+(evil-ex-define-cmd "WQ" #'evil-save-and-close)
+(evil-ex-define-cmd "Wq" #'evil-save-and-close)
+(evil-ex-define-cmd "Q" #'evil-quit)
+(evil-ex-define-cmd "Qa" #'evil-quit-all)
+(evil-ex-define-cmd "QA" #'evil-quit-all)
 
 ;; `C-t h/l` to move between tabs, similar to terminal/vim habits.
 (define-prefix-command 'my/tab-prefix-map)
