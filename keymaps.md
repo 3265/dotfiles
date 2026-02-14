@@ -87,6 +87,7 @@ This is a quick reference extracted from the current dotfiles.
 - Close tree: `q` or `Ctrl-e` (inside NeoTree)
 - Open file/directory: `Enter` or `o`
 - Open file in new Emacs tab: `t`
+- Menu (NERDTree-like): `m` (add/delete/rename/copy)
 - Create node (file/dir): `Ctrl-c Ctrl-n`
 - Delete node: `Ctrl-c Ctrl-d`
 - Rename node: `Ctrl-c Ctrl-r`
@@ -97,7 +98,8 @@ This is a quick reference extracted from the current dotfiles.
 
 - Cycle visibility: `Tab`
 - Cycle global visibility: `Shift-Tab`
-- Insert heading: `Alt-Enter`
+- Insert heading (split line): `Alt-Enter`
+- Insert heading (after subtree): `Ctrl-Enter`
 - Promote/Demote heading: `Alt-Left` / `Alt-Right`
 - Move subtree up/down: `Alt-Up` / `Alt-Down`
 - Cycle TODO state: `Ctrl-c Ctrl-t`
