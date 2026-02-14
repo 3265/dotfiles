@@ -87,6 +87,10 @@ This is a quick reference extracted from the current dotfiles.
 - Close tree: `q` or `Ctrl-e` (inside NeoTree)
 - Open file/directory: `Enter` or `o`
 - Open file in new Emacs tab: `t`
+- Create node (file/dir): `Ctrl-c Ctrl-n`
+- Delete node: `Ctrl-c Ctrl-d`
+- Rename node: `Ctrl-c Ctrl-r`
+- Copy node: `Ctrl-c Ctrl-p`
 - Show hidden files: enabled
 
 ### Org mode
