@@ -118,6 +118,16 @@ This is a quick reference extracted from the current dotfiles.
 - Sparse tree (search): `Ctrl-c /`
 - Promote/Demote subtree: `Alt-Shift-Left` / `Alt-Shift-Right`
 
+#### Table editing
+
+- `Tab`: Next cell / Re-align table
+- `Shift-Tab`: Previous cell
+- `Alt-Up` / `Alt-Down`: Move row up/down
+- `Alt-Left` / `Alt-Right`: Move column left/right
+- `Alt-Shift-Up`: Delete row
+- `Alt-Shift-Down`: Insert row below
+- `Alt-Shift-Left` / `Alt-Shift-Right`: Delete/Insert column
+
 ## Fish bindings
 
 ### Basic
