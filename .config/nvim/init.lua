@@ -49,7 +49,7 @@ opt.hidden = true
 opt.visualbell = false
 opt.errorbells = false
 opt.timeout = true
-opt.timeoutlen = 300
+opt.timeoutlen = 700 -- ここが300とかだと、ctrl-w Hが効かない
 opt.ttimeoutlen = 10
 opt.belloff = "all"
 opt.clipboard:prepend({ "unnamed", "unnamedplus" })
