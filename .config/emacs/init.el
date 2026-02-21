@@ -21,7 +21,11 @@
 
 ;; Evil mode
 (setq evil-want-C-u-scroll t)
-(require 'evil)
+;; Ensure evil is loaded. If missing, try to install it.
+(unless (require 'evil nil t)
+  (package-refresh-contents)
+  (package-install 'evil)
+  (require 'evil))
 (evil-mode 1)
 (tab-bar-mode 1)
 (global-set-key (kbd "C-c r") #'eval-buffer)
