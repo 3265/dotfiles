@@ -30,6 +30,12 @@
 (tab-bar-mode 1)
 (global-set-key (kbd "C-c r") #'eval-buffer)
 (global-set-key (kbd "C-s") #'save-buffer)
+;; Quit without repeated save prompts: save file-backed buffers, then exit.
+(defun my/quit-emacs-fast ()
+  (interactive)
+  (save-some-buffers t)
+  (kill-emacs))
+(global-set-key (kbd "C-x C-c") #'my/quit-emacs-fast)
 ;; Accept common uppercase Ex commands by habit (:W, :Q, etc.).
 (evil-ex-define-cmd "W" #'save-buffer)
 (evil-ex-define-cmd "WQ" #'evil-save-and-close)
