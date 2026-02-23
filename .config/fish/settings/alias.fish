@@ -2,7 +2,7 @@
 
 # Command shortcut
 alias a="alias"
-alias b=''
+alias b='bc'
 alias c="/usr/bin/batcat --style=plain" # cat
 alias d='docker'
 alias dc="docker compose"
