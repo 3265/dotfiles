@@ -27,6 +27,20 @@
   (package-install 'evil)
   (require 'evil))
 (evil-mode 1)
+;; Make ESC reliable in terminal multiplexers (e.g. GNU screen).
+;; Inside screen a single press may arrive as ESC ESC; translate that
+;; into a single <escape> event and bind it to evil-normal-state.
+(when (not (display-graphic-p))
+  ;; If inside GNU screen ($STY is set), translate ESC ESC -> single <escape>
+  (when (getenv "STY")
+    (define-key input-decode-map "\e\e" [escape]))
+  ;; Ensure both <escape> and C-[ leave insert state reliably.
+  (define-key evil-insert-state-map (kbd "<escape>") #'evil-normal-state)
+  (define-key evil-insert-state-map (kbd "C-[") #'evil-normal-state)
+  ;; Reduce evil's escape delay to avoid waiting for extra bytes.
+  (when (boundp 'evil-esc-delay)
+    (setq evil-esc-delay 0)))
+
 (tab-bar-mode 1)
 (global-set-key (kbd "C-c r") #'eval-buffer)
 (global-set-key (kbd "C-s") #'save-buffer)
