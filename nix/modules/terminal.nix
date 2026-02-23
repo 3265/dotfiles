@@ -2,6 +2,7 @@
   home.packages = [
     pkgs-stable.tmux
     pkgs-stable.screen
+    pkgs-stable.btop
   ];
 
   home.file = {

@@ -2,8 +2,8 @@
 
 # Command shortcut
 alias a="alias"
-alias b='/usr/bin/batcat --style=plain'
-alias c="code"
+alias b=''
+alias c="/usr/bin/batcat --style=plain" # cat
 alias d='docker'
 alias dc="docker compose"
 alias docker-compose="docker compose"
@@ -24,8 +24,9 @@ alias q='kiro-cli'
 alias reload='source ~/.config/fish/config.fish'
 alias r='glow' # for README.md
 alias s='screen -t home -U'
-alias t='touch'
+alias t='btop'
 alias v='vim'
+alias x='emacs -nw'
 alias y='yes'
 alias gap='~/gap/build/gap'
 
