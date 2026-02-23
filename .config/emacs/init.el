@@ -153,6 +153,7 @@
         org-ellipsis "...")
   ;; Force English day/month names in time stamps.
   (setq system-time-locale "C")
+  (setq org-indent-mode-turns-on-hiding-stars nil)
   (add-hook 'org-mode-hook #'org-indent-mode)
   (add-hook 'org-mode-hook #'visual-line-mode)
   (when (require 'org-modern nil t)
