@@ -1,0 +1,1 @@
+DATE_FORMAT	[{MONTH}/{DATE}]	名詞	easy date input
