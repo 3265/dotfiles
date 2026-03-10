@@ -136,6 +136,7 @@ This is a quick reference extracted from the current dotfiles.
 - `Ctrl-p`: previous command
 - `Ctrl-n`: next command
 - `Ctrl-v`: edit current command in Vim
+- `Ctrl-x`: open Emacs in terminal (`emacs -nw`)
 - `Ctrl-b`: `cd ../` (back to parent)
 - `Esc` (`Ctrl-[`): previous directory (`prevd`)
 - `Ctrl-t`: toggle terminal mode

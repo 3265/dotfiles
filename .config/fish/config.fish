@@ -43,6 +43,12 @@ function back_to_top_dir --description 'Go to top directory'
 end
 bind \cb back_to_top_dir
 
+function open_emacs_nw --description 'Open Emacs in terminal'
+    emacs -nw
+    commandline -f repaint
+end
+bind \cx open_emacs_nw
+
 function prev_d --description 'Go to previous directory'
     prevd
     commandline -f repaint
