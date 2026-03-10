@@ -5,6 +5,7 @@
     ./modules/shell.nix
     ./modules/editor.nix
     ./modules/terminal.nix
+    ./modules/ai.nix
     ./modules/python.nix
     ./modules/blog.nix
     ./modules/languages.nix
