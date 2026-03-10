@@ -9,6 +9,7 @@
     util-linux
     fish
     silver-searcher
+    ripgrep
     tree
     fzf
     bat
