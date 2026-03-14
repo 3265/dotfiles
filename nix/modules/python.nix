@@ -18,6 +18,7 @@
     python312Packages.ipython
     python312Packages.ipdb
     git-filter-repo
+    pgcli
 
     # conda  # Uncomment if needed (not recommended with Nix)
     # pyenv
