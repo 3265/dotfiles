@@ -13,6 +13,7 @@
     isort
     mypy
     python312Packages.flake8
+    ruff
     autoflake
     python312Packages.pytest
     python312Packages.ipython
