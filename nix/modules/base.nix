@@ -29,6 +29,7 @@
     lsd
     fastmod
     ghq
+    git-secrets
 
     # Docker (note: Docker daemon needs system-level setup)
     # docker
