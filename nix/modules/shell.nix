@@ -11,7 +11,10 @@
   home.file = {
     # Fish
     ".config/fish/config.fish".source = ../../.config/fish/config.fish;
-    ".config/fish/conf.d".source = ../../.config/fish/conf.d;
+    ".config/fish/conf.d" = {
+      source = ../../.config/fish/conf.d;
+      recursive = true;
+    };
     ".config/fish/functions".source = ../../.config/fish/functions;
     ".config/fish/settings".source = ../../.config/fish/settings;
 
