@@ -5,7 +5,7 @@
 Install Nix
 
 ```bash
-sh <(curl -L https://nixos.org/nix/install) --no-daemon
+bash -c "sh <(curl -L https://nixos.org/nix/install) --no-daemon"
 . ~/.nix-profile/etc/profile.d/nix.sh
 ```
 
