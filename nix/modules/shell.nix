@@ -15,8 +15,14 @@
       source = ../../.config/fish/conf.d;
       recursive = true;
     };
-    ".config/fish/functions".source = ../../.config/fish/functions;
-    ".config/fish/settings".source = ../../.config/fish/settings;
+    ".config/fish/functions" = {
+      source = ../../.config/fish/functions;
+      recursive = true;
+    };
+    ".config/fish/settings" = {
+      source = ../../.config/fish/settings;
+      recursive = true;
+    };
 
     # Bash
     ".bashrc".source = ../../.config/bash/.bashrc;

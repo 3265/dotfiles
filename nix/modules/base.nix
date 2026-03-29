@@ -7,7 +7,6 @@
 
     # Basic utilities
     util-linux
-    fish
     silver-searcher
     ripgrep
     tree

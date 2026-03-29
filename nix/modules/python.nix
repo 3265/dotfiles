@@ -8,7 +8,7 @@
 
     # Python development tools
     pipenv
-    python3Packages.pip-tools
+    python312Packages.pip-tools
     black
     isort
     mypy
