@@ -34,4 +34,8 @@
     builtins.elem (pkgs.lib.getName pkg) [
       "claude-code"
     ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "openclaw-2026.3.12"
+  ];
 }
