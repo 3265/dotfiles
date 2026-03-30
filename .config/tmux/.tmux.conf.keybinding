@@ -26,11 +26,14 @@ bind -r L resize-pane -R 5
 
 # |で縦分割を設定する
 unbind %
-bind | split-window -h
+bind | split-window -h -c '#{pane_current_path}'
 
 # -で横分割を設定する
 unbind '"'
-bind '-' split-window -v
+bind '-' split-window -v -c '#{pane_current_path}'
+
+# 新しいウィンドウを現在のpaneと同じディレクトリで開く
+bind c new-window -c '#{pane_current_path}'
 
 # ウィンドウの切り替え
 bind p previous-window
