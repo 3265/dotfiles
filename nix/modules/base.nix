@@ -29,7 +29,6 @@
     fastmod
     ghq
     git-secrets
-    openclaw
 
     # Docker (note: Docker daemon needs system-level setup)
     # docker
