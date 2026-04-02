@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
@@ -10,19 +10,32 @@
 
   home.file = {
     # Fish
-    ".config/fish/config.fish".source = ../../.config/fish/config.fish;
-    ".config/fish/conf.d" = {
-      source = ../../.config/fish/conf.d;
-      recursive = true;
-    };
-    ".config/fish/functions" = {
-      source = ../../.config/fish/functions;
-      recursive = true;
-    };
-    ".config/fish/settings" = {
-      source = ../../.config/fish/settings;
-      recursive = true;
-    };
+    ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/.config/fish/config.fish";
+    ".config/fish/conf.d/fzf.fish".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/.config/fish/conf.d/fzf.fish";
+    ".config/fish/functions/__fzf_autojump.fish".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/.config/fish/functions/__fzf_autojump.fish";
+    ".config/fish/functions/__fzf_find_dir.fish".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/.config/fish/functions/__fzf_find_dir.fish";
+    ".config/fish/functions/__fzf_find_file.fish".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/.config/fish/functions/__fzf_find_file.fish";
+    ".config/fish/functions/__fzf_search_history.fish".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/.config/fish/functions/__fzf_search_history.fish";
+    ".config/fish/functions/explorer.fish".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/.config/fish/functions/explorer.fish";
+    ".config/fish/functions/fish_prompt.fish".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/.config/fish/functions/fish_prompt.fish";
+    ".config/fish/functions/load.fish".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/.config/fish/functions/load.fish";
+    ".config/fish/settings/alias.fish".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/.config/fish/settings/alias.fish";
+    ".config/fish/settings/basic.fish".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/.config/fish/settings/basic.fish";
+    ".config/fish/settings/env.fish".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/.config/fish/settings/env.fish";
+    ".config/fish/settings/git.fish".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/.config/fish/settings/git.fish";
 
     # Bash
     ".bashrc".source = ../../.config/bash/.bashrc;
