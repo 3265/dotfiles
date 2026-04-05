@@ -3,6 +3,7 @@
     python312
     python312Packages.pip
     python312Packages.pipx
+    python312Packages.huggingface-hub
     poetry
     uv
 
