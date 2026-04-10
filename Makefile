@@ -50,8 +50,11 @@ test2:
 	$(MAKE) -C $(SETUP_DIR)/_tests test2
 
 ############################
-#     github
+#     others
 ############################
 
 github:
 	bash $(SETUP_DIR)/github.sh $(SECOND_ARG)
+
+nix:
+	bash $(SETUP_DIR)/nix.sh $(SECOND_ARG)

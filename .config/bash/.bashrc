@@ -13,5 +13,3 @@ shopt -s dotglob # Filter Hidden Files
 # lunch screen
 # export LC_CTYPE=en_US.UTF-8 # for prevending bug of gnu screen
 # screen
-
-. "$HOME/.cargo/env"

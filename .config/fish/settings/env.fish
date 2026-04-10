@@ -35,7 +35,7 @@ if type -q "fzf"
 end
 
 # Autojump
-source /usr/share/autojump/autojump.fish
+source ~/.nix-profile/share/autojump/autojump.fish
 
 # ------------------------------
 # C/C++

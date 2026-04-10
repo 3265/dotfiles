@@ -2,24 +2,21 @@
 
 ## Setup
 
-Install Nix
+Install nix
 
 ```bash
-bash -c "sh <(curl -L https://nixos.org/nix/install) --no-daemon"
-. ~/.nix-profile/etc/profile.d/nix.sh
+make nix
 ```
 
-Activate Flakes
+Install fish 
 
-```bash
-mkdir -p ~/.config/nix
-echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
+```
+sudo apt update
+sudo apt install -y fish
 ```
 
 Apply dotfiles
 
 ```bash
-git clone https://github.com/3265/dotfiles
-cd dotfiles
 make update
 ```
