@@ -10,7 +10,6 @@
     ./modules/blog.nix
     ./modules/languages.nix
     ./modules/cloud.nix
-    # ./modules/gui.nix       # GUI applications
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage
