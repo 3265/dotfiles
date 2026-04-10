@@ -58,3 +58,6 @@ font:
 
 ime:
 	bash $(SETUP_DIR)/input/ime.sh $(SECOND_ARG)
+
+fish:
+	bash $(SETUP_DIR)/input/fish.sh $(SECOND_ARG)
