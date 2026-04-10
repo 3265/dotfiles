@@ -43,12 +43,6 @@ link:
 test:
 	$(MAKE) -C $(SETUP_DIR)/_tests
 
-.PHONY: test2
-.ONESHELL:
-test2:
-	echo $(SECOND_ARG)
-	$(MAKE) -C $(SETUP_DIR)/_tests test2
-
 ############################
 #     others
 ############################
@@ -58,3 +52,9 @@ github:
 
 nix:
 	bash $(SETUP_DIR)/nix.sh $(SECOND_ARG)
+
+font:
+	bash $(SETUP_DIR)/input/font.sh $(SECOND_ARG)
+
+ime:
+	bash $(SETUP_DIR)/input/ime.sh $(SECOND_ARG)

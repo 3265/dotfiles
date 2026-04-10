@@ -1,19 +1,3 @@
 # NOTE:
-# For launch i3 window manager
-# Need to setup default shell as /bin/bash in vertual console user
-# if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-#   exec startx
-# fi
-
-# if [ -f ~/.zshenv ]; then
-#     . ~/.zshenv
-# fi
-#
-# if [ -f ~/.bashrc ]; then
-#     . ~/.bashrc
-# fi
-
-exec fish
-. "$HOME/.cargo/env"
-
-if [ -e /home/mike/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mike/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+# do not use `exec` command here
+# because GUI login session breaks with exec 

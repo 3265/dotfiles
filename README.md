@@ -15,8 +15,15 @@ sudo apt update
 sudo apt install -y fish
 ```
 
-Apply dotfiles
+Apply nix pkgs
 
 ```bash
 make update
+```
+
+Others
+
+```bash
+make font
+make ime
 ```
