@@ -1,6 +1,7 @@
 SHELL := /bin/bash
 ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 SETUP_DIR := $(ROOT_DIR)/setup
+DEB_DIR := $(ROOT_DIR)/deb
 
 ARGS := $(filter-out $@,$(MAKECMDGOALS))
 FIRST_ARG := $(word 1, $(ARGS))
@@ -32,7 +33,7 @@ clean:
 .PHONY: link
 .ONESHELL:
 link:
-	bash $(SETUP_DIR)/link.sh
+	bash $(DEB_DIR)/link.sh
 
 ############################
 #      test
@@ -48,16 +49,16 @@ test:
 ############################
 
 github:
-	bash $(SETUP_DIR)/github.sh $(SECOND_ARG)
+	bash $(DEB_DIR)/github.sh $(SECOND_ARG)
 
 nix:
-	bash $(SETUP_DIR)/nix.sh $(SECOND_ARG)
+	bash $(DEB_DIR)/nix.sh $(SECOND_ARG)
 
 font:
-	bash $(SETUP_DIR)/input/font.sh $(SECOND_ARG)
+	bash $(DEB_DIR)/sys/font.sh $(SECOND_ARG)
 
 ime:
-	bash $(SETUP_DIR)/input/ime.sh $(SECOND_ARG)
+	bash $(DEB_DIR)/sys/ime.sh $(SECOND_ARG)
 
 fish:
-	bash $(SETUP_DIR)/input/fish.sh $(SECOND_ARG)
+	bash $(DEB_DIR)/sys/fish.sh $(SECOND_ARG)
