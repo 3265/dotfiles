@@ -44,21 +44,3 @@ link:
 test:
 	$(MAKE) -C $(SETUP_DIR)/_tests
 
-############################
-#     others
-############################
-
-github:
-	bash $(DEB_DIR)/github.sh $(SECOND_ARG)
-
-nix:
-	bash $(DEB_DIR)/nix.sh $(SECOND_ARG)
-
-font:
-	bash $(DEB_DIR)/sys/font.sh $(SECOND_ARG)
-
-ime:
-	bash $(DEB_DIR)/sys/ime.sh $(SECOND_ARG)
-
-fish:
-	bash $(DEB_DIR)/sys/fish.sh $(SECOND_ARG)

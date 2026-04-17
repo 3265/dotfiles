@@ -3,7 +3,7 @@
 set -e
 
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade -y
 
 sudo apt install -y build-essential
 sudo apt install -y bsdmainutils # for cal
