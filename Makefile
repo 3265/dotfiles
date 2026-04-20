@@ -1,6 +1,5 @@
 SHELL := /bin/bash
 ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-SETUP_DIR := $(ROOT_DIR)/setup
 DEB_DIR := $(ROOT_DIR)/deb
 
 ARGS := $(filter-out $@,$(MAKECMDGOALS))
@@ -34,13 +33,4 @@ clean:
 .ONESHELL:
 link:
 	bash $(DEB_DIR)/link.sh
-
-############################
-#      test
-############################
-
-.PHONY: test
-.ONESHELL:
-test:
-	$(MAKE) -C $(SETUP_DIR)/_tests
 
