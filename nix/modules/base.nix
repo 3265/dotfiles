@@ -37,8 +37,8 @@
   ];
 
   home.file = {
-    ".gitconfig".source = ../../.config/git/.gitconfig;
-    ".agignore".source = ../../.config/ag/.agignore;
-    ".gnupg/gpg-agent.conf".source = ../../.config/gnupg/gpg-agent.conf;
+    ".gitconfig".source = ../../config/git/.gitconfig;
+    ".agignore".source = ../../config/ag/.agignore;
+    ".gnupg/gpg-agent.conf".source = ../../config/gnupg/gpg-agent.conf;
   };
 }

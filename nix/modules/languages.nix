@@ -33,8 +33,8 @@
 
   # Link config files
   home.file = {
-    ".npmrc".source = ../../.config/npm/.npmrc;
-    ".gemrc".source = ../../.config/gem/.gemrc;
-    ".config/rstudio/rstudio-prefs.json".source = ../../.config/rstudio/rstudio-prefs.json;
+    ".npmrc".source = ../../config/npm/.npmrc;
+    ".gemrc".source = ../../config/gem/.gemrc;
+    ".config/rstudio/rstudio-prefs.json".source = ../../config/rstudio/rstudio-prefs.json;
   };
 }

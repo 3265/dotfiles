@@ -10,34 +10,34 @@
 
   home.file = {
     # Fish
-    ".config/fish/config.fish".source = ../../.config/fish/config.fish;
+    ".config/fish/config.fish".source = ../../config/fish/config.fish;
     ".config/fish/conf.d" = {
-      source = ../../.config/fish/conf.d;
+      source = ../../config/fish/conf.d;
       recursive = true;
     };
     ".config/fish/functions" = {
-      source = ../../.config/fish/functions;
+      source = ../../config/fish/functions;
       recursive = true;
     };
     ".config/fish/settings" = {
-      source = ../../.config/fish/settings;
+      source = ../../config/fish/settings;
       recursive = true;
     };
 
     # Bash
-    ".bashrc".source = ../../.config/bash/.bashrc;
-    ".bashenv".source = ../../.config/bash/.bashenv;
-    ".bash_profile".source = ../../.config/bash/.bash_profile;
-    ".inputrc".source = ../../.config/bash/.inputrc;
-    ".netrc".source = ../../.config/bash/.netrc;
+    ".bashrc".source = ../../config/bash/.bashrc;
+    ".bashenv".source = ../../config/bash/.bashenv;
+    ".bash_profile".source = ../../config/bash/.bash_profile;
+    ".inputrc".source = ../../config/bash/.inputrc;
+    ".netrc".source = ../../config/bash/.netrc;
 
     # SSH
-    ".hushlogin".source = ../../.config/ssh/.hushlogin;
+    ".hushlogin".source = ../../config/ssh/.hushlogin;
 
     # IME
-    ".config/plasma-workspace/env/fcitx5.sh".source = ../../.config/plasma-workspace/env/fcitx5.sh;
+    ".config/plasma-workspace/env/fcitx5.sh".source = ../../config/plasma-workspace/env/fcitx5.sh;
 
     # Fusuma
-    ".config/autostart/fusuma.desktop".source = ../../.config/autostart/fusuma.desktop;
+    ".config/autostart/fusuma.desktop".source = ../../config/autostart/fusuma.desktop;
   };
 }

@@ -2,7 +2,7 @@
 
 ## Repository Layout
 
-- `.config/`: config files linked into `$HOME` or managed by Home Manager
+- `config/`: config files linked into `$HOME` or `~/.config`, or managed by Home Manager
 - `nix/`: Home Manager modules
 - `deb/`: Debian/Ubuntu setup scripts
 - `assets/`: non-runtime assets such as wallpapers and QMK keymaps
