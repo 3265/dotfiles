@@ -30,10 +30,10 @@ require("lazy").setup({
     lazy = false,
     priority = 1000,
   },
-  {
-    "OXY2DEV/markview.nvim",
-    lazy = false,
-  },
+  -- {
+  --   "OXY2DEV/markview.nvim",
+  --   lazy = false,
+  -- },
 })
 
 -- Options
