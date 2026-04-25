@@ -16,3 +16,6 @@ sudo update-alternatives --set editor /usr/bin/vim.basic
 # my working directories
 mkdir -p ~/{workspace,playground}
 
+sudo apt install -y snapd # not recommended since IME problem, use deb pkg instead
+sudo apt install -y flatpak
+
