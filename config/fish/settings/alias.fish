@@ -101,7 +101,8 @@ alias tsh='tasksh' # for task
 alias vsh='virsh' # KVM
 
 # GUI
-alias kderestart='killall plsmashell && kstart5 plasmashell'
+alias kde-restart='killall plsmashell && kstart5 plasmashell'
+alias kde-reset='qdbus org.kde.KWin /Compositor resume'
 
 # wifi
 function wifi
