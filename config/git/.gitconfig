@@ -114,6 +114,7 @@
   keepTemporaries = false
 [push]
   default = simple
+  autoSetupRemote = true
 
 [credential]
   helper = store
