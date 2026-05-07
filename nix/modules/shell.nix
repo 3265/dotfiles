@@ -35,7 +35,10 @@
     ".hushlogin".source = ../../config/ssh/.hushlogin;
 
     # IME
-    ".config/plasma-workspace/env/fcitx5.sh".source = ../../config/plasma-workspace/env/fcitx5.sh;
+    ".config/plasma-workspace/env/fcitx5.sh" = {
+      source = ../../config/plasma-workspace/env/fcitx5.sh;
+      force = true;
+    };
 
     # Fusuma
     ".config/autostart/fusuma.desktop".source = ../../config/autostart/fusuma.desktop;
