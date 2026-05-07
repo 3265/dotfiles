@@ -6,6 +6,7 @@ sudo apt update
 sudo apt upgrade -y
 
 sudo apt install -y build-essential
+sudo apt install -y make cmake gcc-13 g++-13
 sudo apt install -y bsdmainutils # for cal
 sudo apt install -y zram-config
 
