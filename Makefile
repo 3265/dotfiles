@@ -12,7 +12,7 @@ SECOND_ARG := $(word 2, $(ARGS))
 
 update:
 	git add -N . 2>/dev/null || true
-	nix run home-manager/master -- switch --flake .#mike --impure -b backup
+	nix run home-manager/master -- switch --flake .#myhome --impure -b backup
 
 generations:
 	nix run home-manager/master -- generations
