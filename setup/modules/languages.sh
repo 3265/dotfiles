@@ -6,10 +6,16 @@ sudo apt install -y \
   nodejs \
   default-jdk \
   maven \
-  vcpkg \
   gap \
   fp-compiler \
   clisp \
   php \
   rustup \
   rbenv
+
+
+sudo apt install -y nodejs npm
+sudo apt install -y python3-pip
+
+# TODO:
+# vcpkg

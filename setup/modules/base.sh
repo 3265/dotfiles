@@ -23,6 +23,8 @@ sudo apt install -y \
   curl \
   inxi \
   htop \
-  lsd \
-  fastmod \
-  ghq
+  lsd
+
+sudo apt install -y python-is-python3
+cargo install fastmod
+go install github.com/x-motemen/ghq@latest

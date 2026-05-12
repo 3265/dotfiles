@@ -11,4 +11,6 @@ sudo apt install -y \
   python3-ipython \
   python3-flake8 \
   pgcli
-# uv can be installed via its official script
+
+# install uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
