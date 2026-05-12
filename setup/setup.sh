@@ -5,7 +5,6 @@ echo "Starting system setup..."
 
 # 1. System/Env setup
 bash setup/sys/init.sh
-bash setup/sys/apt.sh # If applicable, otherwise base.sh covers it
 bash setup/sys/docker.sh
 
 # 2. Base packages
