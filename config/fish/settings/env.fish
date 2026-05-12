@@ -34,9 +34,6 @@ if type -q "fzf"
   set FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""' # see https://github.com/junegunn/fzf/issues/634
 end
 
-# Autojump
-source ~/.nix-profile/share/autojump/autojump.fish
-
 # ------------------------------
 # C/C++
 # ------------------------------
