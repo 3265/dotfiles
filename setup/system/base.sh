@@ -1,10 +1,11 @@
 #!/bin/bash
-# Base packages installation using apt
 
+# Base packages installation using apt
 sudo apt update
 sudo apt install -y \
   build-essential \
   cmake \
+  bsdmainutils \ # for cal
   silversearcher-ag \
   ripgrep \
   tree \
@@ -22,9 +23,5 @@ sudo apt install -y \
   whois \
   curl \
   inxi \
-  htop \
   lsd
 
-sudo apt install -y python-is-python3
-cargo install fastmod
-go install github.com/x-motemen/ghq@latest

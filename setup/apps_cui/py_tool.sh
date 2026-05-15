@@ -9,8 +9,6 @@ sudo apt install -y \
   python3-mypy \
   python3-pytest \
   python3-ipython \
-  python3-flake8 \
-  pgcli
+  python3-flake8 
+  #pgcli
 
-# install uv
-curl -LsSf https://astral.sh/uv/install.sh | sh
