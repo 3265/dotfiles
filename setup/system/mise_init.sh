@@ -9,3 +9,4 @@ echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.gpg arch=$(dpkg --pr
 
 sudo apt update
 sudo apt install -y mise
+

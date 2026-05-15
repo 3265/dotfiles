@@ -3,8 +3,6 @@
 # Base packages installation using apt
 sudo apt update
 sudo apt install -y \
-  build-essential \
-  cmake \
   bsdmainutils \ # for cal
   silversearcher-ag \
   ripgrep \
