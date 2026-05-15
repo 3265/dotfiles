@@ -1,0 +1,11 @@
+.markdown-source-view:not(.is-live-preview) * {
+  background: unset !important;
+  color: unset !important;
+  font-size: 1rem !important;
+  font-weight: unset !important;
+  font-family: monospace !important;
+}
+
+.markdown-source-view:not(.is-live-preview) *::after {
+  border: unset !important;
+}

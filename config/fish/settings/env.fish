@@ -222,3 +222,12 @@ set -gx PATH $PATH $HOME/flutter/bin
 # ##########################
 set -U fish_user_paths /snap/bin $fish_user_paths
 
+
+# ##########################
+# mise
+# ##########################
+
+if type "mise" > /dev/null
+    mise activate fish | source
+end
+

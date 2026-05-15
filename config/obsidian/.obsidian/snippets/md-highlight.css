@@ -1,0 +1,122 @@
+ /* md-highlight.css */
+
+/* =========================
+   編集画面: Source / Live Preview
+   ========================= */
+
+/* 見出し */
+.cm-header-1 {
+  color: #ff6b6b;
+}
+.cm-header-2 {
+  color: #ffa94d;
+}
+.cm-header-3 {
+  color: #ffd43b;
+}
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  color: #69db7c;
+}
+
+/* # ## ### などのMarkdown記号 */
+.cm-formatting-header {
+  color: #868e96;
+}
+
+/* 太字 **bold** */
+.cm-strong {
+  color: #ff922b;
+  font-weight: 800;
+}
+
+/* ** の記号部分 */
+.cm-formatting-strong {
+  color: #ff922b;
+  opacity: 0.7;
+}
+
+/* 斜体 *italic* */
+.cm-em {
+  color: #cc5de8;
+}
+
+/* リンク */
+.cm-link,
+.cm-hmd-internal-link,
+.cm-url {
+  color: #4dabf7;
+}
+
+/* インラインコード `code` */
+.cm-inline-code {
+  color: #20c997;
+  background-color: rgba(32, 201, 151, 0.12);
+  border-radius: 4px;
+  padding: 0 0.2em;
+}
+
+/* ハイライト ==text== */
+.cm-highlight {
+  color: #000000;
+  background-color: #fff3bf;
+}
+
+/* タグ #tag */
+.cm-hashtag {
+  color: #74c0fc;
+}
+
+/* 引用 */
+.HyperMD-quote,
+.cm-quote {
+  color: #adb5bd;
+  border-left: 3px solid #868e96;
+  padding-left: 0.8em;
+}
+
+
+/* =========================
+   閲覧画面: Reading view
+   ========================= */
+
+.markdown-preview-view h1 {
+  color: #ff6b6b;
+}
+.markdown-preview-view h2 {
+  color: #ffa94d;
+}
+.markdown-preview-view h3 {
+  color: #ffd43b;
+}
+
+.markdown-preview-view strong {
+  color: #ff922b;
+  font-weight: 800;
+}
+
+.markdown-preview-view em {
+  color: #cc5de8;
+}
+
+.markdown-preview-view a {
+  color: #4dabf7;
+}
+
+.markdown-preview-view code {
+  color: #20c997;
+  background-color: rgba(32, 201, 151, 0.12);
+  border-radius: 4px;
+  padding: 0 0.2em;
+}
+
+.markdown-preview-view mark {
+  color: #000000;
+  background-color: #fff3bf;
+}
+
+.markdown-preview-view blockquote {
+  color: #adb5bd;
+  border-left: 3px solid #868e96;
+}

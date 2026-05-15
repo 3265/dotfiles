@@ -1,0 +1,12 @@
+{
+  "vimMode": true,
+  "useMarkdownLinks": true,
+  "attachmentFolderPath": "attachments",
+  "showLineNumber": false,
+  "livePreview": false,
+  "defaultViewMode": "source",
+  "readableLineLength": true,
+  "foldHeading": true,
+  "focusNewTab": true,
+  "showInlineTitle": true
+}
