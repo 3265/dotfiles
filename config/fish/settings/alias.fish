@@ -104,6 +104,11 @@ alias vsh='virsh' # KVM
 alias kde-restart='killall plsmashell && kstart5 plasmashell'
 alias kde-reset='qdbus org.kde.KWin /Compositor resume'
 
+# AI
+alias cl="claude --dangerously-skip-permissions"
+alias gm="gemini --yolo"
+alias cx=" codex--yolo"
+
 # wifi
 function wifi
     sudo systemctl restart NetworkManager
