@@ -26,7 +26,19 @@ alias r='readlink -f'
 alias s='screen -t home -U'
 alias t='btop'
 alias v='vim'
-alias x='emacs -nw'
+function x -d "Launch AI assistant"
+    set choice (printf "claude (personal)\nclaude (company)\ngemini\ncodex" | fzf --reverse --prompt="AI> " --height=~10)
+    switch $choice
+        case "claude (personal)"
+            claude --dangerously-skip-permissions $argv
+        case "claude (company)"
+            claude --profile company --dangerously-skip-permissions $argv
+        case "gemini"
+            gemini --yolo $argv
+        case "codex"
+            codex --yolo $argv
+    end
+end
 alias y='yes'
 alias gap='~/gap/build/gap'
 
