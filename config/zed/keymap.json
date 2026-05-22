@@ -33,4 +33,11 @@
       "ctrl-;": null
     }
   },
+  {
+    "context": "Editor && !menu",
+    "bindings": {
+      "ctrl-c": "editor::Copy",
+      "ctrl-f": "buffer_search::Deploy"
+    }
+  },
 ]
