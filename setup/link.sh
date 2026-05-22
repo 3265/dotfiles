@@ -140,3 +140,9 @@ ln -s -f ~/dotfiles/config/autostart/fusuma.desktop ~/.config/autostart/fusuma.d
 ########################
 mkdir -p ~/.config/kate/lspclient
 ln -s -f ~/dotfiles/config/kate/lspclient/settings.json ~/.config/kate/lspclient/settings.json
+
+########################
+#  Zed
+########################
+mkdir -p ~/.config/zed
+ln -s -f ~/dotfiles/config/zed/* ~/.config/zed/
