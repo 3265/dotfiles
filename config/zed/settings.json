@@ -7,6 +7,39 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "debugger": {
+    "button": false
+  },
+  "diagnostics": {
+    "button": false
+  },
+  "global_lsp_settings": {
+    "button": false
+  },
+  "search": {
+    "button": false
+  },
+  "project_panel": {
+    "button": false,
+    "dock": "right"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "button": false,
+    "dock": "right"
+  },
+  "agent": {
+    "button": false,
+    "dock": "left",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "git_panel": {
+    "button": false,
+    "dock": "right"
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false

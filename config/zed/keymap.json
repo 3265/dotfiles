@@ -24,4 +24,13 @@
       "ctrl-f": "buffer_search::Deploy",
     },
   },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-f": "buffer_search::Deploy",
+
+      "ctrl-:": null,
+      "ctrl-;": null
+    }
+  },
 ]
