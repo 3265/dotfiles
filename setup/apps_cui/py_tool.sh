@@ -11,4 +11,5 @@ sudo apt install -y \
   python3-flake8 
   #pgcli
 
-python -m pip install -U huggingface_hub black
+python -m pip install -U "huggingface_hub[cli]" hf_xet black
+
