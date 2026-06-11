@@ -118,7 +118,7 @@ end
 # ------------------------------
 
 # Golang
-if type "go" > /dev/null
+if command -q go
    set -gx GO111MODULE on
    set -gx GOPATH "$HOME/.go"
    set -gx PATH $GOPATH/bin $PATH
@@ -230,4 +230,3 @@ set -U fish_user_paths /snap/bin $fish_user_paths
 if type "mise" > /dev/null
     mise activate fish | source
 end
-
