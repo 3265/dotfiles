@@ -1,3 +1,3 @@
 #!/bin/bash
 
-npm install -g @google/gemini-cli
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
