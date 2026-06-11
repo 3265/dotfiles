@@ -3,8 +3,7 @@
 # Base packages installation using apt
 sudo apt update
 sudo apt install -y \
-  bsdmainutils \ # for cal
-  silversearcher-ag \
+  bsdmainutils silversearcher-ag \
   ripgrep \
   tree \
   fzf \
