@@ -33,8 +33,7 @@ set -g mouse on
 set -g terminal-overrides 'xterm*:smcup@:rmcup@'
 
 # 256色端末を使用する
-set -g default-terminal "screen-256color"
-set -g terminal-overrides 'xterm:colors=256'
+set -g default-terminal "tmux-256color"
 
 # loud or quiet?
 set-option -g visual-activity off

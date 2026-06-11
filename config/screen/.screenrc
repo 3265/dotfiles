@@ -40,9 +40,8 @@ attrcolor b ".I"
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 defbce on
 
-# screen上で256色をサポートに(for mac)
-term xterm-256color
-termcapinfo xterm-256color 'is=^[r^[mJ^[H^[?7h^[?1;4;6l'
+# screen内ではGNU screen用のterminfoを名乗る
+term screen-256color
 
 # 隠れているwindowに動きがあったとき、それを伝える
 defmonitor on

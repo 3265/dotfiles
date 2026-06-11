@@ -27,15 +27,6 @@ require("lazy").setup({
       "ryanoasis/vim-devicons",
     },
   },
-  {
-    "rebelot/kanagawa.nvim",
-    lazy = false,
-    priority = 1000,
-  },
-  -- {
-  --   "OXY2DEV/markview.nvim",
-  --   lazy = false,
-  -- },
 })
 
 -- Options
@@ -74,6 +65,11 @@ opt.cursorline = true
 opt.fileformats = { "unix", "dos", "mac" }
 opt.background = "dark"
 opt.completeopt:remove("preview")
+
+local term = vim.env.TERM or ""
+if vim.env.STY or term:match("^screen") then
+  opt.termguicolors = false
+end
 
 opt.ignorecase = true
 opt.smartcase = true
@@ -156,4 +152,4 @@ vim.g.NERDTreeShowHidden = 1
 vim.cmd("filetype plugin indent on")
 
 -- Colorscheme
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme habamax")

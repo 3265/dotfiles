@@ -6,7 +6,6 @@ export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 export EDITOR=nvim
 export PAGER=less
 
-export TERM=xterm-256color # iTermのときの設定
 
 # Editor
 export CVSEDITOR=$EDITOR
