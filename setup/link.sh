@@ -39,6 +39,12 @@ ln -s -f ~/dotfiles/config/vim/.vimrc ~/.vimrc
 ln -s -f ~/dotfiles/config/vim/.ideavimrc ~/.ideavimrc
 
 ########################
+#   NVIM
+########################
+mkdir -p ~/.config/nvim
+ln -s -f ~/dotfiles/config/nvim/init.lua ~/.config/nvim/init.lua
+
+########################
 #   Emacs
 ########################
 
