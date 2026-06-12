@@ -37,5 +37,11 @@ export LC_CTYPE=en_US.UTF-8 # NOTE: for prevending bug of gnu screen
 # screen dir
 export SCREENDIR=$HOME/.screen
 
+# GNU screen on Ubuntu does not pass truecolor reliably.
+# Keep terminal apps in 256-color mode inside screen.
+if set -q STY
+    set -e COLORTERM
+end
+
 # for WSL
 export GPG_TTY=$(tty)
