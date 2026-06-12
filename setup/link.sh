@@ -59,6 +59,13 @@ ln -s -f ~/dotfiles/config/screen/.screenrc ~/.screenrc
 ln -s -f ~/dotfiles/config/tmux/.tmux.conf ~/.tmux.conf
 
 ########################
+#  Konsole
+########################
+
+mkdir -p ~/.local/share/konsole
+ln -s -f ~/dotfiles/config/konsole/* ~/.local/share/konsole/
+
+########################
 #  VCS
 ########################
 
