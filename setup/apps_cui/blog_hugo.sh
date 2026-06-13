@@ -1,3 +1,4 @@
 #!/bin/bash
 
-cargo install mdbook
+sudo snap install hugo
+

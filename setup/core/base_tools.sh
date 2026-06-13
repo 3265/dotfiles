@@ -20,5 +20,7 @@ sudo apt install -y \
   whois \
   curl \
   inxi \
-  lsd
+  lsd \
+  git \
+  git-lfs
 
