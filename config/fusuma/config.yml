@@ -1,0 +1,16 @@
+swipe:
+  3:
+    left:
+      command: 'dbus-send --session --type=method_call --dest=org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut string:"Window Quick Tile Left"'
+    right:
+      command: 'dbus-send --session --type=method_call --dest=org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut string:"Window Quick Tile Right"'
+    up:
+      command: 'dbus-send --session --type=method_call --dest=org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut string:"Window Maximize"'
+    down:
+      command: 'dbus-send --session --type=method_call --dest=org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut string:"Window Minimize"'
+
+threshold:
+  swipe: 0.1
+
+interval:
+  swipe: 1
