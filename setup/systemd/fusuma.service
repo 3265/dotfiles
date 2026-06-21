@@ -1,0 +1,10 @@
+[Unit]
+Description=Fusuma Touchpad Gestures
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/local/bin/fusuma
+Restart=always
+
+[Install]
+WantedBy=default.target

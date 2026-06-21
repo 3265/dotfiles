@@ -142,9 +142,6 @@ sudo chmod 777 ~/.config/fish/settings/env.fish
 #  fusuma
 ########################
 
-mkdir -p ~/.config/autostart/
-sudo chmod +x ~/dotfiles/config/autostart/fusuma.desktop
-ln -s -f ~/dotfiles/config/autostart/fusuma.desktop ~/.config/autostart/fusuma.desktop  
 mkdir -p ~/.config/fusuma/
 ln -s -f ~/dotfiles/config/fusuma/config.yml ~/.config/fusuma/config.yml
 
