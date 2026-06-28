@@ -66,6 +66,7 @@ alias py='python' # install python-is-python3
 alias pe='pyenv' # python environment
 alias pm='uv' # python manamger
 alias pa='source .venv/bin/activate.fish' # python activation
+alias py-init="uv init && uv venv && gibo dump Python >> .gitignore"
 
 # makefile
 alias m1='make 1'
