@@ -35,7 +35,7 @@ function gw -d "Git checkout branch"
   git checkout $branch
 end
 
-function gh -d "Git push branch to origin server"
+function gp -d "Git push branch to origin server"
   set branch (git for-each-ref --format='%(refname:short)' refs/heads | fzf)
   git push origin $branch
 end
