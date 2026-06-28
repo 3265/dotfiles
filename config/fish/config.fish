@@ -83,3 +83,7 @@ set __fish_git_prompt_char_untrackedfiles 'Untracked'
 set __fish_git_prompt_char_stashstate 'Stashed'
 set __fish_git_prompt_char_upstream_ahead ' Ahead'
 set __fish_git_prompt_char_upstream_behind ' Behind'
+
+
+# Added by Antigravity CLI installer
+set -gx PATH "/home/mike/.local/bin" $PATH
