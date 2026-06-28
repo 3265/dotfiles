@@ -27,7 +27,7 @@ alias s='screen -t home -U'
 alias t='btop'
 alias v='vim'
 function x -d "Launch AI assistant"
-    set choice (printf "claude (personal)\nclaude (company)\ngemini\ncodex" | fzf --reverse --prompt="AI> " --height=~10)
+    set choice (printf "claude (personal)\nclaude (company)\ngemini\ncodex\nantigravity" | fzf --reverse --prompt="AI> " --height=~10)
     switch $choice
         case "claude (personal)"
             claude --dangerously-skip-permissions $argv
@@ -37,6 +37,8 @@ function x -d "Launch AI assistant"
             gemini --yolo $argv
         case "codex"
             codex --yolo $argv
+        case "antigravity"
+            agy --dangerously-skip-permissions $argv
     end
 end
 alias y='yes'
@@ -120,7 +122,8 @@ alias kde-reset='qdbus org.kde.KWin /Compositor resume'
 # AI
 alias cl="claude --dangerously-skip-permissions"
 alias gm="gemini --yolo"
-alias cx=" codex--yolo"
+alias cx="codex --yolo"
+alias ay="agy --dangerously-skip-permissions"
 
 # wifi
 function wifi
