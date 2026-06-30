@@ -28,7 +28,8 @@ alias t='btop'
 alias v='vim'
 alias claude-personal='env CLAUDE_CONFIG_DIR=$HOME/.claude-personal claude'
 alias claude-work='env CLAUDE_CONFIG_DIR=$HOME/.claude-work claude'
-function x -d "Launch AI assistant"
+alias x='tmux'
+function ai -d "Launch AI assistant"
     set choice (printf "claude-personal\nclaude-work\ngemini\ncodex\nantigravity" | fzf --reverse --prompt="AI> " --height=~10)
     switch $choice
         case "claude-personal"
