@@ -9,6 +9,7 @@ This is a quick reference extracted from the current dotfiles.
 - Prefix: `Ctrl-q`
 - Reload config: `prefix` then `r`
 - Rename window: `prefix` then `,`
+- Rename Session: `prefix` then `$`
 - New window: `prefix` then `c`
 - Close pane: `prefix` then `x`
 - Cycle layout: `prefix` then `Space`
