@@ -168,7 +168,9 @@ This is a quick reference extracted from the current dotfiles.
 
 ### Terminal
 
+- `Ctrl-a`: move to line start
 - `Ctrl-e`: move cursor to line start (`cursorHome`)
+- `Ctrl-u`: kill from cursor to beginning of line
 - `Ctrl-k`: delete to end of line (`deleteAllRight`)
 
 ### Markdown preview
