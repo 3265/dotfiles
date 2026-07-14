@@ -40,4 +40,16 @@
       "ctrl-f": "buffer_search::Deploy"
     }
   },
+  {
+    "context": "Editor && extension == md",
+    "bindings": {
+      "ctrl-e": "markdown::OpenPreview",
+    },
+  },
+  {
+    "context": "MarkdownPreview",
+    "bindings": {
+      "ctrl-e": "pane::CloseActiveItem",
+    },
+  },
 ]
