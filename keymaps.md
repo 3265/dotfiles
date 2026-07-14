@@ -175,3 +175,16 @@ This is a quick reference extracted from the current dotfiles.
 
 - `Ctrl-e` (editor): open Markdown preview
 - `Ctrl-e` (preview): close active preview tab
+
+## Zed
+
+### Editor
+
+- `Ctrl-f`: buffer search (`buffer_search::Deploy`)
+- `Ctrl-c`: copy (`editor::Copy`)
+- `Ctrl-;` / `Ctrl-:`: unbound (disabled)
+
+### Markdown preview
+
+- `Ctrl-e` (editor, `.md` files): open Markdown preview (`markdown::OpenPreview`)
+- `Ctrl-e` (preview): close active preview tab (`pane::CloseActiveItem`)
