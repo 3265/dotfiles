@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/nvidia-smi -pl 250
+ExecStart=/usr/bin/nvidia-smi -pl 200
 RemainAfterExit=yes
 
 [Install]
