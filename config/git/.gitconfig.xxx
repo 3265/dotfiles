@@ -1,0 +1,9 @@
+# sample
+
+[user]
+  name = xxx_hoge
+  email = xxx@hoge
+[commit]
+  gpgsign = false
+[core]
+  sshCommand = ssh -i ~/.ssh/id_xxx_rsa -o IdentitiesOnly=yes
