@@ -30,12 +30,18 @@ alias claude-personal='env CLAUDE_CONFIG_DIR=$HOME/.claude-personal claude'
 alias claude-work='env CLAUDE_CONFIG_DIR=$HOME/.claude-work claude'
 alias x='tmux'
 function ai -d "Launch AI assistant"
-    set choice (printf "claude-personal\nclaude-work\ngemini\ncodex\nantigravity" | fzf --reverse --prompt="AI> " --height=~10)
+    set choice (printf "claude-personal\nclaude-work\nclaude-personal-server\nclaude-work-server\ngemini\ncodex\nantigravity" | fzf --reverse --prompt="AI> " --height=~10)
     switch $choice
         case "claude-personal"
             claude-personal --dangerously-skip-permissions $argv
         case "claude-work"
             claude-work --dangerously-skip-permissions $argv
+        case "claude-personal-server"
+            sudo ufw allow 6000
+            ttyd -W -i 0.0.0.0 -p 6000 tmux new-session -A -s claude-personal 'claude-personal --dangerously-skip-permissions'
+        case "claude-work-server"
+            sudo ufw allow 7000
+            ttyd -W -i 0.0.0.0 -p 7000 tmux new-session -A -s claude-work 'claude-work --dangerously-skip-permissions'
         case "gemini"
             gemini --yolo $argv
         case "codex"
