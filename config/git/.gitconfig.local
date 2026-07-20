@@ -1,4 +1,4 @@
 # sample
 
-[includeIf "gitdir:/media/mike/ac44dbae-268e-46f0-aebb-7333d3c71908/xxx/"]
+[includeIf "gitdir:/media/mike/xxx/"]
   path = ~/.gitconfig.xxx
