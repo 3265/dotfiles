@@ -29,19 +29,41 @@ alias v='vim'
 alias claude-personal='env CLAUDE_CONFIG_DIR=$HOME/.claude-personal claude'
 alias claude-work='env CLAUDE_CONFIG_DIR=$HOME/.claude-work claude'
 alias x='tmux'
+function _ai_free_port -a base
+    set -l port $base
+    while ss -ltn 2>/dev/null | string match -q "*:$port *"
+        set port (math $port + 1)
+    end
+    echo $port
+end
+
+function _ai_launch_server -a base session_prefix cmd
+    set -l port (_ai_free_port $base)
+    set -l n (math $port - $base + 1)
+    set -l session $session_prefix-$n
+    sudo ufw allow $port
+    set -l ip (hostname -I | awk '{print $1}')
+    echo "tmux session: $session"
+    echo "URL: http://$ip:$port"
+    ttyd -W -i 0.0.0.0 -p $port tmux new-session -A -s $session $cmd
+end
+
 function ai -d "Launch AI assistant"
-    set choice (printf "claude-personal\nclaude-work\nclaude-personal-server\nclaude-work-server\ngemini\ncodex\nantigravity" | fzf --reverse --prompt="AI> " --height=~10)
+    set choice (printf "claude-personal\nclaude-work\nclaude-personal-server\nclaude-work-server\nsftp-server\ngemini\ncodex\nantigravity" | fzf --reverse --prompt="AI> " --height=~10)
     switch $choice
         case "claude-personal"
             claude-personal --dangerously-skip-permissions $argv
         case "claude-work"
             claude-work --dangerously-skip-permissions $argv
         case "claude-personal-server"
-            sudo ufw allow 6000
-            ttyd -W -i 0.0.0.0 -p 6000 tmux new-session -A -s claude-personal 'claude-personal --dangerously-skip-permissions'
+            _ai_launch_server 6000 claude-personal 'claude-personal --dangerously-skip-permissions'
         case "claude-work-server"
-            sudo ufw allow 7000
-            ttyd -W -i 0.0.0.0 -p 7000 tmux new-session -A -s claude-work 'claude-work --dangerously-skip-permissions'
+            _ai_launch_server 7000 claude-work 'claude-work --dangerously-skip-permissions'
+        case "sftp-server"
+            sudo ufw allow 22
+            sudo systemctl enable --now ssh
+            set ip (hostname -I | awk '{print $1}')
+            echo "SFTP ready -> sftp "(whoami)"@$ip"
         case "gemini"
             gemini --yolo $argv
         case "codex"
