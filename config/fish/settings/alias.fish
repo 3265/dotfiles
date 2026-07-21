@@ -45,7 +45,7 @@ function _ai_launch_server -a base session_prefix cmd
     set -l ip (hostname -I | awk '{print $1}')
     echo "tmux session: $session"
     echo "URL: http://$ip:$port"
-    ttyd -W -i 0.0.0.0 -p $port tmux new-session -A -s $session $cmd
+    ttyd -W -i 0.0.0.0 -p $port -t titleFixed=$session tmux new-session -A -s $session $cmd
 end
 
 function ai -d "Launch AI assistant"
