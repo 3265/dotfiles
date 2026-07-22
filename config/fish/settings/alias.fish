@@ -49,7 +49,7 @@ function _ai_launch_server -a base session_prefix cmd
 end
 
 function ai -d "Launch AI assistant"
-    set choice (printf "claude-personal\nclaude-work\nclaude-personal-server\nclaude-work-server\nsftp-server\ngemini\ncodex\nantigravity" | fzf --reverse --prompt="AI> " --height=~10)
+    set choice (printf "claude-personal\nclaude-work\nclaude-personal-server\nclaude-work-server\ngemini\ncodex\nantigravity" | fzf --reverse --prompt="AI> " --height=~10)
     switch $choice
         case "claude-personal"
             claude-personal --dangerously-skip-permissions $argv
@@ -59,11 +59,6 @@ function ai -d "Launch AI assistant"
             _ai_launch_server 6000 claude-personal 'claude-personal --dangerously-skip-permissions'
         case "claude-work-server"
             _ai_launch_server 7000 claude-work 'claude-work --dangerously-skip-permissions'
-        case "sftp-server"
-            sudo ufw allow 22
-            sudo systemctl enable --now ssh
-            set ip (hostname -I | awk '{print $1}')
-            echo "SFTP ready -> sftp "(whoami)"@$ip"
         case "gemini"
             gemini --yolo $argv
         case "codex"
