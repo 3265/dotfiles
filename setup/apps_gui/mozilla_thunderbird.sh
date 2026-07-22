@@ -2,9 +2,6 @@
 
 dpkg-query -W -f='${Status}' filezilla 2>/dev/null | grep -q "install ok installed" && dpkg-query -W -f='${Status}' thunderbird 2>/dev/null | grep -q "install ok installed" && { echo "mail: already installed, skipping"; exit 0; }
 
-# FileZilla
-sudo apt install -y filezilla
-
 # Thunderbird - Mozilla official deb repo
 sudo install -d -m 0755 /etc/apt/keyrings
 wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- \
