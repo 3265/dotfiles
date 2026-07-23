@@ -103,6 +103,7 @@
   quotepath = false # git status 日本語文字化けのため
   whitespace = cr-at-eol
 	longpaths = true
+	pager = delta
 [merge]
   tool = vimdiff
   ff = false # it means not to do FF. in other words, i always make a merge commit in merge
@@ -127,3 +128,9 @@
 
 [include]
   path = ~/.gitconfig.local
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
