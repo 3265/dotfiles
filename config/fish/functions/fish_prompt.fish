@@ -24,6 +24,9 @@ function fish_prompt
 
 		if set -q VIRTUAL_ENV
             set -l venv_name (basename (dirname $VIRTUAL_ENV))
+            if test (string length -- $venv_name) -gt 20
+                set venv_name (string sub -l 17 -- $venv_name)"..."
+            end
 		    set -a prompt_info (set_color green)"($venv_name)"(set_color normal)
 		end
 

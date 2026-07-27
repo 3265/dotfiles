@@ -40,12 +40,16 @@ end
 function _ai_launch_server -a base session_prefix cmd
     set -l port (_ai_free_port $base)
     set -l n (math $port - $base + 1)
-    set -l session $session_prefix-$n
+    set -l title
+    read -P "session title (empty = $session_prefix-$n): " title
+    if test -z "$title"
+        set title $session_prefix-$n
+    end
     sudo ufw allow $port
     set -l ip (hostname -I | awk '{print $1}')
-    echo "tmux session: $session"
+    echo "tmux session: $title"
     echo "URL: http://$ip:$port"
-    ttyd -W -i 0.0.0.0 -p $port -t titleFixed=$session tmux new-session -A -s $session $cmd
+    ttyd -W -i 0.0.0.0 -p $port -t titleFixed=$title tmux new-session -A -s $title $cmd
 end
 
 function ai -d "Launch AI assistant"
