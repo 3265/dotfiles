@@ -24,7 +24,6 @@ alias q='kiro-cli'
 alias reload='source ~/.config/fish/config.fish'
 alias r='readlink -f'
 alias s='screen -t home -U'
-alias t='btop'
 alias v='vim'
 alias claude-personal='env CLAUDE_CONFIG_DIR=$HOME/.claude-personal claude'
 alias claude-work='env CLAUDE_CONFIG_DIR=$HOME/.claude-work claude'
@@ -37,32 +36,13 @@ function _ai_free_port -a base
     echo $port
 end
 
-function _ai_launch_server -a base session_prefix cmd
-    set -l port (_ai_free_port $base)
-    set -l n (math $port - $base + 1)
-    set -l title
-    read -P "session title (empty = $session_prefix-$n): " title
-    if test -z "$title"
-        set title $session_prefix-$n
-    end
-    sudo ufw allow $port
-    set -l ip (hostname -I | awk '{print $1}')
-    echo "tmux session: $title"
-    echo "URL: http://$ip:$port"
-    ttyd -W -i 0.0.0.0 -p $port -t titleFixed=$title tmux new-session -A -s $title $cmd
-end
-
 function ai -d "Launch AI assistant"
-    set choice (printf "claude-personal\nclaude-work\nclaude-personal-server\nclaude-work-server\ngemini\ncodex\nantigravity" | fzf --reverse --prompt="AI> " --height=~10)
+    set choice (printf "claude-personal\nclaude-work\ngemini\ncodex\nantigravity" | fzf --reverse --prompt="AI> " --height=~10)
     switch $choice
         case "claude-personal"
             claude-personal --dangerously-skip-permissions $argv
         case "claude-work"
             claude-work --dangerously-skip-permissions $argv
-        case "claude-personal-server"
-            _ai_launch_server 6000 claude-personal 'claude-personal --dangerously-skip-permissions'
-        case "claude-work-server"
-            _ai_launch_server 7000 claude-work 'claude-work --dangerously-skip-permissions'
         case "gemini"
             gemini --yolo $argv
         case "codex"
@@ -71,6 +51,36 @@ function ai -d "Launch AI assistant"
             agy --dangerously-skip-permissions $argv
     end
 end
+
+function tops -d "Launch a system monitor"
+    set choice (printf "btop\nhtop\nnvtop\ntop" | fzf --reverse --prompt="Monitor> " --height=~10)
+    switch $choice
+        case "btop"
+            btop
+        case "htop"
+            htop
+        case "nvtop"
+            nvtop
+        case "top"
+            top
+    end
+end
+
+function t_func -d "Launch a plain tmux session over ttyd"
+    set -l port (_ai_free_port 7000)
+    set -l n (math $port - 7000 + 1)
+    set -l title
+    read -P "session title (empty = tmux-$n): " title
+    if test -z "$title"
+        set title tmux-$n
+    end
+    sudo ufw allow $port
+    set -l ip (hostname -I | awk '{print $1}')
+    echo "tmux session: $title"
+    echo "URL: http://$ip:$port"
+    ttyd -W -i 0.0.0.0 -p $port -t titleFixed=$title tmux new-session -A -s $title
+end
+alias t=t_func
 alias y='yes'
 alias gap='~/gap/build/gap'
 
