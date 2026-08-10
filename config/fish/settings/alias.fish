@@ -66,19 +66,130 @@ function tops -d "Launch a system monitor"
     end
 end
 
-function t_func -d "Launch a plain tmux session over ttyd"
+function _t_create -d "Create a tmux session and expose it over ttyd (runs in the background)"
     set -l port (_ai_free_port 7000)
     set -l n (math $port - 7000 + 1)
     set -l title
-    read -P "session title (empty = tmux-$n): " title
+    read -P "session title (empty = ttyd-$n): " title
     if test -z "$title"
-        set title tmux-$n
+        set title ttyd-$n
+    end
+    set -l page (bash ~/dotfiles/config/ttyd/build.sh)
+    or return 1
+    if not tmux has-session -t $title 2>/dev/null
+        tmux new-session -d -s $title
     end
     sudo ufw allow $port
     set -l ip (hostname -I | awk '{print $1}')
+    mkdir -p ~/.cache/ttyd
+    set -l log ~/.cache/ttyd/$title.log
+    nohup ttyd -W -i 0.0.0.0 -p $port -t titleFixed=$title -I $page tmux new-session -A -s $title >$log 2>&1 &
+    disown
     echo "tmux session: $title"
     echo "URL: http://$ip:$port"
-    ttyd -W -i 0.0.0.0 -p $port -t titleFixed=$title tmux new-session -A -s $title
+    echo "pid: $last_pid  log: $log"
+end
+
+function _t_ttyd_info -a name -d "Print 'pid port' of the ttyd process serving tmux session $name, if any"
+    ps -eo pid=,args= | while read -l pid args
+        if string match -q '*ttyd *' -- $args; and string match -qr -- "-s $name\$" $args
+            set -l m (string match -r -- '-p\s+(\S+)' $args)
+            echo "$pid $m[2]"
+        end
+    end
+end
+
+function _t_session_choices -d "Table of tmux sessions (NAME WIN STATE TTYD LAST-USED CREATED), header on line 1, for fzf --header-lines=1"
+    set -l tab \t
+    set -l rows "NAME"$tab"WIN"$tab"STATE"$tab"TTYD"$tab"LAST USED"$tab"CREATED"
+    for line in (tmux list-sessions -F "#{session_name}$tab#{session_windows}$tab#{?session_attached,attached,detached}$tab#{t:session_activity}$tab#{t:session_created}" 2>/dev/null)
+        set -l f (string split \t -- $line)
+        set -l name $f[1]
+        set -l ttyd_str "-"
+        set -l ttyd_info (_t_ttyd_info $name)
+        if test -n "$ttyd_info"
+            set -l port (string split ' ' -- $ttyd_info)[2]
+            set ttyd_str "ttyd:$port"
+        end
+        set -a rows "$name$tab$f[2]w$tab$f[3]$tab$ttyd_str$tab$f[4]$tab$f[5]"
+    end
+    if test (count $rows) -le 1
+        return
+    end
+    printf '%s\n' $rows | column -t -s \t
+end
+
+function _t_list -d "List tmux/ttyd sessions (non-interactive)"
+    set -l choices (_t_session_choices)
+    if test -z "$choices"
+        echo "no tmux sessions"
+        return 1
+    end
+    printf '%s\n' $choices
+end
+
+function _t_attach -d "Attach to an existing tmux session (never nested)"
+    set -l choices (_t_session_choices)
+    if test -z "$choices"
+        echo "no tmux sessions"
+        return 1
+    end
+    set -l picked (printf '%s\n' $choices | fzf --reverse --header-lines=1 --prompt="attach> " --height=~12)
+    if test -z "$picked"
+        return 1
+    end
+    set -l name (string split -f1 -- ' ' $picked)
+    env -u TMUX tmux attach -t "$name"
+end
+
+function _t_delete -d "Delete a tmux session (and its ttyd server, if any)"
+    set -l choices (_t_session_choices)
+    if test -z "$choices"
+        echo "no tmux sessions"
+        return 1
+    end
+    set -l picked (printf '%s\n' $choices | fzf --reverse --header-lines=1 --prompt="delete> " --height=~12)
+    if test -z "$picked"
+        return 1
+    end
+    set -l name (string split -f1 -- ' ' $picked)
+    read -P "delete session '$name'? [y/N] " -l confirm
+    if test "$confirm" != y -a "$confirm" != Y
+        echo cancelled
+        return 1
+    end
+    for info in (_t_ttyd_info $name)
+        set -l parts (string split ' ' $info)
+        echo "stopping ttyd (pid $parts[1], port $parts[2])"
+        kill $parts[1]
+        sudo ufw delete allow $parts[2]
+    end
+    tmux kill-session -t "$name"
+    echo "deleted session: $name"
+end
+
+function t_func -d "Manage tmux/ttyd sessions"
+    set -l choice $argv[1]
+    if test -z "$choice"
+        set choice (printf "create\nattach\ndelete\nlist" | fzf --reverse --prompt="t> " --height=~10)
+        if test -z "$choice"
+            echo "cancelled"
+            return 1
+        end
+    end
+    switch $choice
+        case create
+            _t_create
+        case attach
+            _t_attach
+        case delete
+            _t_delete
+        case list
+            _t_list
+        case '*'
+            echo "usage: t [create|attach|delete|list]"
+            return 1
+    end
 end
 alias t=t_func
 alias y='yes'
