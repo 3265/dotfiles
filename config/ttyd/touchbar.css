@@ -8,7 +8,7 @@ body{margin:0;height:100%;overflow:hidden;position:fixed;width:100%}
 /* Vertical, right-hand side: the on-screen keyboard only ever covers the
    bottom of the screen, so a right-side bar never ends up hidden behind it
    (unlike top/bottom placements, which fought the keyboard repeatedly). */
-#ttyd-touchbar{position:fixed;top:44px;bottom:0;right:0;z-index:2147483647;display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 6px;padding-right:calc(6px + env(safe-area-inset-right));background:rgba(24,24,24,.94);overflow-y:auto;-webkit-overflow-scrolling:touch;box-sizing:border-box}
+#ttyd-touchbar{position:fixed;top:44px;bottom:0;right:0;z-index:2147483647;display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 4px 8px 6px;padding-right:calc(4px + env(safe-area-inset-right));background:rgba(24,24,24,.94);overflow-y:auto;-webkit-overflow-scrolling:touch;box-sizing:border-box}
 #ttyd-touchbar button{flex:0 0 auto;min-width:38px;height:38px;padding:0 8px;border:1px solid #555;border-radius:6px;background:#2b2b2b;color:#eee;font:14px/1 -apple-system,Roboto,sans-serif;-webkit-tap-highlight-color:transparent}
 #ttyd-touchbar button:active{background:#4a90d9;border-color:#4a90d9;color:#fff}
 #ttyd-touchbar-toggle{position:fixed;right:6px;top:6px;z-index:2147483647;width:32px;height:32px;border-radius:50%;border:1px solid #555;background:#2b2b2b;color:#eee;opacity:.85;font:14px/1 sans-serif}
