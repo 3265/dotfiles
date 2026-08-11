@@ -32,7 +32,7 @@ end
 
 function _z_ttyd_info -a name -d "Print 'pid port' of the ttyd process serving zellij session $name, if any"
     ps -eo pid=,args= | while read -l pid args
-        if string match -q '*ttyd *' -- $args; and string match -qr -- "zellij attach --create $name\$" $args
+        if string match -q '*ttyd *' -- $args; and string match -q -- "*zellij attach --create $name" $args
             set -l m (string match -r -- '-p\s+(\S+)' $args)
             echo "$pid $m[2]"
         end
