@@ -58,6 +58,10 @@ ln -s -f ~/dotfiles/config/emacs/init.el ~/.emacs.d/init.el
 ln -s -f ~/dotfiles/config/screen/.screenrc ~/.screenrc
 ln -s -f ~/dotfiles/config/tmux/.tmux.conf ~/.tmux.conf
 
+mkdir -p ~/.config/zellij/layouts
+ln -s -f ~/dotfiles/config/zellij/config.kdl ~/.config/zellij/config.kdl
+ln -s -f ~/dotfiles/config/zellij/layouts/default.kdl ~/.config/zellij/layouts/default.kdl
+
 ########################
 #  Konsole
 ########################

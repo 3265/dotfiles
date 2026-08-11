@@ -1,0 +1,13 @@
+// Start locked so keystrokes pass straight through to whatever is
+// nested inside (tmux/screen/vim/etc). Press Ctrl+g to unlock when
+// you actually want to drive zellij itself.
+default_mode "locked"
+
+// No tab-bar / status-bar chrome, no first-run wizard or release notes popup.
+default_layout "default"
+show_startup_tips false
+show_release_notes false
+
+// Match tmux's default-shell so panes get fish (and its fish_title override
+// below) instead of falling back to $SHELL, which may be bash.
+default_shell "/usr/bin/fish"
