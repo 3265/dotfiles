@@ -6,7 +6,7 @@ function _z_free_port -a base
     echo $port
 end
 
-function _z_create -d "Create a zellij session and expose it over ttyd (runs in the background)"
+function _z_create -a attach -d "Create a zellij session and expose it over ttyd (runs in the background); pass 1 to also attach locally"
     set -l port (_z_free_port 7000)
     set -l n (math $port - 7000 + 1)
     set -l title
@@ -28,6 +28,9 @@ function _z_create -d "Create a zellij session and expose it over ttyd (runs in 
     echo "zellij session: $title"
     echo "URL: http://$ip:$port"
     echo "pid: $last_pid  log: $log"
+    if test "$attach" = 1
+        env -u ZELLIJ zellij attach "$title"
+    end
 end
 
 function _z_ttyd_info -a name -d "Print 'pid port' of the ttyd process serving zellij session $name, if any"
@@ -120,7 +123,7 @@ end
 function z_cmd -d "Manage zellij/ttyd sessions"
     set -l choice $argv[1]
     if test -z "$choice"
-        set choice (printf "create\nattach\ndelete\nlist" | fzf --reverse --prompt="z> " --height=~10)
+        set choice (printf "list\ncreate\nattach\ncreate-and-attach\ndelete" | fzf --reverse --prompt="z> " --height=~10)
         if test -z "$choice"
             echo "cancelled"
             return 1
@@ -129,6 +132,8 @@ function z_cmd -d "Manage zellij/ttyd sessions"
     switch $choice
         case create
             _z_create
+        case create-and-attach
+            _z_create 1
         case attach
             _z_attach
         case delete
@@ -136,7 +141,7 @@ function z_cmd -d "Manage zellij/ttyd sessions"
         case list
             _z_list
         case '*'
-            echo "usage: z [create|attach|delete|list]"
+            echo "usage: z [list|create|attach|create-and-attach|delete]"
             return 1
     end
 end
