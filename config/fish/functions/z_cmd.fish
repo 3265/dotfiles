@@ -94,30 +94,32 @@ function _z_attach -d "Attach to an existing zellij session (never nested)"
     env -u ZELLIJ zellij attach "$session"
 end
 
-function _z_delete -d "Delete a zellij session (and its ttyd server, if any)"
+function _z_delete -d "Delete one or more zellij sessions (and their ttyd servers, if any)"
     set -l choices (_z_session_choices)
     if test -z "$choices"
         echo "no zellij sessions"
         return 1
     end
-    set -l picked (printf '%s\n' $choices | fzf --reverse --header-lines=1 --prompt="delete> " --height=~12)
+    set -l picked (printf '%s\n' $choices | fzf --multi --bind 'space:toggle+down' --reverse --header-lines=1 --prompt="delete> " --height=~12)
     if test -z "$picked"
         return 1
     end
-    set -l name (string split -f1 -- ' ' $picked)
-    read -P "delete session '$name'? [y/N] " -l confirm
+    set -l names (string split -f1 -- ' ' $picked)
+    read -P "delete session(s) '$(string join ', ' $names)'? [y/N] " -l confirm
     if test "$confirm" != y -a "$confirm" != Y
         echo cancelled
         return 1
     end
-    for info in (_z_ttyd_info $name)
-        set -l parts (string split ' ' $info)
-        echo "stopping ttyd (pid $parts[1], port $parts[2])"
-        kill $parts[1]
-        sudo ufw delete allow $parts[2]
+    for name in $names
+        for info in (_z_ttyd_info $name)
+            set -l parts (string split ' ' $info)
+            echo "stopping ttyd (pid $parts[1], port $parts[2])"
+            kill $parts[1]
+            sudo ufw delete allow $parts[2]
+        end
+        zellij delete-session "$name" --force
+        echo "deleted session: $name"
     end
-    zellij delete-session "$name" --force
-    echo "deleted session: $name"
 end
 
 function z_cmd -d "Manage zellij/ttyd sessions"
