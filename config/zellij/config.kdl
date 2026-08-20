@@ -11,3 +11,7 @@ show_release_notes false
 // Match tmux's default-shell so panes get fish (and its fish_title override
 // below) instead of falling back to $SHELL, which may be bash.
 default_shell "/usr/bin/fish"
+
+// Use xsel directly instead of relying on OSC52 passthrough, which doesn't
+// always reach the X11 clipboard reliably through nested terminals/muxers.
+copy_command "xsel --clipboard --input"
