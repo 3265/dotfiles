@@ -86,7 +86,7 @@ function _z_attach -d "Attach to an existing zellij session (never nested)"
         echo "no zellij sessions"
         return 1
     end
-    set -l picked (printf '%s\n' $choices | fzf --reverse --header-lines=1 --prompt="attach session> " --height=~12)
+    set -l picked (printf '%s\n' $choices | fzf --reverse --header-lines=1 --prompt="attach session> " --height=100%)
     if test -z "$picked"
         return 1
     end
@@ -100,7 +100,7 @@ function _z_delete -d "Delete one or more zellij sessions (and their ttyd server
         echo "no zellij sessions"
         return 1
     end
-    set -l picked (printf '%s\n' $choices | fzf --multi --bind 'space:toggle+down' --reverse --header-lines=1 --prompt="delete> " --height=~12)
+    set -l picked (printf '%s\n' $choices | fzf --multi --bind 'space:toggle+down' --reverse --header-lines=1 --prompt="delete> " --height=100%)
     if test -z "$picked"
         return 1
     end
@@ -125,7 +125,7 @@ end
 function z_cmd -d "Manage zellij/ttyd sessions"
     set -l choice $argv[1]
     if test -z "$choice"
-        set choice (printf "list\ncreate\nattach\ncreate-and-attach\ndelete" | fzf --reverse --prompt="z> " --height=~10)
+        set choice (printf "list\ncreate\nattach\ncreate-and-attach\ndelete" | fzf --reverse --prompt="z> " --height=100%)
         if test -z "$choice"
             echo "cancelled"
             return 1

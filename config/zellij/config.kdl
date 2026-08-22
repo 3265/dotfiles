@@ -15,3 +15,8 @@ default_shell "/usr/bin/fish"
 // Use xsel directly instead of relying on OSC52 passthrough, which doesn't
 // always reach the X11 clipboard reliably through nested terminals/muxers.
 copy_command "xsel --clipboard --input"
+
+// We only ever use single-pane sessions, so there's no layout worth
+// resurrecting after a crash/reboot - without this, dead sessions linger
+// forever in `zellij list-sessions` as "EXITED - attach to resurrect".
+session_serialization false
