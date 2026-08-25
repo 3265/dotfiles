@@ -21,3 +21,6 @@ command -v fwupdmgr >/dev/null && sudo fwupdmgr refresh && sudo fwupdmgr update
 
 echo "== journal =="
 sudo journalctl --vacuum-time=4weeks
+
+echo "== docker =="
+command -v docker >/dev/null && docker system prune
