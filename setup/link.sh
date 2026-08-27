@@ -150,7 +150,7 @@ mkdir -p ~/.config/fusuma/
 ln -s -f ~/dotfiles/config/fusuma/config.yml ~/.config/fusuma/config.yml
 
 mkdir -p ~/.config/systemd/user/
-ln -s -f ~/dotfiles/config/systemd/user/fusuma.service ~/.config/systemd/user/fusuma.service
+ln -s -f ~/dotfiles/setup/systemd/user/fusuma.service ~/.config/systemd/user/fusuma.service
 
 ########################
 #  Kate
