@@ -148,7 +148,7 @@ sudo chmod 777 ~/.config/fish/settings/env.fish
 
 mkdir -p ~/.config/fusuma/
 ln -s -f ~/dotfiles/config/fusuma/config.yml ~/.config/fusuma/config.yml
-# systemd/user unit symlinks are done in daemon.sh, alongside enabling them
+# systemd/user unit symlinks are done in service.sh, alongside enabling them
 
 ########################
 #  Kate

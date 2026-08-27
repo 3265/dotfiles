@@ -17,12 +17,12 @@ link:
 	bash $(DEB_DIR)/link.sh
 
 ############################
-#       daemon
+#       service
 ############################
 
-.DEFAULT: daemon
-.PHONY: daemon
+.DEFAULT: service
+.PHONY: service
 .ONESHELL:
-daemon:
-	bash $(DEB_DIR)/daemon.sh
+service:
+	bash $(DEB_DIR)/service.sh
 
