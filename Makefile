@@ -16,3 +16,13 @@ SECOND_ARG := $(word 2, $(ARGS))
 link:
 	bash $(DEB_DIR)/link.sh
 
+############################
+#       daemon
+############################
+
+.DEFAULT: daemon
+.PHONY: daemon
+.ONESHELL:
+daemon:
+	bash $(DEB_DIR)/daemon.sh
+
