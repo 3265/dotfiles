@@ -15,11 +15,11 @@ sudo systemctl enable --now nvidia-power-limit.service
 
 mkdir -p ~/.config/systemd/user/
 ln -s -f ~/dotfiles/setup/systemd/user/fusuma.service ~/.config/systemd/user/fusuma.service
-ln -s -f ~/dotfiles/setup/systemd/user/service-list.service ~/.config/systemd/user/service-list.service
+ln -s -f ~/dotfiles/setup/systemd/user/dashboard.service ~/.config/systemd/user/dashboard.service
 
 systemctl --user daemon-reload
 systemctl --user enable --now fusuma.service
-systemctl --user enable --now service-list.service
+systemctl --user enable --now dashboard.service
 
-# service-list serves its dashboard on this port
+# dashboard serves on this port
 sudo ufw allow 6001

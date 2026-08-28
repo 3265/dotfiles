@@ -1,0 +1,10 @@
+[Unit]
+Description=System dashboard (listening services + resource usage)
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/mike/dotfiles/setup/systemd/user/dashboard/server.py
+Restart=always
+
+[Install]
+WantedBy=default.target
