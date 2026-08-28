@@ -76,6 +76,37 @@ def gpu_stats():
     return util, used / 1024, total / 1024, temp
 
 
+def ttyd_ports():
+    # zellij session names can contain spaces, so the name is taken as
+    # everything after "--create " rather than a single \S+ token.
+    out = subprocess.run(["ps", "-eo", "pid=,args="], capture_output=True, text=True).stdout
+    ports = {}
+    for line in out.splitlines():
+        if "ttyd " not in line or "zellij attach --create " not in line:
+            continue
+        m = re.search(r"-p\s+(\S+).*zellij attach --create (.+)$", line)
+        if m:
+            ports[m.group(2)] = m.group(1)
+    return ports
+
+
+def ttyd_sessions():
+    # systemd user services don't get the login-shell PATH, so this needs
+    # the full path rather than relying on `zellij` being found on PATH.
+    out = subprocess.run(["/home/mike/.cargo/bin/zellij", "list-sessions", "-n"],
+                          capture_output=True, text=True).stdout
+    ports = ttyd_ports()
+    rows = []
+    for line in out.splitlines():
+        m = re.match(r"(.+?) \[Created ([^\]]+)\](.*)$", line.strip())
+        if not m:
+            continue
+        name, created, rest = m.groups()
+        status = "exited" if "EXITED" in rest else "live"
+        rows.append((name, ports.get(name), status, created))
+    return rows
+
+
 def disk_stats():
     out = subprocess.run(["df", "-h"], capture_output=True, text=True).stdout
     disks = []
@@ -88,7 +119,7 @@ def disk_stats():
     return sorted(disks)
 
 
-TABS = [("/", "services"), ("/stats", "stats"), ("/disk", "disk")]
+TABS = [("/", "ttyd"), ("/services", "services"), ("/stats", "stats"), ("/disk", "disk")]
 
 PAGE = """<!doctype html>
 <html><head><meta charset="utf-8"><title>{title}</title>
@@ -114,6 +145,18 @@ def render_nav(active):
     )
 
 
+def render_ttyd(ip):
+    rows = []
+    for name, port, status, created in ttyd_sessions():
+        port_cell = f'<a href="http://{ip}:{port}/" target="_blank" rel="noopener">{port}</a>' if port else "-"
+        rows.append(f"<tr><td>{name}</td><td>{port_cell}</td><td>{status}</td><td>{created}</td></tr>")
+    body = f"""<table>
+<tr><th>name</th><th>ttyd</th><th>status</th><th>created</th></tr>
+{''.join(rows)}
+</table>"""
+    return PAGE.format(title="ttyd sessions", extra_head="", nav=render_nav("/"), body=body)
+
+
 def render_services(services, ip):
     rows = []
     for port, addr, proc, cwd in services:
@@ -123,7 +166,7 @@ def render_services(services, ip):
 <tr><th>port</th><th>addr</th><th>process</th><th>cwd</th></tr>
 {''.join(rows)}
 </table>"""
-    return PAGE.format(title="listening services", extra_head="", nav=render_nav("/"), body=body)
+    return PAGE.format(title="listening services", extra_head="", nav=render_nav("/services"), body=body)
 
 
 def render_stats():
@@ -160,12 +203,14 @@ def render_disk():
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
-        if self.path.startswith("/stats"):
+        if self.path.startswith("/services"):
+            body = render_services(listening_services(), host_ip()).encode()
+        elif self.path.startswith("/stats"):
             body = render_stats().encode()
         elif self.path.startswith("/disk"):
             body = render_disk().encode()
         else:
-            body = render_services(listening_services(), host_ip()).encode()
+            body = render_ttyd(host_ip()).encode()
         self.send_response(200)
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
