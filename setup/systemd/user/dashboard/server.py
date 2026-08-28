@@ -76,6 +76,20 @@ def gpu_stats():
     return util, used / 1024, total / 1024, temp
 
 
+def disk_stats():
+    out = subprocess.run(["df", "-h"], capture_output=True, text=True).stdout
+    disks = []
+    for line in out.splitlines()[1:]:
+        parts = line.split()
+        if len(parts) < 6 or not parts[0].startswith("/dev/"):
+            continue
+        fs, size, used, avail, pct, mount = parts[:6]
+        disks.append((mount, size, used, avail, pct))
+    return sorted(disks)
+
+
+TABS = [("/", "services"), ("/stats", "stats"), ("/disk", "disk")]
+
 PAGE = """<!doctype html>
 <html><head><meta charset="utf-8"><title>{title}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -87,8 +101,17 @@ th{{white-space:nowrap}}
 a{{color:#6cf}}
 .bar{{background:#333;border-radius:4px;overflow:hidden;height:20px;margin:4px 0 16px}}
 .bar div{{background:#6cf;height:100%}}
-nav{{margin-bottom:12px}}</style></head>
+nav{{margin-bottom:12px;display:flex;gap:8px}}
+nav a{{padding:6px 12px;border:1px solid #333;border-radius:4px;text-decoration:none}}
+nav a.active{{background:#6cf;color:#111;border-color:#6cf}}</style></head>
 <body><nav>{nav}</nav><h1>{title}</h1>{body}</body></html>"""
+
+
+def render_nav(active):
+    return "".join(
+        f'<a href="{href}"{" class=\"active\"" if href == active else ""}>{label}</a>'
+        for href, label in TABS
+    )
 
 
 def render_services(services, ip):
@@ -100,8 +123,7 @@ def render_services(services, ip):
 <tr><th>port</th><th>addr</th><th>process</th><th>cwd</th></tr>
 {''.join(rows)}
 </table>"""
-    nav = '<a href="/stats" target="_blank" rel="noopener">stats &rarr;</a>'
-    return PAGE.format(title="listening services", extra_head="", nav=nav, body=body)
+    return PAGE.format(title="listening services", extra_head="", nav=render_nav("/"), body=body)
 
 
 def render_stats():
@@ -122,15 +144,26 @@ def render_stats():
     else:
         rows += "<p>GPU: not available</p>"
 
-    nav = '<a href="/" target="_blank" rel="noopener">&larr; services</a>'
     extra_head = '<meta http-equiv="refresh" content="3">'
-    return PAGE.format(title="system stats", extra_head=extra_head, nav=nav, body=rows)
+    return PAGE.format(title="system stats", extra_head=extra_head, nav=render_nav("/stats"), body=rows)
+
+
+def render_disk():
+    rows = [f"<tr><td>{mount}</td><td>{used} / {size}</td><td>{avail} free</td><td>{pct}</td></tr>"
+            for mount, size, used, avail, pct in disk_stats()]
+    body = f"""<table>
+<tr><th>mount</th><th>used / size</th><th>avail</th><th>use%</th></tr>
+{''.join(rows)}
+</table>"""
+    return PAGE.format(title="disk usage", extra_head="", nav=render_nav("/disk"), body=body)
 
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path.startswith("/stats"):
             body = render_stats().encode()
+        elif self.path.startswith("/disk"):
+            body = render_disk().encode()
         else:
             body = render_services(listening_services(), host_ip()).encode()
         self.send_response(200)
