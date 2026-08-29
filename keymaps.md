@@ -37,6 +37,10 @@ This is a quick reference extracted from the current dotfiles.
 - Window title: `Ctrl-z` then `Shift-a`
 - Window switch (double prefix): `Ctrl-z` then `Ctrl-z` (prev)
 
+## Zellij
+
+- Toggle Locked/Normal mode: `Ctrl-g`
+
 ## Vim
 
 ### Basic
