@@ -20,3 +20,7 @@ copy_command "xsel --clipboard --input"
 // resurrecting after a crash/reboot - without this, dead sessions linger
 // forever in `zellij list-sessions` as "EXITED - attach to resurrect".
 session_serialization false
+
+// 0.45.0 changed the default pane frame from a full border to a single
+// title line - this restores the full border (and its focused-pane color).
+pane_frame_style "full"
