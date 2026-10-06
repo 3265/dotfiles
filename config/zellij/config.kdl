@@ -12,9 +12,11 @@ show_release_notes false
 // below) instead of falling back to $SHELL, which may be bash.
 default_shell "/usr/bin/fish"
 
-// Use xsel directly instead of relying on OSC52 passthrough, which doesn't
-// always reach the X11 clipboard reliably through nested terminals/muxers.
-copy_command "xsel --clipboard --input"
+// copy_command replaces zellij's default OSC52 emission entirely, so a
+// plain "xsel" here (as before) fixes the local X11 clipboard but silently
+// breaks copy-to-browser-clipboard for ttyd clients, which need OSC52.
+// This script does both: writes to X11 via xsel *and* still emits OSC52.
+copy_command "/home/mike/dotfiles/config/zellij/copy.sh"
 
 // We only ever use single-pane sessions, so there's no layout worth
 // resurrecting after a crash/reboot - without this, dead sessions linger
