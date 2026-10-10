@@ -7,7 +7,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 
 # 6000 is X11's traditional port and is on Chrome/Firefox's blocked-port list
 # (ERR_UNSAFE_PORT), so this can't just be the round number it "should" be.
-PORT = 6001
+PORT = 6002
 
 
 def host_ip():

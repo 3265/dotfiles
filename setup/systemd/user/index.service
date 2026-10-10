@@ -1,0 +1,10 @@
+[Unit]
+Description=Index of local services (dashboard, pandoc-md-explorer, ...)
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/mike/dotfiles/setup/systemd/user/index/server.py
+Restart=always
+
+[Install]
+WantedBy=default.target

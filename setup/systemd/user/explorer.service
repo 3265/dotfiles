@@ -1,0 +1,10 @@
+[Unit]
+Description=Markdown explorer with plain-link bundling and syntax highlighting
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/mike/dotfiles/setup/systemd/user/explorer/server.py
+Restart=always
+
+[Install]
+WantedBy=default.target
