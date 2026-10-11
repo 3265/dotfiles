@@ -94,6 +94,22 @@ function copyToClipboard(text){
   try{document.execCommand('copy');}catch(e){}
   document.body.removeChild(ta);
 }
+function setAllChecked(checked){
+  var boxes=document.getElementById('export-form').querySelectorAll('input[type=checkbox]');
+  Array.prototype.forEach.call(boxes,function(c){c.checked=checked;});
+  updateExportTotal();
+}
+function updateExportTotal(){
+  var form=document.getElementById('export-form');
+  var lines=parseInt(form.dataset.baseLines,10)||0;
+  var chars=parseInt(form.dataset.baseChars,10)||0;
+  var boxes=form.querySelectorAll('input[type=checkbox]:checked');
+  Array.prototype.forEach.call(boxes,function(c){
+    lines+=parseInt(c.dataset.lines,10)||0;
+    chars+=parseInt(c.dataset.chars,10)||0;
+  });
+  document.getElementById('export-total').textContent='total: '+lines+' lines, '+chars+' chars';
+}
 function collectIncluded(formId){
   var boxes=document.getElementById(formId).querySelectorAll('input[type=checkbox]:checked');
   return Array.prototype.map.call(boxes,function(c){return encodeURIComponent(c.value);}).join(',');
@@ -144,20 +160,33 @@ input[type=text]{{background:#1a1a1a;color:#eee;border:1px solid #555;border-rad
 .add-root input[type=text]{{flex:1;min-width:200px}}
 button.copy,a.copy,button.submit{{background:#333;color:#eee;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer;text-decoration:none;display:inline-block}}
 .export-actions button.copy{{padding:4px 8px;font-size:13px;height:30px;display:inline-flex;align-items:center}}
-.doc{{font-family:sans-serif;line-height:1.6;max-width:900px}}
+.doc{{font-family:sans-serif;line-height:1.6;max-width:900px;margin:0 auto}}
 .doc pre{{background:#1a1a1a;padding:8px;overflow-x:auto}}
 .doc code{{background:#1a1a1a;padding:2px 4px}}
 .doc pre code{{background:transparent;padding:0}}
+.doc-table-wrap{{overflow-x:auto;margin:1em 0}}
+.doc-table-wrap table{{width:auto}}
+.doc-table-wrap td,.doc-table-wrap th{{white-space:nowrap;word-break:normal}}
 nav{{margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:8px}}
 #TOC{{background:#1a1a1a;border:1px solid #333;border-radius:4px;padding:12px 20px;margin-bottom:1.5em}}
 #TOC ul{{margin:0}}
 {highlight_css}</style>
-<script>{copy_js}</script></head>
+<script>{copy_js}</script>{extra_head}</head>
 <body><nav>{nav}</nav>{body}</body></html>"""
 
+# Pinned CDN versions - only loaded on pages that actually need them (math
+# and diagrams are rare enough, and MathJax/Mermaid heavy enough, that
+# every other page shouldn't pay for them).
+MATH_MERMAID_HEAD = """
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true,theme:'dark'});</script>
+"""
 
-def render_page(title, nav, body):
-    return PAGE.format(title=title, nav=nav, body=body, highlight_css=HIGHLIGHT_CSS, copy_js=COPY_JS)
+
+def render_page(title, nav, body, extra_head=""):
+    return PAGE.format(title=title, nav=nav, body=body, highlight_css=HIGHLIGHT_CSS,
+                        copy_js=COPY_JS, extra_head=extra_head)
 
 
 def load_roots():
@@ -241,9 +270,9 @@ def wrap_as_code(ext, content):
 
 
 def linked_files(root_name, target):
-    """(root-relative path, line count) for the local text files target
-    plain-links to (dedup, one level - same set bundle() would expand with
-    include=None)."""
+    """(root-relative path, line count, char count) for the local text
+    files target plain-links to (dedup, one level - same set bundle() would
+    expand with include=None)."""
     root = load_roots().get(root_name)
     with open(target, encoding="utf-8") as f:
         text = f.read()
@@ -256,7 +285,7 @@ def linked_files(root_name, target):
             rel = os.path.relpath(abs_path, root)
             if rel not in rels:
                 rels.add(rel)
-                seen.append((rel, count_lines(abs_path)))
+                seen.append((rel, count_lines(abs_path), count_chars(abs_path)))
     return seen
 
 
@@ -314,6 +343,14 @@ def count_lines(path):
     try:
         with open(path, "rb") as f:
             return sum(1 for _ in f)
+    except OSError:
+        return 0
+
+
+def count_chars(path):
+    try:
+        with open(path, encoding="utf-8", errors="replace") as f:
+            return len(f.read())
     except OSError:
         return 0
 
@@ -454,7 +491,7 @@ def render_view(root_name, rel):
         # back out rather than using pandoc's own <html>/<head> page shell.
         out = subprocess.run(
             [PANDOC, "-f", "markdown", "-t", "html", "-s", "--highlight-style", "breezedark",
-             "--toc", "--toc-depth=3", title_meta, target],
+             "--toc", "--toc-depth=3", "--mathjax", title_meta, target],
             capture_output=True, text=True,
         )
     else:
@@ -480,13 +517,19 @@ def render_view(root_name, rel):
     else:
         m = re.search(r"<body>\n?(.*)</body>", out.stdout, re.DOTALL)
         content = m.group(1) if m else out.stdout
+        # Wrap each rendered markdown table so only the table scrolls
+        # horizontally on mobile instead of the whole page, or cells
+        # getting squished by the global word-break:break-all rule.
+        content = re.sub(r"(<table>.*?</table>)", r'<div class="doc-table-wrap">\1</div>',
+                          content, flags=re.DOTALL)
 
     parent = os.path.dirname(rel)
     quoted = urllib.parse.quote(rel)
     name = os.path.basename(target)
     nav = (f'<a href="/browse/{root_name}/{urllib.parse.quote(parent)}">&larr; back to {root_name}/{html.escape(parent)}</a> '
            f'<a class="copy" href="/export/{root_name}/{quoted}">&#x1F4E4;</a>')
-    return render_page(os.path.basename(target), nav, f'<div class="doc">{content}</div>')
+    extra_head = MATH_MERMAID_HEAD if ext == ".md" else ""
+    return render_page(os.path.basename(target), nav, f'<div class="doc">{content}</div>', extra_head=extra_head)
 
 
 def render_raw(root_name, rel, include=None):
@@ -502,20 +545,30 @@ def render_export(root_name, rel):
         return None
     name = os.path.basename(target)
     quoted = urllib.parse.quote(rel)
+    base_lines = count_lines(target)
+    base_chars = count_chars(target)
     linked = linked_files(root_name, target) if name.lower().endswith(".md") else []
 
     rows = "".join(
-        f'<tr><td><input type="checkbox" value="{html.escape(l)}" checked></td>'
-        f'<td>{html.escape(l)}</td><td>{lines}</td></tr>'
-        for l, lines in linked
+        f'<tr><td><input type="checkbox" value="{html.escape(l)}" data-lines="{lines}" data-chars="{chars}" checked '
+        f'onchange="updateExportTotal()"></td>'
+        f'<td>{html.escape(l)}</td><td>{lines}</td><td>{chars}</td></tr>'
+        for l, lines, chars in linked
     )
-    table = (f'<form id="export-form"><table><tr><th></th><th>name</th><th>lines</th></tr>{rows}</table></form>'
-             if linked else '<p>(no quoted files)</p><form id="export-form"></form>')
+    table = (f'<form id="export-form" data-base-lines="{base_lines}" data-base-chars="{base_chars}">'
+             f'<table><tr><th></th><th>name</th><th>lines</th><th>chars</th></tr>{rows}</table></form>'
+             if linked else
+             f'<p>(no quoted files)</p><form id="export-form" data-base-lines="{base_lines}" data-base-chars="{base_chars}"></form>')
 
     body = f"""
 <h2>{html.escape(name)}</h2>
-<p>quoted files to include:</p>
+<p>quoted files to include:
+<button class="copy" onclick="setAllChecked(true)">all</button>
+<button class="copy" onclick="setAllChecked(false)">none</button>
+</p>
 {table}
+<p id="export-total"></p>
+<script>updateExportTotal();</script>
 <p class="export-actions">
 <button class="copy" onclick="exportCopy('/raw/{root_name}/{quoted}','export-form',this)">\U0001F4CB copy</button>
 <button class="copy" onclick="exportDownload('/raw/{root_name}/{quoted}','export-form','{html.escape(name)}')">⬇ download</button>
