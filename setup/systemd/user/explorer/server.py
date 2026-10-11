@@ -161,6 +161,12 @@ input[type=text]{{background:#1a1a1a;color:#eee;border:1px solid #555;border-rad
 button.copy,a.copy,button.submit{{background:#333;color:#eee;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer;text-decoration:none;display:inline-block}}
 .export-actions button.copy{{padding:4px 8px;font-size:13px;height:30px;display:inline-flex;align-items:center}}
 .doc{{font-family:sans-serif;line-height:1.6;max-width:900px;margin:0 auto}}
+.doc h1,.doc h2,.doc h3{{border-left:4px solid #6cf;padding-left:10px;margin-top:1.6em}}
+.doc h1{{font-size:1.6em}}
+.doc h2{{font-size:1.3em}}
+.doc h3{{font-size:1.1em}}
+.doc blockquote{{border-left:4px solid #555;background:#1a1a1a;margin:1em 0;padding:4px 16px;color:#bbb}}
+.doc hr{{border:none;border-top:2px solid #444;margin:2em 0}}
 .doc pre{{background:#1a1a1a;padding:8px;overflow-x:auto}}
 .doc code{{background:#1a1a1a;padding:2px 4px}}
 .doc pre code{{background:transparent;padding:0}}
