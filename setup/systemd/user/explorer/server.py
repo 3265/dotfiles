@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 import datetime
 import html
+import io
 import json
 import os
 import re
 import subprocess
 import urllib.parse
+import zipfile
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 PORT = 6003
@@ -475,9 +477,9 @@ def render_listing(root_name, rel):
     rows = []
     if rel:
         parent = os.path.dirname(rel.rstrip("/"))
-        rows.append(f'<tr><td colspan="5"><a href="/browse/{root_name}/{urllib.parse.quote(parent)}">.. (up)</a></td></tr>')
+        rows.append(f'<tr><td colspan="4"><a href="/browse/{root_name}/{urllib.parse.quote(parent)}">.. (up)</a></td></tr>')
     else:
-        rows.append('<tr><td colspan="5"><a href="/">.. (all roots)</a></td></tr>')
+        rows.append('<tr><td colspan="4"><a href="/">.. (all roots)</a></td></tr>')
 
     file_count = 0
     for name in entries:
@@ -492,32 +494,32 @@ def render_listing(root_name, rel):
         if os.path.isdir(full):
             sub_count = count_files(full)
             rows.append(f'<tr><td><a href="/browse/{root_name}/{quoted}">{html.escape(name)}/</a></td><td>dir</td>'
-                        f'<td>{sub_count}</td>{mtime_td}<td></td></tr>')
+                        f'<td>{sub_count}</td>{mtime_td}</tr>')
         elif name.lower().endswith(".md"):
             file_count += 1
             lines = count_lines(full)
             h1 = extract_h1(full)
             label = (f'{html.escape(h1)}<br><small style="color:#888">{html.escape(name)}</small>'
                      if h1 else html.escape(name))
-            actions = f'<a class="copy" href="/export/{root_name}/{quoted}">&#x1F4E4;</a>'
             rows.append(f'<tr><td><a href="/view/{root_name}/{quoted}">{label}</a></td><td>md</td>'
-                        f'<td>{lines}</td>{mtime_td}<td>{actions}</td></tr>')
+                        f'<td>{lines}</td>{mtime_td}</tr>')
         elif not is_probably_binary(full):
             file_count += 1
             lines = count_lines(full)
-            actions = f'<a class="copy" href="/export/{root_name}/{quoted}">&#x1F4E4;</a>'
             rows.append(f'<tr><td><a href="/view/{root_name}/{quoted}">{html.escape(name)}</a></td><td>text</td>'
-                        f'<td>{lines}</td>{mtime_td}<td>{actions}</td></tr>')
+                        f'<td>{lines}</td>{mtime_td}</tr>')
         else:
             file_count += 1
-            rows.append(f'<tr><td>{html.escape(name)}</td><td>bin</td><td></td>{mtime_td}<td></td></tr>')
+            rows.append(f'<tr><td>{html.escape(name)}</td><td>bin</td><td></td>{mtime_td}</tr>')
 
     heading = f"<h1>{root_name}/{html.escape(rel)}</h1>"
     summary = f"<p>{file_count} files here</p>"
     body = (f"{heading}{summary}<table><tr>"
-            f'<th>name</th><th>type</th><th>size</th><th>mod</th><th></th>'
+            f'<th>name</th><th>type</th><th>size</th><th>mod</th>'
             f"</tr>{''.join(rows)}</table>")
-    return render_page(f"explorer: {root_name}/{rel}", f"{root_name}/{html.escape(rel)}", body)
+    nav = (f"{root_name}/{html.escape(rel)} "
+           f'<a class="copy" href="/export/{root_name}/{urllib.parse.quote(rel)}">&#x1F4E4;</a>')
+    return render_page(f"explorer: {root_name}/{rel}", nav, body)
 
 
 def render_view(root_name, rel):
@@ -589,8 +591,80 @@ def render_raw(root_name, rel, include=None):
     return bundle(root_name, target, include=include)
 
 
+def dir_files(target, root):
+    """(root-relative path, line count, char count, byte size) for every
+    non-hidden file under target, recursively."""
+    out = []
+    for dirpath, dirnames, filenames in os.walk(target):
+        dirnames[:] = [d for d in dirnames if not d.startswith(".")]
+        for fn in filenames:
+            if fn.startswith("."):
+                continue
+            full = os.path.join(dirpath, fn)
+            rel = os.path.relpath(full, root)
+            out.append((rel, count_lines(full), count_chars(full), file_size(full)))
+    return sorted(out)
+
+
+def build_zip(root_name, rel, include=None):
+    root = load_roots().get(root_name)
+    target = safe_path(root_name, rel)
+    if not target or not os.path.isdir(target):
+        return None
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
+        for relpath, _, _, _ in dir_files(target, root):
+            if include is not None and relpath not in include:
+                continue
+            abs_path = os.path.join(root, relpath)
+            zf.write(abs_path, os.path.relpath(abs_path, target))
+    return buf.getvalue()
+
+
 def render_export(root_name, rel):
     target = safe_path(root_name, rel)
+    if target and os.path.isdir(target):
+        return render_export_dir(root_name, rel, target)
+    return render_export_file(root_name, rel, target)
+
+
+def render_export_dir(root_name, rel, target):
+    root = load_roots().get(root_name)
+    rel = rel.rstrip("/")
+    name = rel.split("/")[-1] if rel else root_name
+    quoted = urllib.parse.quote(rel)
+    files = dir_files(target, root)
+
+    rows = "".join(
+        f'<tr><td><input type="checkbox" value="{html.escape(l)}" data-lines="{lines}" data-chars="{chars}" '
+        f'data-bytes="{size}" checked onchange="updateExportTotal()"></td>'
+        f'<td>{html.escape(l)}</td><td>{lines}</td><td>{chars}</td><td>{human_size(size)}</td></tr>'
+        for l, lines, chars, size in files
+    )
+    table = (f'<form id="export-form" data-base-lines="0" data-base-chars="0" data-base-bytes="0">'
+             f'<table><tr><th></th><th>name</th><th>lines</th><th>chars</th><th>size</th></tr>{rows}</table></form>'
+             if files else
+             '<p>(no files)</p><form id="export-form" data-base-lines="0" data-base-chars="0" data-base-bytes="0"></form>')
+
+    body = f"""
+<h2>{html.escape(name)}/</h2>
+<p>files to include:
+<button class="copy" onclick="setAllChecked(true)">all</button>
+<button class="copy" onclick="setAllChecked(false)">none</button>
+</p>
+{table}
+<p id="export-total"></p>
+<script>updateExportTotal();</script>
+<p class="export-actions">
+<button class="copy" onclick="exportDownload('/zip/{root_name}/{quoted}','export-form','{html.escape(name)}.zip')">⬇ download zip</button>
+</p>
+"""
+    parent = os.path.dirname(rel)
+    nav = f'<a href="/browse/{root_name}/{urllib.parse.quote(parent)}">&larr; back to {root_name}/{html.escape(parent)}</a>'
+    return render_page(f"explorer: export {name}/", nav, body)
+
+
+def render_export_file(root_name, rel, target):
     if not target or not os.path.isfile(target):
         return None
     name = os.path.basename(target)
@@ -656,6 +730,24 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header("Content-Length", str(len(encoded)))
             self.end_headers()
             self.wfile.write(encoded)
+            return
+        elif path.startswith("/zip/"):
+            root_name, rel = split_root(path[len("/zip/"):])
+            include = query.get("include", [None])[0]
+            include_set = set(include.split(",")) if include else (set() if include == "" else None)
+            data = build_zip(root_name, rel, include=include_set)
+            if data is None:
+                self.send_response(404)
+                self.end_headers()
+                self.wfile.write(b"not found")
+                return
+            name = rel.rstrip("/").split("/")[-1] if rel.rstrip("/") else root_name
+            self.send_response(200)
+            self.send_header("Content-Type", "application/zip")
+            self.send_header("Content-Length", str(len(data)))
+            self.send_header("Content-Disposition", f'attachment; filename="{name}.zip"')
+            self.end_headers()
+            self.wfile.write(data)
             return
         elif path.startswith("/view/"):
             root_name, rel = split_root(path[len("/view/"):])
