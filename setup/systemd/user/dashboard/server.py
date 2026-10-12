@@ -154,7 +154,7 @@ def render_ttyd(ip):
 <tr><th>name</th><th>ttyd</th><th>status</th><th>created</th></tr>
 {''.join(rows)}
 </table>"""
-    return PAGE.format(title="ttyd sessions", extra_head="", nav=render_nav("/"), body=body)
+    return PAGE.format(title="dashboard: ttyd", extra_head="", nav=render_nav("/"), body=body)
 
 
 def render_services(services, ip):
@@ -166,7 +166,7 @@ def render_services(services, ip):
 <tr><th>port</th><th>addr</th><th>process</th><th>cwd</th></tr>
 {''.join(rows)}
 </table>"""
-    return PAGE.format(title="listening services", extra_head="", nav=render_nav("/services"), body=body)
+    return PAGE.format(title="dashboard: services", extra_head="", nav=render_nav("/services"), body=body)
 
 
 def render_stats():
@@ -188,7 +188,7 @@ def render_stats():
         rows += "<p>GPU: not available</p>"
 
     extra_head = '<meta http-equiv="refresh" content="3">'
-    return PAGE.format(title="system stats", extra_head=extra_head, nav=render_nav("/stats"), body=rows)
+    return PAGE.format(title="dashboard: stats", extra_head=extra_head, nav=render_nav("/stats"), body=rows)
 
 
 def render_disk():
@@ -198,7 +198,7 @@ def render_disk():
 <tr><th>mount</th><th>used / size</th><th>avail</th><th>use%</th></tr>
 {''.join(rows)}
 </table>"""
-    return PAGE.format(title="disk usage", extra_head="", nav=render_nav("/disk"), body=body)
+    return PAGE.format(title="dashboard: disk", extra_head="", nav=render_nav("/disk"), body=body)
 
 
 class Handler(BaseHTTPRequestHandler):

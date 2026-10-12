@@ -99,16 +99,24 @@ function setAllChecked(checked){
   Array.prototype.forEach.call(boxes,function(c){c.checked=checked;});
   updateExportTotal();
 }
+function formatSize(n){
+  if(n<1024)return n+'B';
+  if(n<1024*1024)return (n/1024).toFixed(1)+'KB';
+  return (n/1024/1024).toFixed(1)+'MB';
+}
 function updateExportTotal(){
   var form=document.getElementById('export-form');
   var lines=parseInt(form.dataset.baseLines,10)||0;
   var chars=parseInt(form.dataset.baseChars,10)||0;
+  var bytes=parseInt(form.dataset.baseBytes,10)||0;
   var boxes=form.querySelectorAll('input[type=checkbox]:checked');
   Array.prototype.forEach.call(boxes,function(c){
     lines+=parseInt(c.dataset.lines,10)||0;
     chars+=parseInt(c.dataset.chars,10)||0;
+    bytes+=parseInt(c.dataset.bytes,10)||0;
   });
-  document.getElementById('export-total').textContent='total: '+lines+' lines, '+chars+' chars';
+  document.getElementById('export-total').textContent=
+    'total: '+lines+' lines, '+chars+' chars, '+formatSize(bytes);
 }
 function collectIncluded(formId){
   var boxes=document.getElementById(formId).querySelectorAll('input[type=checkbox]:checked');
@@ -275,10 +283,24 @@ def wrap_as_code(ext, content):
     return f"{fence}{lang}\n{content}\n{fence}\n"
 
 
+def file_size(path):
+    try:
+        return os.path.getsize(path)
+    except OSError:
+        return 0
+
+
+def human_size(n):
+    for unit in ("B", "KB", "MB"):
+        if n < 1024 or unit == "MB":
+            return f"{n:.0f}{unit}" if unit == "B" else f"{n:.1f}{unit}"
+        n /= 1024
+
+
 def linked_files(root_name, target):
-    """(root-relative path, line count, char count) for the local text
-    files target plain-links to (dedup, one level - same set bundle() would
-    expand with include=None)."""
+    """(root-relative path, line count, char count, byte size) for the
+    local text files target plain-links to (dedup, one level - same set
+    bundle() would expand with include=None)."""
     root = load_roots().get(root_name)
     with open(target, encoding="utf-8") as f:
         text = f.read()
@@ -291,7 +313,7 @@ def linked_files(root_name, target):
             rel = os.path.relpath(abs_path, root)
             if rel not in rels:
                 rels.add(rel)
-                seen.append((rel, count_lines(abs_path), count_chars(abs_path)))
+                seen.append((rel, count_lines(abs_path), count_chars(abs_path), file_size(abs_path)))
     return seen
 
 
@@ -403,6 +425,24 @@ def is_probably_binary(path):
         return True
 
 
+def extract_h1(path):
+    """First "# heading" line's text, if the file has one within its first
+    20 lines - filenames here (msg_003_..., etc.) are often cryptic, while
+    the doc's own H1 says what it's actually about."""
+    try:
+        with open(path, encoding="utf-8", errors="replace") as f:
+            for _ in range(20):
+                line = f.readline()
+                if not line:
+                    break
+                line = line.strip()
+                if line.startswith("# "):
+                    return line[2:].strip()
+    except OSError:
+        pass
+    return None
+
+
 def render_roots():
     roots = load_roots()
     rows = []
@@ -420,7 +460,7 @@ def render_roots():
 <button class="submit" type="submit">add root</button>
 </form>
 """
-    return render_page("pandoc-md-explorer", "", f"{form}{table}")
+    return render_page("explorer", "", f"{form}{table}")
 
 
 def render_listing(root_name, rel):
@@ -456,8 +496,11 @@ def render_listing(root_name, rel):
         elif name.lower().endswith(".md"):
             file_count += 1
             lines = count_lines(full)
+            h1 = extract_h1(full)
+            label = (f'{html.escape(h1)}<br><small style="color:#888">{html.escape(name)}</small>'
+                     if h1 else html.escape(name))
             actions = f'<a class="copy" href="/export/{root_name}/{quoted}">&#x1F4E4;</a>'
-            rows.append(f'<tr><td><a href="/view/{root_name}/{quoted}">{html.escape(name)}</a></td><td>md</td>'
+            rows.append(f'<tr><td><a href="/view/{root_name}/{quoted}">{label}</a></td><td>md</td>'
                         f'<td>{lines}</td>{mtime_td}<td>{actions}</td></tr>')
         elif not is_probably_binary(full):
             file_count += 1
@@ -469,8 +512,9 @@ def render_listing(root_name, rel):
             file_count += 1
             rows.append(f'<tr><td>{html.escape(name)}</td><td>bin</td><td></td>{mtime_td}<td></td></tr>')
 
+    heading = f"<h1>{root_name}/{html.escape(rel)}</h1>"
     summary = f"<p>{file_count} files here</p>"
-    body = (f"{summary}<table><tr>"
+    body = (f"{heading}{summary}<table><tr>"
             f'<th>name</th><th>type</th><th>size</th><th>mod</th><th></th>'
             f"</tr>{''.join(rows)}</table>")
     return render_page(f"explorer: {root_name}/{rel}", f"{root_name}/{html.escape(rel)}", body)
@@ -509,7 +553,7 @@ def render_view(root_name, rel):
             with open(target, encoding="utf-8", errors="replace") as f:
                 raw = f.read()
         except OSError as e:
-            return render_page(os.path.basename(target), "", f"<pre>{html.escape(str(e))}</pre>")
+            return render_page(f"explorer: {os.path.basename(target)}", "", f"<pre>{html.escape(str(e))}</pre>")
         lang = LANG_BY_EXT.get(ext, "")
         fence = "````"
         wrapped = f"{fence}{lang}\n{raw}\n{fence}\n"
@@ -535,7 +579,7 @@ def render_view(root_name, rel):
     nav = (f'<a href="/browse/{root_name}/{urllib.parse.quote(parent)}">&larr; back to {root_name}/{html.escape(parent)}</a> '
            f'<a class="copy" href="/export/{root_name}/{quoted}">&#x1F4E4;</a>')
     extra_head = MATH_MERMAID_HEAD if ext == ".md" else ""
-    return render_page(os.path.basename(target), nav, f'<div class="doc">{content}</div>', extra_head=extra_head)
+    return render_page(f"explorer: {os.path.basename(target)}", nav, f'<div class="doc">{content}</div>', extra_head=extra_head)
 
 
 def render_raw(root_name, rel, include=None):
@@ -553,21 +597,24 @@ def render_export(root_name, rel):
     quoted = urllib.parse.quote(rel)
     base_lines = count_lines(target)
     base_chars = count_chars(target)
+    base_bytes = file_size(target)
     linked = linked_files(root_name, target) if name.lower().endswith(".md") else []
 
     rows = "".join(
-        f'<tr><td><input type="checkbox" value="{html.escape(l)}" data-lines="{lines}" data-chars="{chars}" checked '
-        f'onchange="updateExportTotal()"></td>'
-        f'<td>{html.escape(l)}</td><td>{lines}</td><td>{chars}</td></tr>'
-        for l, lines, chars in linked
+        f'<tr><td><input type="checkbox" value="{html.escape(l)}" data-lines="{lines}" data-chars="{chars}" '
+        f'data-bytes="{size}" checked onchange="updateExportTotal()"></td>'
+        f'<td>{html.escape(l)}</td><td>{lines}</td><td>{chars}</td><td>{human_size(size)}</td></tr>'
+        for l, lines, chars, size in linked
     )
-    table = (f'<form id="export-form" data-base-lines="{base_lines}" data-base-chars="{base_chars}">'
-             f'<table><tr><th></th><th>name</th><th>lines</th><th>chars</th></tr>{rows}</table></form>'
+    form_attrs = f'data-base-lines="{base_lines}" data-base-chars="{base_chars}" data-base-bytes="{base_bytes}"'
+    table = (f'<form id="export-form" {form_attrs}>'
+             f'<table><tr><th></th><th>name</th><th>lines</th><th>chars</th><th>size</th></tr>{rows}</table></form>'
              if linked else
-             f'<p>(no quoted files)</p><form id="export-form" data-base-lines="{base_lines}" data-base-chars="{base_chars}"></form>')
+             f'<p>(no quoted files)</p><form id="export-form" {form_attrs}></form>')
 
     body = f"""
 <h2>{html.escape(name)}</h2>
+<p>this file: {base_lines} lines, {base_chars} chars, {human_size(base_bytes)}</p>
 <p>quoted files to include:
 <button class="copy" onclick="setAllChecked(true)">all</button>
 <button class="copy" onclick="setAllChecked(false)">none</button>
@@ -581,18 +628,22 @@ def render_export(root_name, rel):
 </p>
 """
     nav = f'<a href="/view/{root_name}/{quoted}">&larr; back to {html.escape(name)}</a>'
-    return render_page(f"export: {name}", nav, body)
+    return render_page(f"explorer: export {name}", nav, body)
 
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         split = urllib.parse.urlsplit(self.path)
         path = urllib.parse.unquote(split.path)
-        query = urllib.parse.parse_qs(split.query)
+        # keep_blank_values=True: an explicit "?include=" (nothing checked)
+        # must stay distinguishable from no "include" param at all (plain
+        # /raw/ with no filtering) - parse_qs drops blank values otherwise,
+        # which silently turned "include nothing" into "include everything".
+        query = urllib.parse.parse_qs(split.query, keep_blank_values=True)
         if path.startswith("/raw/"):
             root_name, rel = split_root(path[len("/raw/"):])
             include = query.get("include", [None])[0]
-            include_set = set(include.split(",")) if include else None
+            include_set = set(include.split(",")) if include else (set() if include == "" else None)
             text = render_raw(root_name, rel, include=include_set)
             if text is None:
                 self.send_response(404)
