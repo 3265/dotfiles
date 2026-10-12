@@ -305,7 +305,7 @@ button.copy,a.copy,button.submit{{background:#333;color:#eee;border:1px solid #5
 .doc{{font-family:sans-serif;line-height:1.6;max-width:900px;margin:0 auto}}
 .doc h1,.doc h2,.doc h3{{border-left:4px solid #6cf;padding-left:10px;margin-top:1.6em}}
 #title-block-header{{margin-top:0}}
-#title-block-header h1{{margin-top:0;border-left:none;padding-left:0}}
+#title-block-header h1{{margin-top:0;border-left:none;padding-left:0;font-family:monospace}}
 .doc h1{{font-size:1.6em}}
 .doc h2{{font-size:1.3em}}
 .doc h3{{font-size:1.1em}}
@@ -321,6 +321,8 @@ nav{{margin-bottom:12px;display:flex;justify-content:space-between;align-items:c
 .menu-bar{{margin-bottom:12px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px}}
 .menu-right{{display:flex;flex-wrap:wrap;gap:8px}}
 .file-stats{{color:#888;font-size:13px;margin:0 0 12px}}
+#export-total{{margin-top:16px}}
+.menu-label{{color:#888;font-size:13px;align-self:center}}
 #TOC{{background:#1a1a1a;border:1px solid #333;border-radius:4px;padding:12px 20px;margin-bottom:1.5em}}
 #TOC ul{{margin:0}}
 {highlight_css}</style>
@@ -713,7 +715,7 @@ def render_listing(root_name, rel):
     heading = f"<h1>{root_name}/{html.escape(rel)}</h1>"
     parent = os.path.dirname(rel.rstrip("/")) if rel else None
     back_href = f"/browse/{root_name}/{urllib.parse.quote(parent)}" if rel else "/"
-    summary = f"<p>{file_count} files here</p>"
+    summary = f'<p class="file-stats">{file_count} files here</p>'
     ths = "".join(
         f'<th onclick="sortTable({i})">{label}<span class="sort-arrow"></span></th>'
         for i, label in enumerate(("name", "type", "size", "mod"))
@@ -871,19 +873,21 @@ def render_export_dir(root_name, rel, target):
     # synchronously before the page can even load is what used to freeze
     # the whole (single-threaded) server for every other open tab too.
     parent = os.path.dirname(rel)
-    menu = f'<div class="menu-bar"><a class="copy" href="/browse/{root_name}/{urllib.parse.quote(parent)}">&larr; back</a></div>'
+    menu = (f'<div class="menu-bar">'
+            f'<a class="copy" href="/browse/{root_name}/{urllib.parse.quote(parent)}">&larr; back</a>'
+            f'<span class="menu-right">'
+            f'<span class="menu-label">include:</span>'
+            f'<button class="copy" onclick="setAllChecked(true)">all</button>'
+            f'<button class="copy" onclick="setAllChecked(false)">none</button>'
+            f'</span></div>')
     body = f"""
 <h2>{html.escape(name)}/</h2>
 {menu}
-<p>files to include:
-<button class="copy" onclick="setAllChecked(true)">all</button>
-<button class="copy" onclick="setAllChecked(false)">none</button>
-</p>
-<p id="export-progress">loading file list...</p>
+<p id="export-progress" class="file-stats">loading file list...</p>
 <form id="export-form" data-base-lines="0" data-base-chars="0" data-base-bytes="0" data-size-only="1">
 <table id="export-table"><tr><th></th><th>name</th><th>size</th></tr></table>
 </form>
-<p id="export-total"></p>
+<p id="export-total" class="file-stats"></p>
 <p class="export-actions">
 <button class="copy" onclick="exportDownload('/zip/{root_name}/{quoted}','export-form','{html.escape(name)}.zip')">⬇ download zip</button>
 </p>
@@ -914,17 +918,19 @@ def render_export_file(root_name, rel, target):
              if linked else
              f'<p>(no quoted files)</p><form id="export-form" {form_attrs}></form>')
 
-    menu = f'<div class="menu-bar"><a class="copy" href="/view/{root_name}/{quoted}">&larr; back</a></div>'
+    menu = (f'<div class="menu-bar">'
+            f'<a class="copy" href="/view/{root_name}/{quoted}">&larr; back</a>'
+            f'<span class="menu-right">'
+            f'<span class="menu-label">include:</span>'
+            f'<button class="copy" onclick="setAllChecked(true)">all</button>'
+            f'<button class="copy" onclick="setAllChecked(false)">none</button>'
+            f'</span></div>')
     body = f"""
 <h2>{html.escape(name)}</h2>
 {menu}
-<p>this file: {fmt_count(base_lines)} lines, {fmt_count(base_chars)} chars, {human_size(base_bytes)}</p>
-<p>quoted files to include:
-<button class="copy" onclick="setAllChecked(true)">all</button>
-<button class="copy" onclick="setAllChecked(false)">none</button>
-</p>
+<p class="file-stats">this file: {fmt_count(base_lines)} lines, {fmt_count(base_chars)} chars, {human_size(base_bytes)}</p>
 {table}
-<p id="export-total"></p>
+<p id="export-total" class="file-stats"></p>
 <script>updateExportTotal();</script>
 <p class="export-actions">
 <button class="copy" onclick="exportCopy('/raw/{root_name}/{quoted}','export-form',this)">\U0001F4CB copy</button>
