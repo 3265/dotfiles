@@ -154,6 +154,48 @@ function showFullTime(span,e){
   document.body.appendChild(pop);
   setTimeout(function(){pop.remove();},2000);
 }
+function sortKey(row,col){
+  var cell=row.cells[col];
+  if(col===3){
+    var span=cell.querySelector('.mtime');
+    return span?span.dataset.full:'';
+  }
+  if(col===2)return parseFloat(cell.textContent)||0;
+  return cell.textContent.trim().toLowerCase();
+}
+function applySort(table,col,dir){
+  var tbody=table.tBodies[0];
+  var rows=Array.prototype.slice.call(tbody.rows);
+  var pin=rows.filter(function(r){return r.classList.contains('pin');});
+  var rest=rows.filter(function(r){return !r.classList.contains('pin');});
+  rest.sort(function(a,b){
+    var ka=sortKey(a,col),kb=sortKey(b,col);
+    if(ka<kb)return dir==='asc'?-1:1;
+    if(ka>kb)return dir==='asc'?1:-1;
+    return 0;
+  });
+  pin.concat(rest).forEach(function(r){tbody.appendChild(r);});
+  var arrows=table.querySelectorAll('th .sort-arrow');
+  Array.prototype.forEach.call(arrows,function(s){s.textContent='';});
+  arrows[col].textContent=dir==='asc'?' ↑':' ↓';
+}
+function sortTable(col){
+  var table=document.getElementById('listing-table');
+  if(!table)return;
+  var saved=null;
+  try{saved=JSON.parse(localStorage.getItem('explorer-sort')||'null');}catch(e){}
+  var dir=(saved&&saved.col===col&&saved.dir==='asc')?'desc':'asc';
+  try{localStorage.setItem('explorer-sort',JSON.stringify({col:col,dir:dir}));}catch(e){}
+  applySort(table,col,dir);
+}
+function initSort(){
+  var table=document.getElementById('listing-table');
+  if(!table)return;
+  var saved=null;
+  try{saved=JSON.parse(localStorage.getItem('explorer-sort')||'null');}catch(e){}
+  if(saved)applySort(table,saved.col,saved.dir);
+}
+window.addEventListener('DOMContentLoaded',initSort);
 """
 
 PAGE = """<!doctype html>
@@ -162,6 +204,8 @@ PAGE = """<!doctype html>
 <style>body{{font-family:monospace;background:#111;color:#eee;font-size:16px;margin:0;padding:8px;overflow-wrap:anywhere}}
 table{{border-collapse:collapse;width:100%}}
 td,th{{padding:8px 10px;border-bottom:1px solid #333;text-align:left;word-break:break-all}}
+#listing-table th{{cursor:pointer;white-space:nowrap}}
+.sort-arrow{{color:#6cf}}
 a{{color:#6cf}}
 .mtime{{cursor:pointer;border-bottom:1px dotted #666;white-space:nowrap}}
 .mtime-popup{{position:fixed;background:#222;border:1px solid #555;border-radius:4px;padding:4px 8px;font-size:13px;z-index:100;white-space:nowrap}}
@@ -477,9 +521,9 @@ def render_listing(root_name, rel):
     rows = []
     if rel:
         parent = os.path.dirname(rel.rstrip("/"))
-        rows.append(f'<tr><td colspan="4"><a href="/browse/{root_name}/{urllib.parse.quote(parent)}">.. (up)</a></td></tr>')
+        rows.append(f'<tr class="pin"><td colspan="4"><a href="/browse/{root_name}/{urllib.parse.quote(parent)}">.. (up)</a></td></tr>')
     else:
-        rows.append('<tr><td colspan="4"><a href="/">.. (all roots)</a></td></tr>')
+        rows.append('<tr class="pin"><td colspan="4"><a href="/">.. (all roots)</a></td></tr>')
 
     file_count = 0
     for name in entries:
@@ -514,9 +558,12 @@ def render_listing(root_name, rel):
 
     heading = f"<h1>{root_name}/{html.escape(rel)}</h1>"
     summary = f"<p>{file_count} files here</p>"
-    body = (f"{heading}{summary}<table><tr>"
-            f'<th>name</th><th>type</th><th>size</th><th>mod</th>'
-            f"</tr>{''.join(rows)}</table>")
+    ths = "".join(
+        f'<th onclick="sortTable({i})">{label}<span class="sort-arrow"></span></th>'
+        for i, label in enumerate(("name", "type", "size", "mod"))
+    )
+    body = (f'{heading}{summary}<table id="listing-table"><thead><tr>{ths}</tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table>')
     nav = (f"{root_name}/{html.escape(rel)} "
            f'<a class="copy" href="/export/{root_name}/{urllib.parse.quote(rel)}">&#x1F4E4;</a>')
     return render_page(f"explorer: {root_name}/{rel}", nav, body)
