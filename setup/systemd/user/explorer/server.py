@@ -11,6 +11,7 @@ import zipfile
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 PORT = 6003
+MAX_UPLOAD_BYTES = 1024 ** 3  # 1GB
 
 # Extension -> pandoc/skylighting language name, for viewing non-.md text
 # files with the same syntax highlighting as code blocks inside a .md file.
@@ -108,10 +109,15 @@ function formatSize(n){
 }
 function updateExportTotal(){
   var form=document.getElementById('export-form');
-  var lines=parseInt(form.dataset.baseLines,10)||0;
-  var chars=parseInt(form.dataset.baseChars,10)||0;
   var bytes=parseInt(form.dataset.baseBytes,10)||0;
   var boxes=form.querySelectorAll('input[type=checkbox]:checked');
+  if(form.dataset.sizeOnly==='1'){
+    Array.prototype.forEach.call(boxes,function(c){bytes+=parseInt(c.dataset.bytes,10)||0;});
+    document.getElementById('export-total').textContent='total: '+formatSize(bytes);
+    return;
+  }
+  var lines=parseInt(form.dataset.baseLines,10)||0;
+  var chars=parseInt(form.dataset.baseChars,10)||0;
   Array.prototype.forEach.call(boxes,function(c){
     lines+=parseInt(c.dataset.lines,10)||0;
     chars+=parseInt(c.dataset.chars,10)||0;
@@ -196,6 +202,78 @@ function initSort(){
   if(saved)applySort(table,saved.col,saved.dir);
 }
 window.addEventListener('DOMContentLoaded',initSort);
+function showUploadModal(){
+  var m=document.getElementById('upload-modal');
+  if(m)m.classList.add('open');
+}
+function hideUploadModal(){
+  var m=document.getElementById('upload-modal');
+  if(m)m.classList.remove('open');
+}
+var suggestTimer=null;
+function hideSuggestions(){
+  var list=document.getElementById('path-suggestions');
+  if(list){list.innerHTML='';list.style.display='none';}
+}
+function suggestPaths(input){
+  clearTimeout(suggestTimer);
+  suggestTimer=setTimeout(function(){
+    fetch('/roots/suggest?q='+encodeURIComponent(input.value)).then(function(r){return r.json();}).then(function(paths){
+      var list=document.getElementById('path-suggestions');
+      if(!list)return;
+      list.innerHTML='';
+      if(!paths.length){list.style.display='none';return;}
+      paths.forEach(function(p){
+        var item=document.createElement('div');
+        item.textContent=p;
+        item.onmousedown=function(){input.value=p;hideSuggestions();};
+        list.appendChild(item);
+      });
+      list.style.display='block';
+    });
+  },200);
+}
+function appendExportRow(path,size){
+  var table=document.getElementById('export-table');
+  if(!table)return;
+  var tr=document.createElement('tr');
+  var tdCheck=document.createElement('td');
+  var cb=document.createElement('input');
+  cb.type='checkbox';cb.checked=true;cb.value=path;cb.dataset.bytes=size;
+  cb.onchange=updateExportTotal;
+  tdCheck.appendChild(cb);
+  var tdName=document.createElement('td');tdName.textContent=path;
+  var tdSize=document.createElement('td');tdSize.textContent=formatSize(size);
+  tr.appendChild(tdCheck);tr.appendChild(tdName);tr.appendChild(tdSize);
+  table.appendChild(tr);
+}
+function loadExportDir(root,rel){
+  var progress=document.getElementById('export-progress');
+  fetch('/export-list/'+root+'/'+rel).then(function(r){return r.json();}).then(function(files){
+    if(!files.length){
+      if(progress)progress.textContent='(no files)';
+      updateExportTotal();
+      return;
+    }
+    var i=0,batchSize=30;
+    function next(){
+      if(i>=files.length){
+        if(progress)progress.textContent=files.length+' files';
+        updateExportTotal();
+        return;
+      }
+      var batch=files.slice(i,i+batchSize);
+      i+=batchSize;
+      if(progress)progress.textContent='loading... ('+i+'/'+files.length+')';
+      fetch('/export-meta/'+root+'?files='+batch.map(encodeURIComponent).join(',')).then(function(r){return r.json();}).then(function(metas){
+        metas.forEach(function(m){appendExportRow(m.path,m.size);});
+        updateExportTotal();
+        next();
+      });
+    }
+    next();
+  });
+}
 """
 
 PAGE = """<!doctype html>
@@ -211,11 +289,23 @@ a{{color:#6cf}}
 .mtime-popup{{position:fixed;background:#222;border:1px solid #555;border-radius:4px;padding:4px 8px;font-size:13px;z-index:100;white-space:nowrap}}
 input[type=text]{{background:#1a1a1a;color:#eee;border:1px solid #555;border-radius:4px;padding:6px 8px;font-family:monospace;box-sizing:border-box}}
 .add-root{{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}}
-.add-root input[type=text]{{flex:1;min-width:200px}}
+.path-input-wrap{{position:relative;flex:1;min-width:200px}}
+.path-input-wrap input{{width:100%;box-sizing:border-box}}
+.suggest-list{{display:none;position:absolute;top:100%;left:0;right:0;background:#1a1a1a;
+border:1px solid #444;border-radius:4px;max-height:200px;overflow-y:auto;z-index:50}}
+.suggest-list div{{padding:6px 10px;cursor:pointer;word-break:break-all}}
+.suggest-list div:hover{{background:#333}}
+.upload-form{{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}}
+.upload-form input[type=file]{{max-width:100%}}
+.modal-overlay{{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;align-items:center;justify-content:center}}
+.modal-overlay.open{{display:flex}}
+.modal-box{{box-sizing:border-box;background:#1a1a1a;border:1px solid #444;border-radius:8px;padding:20px;max-width:90%;width:320px}}
 button.copy,a.copy,button.submit{{background:#333;color:#eee;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer;text-decoration:none;display:inline-block}}
 .export-actions button.copy{{padding:4px 8px;font-size:13px;height:30px;display:inline-flex;align-items:center}}
 .doc{{font-family:sans-serif;line-height:1.6;max-width:900px;margin:0 auto}}
 .doc h1,.doc h2,.doc h3{{border-left:4px solid #6cf;padding-left:10px;margin-top:1.6em}}
+#title-block-header{{margin-top:0}}
+#title-block-header h1{{margin-top:0;border-left:none;padding-left:0}}
 .doc h1{{font-size:1.6em}}
 .doc h2{{font-size:1.3em}}
 .doc h3{{font-size:1.1em}}
@@ -228,6 +318,9 @@ button.copy,a.copy,button.submit{{background:#333;color:#eee;border:1px solid #5
 .doc-table-wrap table{{width:auto}}
 .doc-table-wrap td,.doc-table-wrap th{{white-space:nowrap;word-break:normal}}
 nav{{margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:8px}}
+.menu-bar{{margin-bottom:12px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px}}
+.menu-right{{display:flex;flex-wrap:wrap;gap:8px}}
+.file-stats{{color:#888;font-size:13px;margin:0 0 12px}}
 #TOC{{background:#1a1a1a;border:1px solid #333;border-radius:4px;padding:12px 20px;margin-bottom:1.5em}}
 #TOC ul{{margin:0}}
 {highlight_css}</style>
@@ -261,6 +354,50 @@ def save_roots(roots):
     os.makedirs(CONFIG_DIR, exist_ok=True)
     with open(ROOTS_FILE, "w", encoding="utf-8") as f:
         json.dump(roots, f, ensure_ascii=False, indent=2)
+
+
+def parse_multipart_file(body, boundary):
+    """(filename, data) for the "file" field of a single-file
+    multipart/form-data upload, or None if not present. Doesn't use the
+    stdlib cgi module since it's deprecated/removed from Python 3.13."""
+    for part in body.split(b"--" + boundary.encode()):
+        if b'name="file"' not in part:
+            continue
+        header_end = part.find(b"\r\n\r\n")
+        if header_end == -1:
+            continue
+        headers = part[:header_end].decode(errors="replace")
+        content = part[header_end + 4:]
+        if content.endswith(b"\r\n"):
+            content = content[:-2]
+        m = re.search(r'filename="([^"]*)"', headers)
+        if m and m.group(1):
+            return os.path.basename(m.group(1)), content
+    return None
+
+
+def suggest_paths(partial):
+    """Absolute directory paths matching what's typed so far in the "add
+    root" form, for live autocomplete (e.g. "/mnt/data4tb/pro" -> lists
+    dirs under /mnt/data4tb/ starting with "pro")."""
+    if not partial:
+        base, prefix = "/", ""
+    elif partial.endswith("/"):
+        base, prefix = partial, ""
+    else:
+        base, prefix = os.path.dirname(partial) or "/", os.path.basename(partial)
+    try:
+        entries = sorted(os.listdir(base))
+    except OSError:
+        return []
+    out = []
+    for name in entries:
+        if name.startswith(".") or not name.lower().startswith(prefix.lower()):
+            continue
+        full = os.path.join(base, name)
+        if os.path.isdir(full):
+            out.append(full)
+    return out[:20]
 
 
 def add_root(path):
@@ -343,6 +480,12 @@ def human_size(n):
         n /= 1024
 
 
+def fmt_count(n):
+    """count_lines/count_chars return None for files too big to safely
+    read in full - show that as "-" instead of the literal "None"."""
+    return str(n) if n is not None else "-"
+
+
 def linked_files(root_name, target):
     """(root-relative path, line count, char count, byte size) for the
     local text files target plain-links to (dedup, one level - same set
@@ -413,8 +556,13 @@ def bundle(root_name, target, include=None):
     return main + f"\n\n{SEP}\n\n# \U0001F4CE quoted files\n\n" + f"\n\n{SEP}\n\n".join(appendix) + "\n"
 
 
+MAX_COUNT_BYTES = 5 * 1024 * 1024  # don't read huge (e.g. GB-sized data) files just to count lines/chars
+
+
 def count_lines(path):
     try:
+        if os.path.getsize(path) > MAX_COUNT_BYTES:
+            return None
         with open(path, "rb") as f:
             return sum(1 for _ in f)
     except OSError:
@@ -423,6 +571,8 @@ def count_lines(path):
 
 def count_chars(path):
     try:
+        if os.path.getsize(path) > MAX_COUNT_BYTES:
+            return None
         with open(path, encoding="utf-8", errors="replace") as f:
             return len(f.read())
     except OSError:
@@ -502,7 +652,11 @@ def render_roots():
              if rows else "<p>no roots registered yet</p>")
     form = """
 <form method="post" action="/roots/add" class="add-root">
-<input type="text" name="path" placeholder="/absolute/path/to/project">
+<div class="path-input-wrap">
+<input type="text" name="path" id="path-input" placeholder="/absolute/path/to/project"
+       autocomplete="off" oninput="suggestPaths(this)" onblur="setTimeout(hideSuggestions,150)">
+<div id="path-suggestions" class="suggest-list"></div>
+</div>
 <button class="submit" type="submit">add root</button>
 </form>
 """
@@ -541,7 +695,7 @@ def render_listing(root_name, rel):
                         f'<td>{sub_count}</td>{mtime_td}</tr>')
         elif name.lower().endswith(".md"):
             file_count += 1
-            lines = count_lines(full)
+            lines = fmt_count(count_lines(full))
             h1 = extract_h1(full)
             label = (f'{html.escape(h1)}<br><small style="color:#888">{html.escape(name)}</small>'
                      if h1 else html.escape(name))
@@ -549,7 +703,7 @@ def render_listing(root_name, rel):
                         f'<td>{lines}</td>{mtime_td}</tr>')
         elif not is_probably_binary(full):
             file_count += 1
-            lines = count_lines(full)
+            lines = fmt_count(count_lines(full))
             rows.append(f'<tr><td><a href="/view/{root_name}/{quoted}">{html.escape(name)}</a></td><td>text</td>'
                         f'<td>{lines}</td>{mtime_td}</tr>')
         else:
@@ -557,16 +711,34 @@ def render_listing(root_name, rel):
             rows.append(f'<tr><td>{html.escape(name)}</td><td>bin</td><td></td>{mtime_td}</tr>')
 
     heading = f"<h1>{root_name}/{html.escape(rel)}</h1>"
+    parent = os.path.dirname(rel.rstrip("/")) if rel else None
+    back_href = f"/browse/{root_name}/{urllib.parse.quote(parent)}" if rel else "/"
     summary = f"<p>{file_count} files here</p>"
     ths = "".join(
         f'<th onclick="sortTable({i})">{label}<span class="sort-arrow"></span></th>'
         for i, label in enumerate(("name", "type", "size", "mod"))
     )
-    body = (f'{heading}{summary}<table id="listing-table"><thead><tr>{ths}</tr></thead>'
-            f'<tbody>{"".join(rows)}</tbody></table>')
-    nav = (f"{root_name}/{html.escape(rel)} "
-           f'<a class="copy" href="/export/{root_name}/{urllib.parse.quote(rel)}">&#x1F4E4;</a>')
-    return render_page(f"explorer: {root_name}/{rel}", nav, body)
+    upload_modal = f"""
+<div id="upload-modal" class="modal-overlay" onclick="if(event.target===this)hideUploadModal()">
+<div class="modal-box">
+<h3>upload file</h3>
+<form method="post" action="/upload/{root_name}/{urllib.parse.quote(rel)}" enctype="multipart/form-data" class="upload-form">
+<input type="file" name="file" required>
+<button class="submit" type="submit">upload</button>
+<button type="button" class="submit" onclick="hideUploadModal()">cancel</button>
+</form>
+<p style="font-size:12px;color:#888">max 1GB</p>
+</div>
+</div>"""
+    menu = (f'<div class="menu-bar">'
+            f'<a class="copy" href="{back_href}">&larr; back</a>'
+            f'<span class="menu-right">'
+            f'<a class="copy" onclick="showUploadModal()" style="cursor:pointer">&#x2B06;</a>'
+            f'<a class="copy" href="/export/{root_name}/{urllib.parse.quote(rel)}">&#x1F4E4;</a>'
+            f'</span></div>')
+    body = (f'{heading}{menu}{summary}<table id="listing-table"><thead><tr>{ths}</tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table>{upload_modal}')
+    return render_page(f"explorer: {root_name}/{rel}", "", body)
 
 
 def render_view(root_name, rel):
@@ -625,10 +797,23 @@ def render_view(root_name, rel):
     parent = os.path.dirname(rel)
     quoted = urllib.parse.quote(rel)
     name = os.path.basename(target)
-    nav = (f'<a href="/browse/{root_name}/{urllib.parse.quote(parent)}">&larr; back to {root_name}/{html.escape(parent)}</a> '
-           f'<a class="copy" href="/export/{root_name}/{quoted}">&#x1F4E4;</a>')
+    stats = (f'<p class="file-stats">{fmt_count(count_lines(target))} lines, '
+             f'{fmt_count(count_chars(target))} chars, {human_size(file_size(target))}</p>')
+    menu = (f'<div class="menu-bar">'
+            f'<a class="copy" href="/browse/{root_name}/{urllib.parse.quote(parent)}">&larr; back</a>'
+            f'<span class="menu-right">'
+            f'<a class="copy" href="/export/{root_name}/{quoted}">&#x1F4E4;</a>'
+            f'</span></div>{stats}')
+    # pandoc's own title block (from --metadata=title=) renders the
+    # filename as an <h1>, with the TOC right after it - put the menu
+    # between the two instead of above everything, so it reads as
+    # filename -> actions -> stats -> table of contents -> body.
+    if "</header>" in content:
+        content = content.replace("</header>", f"</header>{menu}", 1)
+    else:
+        content = menu + content
     extra_head = MATH_MERMAID_HEAD if ext == ".md" else ""
-    return render_page(f"explorer: {os.path.basename(target)}", nav, f'<div class="doc">{content}</div>', extra_head=extra_head)
+    return render_page(f"explorer: {os.path.basename(target)}", "", f'<div class="doc">{content}</div>', extra_head=extra_head)
 
 
 def render_raw(root_name, rel, include=None):
@@ -638,9 +823,10 @@ def render_raw(root_name, rel, include=None):
     return bundle(root_name, target, include=include)
 
 
-def dir_files(target, root):
-    """(root-relative path, line count, char count, byte size) for every
-    non-hidden file under target, recursively."""
+def walk_relpaths(target, root):
+    """Root-relative path for every non-hidden file under target,
+    recursively - just names, no stat/read per file, so this stays fast
+    even in a folder with huge (multi-GB) data files in it."""
     out = []
     for dirpath, dirnames, filenames in os.walk(target):
         dirnames[:] = [d for d in dirnames if not d.startswith(".")]
@@ -648,8 +834,7 @@ def dir_files(target, root):
             if fn.startswith("."):
                 continue
             full = os.path.join(dirpath, fn)
-            rel = os.path.relpath(full, root)
-            out.append((rel, count_lines(full), count_chars(full), file_size(full)))
+            out.append(os.path.relpath(full, root))
     return sorted(out)
 
 
@@ -660,7 +845,7 @@ def build_zip(root_name, rel, include=None):
         return None
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
-        for relpath, _, _, _ in dir_files(target, root):
+        for relpath in walk_relpaths(target, root):
             if include is not None and relpath not in include:
                 continue
             abs_path = os.path.join(root, relpath)
@@ -676,39 +861,35 @@ def render_export(root_name, rel):
 
 
 def render_export_dir(root_name, rel, target):
-    root = load_roots().get(root_name)
     rel = rel.rstrip("/")
     name = rel.split("/")[-1] if rel else root_name
     quoted = urllib.parse.quote(rel)
-    files = dir_files(target, root)
 
-    rows = "".join(
-        f'<tr><td><input type="checkbox" value="{html.escape(l)}" data-lines="{lines}" data-chars="{chars}" '
-        f'data-bytes="{size}" checked onchange="updateExportTotal()"></td>'
-        f'<td>{html.escape(l)}</td><td>{lines}</td><td>{chars}</td><td>{human_size(size)}</td></tr>'
-        for l, lines, chars, size in files
-    )
-    table = (f'<form id="export-form" data-base-lines="0" data-base-chars="0" data-base-bytes="0">'
-             f'<table><tr><th></th><th>name</th><th>lines</th><th>chars</th><th>size</th></tr>{rows}</table></form>'
-             if files else
-             '<p>(no files)</p><form id="export-form" data-base-lines="0" data-base-chars="0" data-base-bytes="0"></form>')
-
+    # The file list (and each file's size) loads incrementally via JS
+    # after the page renders, rather than being computed here - some of
+    # these folders hold many GB-sized data files, and scanning them all
+    # synchronously before the page can even load is what used to freeze
+    # the whole (single-threaded) server for every other open tab too.
+    parent = os.path.dirname(rel)
+    menu = f'<div class="menu-bar"><a class="copy" href="/browse/{root_name}/{urllib.parse.quote(parent)}">&larr; back</a></div>'
     body = f"""
 <h2>{html.escape(name)}/</h2>
+{menu}
 <p>files to include:
 <button class="copy" onclick="setAllChecked(true)">all</button>
 <button class="copy" onclick="setAllChecked(false)">none</button>
 </p>
-{table}
+<p id="export-progress">loading file list...</p>
+<form id="export-form" data-base-lines="0" data-base-chars="0" data-base-bytes="0" data-size-only="1">
+<table id="export-table"><tr><th></th><th>name</th><th>size</th></tr></table>
+</form>
 <p id="export-total"></p>
-<script>updateExportTotal();</script>
 <p class="export-actions">
 <button class="copy" onclick="exportDownload('/zip/{root_name}/{quoted}','export-form','{html.escape(name)}.zip')">⬇ download zip</button>
 </p>
+<script>loadExportDir('{root_name}','{quoted}');</script>
 """
-    parent = os.path.dirname(rel)
-    nav = f'<a href="/browse/{root_name}/{urllib.parse.quote(parent)}">&larr; back to {root_name}/{html.escape(parent)}</a>'
-    return render_page(f"explorer: export {name}/", nav, body)
+    return render_page(f"explorer: export {name}/", "", body)
 
 
 def render_export_file(root_name, rel, target):
@@ -722,20 +903,22 @@ def render_export_file(root_name, rel, target):
     linked = linked_files(root_name, target) if name.lower().endswith(".md") else []
 
     rows = "".join(
-        f'<tr><td><input type="checkbox" value="{html.escape(l)}" data-lines="{lines}" data-chars="{chars}" '
+        f'<tr><td><input type="checkbox" value="{html.escape(l)}" data-lines="{lines or 0}" data-chars="{chars or 0}" '
         f'data-bytes="{size}" checked onchange="updateExportTotal()"></td>'
-        f'<td>{html.escape(l)}</td><td>{lines}</td><td>{chars}</td><td>{human_size(size)}</td></tr>'
+        f'<td>{html.escape(l)}</td><td>{fmt_count(lines)}</td><td>{fmt_count(chars)}</td><td>{human_size(size)}</td></tr>'
         for l, lines, chars, size in linked
     )
-    form_attrs = f'data-base-lines="{base_lines}" data-base-chars="{base_chars}" data-base-bytes="{base_bytes}"'
+    form_attrs = f'data-base-lines="{base_lines or 0}" data-base-chars="{base_chars or 0}" data-base-bytes="{base_bytes}"'
     table = (f'<form id="export-form" {form_attrs}>'
              f'<table><tr><th></th><th>name</th><th>lines</th><th>chars</th><th>size</th></tr>{rows}</table></form>'
              if linked else
              f'<p>(no quoted files)</p><form id="export-form" {form_attrs}></form>')
 
+    menu = f'<div class="menu-bar"><a class="copy" href="/view/{root_name}/{quoted}">&larr; back</a></div>'
     body = f"""
 <h2>{html.escape(name)}</h2>
-<p>this file: {base_lines} lines, {base_chars} chars, {human_size(base_bytes)}</p>
+{menu}
+<p>this file: {fmt_count(base_lines)} lines, {fmt_count(base_chars)} chars, {human_size(base_bytes)}</p>
 <p>quoted files to include:
 <button class="copy" onclick="setAllChecked(true)">all</button>
 <button class="copy" onclick="setAllChecked(false)">none</button>
@@ -748,8 +931,7 @@ def render_export_file(root_name, rel, target):
 <button class="copy" onclick="exportDownload('/raw/{root_name}/{quoted}','export-form','{html.escape(name)}')">⬇ download</button>
 </p>
 """
-    nav = f'<a href="/view/{root_name}/{quoted}">&larr; back to {html.escape(name)}</a>'
-    return render_page(f"explorer: export {name}", nav, body)
+    return render_page(f"explorer: export {name}", "", body)
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -777,6 +959,34 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header("Content-Length", str(len(encoded)))
             self.end_headers()
             self.wfile.write(encoded)
+            return
+        elif path.startswith("/export-list/"):
+            root_name, rel = split_root(path[len("/export-list/"):])
+            target = safe_path(root_name, rel)
+            root = load_roots().get(root_name)
+            paths = walk_relpaths(target, root) if target and os.path.isdir(target) else []
+            data = json.dumps(paths).encode()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(data)))
+            self.end_headers()
+            self.wfile.write(data)
+            return
+        elif path.startswith("/export-meta/"):
+            root_name = path[len("/export-meta/"):]
+            metas = []
+            for relpath in query.get("files", [""])[0].split(","):
+                if not relpath:
+                    continue
+                full = safe_path(root_name, relpath)
+                if full and os.path.isfile(full):
+                    metas.append({"path": relpath, "size": file_size(full)})
+            data = json.dumps(metas).encode()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(data)))
+            self.end_headers()
+            self.wfile.write(data)
             return
         elif path.startswith("/zip/"):
             root_name, rel = split_root(path[len("/zip/"):])
@@ -814,6 +1024,15 @@ class Handler(BaseHTTPRequestHandler):
         elif path.startswith("/browse/"):
             root_name, rel = split_root(path[len("/browse/"):])
             body = render_listing(root_name, rel)
+        elif path == "/roots/suggest":
+            partial = query.get("q", [""])[0]
+            data = json.dumps(suggest_paths(partial)).encode()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(data)))
+            self.end_headers()
+            self.wfile.write(data)
+            return
         elif path.startswith("/roots/remove/"):
             name = urllib.parse.unquote_plus(path[len("/roots/remove/"):])
             roots = load_roots()
@@ -842,6 +1061,27 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(encoded)
 
     def do_POST(self):
+        if self.path.startswith("/upload/"):
+            root_name, rel = split_root(urllib.parse.unquote(self.path[len("/upload/"):]))
+            target_dir = safe_path(root_name, rel)
+            length = int(self.headers.get("Content-Length", 0))
+            if length > MAX_UPLOAD_BYTES:
+                self.send_response(413)
+                self.end_headers()
+                self.wfile.write(b"file too large (max 1GB)")
+                return
+            body = self.rfile.read(length)
+            m = re.search(r'boundary=([^;]+)', self.headers.get("Content-Type", ""))
+            if target_dir and os.path.isdir(target_dir) and m:
+                result = parse_multipart_file(body, m.group(1).strip('"'))
+                if result and result[0]:
+                    filename, data = result
+                    with open(os.path.join(target_dir, filename), "wb") as f:
+                        f.write(data)
+            self.send_response(302)
+            self.send_header("Location", f"/browse/{root_name}/" + urllib.parse.quote(rel.rstrip("/")))
+            self.end_headers()
+            return
         if self.path == "/roots/add":
             length = int(self.headers.get("Content-Length", 0))
             data = self.rfile.read(length).decode()
