@@ -300,8 +300,8 @@ border:1px solid #444;border-radius:4px;max-height:200px;overflow-y:auto;z-index
 .modal-overlay{{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;align-items:center;justify-content:center}}
 .modal-overlay.open{{display:flex}}
 .modal-box{{box-sizing:border-box;background:#1a1a1a;border:1px solid #444;border-radius:8px;padding:20px;max-width:90%;width:320px}}
-button.copy,a.copy,button.submit{{background:#333;color:#eee;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer;text-decoration:none;display:inline-block}}
-.export-actions button.copy{{padding:4px 8px;font-size:13px;height:30px;display:inline-flex;align-items:center}}
+button.copy,a.copy,button.submit{{box-sizing:border-box;vertical-align:middle;line-height:20px;background:#333;color:#eee;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer;text-decoration:none;display:inline-block}}
+.export-actions{{margin-top:20px}}
 .doc{{font-family:sans-serif;line-height:1.6;max-width:900px;margin:0 auto}}
 .doc h1,.doc h2,.doc h3{{border-left:4px solid #6cf;padding-left:10px;margin-top:1.6em}}
 #title-block-header{{margin-top:0}}
@@ -315,8 +315,10 @@ button.copy,a.copy,button.submit{{background:#333;color:#eee;border:1px solid #5
 .doc code{{background:#1a1a1a;padding:2px 4px}}
 .doc pre code{{background:transparent;padding:0}}
 .doc-table-wrap{{overflow-x:auto;margin:1em 0}}
-.doc-table-wrap table{{width:auto}}
-.doc-table-wrap td,.doc-table-wrap th{{white-space:nowrap;word-break:normal}}
+.doc-table-wrap table{{width:100%;table-layout:fixed;border:1px solid #333}}
+.doc-table-wrap td,.doc-table-wrap th{{word-break:normal;overflow-wrap:break-word;min-width:100px;border:1px solid #333}}
+.doc-table-wrap th{{background:#1d1d1d;font-weight:bold}}
+.doc-table-wrap tr:nth-child(even) td{{background:#161616}}
 nav{{margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:8px}}
 .menu-bar{{margin-bottom:12px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px}}
 .menu-right{{display:flex;flex-wrap:wrap;gap:8px}}
@@ -662,7 +664,7 @@ def render_roots():
 <button class="submit" type="submit">add root</button>
 </form>
 """
-    return render_page("explorer", "", f"{form}{table}")
+    return render_page("&#x1F4C1; explorer", "", f"{form}{table}")
 
 
 def render_listing(root_name, rel):
@@ -735,12 +737,12 @@ def render_listing(root_name, rel):
     menu = (f'<div class="menu-bar">'
             f'<a class="copy" href="{back_href}">&larr; back</a>'
             f'<span class="menu-right">'
-            f'<a class="copy" onclick="showUploadModal()" style="cursor:pointer">&#x2B06;</a>'
-            f'<a class="copy" href="/export/{root_name}/{urllib.parse.quote(rel)}">&#x1F4E4;</a>'
+            f'<a class="copy" onclick="showUploadModal()" style="cursor:pointer">&#x2B06; upload</a>'
+            f'<a class="copy" href="/export/{root_name}/{urllib.parse.quote(rel)}">&#x1F4E4; export</a>'
             f'</span></div>')
     body = (f'{heading}{menu}{summary}<table id="listing-table"><thead><tr>{ths}</tr></thead>'
             f'<tbody>{"".join(rows)}</tbody></table>{upload_modal}')
-    return render_page(f"explorer: {root_name}/{rel}", "", body)
+    return render_page(f"&#x1F4C1; explorer: {root_name}/{rel}", "", body)
 
 
 def render_view(root_name, rel):
@@ -776,7 +778,7 @@ def render_view(root_name, rel):
             with open(target, encoding="utf-8", errors="replace") as f:
                 raw = f.read()
         except OSError as e:
-            return render_page(f"explorer: {os.path.basename(target)}", "", f"<pre>{html.escape(str(e))}</pre>")
+            return render_page(f"&#x1F4C1; explorer: {os.path.basename(target)}", "", f"<pre>{html.escape(str(e))}</pre>")
         lang = LANG_BY_EXT.get(ext, "")
         fence = "````"
         wrapped = f"{fence}{lang}\n{raw}\n{fence}\n"
@@ -804,7 +806,7 @@ def render_view(root_name, rel):
     menu = (f'<div class="menu-bar">'
             f'<a class="copy" href="/browse/{root_name}/{urllib.parse.quote(parent)}">&larr; back</a>'
             f'<span class="menu-right">'
-            f'<a class="copy" href="/export/{root_name}/{quoted}">&#x1F4E4;</a>'
+            f'<a class="copy" href="/export/{root_name}/{quoted}">&#x1F4E4; export</a>'
             f'</span></div>{stats}')
     # pandoc's own title block (from --metadata=title=) renders the
     # filename as an <h1>, with the TOC right after it - put the menu
@@ -815,7 +817,7 @@ def render_view(root_name, rel):
     else:
         content = menu + content
     extra_head = MATH_MERMAID_HEAD if ext == ".md" else ""
-    return render_page(f"explorer: {os.path.basename(target)}", "", f'<div class="doc">{content}</div>', extra_head=extra_head)
+    return render_page(f"&#x1F4C1; explorer: {os.path.basename(target)}", "", f'<div class="doc">{content}</div>', extra_head=extra_head)
 
 
 def render_raw(root_name, rel, include=None):
@@ -893,7 +895,7 @@ def render_export_dir(root_name, rel, target):
 </p>
 <script>loadExportDir('{root_name}','{quoted}');</script>
 """
-    return render_page(f"explorer: export {name}/", "", body)
+    return render_page(f"&#x1F4C1; explorer: export {name}/", "", body)
 
 
 def render_export_file(root_name, rel, target):
@@ -937,7 +939,7 @@ def render_export_file(root_name, rel, target):
 <button class="copy" onclick="exportDownload('/raw/{root_name}/{quoted}','export-form','{html.escape(name)}')">⬇ download</button>
 </p>
 """
-    return render_page(f"explorer: export {name}", "", body)
+    return render_page(f"&#x1F4C1; explorer: export {name}", "", body)
 
 
 class Handler(BaseHTTPRequestHandler):

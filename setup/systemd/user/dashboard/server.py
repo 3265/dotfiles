@@ -132,7 +132,7 @@ th{{white-space:nowrap}}
 a{{color:#6cf}}
 .bar{{background:#333;border-radius:4px;overflow:hidden;height:20px;margin:4px 0 16px}}
 .bar div{{background:#6cf;height:100%}}
-nav{{margin-bottom:12px;display:flex;gap:8px}}
+nav{{margin-top:8px;margin-bottom:12px;display:flex;gap:8px}}
 nav a{{padding:6px 12px;border:1px solid #333;border-radius:4px;text-decoration:none}}
 nav a.active{{background:#6cf;color:#111;border-color:#6cf}}</style></head>
 <body><nav>{nav}</nav><h1>{title}</h1>{body}</body></html>"""
@@ -154,7 +154,7 @@ def render_ttyd(ip):
 <tr><th>name</th><th>ttyd</th><th>status</th><th>created</th></tr>
 {''.join(rows)}
 </table>"""
-    return PAGE.format(title="dashboard: ttyd", extra_head="", nav=render_nav("/"), body=body)
+    return PAGE.format(title="&#x1F4CA; dashboard: ttyd", extra_head="", nav=render_nav("/"), body=body)
 
 
 def render_services(services, ip):
@@ -166,7 +166,7 @@ def render_services(services, ip):
 <tr><th>port</th><th>addr</th><th>process</th><th>cwd</th></tr>
 {''.join(rows)}
 </table>"""
-    return PAGE.format(title="dashboard: services", extra_head="", nav=render_nav("/services"), body=body)
+    return PAGE.format(title="&#x1F4CA; dashboard: services", extra_head="", nav=render_nav("/services"), body=body)
 
 
 def render_stats():
@@ -188,7 +188,7 @@ def render_stats():
         rows += "<p>GPU: not available</p>"
 
     extra_head = '<meta http-equiv="refresh" content="3">'
-    return PAGE.format(title="dashboard: stats", extra_head=extra_head, nav=render_nav("/stats"), body=rows)
+    return PAGE.format(title="&#x1F4CA; dashboard: stats", extra_head=extra_head, nav=render_nav("/stats"), body=rows)
 
 
 def render_disk():
@@ -198,7 +198,7 @@ def render_disk():
 <tr><th>mount</th><th>used / size</th><th>avail</th><th>use%</th></tr>
 {''.join(rows)}
 </table>"""
-    return PAGE.format(title="dashboard: disk", extra_head="", nav=render_nav("/disk"), body=body)
+    return PAGE.format(title="&#x1F4CA; dashboard: disk", extra_head="", nav=render_nav("/disk"), body=body)
 
 
 class Handler(BaseHTTPRequestHandler):
