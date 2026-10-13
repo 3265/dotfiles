@@ -138,9 +138,9 @@ function exportCopy(url,formId,btn){
     setTimeout(function(){btn.textContent=orig;},1200);
   });
 }
-function exportDownload(url,formId,filename){
+function exportDownload(url,formId,filename,extraQuery){
   var a=document.createElement('a');
-  a.href=url+'?include='+collectIncluded(formId);
+  a.href=url+'?include='+collectIncluded(formId)+(extraQuery||'');
   a.download=filename;
   document.body.appendChild(a);
   a.click();
@@ -842,18 +842,38 @@ def walk_relpaths(target, root):
     return sorted(out)
 
 
-def build_zip(root_name, rel, include=None):
+def build_zip(root_name, rel, include=None, expand_links=False):
     root = load_roots().get(root_name)
     target = safe_path(root_name, rel)
     if not target or not os.path.isdir(target):
         return None
+
+    selected = {
+        relpath for relpath in walk_relpaths(target, root)
+        if include is None or relpath in include
+    }
+    if expand_links:
+        # Depth-1 only, same convention as the single-file export's own
+        # bundle() - a selected .md file's own linked docs get pulled in
+        # too, but links found inside THOSE aren't followed further.
+        extra = set()
+        for relpath in selected:
+            if relpath.lower().endswith(".md"):
+                abs_path = os.path.join(root, relpath)
+                extra.update(link_rel for link_rel, _, _, _ in linked_files(root_name, abs_path))
+        selected |= extra
+
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
-        for relpath in walk_relpaths(target, root):
-            if include is not None and relpath not in include:
-                continue
+        for relpath in sorted(selected):
             abs_path = os.path.join(root, relpath)
-            zf.write(abs_path, os.path.relpath(abs_path, target))
+            rel_to_target = os.path.relpath(abs_path, target)
+            # A depth-1 linked file can live outside the folder being
+            # zipped (e.g. a sibling directory) - keep those out of the
+            # main tree instead of writing a "../"-escaping zip entry.
+            arcname = ("_referenced/" + os.path.relpath(abs_path, root)
+                       if rel_to_target.startswith("..") else rel_to_target)
+            zf.write(abs_path, arcname)
     return buf.getvalue()
 
 
@@ -892,6 +912,7 @@ def render_export_dir(root_name, rel, target):
 <p id="export-total" class="file-stats"></p>
 <p class="export-actions">
 <button class="copy" onclick="exportDownload('/zip/{root_name}/{quoted}','export-form','{html.escape(name)}.zip')">⬇ download zip</button>
+<button class="copy" onclick="exportDownload('/zip/{root_name}/{quoted}','export-form','{html.escape(name)}.zip','&expand=1')">⬇ download zip (link depth=1)</button>
 </p>
 <script>loadExportDir('{root_name}','{quoted}');</script>
 """
@@ -936,7 +957,7 @@ def render_export_file(root_name, rel, target):
 <script>updateExportTotal();</script>
 <p class="export-actions">
 <button class="copy" onclick="exportCopy('/raw/{root_name}/{quoted}','export-form',this)">\U0001F4CB copy</button>
-<button class="copy" onclick="exportDownload('/raw/{root_name}/{quoted}','export-form','{html.escape(name)}')">⬇ download</button>
+<button class="copy" onclick="exportDownload('/raw/{root_name}/{quoted}','export-form','{html.escape(name)}')">⬇ download md</button>
 </p>
 """
     return render_page(f"&#x1F4C1; explorer: export {name}", "", body)
@@ -1000,7 +1021,8 @@ class Handler(BaseHTTPRequestHandler):
             root_name, rel = split_root(path[len("/zip/"):])
             include = query.get("include", [None])[0]
             include_set = set(include.split(",")) if include else (set() if include == "" else None)
-            data = build_zip(root_name, rel, include=include_set)
+            expand_links = query.get("expand", ["0"])[0] == "1"
+            data = build_zip(root_name, rel, include=include_set, expand_links=expand_links)
             if data is None:
                 self.send_response(404)
                 self.end_headers()
