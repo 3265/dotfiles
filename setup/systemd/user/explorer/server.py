@@ -338,9 +338,11 @@ td,th{{padding:8px 10px;border-bottom:1px solid #333;text-align:left;word-break:
 #listing-table td{{padding-bottom:12px}}
 .sort-arrow{{color:#6cf}}
 a{{color:#6cf}}
-.file-link{{text-decoration:none}}
+.file-link{{color:#eee;text-decoration:none}}
 .file-link small{{text-decoration:none}}
-a.dir-link{{color:#e8b339;font-weight:bold;text-decoration:none}}
+a.dir-link{{color:#6cf;font-weight:bold;text-decoration:none}}
+.unopenable{{color:#666}}
+.badge{{background:#234;color:#8ab4d8;border-radius:10px;padding:1px 8px;font-size:11px;margin-left:4px;vertical-align:middle}}
 .mtime{{cursor:pointer;border-bottom:1px dotted #666;white-space:nowrap}}
 .mtime-popup{{position:fixed;background:#222;border:1px solid #555;border-radius:4px;padding:4px 8px;font-size:13px;z-index:100;white-space:nowrap}}
 input[type=text]{{background:#1a1a1a;color:#eee;border:1px solid #555;border-radius:4px;padding:6px 8px;font-family:monospace;box-sizing:border-box}}
@@ -366,7 +368,7 @@ button.kill{{background:#511;color:#fbb;border:1px solid #733;border-radius:4px;
 #title-block-header{{margin-top:0}}
 #title-block-header h1{{margin:16px 0 20px;border-left:none;padding-left:0;font-family:monospace;font-size:1.6em;font-weight:bold;line-height:normal}}
 .page-title{{font-family:monospace;font-size:1.6em;font-weight:bold;margin:16px 0 20px;line-height:normal}}
-.doc h1,.doc h2,.doc h3,.doc h4,.doc h5,.doc h6{{position:relative}}
+.doc h1,.doc h2,.doc h3,.doc h4,.doc h5,.doc h6{{position:relative;padding-right:32px;box-sizing:border-box}}
 .doc h1::after,.doc h2::after,.doc h3::after,.doc h4::after,.doc h5::after,.doc h6::after{{position:absolute;top:2px;right:0;font-weight:normal;font-family:monospace;font-size:0.6em;color:#666}}
 .doc h1{{font-size:1.7em;font-weight:bold;color:#fff;border-left:6px solid #6cf;padding-left:12px;margin-top:1.8em}}
 .doc h1::after{{content:"H1"}}
@@ -554,10 +556,28 @@ def delete_file(root_name, rel):
     per-mountpoint .Trash-<uid> when the root lives on another filesystem)
     - never a permanent os.remove(). Directories are refused here (not just
     hidden from the listing's delete button) so a crafted request can't
-    walk the server into trashing a whole folder."""
+    walk the server into trashing a whole folder.
+
+    Exception: the "trash" root itself. `gio trash` on a path that's
+    already inside a Trash directory is a silent no-op (returns success
+    without moving anything - it just refreshes the .trashinfo sidecar),
+    so deleting from here permanently removes the file instead, which is
+    what "delete" can only mean once something is already in the trash."""
     target = safe_path(root_name, rel)
     if not target or not os.path.isfile(target) or os.path.isdir(target):
         return False
+    if root_name == "trash":
+        try:
+            os.remove(target)
+        except OSError:
+            return False
+        trashinfo = os.path.join(TRASH_INFO_DIR, os.path.basename(target) + ".trashinfo")
+        try:
+            os.remove(trashinfo)
+        except OSError:
+            pass
+        log_audit("delete", root_name, rel)
+        return True
     result = subprocess.run(["gio", "trash", target], capture_output=True)
     if result.returncode == 0:
         log_audit("delete", root_name, rel)
@@ -722,14 +742,11 @@ def count_files(path):
         return 0
 
 
-def mtime_info(path):
-    """(compact relative age, full ISO timestamp). The compact form ("5d",
-    "3h") is mostly 2 chars since there isn't room for a full timestamp in
-    this column - the ISO one is shown on tap instead (see showFullTime())."""
-    try:
-        ts = os.path.getmtime(path)
-    except OSError:
-        return "", ""
+def age_display(ts):
+    """(compact relative age, full ISO timestamp) for a unix timestamp. The
+    compact form ("5d", "3h") is mostly 2 chars since there isn't room for a
+    full timestamp in this column - the ISO one is shown on tap instead (see
+    showFullTime())."""
     age = max(0, datetime.datetime.now().timestamp() - ts)
     if age < 60:
         disp = f"{int(age)}s"
@@ -745,6 +762,37 @@ def mtime_info(path):
         disp = f"{int(age // (86400 * 365))}y"
     iso = datetime.datetime.fromtimestamp(ts).strftime("%Y-%m-%dT%H:%M")
     return disp, iso
+
+
+def mtime_info(path):
+    try:
+        ts = os.path.getmtime(path)
+    except OSError:
+        return "", ""
+    return age_display(ts)
+
+
+TRASH_INFO_DIR = os.path.expanduser("~/.local/share/Trash/info")
+
+
+def trash_deleted_info(name):
+    """(compact relative age, full ISO timestamp) of when a top-level Trash
+    entry was deleted, read from its .trashinfo sidecar's DeletionDate -
+    None if there is no sidecar (e.g. the file wasn't trashed via the
+    Freedesktop trash spec) or it can't be parsed."""
+    try:
+        with open(os.path.join(TRASH_INFO_DIR, name + ".trashinfo"), encoding="utf-8") as f:
+            info = f.read()
+    except OSError:
+        return None
+    m = re.search(r"^DeletionDate=(.+)$", info, re.MULTILINE)
+    if not m:
+        return None
+    try:
+        ts = datetime.datetime.strptime(m.group(1).strip(), "%Y-%m-%dT%H:%M:%S").timestamp()
+    except ValueError:
+        return None
+    return age_display(ts)
 
 
 def is_probably_binary(path):
@@ -860,10 +908,13 @@ def render_roots():
         trash_hint = trash_location(path)
         trash_note = (f'<br><small style="color:#888">deleted files go to {html.escape(trash_hint)}</small>'
                       if trash_hint != TRASH_DIR else "")
+        badge = ' <span class="badge">default</span>' if name == "trash" else ""
+        remove_td = ('<span style="color:#555">remove</span>' if name == "trash" else
+                     f'<a href="/roots/remove/{urllib.parse.quote(name)}">remove</a>')
         rows.append(
-            f'<tr><td><a href="/browse/{urllib.parse.quote(name)}/">{html.escape(name)}</a></td>'
+            f'<tr><td><a href="/browse/{urllib.parse.quote(name)}/">{html.escape(name)}</a>{badge}</td>'
             f'<td>{html.escape(path)}{trash_note}</td>'
-            f'<td><a href="/roots/remove/{urllib.parse.quote(name)}">remove</a></td></tr>'
+            f'<td>{remove_td}</td></tr>'
         )
     table = (f"<table><tr><th>name</th><th>path</th><th></th></tr>{''.join(rows)}</table>"
              if rows else "<p>no roots registered yet</p>")
@@ -893,6 +944,9 @@ def render_listing(root_name, rel):
 
     trash_hint = trash_location(target)
     trash_note = f" (moved to {trash_hint})" if trash_hint != TRASH_DIR else ""
+    delete_verb = "permanently delete" if root_name == "trash" else "delete"
+
+    is_trash_top = root_name == "trash" and not rel
 
     rows = []
     file_count = 0
@@ -903,7 +957,8 @@ def render_listing(root_name, rel):
         full = os.path.join(target, name)
         relpath = f"{rel}/{name}" if rel else name
         quoted = urllib.parse.quote(relpath)
-        mtime_disp, mtime_iso = mtime_info(full)
+        deleted = trash_deleted_info(name) if is_trash_top else None
+        mtime_disp, mtime_iso = deleted if deleted else mtime_info(full)
         mtime_td = (f'<td><span class="mtime" data-full="{mtime_iso}" '
                     f'onclick="showFullTime(this,event)">{mtime_disp}</span></td>')
         if os.path.isdir(full):
@@ -913,7 +968,7 @@ def render_listing(root_name, rel):
                         f'<td>{sub_count}</td>{mtime_td}<td></td></tr>')
             continue
         delete_td = (f'<td><form method="post" action="/delete/{root_name}/{quoted}" style="margin:0" '
-                     f'onsubmit="return confirm(\'delete {html.escape(name)}?{html.escape(trash_note)}\')">'
+                     f'onsubmit="return confirm(\'{delete_verb} {html.escape(name)}?{html.escape(trash_note)}\')">'
                      f'<button class="kill" type="submit" title="delete">&#x1F5D1;</button></form></td>')
         if name.lower().endswith(".md"):
             file_count += 1
@@ -952,7 +1007,7 @@ def render_listing(root_name, rel):
                         f'<td>{lines}</td>{mtime_td}{delete_td}</tr>')
         else:
             file_count += 1
-            rows.append(f'<tr><td>{html.escape(name)}</td><td>bin</td><td></td>{mtime_td}{delete_td}</tr>')
+            rows.append(f'<tr><td><span class="unopenable">{html.escape(name)}</span></td><td>bin</td><td></td>{mtime_td}{delete_td}</tr>')
 
     heading = f'<h1 class="page-title"><a href="/" style="text-decoration:none">&#x1F4C1;</a> {root_name}/{html.escape(rel)}</h1>'
     parent = os.path.dirname(rel.rstrip("/")) if rel else None
@@ -960,7 +1015,7 @@ def render_listing(root_name, rel):
     summary = f'<p class="file-stats">{file_count} files, {dir_count} folders here</p>'
     ths = "".join(
         f'<th onclick="sortTable({i})">{label}<span class="sort-arrow"></span></th>'
-        for i, label in enumerate(("name", "type", "size", "mod"))
+        for i, label in enumerate(("name", "type", "size", "deleted" if is_trash_top else "mod"))
     ) + "<th></th>"
     upload_modal = f"""
 <div id="upload-modal" class="modal-overlay" onclick="if(event.target===this)hideUploadModal()">
@@ -1344,9 +1399,10 @@ class Handler(BaseHTTPRequestHandler):
             return
         elif path.startswith("/roots/remove/"):
             name = urllib.parse.unquote_plus(path[len("/roots/remove/"):])
-            roots = load_roots()
-            roots.pop(name, None)
-            save_roots(roots)
+            if name != "trash":
+                roots = load_roots()
+                roots.pop(name, None)
+                save_roots(roots)
             self.send_response(302)
             self.send_header("Location", "/")
             self.end_headers()
