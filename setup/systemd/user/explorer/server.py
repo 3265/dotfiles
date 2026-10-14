@@ -168,6 +168,14 @@ function exportCopy(url,formId,btn){
     setTimeout(function(){btn.textContent=orig;},1200);
   });
 }
+function copyRaw(url,btn){
+  fetch(url+'?action=copy').then(function(r){return r.text();}).then(function(t){
+    copyToClipboard(t);
+    var orig=btn.textContent;
+    btn.textContent='copied!';
+    setTimeout(function(){btn.textContent=orig;},1200);
+  });
+}
 function exportDownload(url,formId,filename,extraQuery){
   var a=document.createElement('a');
   a.href=url+'?include='+collectIncluded(formId)+(extraQuery||'');
@@ -703,11 +711,15 @@ def count_chars(path):
 
 
 def count_files(path):
-    total = 0
-    for dirpath, dirnames, filenames in os.walk(path):
-        dirnames[:] = [d for d in dirnames if not d.startswith(".")]
-        total += sum(1 for f in filenames if not f.startswith("."))
-    return total
+    """Immediate-children count only (not recursive) - a full os.walk here
+    blocks this single-threaded server for every open tab for as long as it
+    takes to stat a whole subtree, which for a directory with millions of
+    files (e.g. a DaVinci render-cache folder) can be minutes."""
+    try:
+        with os.scandir(path) as it:
+            return sum(1 for e in it if not e.name.startswith("."))
+    except OSError:
+        return 0
 
 
 def mtime_info(path):
@@ -968,8 +980,9 @@ def render_listing(root_name, rel):
             f'<a class="copy" onclick="showUploadModal()" style="cursor:pointer">&#x2B06; upload</a>'
             f'<a class="copy" href="/export/{root_name}/{urllib.parse.quote(rel)}">&#x1F4E4; export</a>'
             f'</span></div>')
+    note = '<p style="color:#888;font-size:12px;text-align:right">folder size shows immediate children only, not recursive</p>'
     body = (f'{heading}{menu}{summary}<table id="listing-table"><thead><tr>{ths}</tr></thead>'
-            f'<tbody>{"".join(rows)}</tbody></table>{upload_modal}')
+            f'<tbody>{"".join(rows)}</tbody></table>{note}{upload_modal}')
     return render_page(f"&#x1F4C1; explorer: {root_name}/{rel}", "", body)
 
 
@@ -1050,6 +1063,7 @@ def render_view(root_name, rel):
     menu = (f'<div class="menu-bar">'
             f'<a class="copy" href="/browse/{root_name}/{urllib.parse.quote(parent)}">&larr; back</a>'
             f'<span class="menu-right">'
+            f'<button class="copy" onclick="copyRaw(\'/raw/{root_name}/{quoted}\',this)">\U0001F4CB copy</button>'
             f'<a class="copy" href="/export/{root_name}/{quoted}">&#x1F4E4; export</a>'
             f'</span></div>{stats}')
     toc_html = render_python_toc(python_toc(raw)) if ext == ".py" else ""
