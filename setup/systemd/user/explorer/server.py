@@ -3,6 +3,7 @@ import datetime
 import html
 import io
 import json
+import mimetypes
 import os
 import re
 import subprocess
@@ -12,6 +13,8 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 
 PORT = 6003
 MAX_UPLOAD_BYTES = 1024 ** 3  # 1GB
+
+IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".bmp"}
 
 # Extension -> pandoc/skylighting language name, for viewing non-.md text
 # files with the same syntax highlighting as code blocks inside a .md file.
@@ -210,6 +213,19 @@ function hideUploadModal(){
   var m=document.getElementById('upload-modal');
   if(m)m.classList.remove('open');
 }
+function openImagePopup(src){
+  document.getElementById('image-modal-img').src=src;
+  document.getElementById('image-modal').classList.add('open');
+}
+function closeImagePopup(){
+  document.getElementById('image-modal').classList.remove('open');
+}
+function bindDocImages(){
+  document.querySelectorAll('.doc img').forEach(function(img){
+    img.onclick=function(){openImagePopup(img.src);};
+  });
+}
+window.addEventListener('DOMContentLoaded',bindDocImages);
 var suggestTimer=null;
 function hideSuggestions(){
   var list=document.getElementById('path-suggestions');
@@ -283,8 +299,12 @@ PAGE = """<!doctype html>
 table{{border-collapse:collapse;width:100%}}
 td,th{{padding:8px 10px;border-bottom:1px solid #333;text-align:left;word-break:break-all}}
 #listing-table th{{cursor:pointer;white-space:nowrap}}
+#listing-table td{{padding-bottom:12px}}
 .sort-arrow{{color:#6cf}}
 a{{color:#6cf}}
+.file-link{{text-decoration:none}}
+.file-link small{{text-decoration:underline}}
+a.dir-link{{color:#e8b339;font-weight:bold}}
 .mtime{{cursor:pointer;border-bottom:1px dotted #666;white-space:nowrap}}
 .mtime-popup{{position:fixed;background:#222;border:1px solid #555;border-radius:4px;padding:4px 8px;font-size:13px;z-index:100;white-space:nowrap}}
 input[type=text]{{background:#1a1a1a;color:#eee;border:1px solid #555;border-radius:4px;padding:6px 8px;font-family:monospace;box-sizing:border-box}}
@@ -300,12 +320,16 @@ border:1px solid #444;border-radius:4px;max-height:200px;overflow-y:auto;z-index
 .modal-overlay{{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;align-items:center;justify-content:center}}
 .modal-overlay.open{{display:flex}}
 .modal-box{{box-sizing:border-box;background:#1a1a1a;border:1px solid #444;border-radius:8px;padding:20px;max-width:90%;width:320px}}
+#image-modal img{{max-width:95vw;max-height:95vh;object-fit:contain}}
+.doc img{{cursor:zoom-in}}
+img.thumb{{max-height:40px;max-width:120px;cursor:zoom-in;vertical-align:middle;display:block}}
 button.copy,a.copy,button.submit{{box-sizing:border-box;vertical-align:middle;line-height:20px;background:#333;color:#eee;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer;text-decoration:none;display:inline-block}}
-.export-actions{{margin-top:20px}}
+.export-actions{{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px}}
 .doc{{font-family:sans-serif;line-height:1.6;max-width:900px;margin:0 auto}}
 .doc h1,.doc h2,.doc h3{{border-left:4px solid #6cf;padding-left:10px;margin-top:1.6em}}
 #title-block-header{{margin-top:0}}
-#title-block-header h1{{margin-top:0;border-left:none;padding-left:0;font-family:monospace}}
+#title-block-header h1{{margin:16px 0 20px;border-left:none;padding-left:0;font-family:monospace;font-size:1.6em;font-weight:bold;line-height:normal}}
+.page-title{{font-family:monospace;font-size:1.6em;font-weight:bold;margin:16px 0 20px;line-height:normal}}
 .doc h1{{font-size:1.6em}}
 .doc h2{{font-size:1.3em}}
 .doc h3{{font-size:1.1em}}
@@ -329,7 +353,9 @@ nav{{margin-bottom:12px;display:flex;justify-content:space-between;align-items:c
 #TOC ul{{margin:0}}
 {highlight_css}</style>
 <script>{copy_js}</script>{extra_head}</head>
-<body><nav>{nav}</nav>{body}</body></html>"""
+<body><nav>{nav}</nav>{body}
+<div id="image-modal" class="modal-overlay" onclick="closeImagePopup()"><img id="image-modal-img" src=""></div>
+</body></html>"""
 
 # Pinned CDN versions - only loaded on pages that actually need them (math
 # and diagrams are rare enough, and MathJax/Mermaid heavy enough, that
@@ -677,12 +703,6 @@ def render_listing(root_name, rel):
         entries = []
 
     rows = []
-    if rel:
-        parent = os.path.dirname(rel.rstrip("/"))
-        rows.append(f'<tr class="pin"><td colspan="4"><a href="/browse/{root_name}/{urllib.parse.quote(parent)}">.. (up)</a></td></tr>')
-    else:
-        rows.append('<tr class="pin"><td colspan="4"><a href="/">.. (all roots)</a></td></tr>')
-
     file_count = 0
     for name in entries:
         if name.startswith("."):
@@ -695,16 +715,24 @@ def render_listing(root_name, rel):
                     f'onclick="showFullTime(this,event)">{mtime_disp}</span></td>')
         if os.path.isdir(full):
             sub_count = count_files(full)
-            rows.append(f'<tr><td><a href="/browse/{root_name}/{quoted}">{html.escape(name)}/</a></td><td>dir</td>'
+            rows.append(f'<tr><td><a class="dir-link" href="/browse/{root_name}/{quoted}">{html.escape(name)}/</a></td><td>dir</td>'
                         f'<td>{sub_count}</td>{mtime_td}</tr>')
         elif name.lower().endswith(".md"):
             file_count += 1
             lines = fmt_count(count_lines(full))
             h1 = extract_h1(full)
-            label = (f'{html.escape(h1)}<br><small style="color:#888">{html.escape(name)}</small>'
+            label = (f'{html.escape(h1)}'
+                     f'<small style="color:#888;display:block;margin-top:4px">{html.escape(name)}</small>'
                      if h1 else html.escape(name))
-            rows.append(f'<tr><td><a href="/view/{root_name}/{quoted}">{label}</a></td><td>md</td>'
+            rows.append(f'<tr><td><a class="file-link" href="/view/{root_name}/{quoted}">{label}</a></td><td>md</td>'
                         f'<td>{lines}</td>{mtime_td}</tr>')
+        elif os.path.splitext(name)[1].lower() in IMAGE_EXTS:
+            file_count += 1
+            src = f"/file/{root_name}/{quoted}"
+            label = (f'<img class="thumb" src="{src}" loading="lazy" onclick="openImagePopup(this.src)">'
+                     f'<small style="color:#888;display:block;margin-top:4px">{html.escape(name)}</small>')
+            rows.append(f'<tr><td>{label}</td><td>img</td>'
+                        f'<td>{human_size(file_size(full))}</td>{mtime_td}</tr>')
         elif not is_probably_binary(full):
             file_count += 1
             lines = fmt_count(count_lines(full))
@@ -714,7 +742,7 @@ def render_listing(root_name, rel):
             file_count += 1
             rows.append(f'<tr><td>{html.escape(name)}</td><td>bin</td><td></td>{mtime_td}</tr>')
 
-    heading = f"<h1>{root_name}/{html.escape(rel)}</h1>"
+    heading = f'<h1 class="page-title">&#x1F4C1; {root_name}/{html.escape(rel)}</h1>'
     parent = os.path.dirname(rel.rstrip("/")) if rel else None
     back_href = f"/browse/{root_name}/{urllib.parse.quote(parent)}" if rel else "/"
     summary = f'<p class="file-stats">{file_count} files here</p>'
@@ -751,7 +779,7 @@ def render_view(root_name, rel):
         return None
 
     ext = os.path.splitext(target)[1].lower()
-    title_meta = f"--metadata=title={os.path.basename(target)}"
+    title_meta = f"--metadata=title=\U0001F4C1 {os.path.basename(target)}"
 
     if ext == ".md":
         # No link expansion here (just a plain render) - the
@@ -903,7 +931,7 @@ def render_export_dir(root_name, rel, target):
             f'<button class="copy" onclick="setAllChecked(false)">none</button>'
             f'</span></div>')
     body = f"""
-<h2>{html.escape(name)}/</h2>
+<h2 class="page-title">&#x1F4C1; {html.escape(name)}/</h2>
 {menu}
 <p id="export-progress" class="file-stats">loading file list...</p>
 <form id="export-form" data-base-lines="0" data-base-chars="0" data-base-bytes="0" data-size-only="1">
@@ -949,7 +977,7 @@ def render_export_file(root_name, rel, target):
             f'<button class="copy" onclick="setAllChecked(false)">none</button>'
             f'</span></div>')
     body = f"""
-<h2>{html.escape(name)}</h2>
+<h2 class="page-title">&#x1F4C1; {html.escape(name)}</h2>
 {menu}
 <p class="file-stats">this file: {fmt_count(base_lines)} lines, {fmt_count(base_chars)} chars, {human_size(base_bytes)}</p>
 {table}
@@ -988,6 +1016,23 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header("Content-Length", str(len(encoded)))
             self.end_headers()
             self.wfile.write(encoded)
+            return
+        elif path.startswith("/file/"):
+            root_name, rel = split_root(path[len("/file/"):])
+            target = safe_path(root_name, rel)
+            if not target or not os.path.isfile(target):
+                self.send_response(404)
+                self.end_headers()
+                self.wfile.write(b"not found")
+                return
+            ctype = mimetypes.guess_type(target)[0] or "application/octet-stream"
+            with open(target, "rb") as f:
+                data = f.read()
+            self.send_response(200)
+            self.send_header("Content-Type", ctype)
+            self.send_header("Content-Length", str(len(data)))
+            self.end_headers()
+            self.wfile.write(data)
             return
         elif path.startswith("/export-list/"):
             root_name, rel = split_root(path[len("/export-list/"):])
