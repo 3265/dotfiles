@@ -37,6 +37,32 @@ LANG_BY_EXT = {
 # state generated through the web UI, not hand-edited configuration.
 CONFIG_DIR = os.path.expanduser("~/.local/state/pandoc-md-explorer")
 ROOTS_FILE = os.path.join(CONFIG_DIR, "roots.json")
+AUDIT_FILE = os.path.join(CONFIG_DIR, "audit.jsonl")
+AUDIT_MAX_SHOWN = 500
+
+
+def log_audit(action, root_name, rel):
+    os.makedirs(CONFIG_DIR, exist_ok=True)
+    entry = {"time": datetime.datetime.now().isoformat(timespec="seconds"),
+             "action": action, "root": root_name, "path": rel}
+    with open(AUDIT_FILE, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+
+def load_audit():
+    try:
+        with open(AUDIT_FILE, encoding="utf-8") as f:
+            lines = f.readlines()
+    except OSError:
+        return []
+    entries = []
+    for line in lines[-AUDIT_MAX_SHOWN:]:
+        try:
+            entries.append(json.loads(line))
+        except json.JSONDecodeError:
+            continue
+    entries.reverse()
+    return entries
 
 # The only pandoc feature this needs is markdown->HTML + syntax highlighting;
 # bundling linked .md files is simple enough to do ourselves (see
@@ -135,7 +161,7 @@ function collectIncluded(formId){
   return Array.prototype.map.call(boxes,function(c){return encodeURIComponent(c.value);}).join(',');
 }
 function exportCopy(url,formId,btn){
-  fetch(url+'?include='+collectIncluded(formId)).then(function(r){return r.text();}).then(function(t){
+  fetch(url+'?include='+collectIncluded(formId)+'&action=copy').then(function(r){return r.text();}).then(function(t){
     copyToClipboard(t);
     var orig=btn.textContent;
     btn.textContent='copied!';
@@ -300,12 +326,13 @@ PAGE = """<!doctype html>
 table{{border-collapse:collapse;width:100%}}
 td,th{{padding:8px 10px;border-bottom:1px solid #333;text-align:left;word-break:break-all}}
 #listing-table th{{cursor:pointer;white-space:nowrap}}
+#listing-table th:last-child,#listing-table td:last-child{{width:1%;white-space:nowrap;cursor:default}}
 #listing-table td{{padding-bottom:12px}}
 .sort-arrow{{color:#6cf}}
 a{{color:#6cf}}
 .file-link{{text-decoration:none}}
-.file-link small{{text-decoration:underline}}
-a.dir-link{{color:#e8b339;font-weight:bold}}
+.file-link small{{text-decoration:none}}
+a.dir-link{{color:#e8b339;font-weight:bold;text-decoration:none}}
 .mtime{{cursor:pointer;border-bottom:1px dotted #666;white-space:nowrap}}
 .mtime-popup{{position:fixed;background:#222;border:1px solid #555;border-radius:4px;padding:4px 8px;font-size:13px;z-index:100;white-space:nowrap}}
 input[type=text]{{background:#1a1a1a;color:#eee;border:1px solid #555;border-radius:4px;padding:6px 8px;font-family:monospace;box-sizing:border-box}}
@@ -325,15 +352,26 @@ border:1px solid #444;border-radius:4px;max-height:200px;overflow-y:auto;z-index
 .doc img{{cursor:zoom-in}}
 img.thumb{{max-height:40px;max-width:120px;cursor:zoom-in;vertical-align:middle;display:block}}
 button.copy,a.copy,button.submit{{box-sizing:border-box;vertical-align:middle;line-height:20px;background:#333;color:#eee;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer;text-decoration:none;display:inline-block}}
+button.kill{{background:#511;color:#fbb;border:1px solid #733;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer}}
 .export-actions{{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px}}
 .doc{{font-family:sans-serif;line-height:1.6;max-width:900px;margin:0 auto}}
-.doc h1,.doc h2,.doc h3{{border-left:4px solid #6cf;padding-left:10px;margin-top:1.6em}}
 #title-block-header{{margin-top:0}}
 #title-block-header h1{{margin:16px 0 20px;border-left:none;padding-left:0;font-family:monospace;font-size:1.6em;font-weight:bold;line-height:normal}}
 .page-title{{font-family:monospace;font-size:1.6em;font-weight:bold;margin:16px 0 20px;line-height:normal}}
-.doc h1{{font-size:1.6em}}
-.doc h2{{font-size:1.3em}}
-.doc h3{{font-size:1.1em}}
+.doc h1,.doc h2,.doc h3,.doc h4,.doc h5,.doc h6{{position:relative}}
+.doc h1::after,.doc h2::after,.doc h3::after,.doc h4::after,.doc h5::after,.doc h6::after{{position:absolute;top:2px;right:0;font-weight:normal;font-family:monospace;font-size:0.6em;color:#666}}
+.doc h1{{font-size:1.7em;font-weight:bold;color:#fff;border-left:6px solid #6cf;padding-left:12px;margin-top:1.8em}}
+.doc h1::after{{content:"H1"}}
+.doc h2{{font-size:1.35em;font-weight:bold;color:#dfefff;border-left:5px solid #6cf;padding-left:10px;margin-top:1.6em}}
+.doc h2::after{{content:"H2"}}
+.doc h3{{font-size:1.15em;font-weight:bold;color:#bcd;border-left:4px solid #478;padding-left:9px;margin-top:1.3em}}
+.doc h3::after{{content:"H3"}}
+.doc h4{{font-size:1.05em;font-weight:bold;color:#9bd;border-left:3px solid #357;padding-left:8px;margin-top:1.1em}}
+.doc h4::after{{content:"H4"}}
+.doc h5{{font-size:1em;font-weight:bold;color:#8ac;border-left:2px solid #246;padding-left:7px;margin-top:1em}}
+.doc h5::after{{content:"H5"}}
+.doc h6{{font-size:0.95em;font-weight:bold;color:#79b;border-left:2px solid #135;padding-left:6px;text-transform:uppercase;letter-spacing:0.04em;margin-top:1em}}
+.doc h6::after{{content:"H6"}}
 .doc blockquote{{border-left:4px solid #555;background:#1a1a1a;margin:1em 0;padding:4px 16px;color:#bbb}}
 .doc hr{{border:none;border-top:2px solid #444;margin:2em 0}}
 .doc pre{{background:#1a1a1a;padding:8px;overflow-x:auto}}
@@ -344,7 +382,11 @@ button.copy,a.copy,button.submit{{box-sizing:border-box;vertical-align:middle;li
 .doc-table-wrap td,.doc-table-wrap th{{word-break:normal;overflow-wrap:break-word;min-width:100px;border:1px solid #333}}
 .doc-table-wrap th{{background:#1d1d1d;font-weight:bold}}
 .doc-table-wrap tr:nth-child(even) td{{background:#161616}}
-nav{{margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:8px}}
+nav:empty{{display:none}}
+nav{{display:flex;flex-wrap:wrap;border-bottom:2px solid #333;margin:0 0 16px}}
+nav a{{padding:8px 16px;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;color:#888;text-decoration:none}}
+nav a.active{{color:#6cf;border-bottom-color:#6cf}}
+nav a:hover{{color:#eee}}
 .menu-bar{{margin-bottom:12px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px}}
 .menu-right{{display:flex;flex-wrap:wrap;gap:8px}}
 .file-stats{{color:#888;font-size:13px;margin:0 0 12px}}
@@ -373,12 +415,23 @@ def render_page(title, nav, body, extra_head=""):
                         copy_js=COPY_JS, extra_head=extra_head)
 
 
+TRASH_DIR = os.path.expanduser("~/.local/share/Trash/files")
+
+
 def load_roots():
     try:
         with open(ROOTS_FILE, encoding="utf-8") as f:
-            return json.load(f)
+            roots = json.load(f)
     except (OSError, json.JSONDecodeError):
-        return {}
+        roots = {}
+    # Always present, not something the "add root" form needs to know about
+    # - this is where delete_file()'s `gio trash` actually puts things, so
+    # browsing it is how a mistaken delete gets undone.
+    if "trash" not in roots:
+        os.makedirs(TRASH_DIR, exist_ok=True)
+        roots["trash"] = TRASH_DIR
+        save_roots(roots)
+    return roots
 
 
 def save_roots(roots):
@@ -463,6 +516,45 @@ def safe_path(root_name, rel):
     if target != root and not target.startswith(root + os.sep):
         return None
     return target
+
+
+def mountpoint_of(path):
+    path = os.path.abspath(path)
+    dev = os.stat(path).st_dev
+    while True:
+        parent = os.path.dirname(path)
+        if parent == path or os.stat(parent).st_dev != dev:
+            return path
+        path = parent
+
+
+def trash_location(path):
+    """Where delete_file()'s `gio trash` will actually put this path - the
+    home trash dir if it's on the same filesystem as $HOME, otherwise that
+    other filesystem's own .Trash-<uid> (the freedesktop trash spec keeps
+    the trash on the same filesystem as the file, e.g. everything under a
+    /mnt or /media root lands in its own mountpoint's trash, not the one
+    the "trash" root shows)."""
+    if os.stat(path).st_dev == os.stat(os.path.expanduser("~")).st_dev:
+        return TRASH_DIR
+    return os.path.join(mountpoint_of(path), f".Trash-{os.getuid()}", "files")
+
+
+def delete_file(root_name, rel):
+    """Moves exactly one file to the desktop trash (gio trash, same place
+    the file manager's trash shows and can restore from, with the correct
+    per-mountpoint .Trash-<uid> when the root lives on another filesystem)
+    - never a permanent os.remove(). Directories are refused here (not just
+    hidden from the listing's delete button) so a crafted request can't
+    walk the server into trashing a whole folder."""
+    target = safe_path(root_name, rel)
+    if not target or not os.path.isfile(target) or os.path.isdir(target):
+        return False
+    result = subprocess.run(["gio", "trash", target], capture_output=True)
+    if result.returncode == 0:
+        log_audit("delete", root_name, rel)
+        return True
+    return False
 
 
 # Plain markdown links to a local file, e.g. [text](other.md) or
@@ -725,13 +817,40 @@ def render_python_toc(items, cb_id="cb1"):
     return "".join(parts)
 
 
+ROOT_TABS = [("/", "roots"), ("/audit", "audit")]
+
+
+def render_root_nav(active):
+    links = "".join(
+        f'<a href="{href}"{" class=\"active\"" if href == active else ""}>{label}</a>'
+        for href, label in ROOT_TABS
+    )
+    return f"<nav>{links}</nav>"
+
+
+def render_audit():
+    rows = "".join(
+        f'<tr><td>{html.escape(e.get("time", "-"))}</td><td>{html.escape(e.get("action", "-"))}</td>'
+        f'<td>{html.escape(e.get("root", "-"))}</td><td>{html.escape(e.get("path", "-"))}</td></tr>'
+        for e in load_audit()
+    )
+    table = (f"<table><tr><th>time</th><th>action</th><th>root</th><th>path</th></tr>{rows}</table>"
+             if rows else "<p>no activity logged yet</p>")
+    heading = '<h1 class="page-title"><a href="/" style="text-decoration:none">&#x1F4C1;</a> audit log</h1>'
+    nav = render_root_nav("/audit")
+    return render_page("&#x1F4C1; explorer: audit", "", f"{heading}{nav}{table}")
+
+
 def render_roots():
     roots = load_roots()
     rows = []
     for name, path in sorted(roots.items()):
+        trash_hint = trash_location(path)
+        trash_note = (f'<br><small style="color:#888">deleted files go to {html.escape(trash_hint)}</small>'
+                      if trash_hint != TRASH_DIR else "")
         rows.append(
             f'<tr><td><a href="/browse/{urllib.parse.quote(name)}/">{html.escape(name)}</a></td>'
-            f'<td>{html.escape(path)}</td>'
+            f'<td>{html.escape(path)}{trash_note}</td>'
             f'<td><a href="/roots/remove/{urllib.parse.quote(name)}">remove</a></td></tr>'
         )
     table = (f"<table><tr><th>name</th><th>path</th><th></th></tr>{''.join(rows)}</table>"
@@ -746,7 +865,9 @@ def render_roots():
 <button class="submit" type="submit">add root</button>
 </form>
 """
-    return render_page("&#x1F4C1; explorer", "", f"{form}{table}")
+    heading = '<h1 class="page-title"><a href="/" style="text-decoration:none">&#x1F4C1;</a> explorer</h1>'
+    nav = render_root_nav("/")
+    return render_page("&#x1F4C1; explorer", "", f"{heading}{nav}{form}{table}")
 
 
 def render_listing(root_name, rel):
@@ -758,8 +879,12 @@ def render_listing(root_name, rel):
     except OSError:
         entries = []
 
+    trash_hint = trash_location(target)
+    trash_note = f" (moved to {trash_hint})" if trash_hint != TRASH_DIR else ""
+
     rows = []
     file_count = 0
+    dir_count = 0
     for name in entries:
         if name.startswith("."):
             continue
@@ -770,10 +895,15 @@ def render_listing(root_name, rel):
         mtime_td = (f'<td><span class="mtime" data-full="{mtime_iso}" '
                     f'onclick="showFullTime(this,event)">{mtime_disp}</span></td>')
         if os.path.isdir(full):
+            dir_count += 1
             sub_count = count_files(full)
             rows.append(f'<tr><td><a class="dir-link" href="/browse/{root_name}/{quoted}">{html.escape(name)}/</a></td><td>dir</td>'
-                        f'<td>{sub_count}</td>{mtime_td}</tr>')
-        elif name.lower().endswith(".md"):
+                        f'<td>{sub_count}</td>{mtime_td}<td></td></tr>')
+            continue
+        delete_td = (f'<td><form method="post" action="/delete/{root_name}/{quoted}" style="margin:0" '
+                     f'onsubmit="return confirm(\'delete {html.escape(name)}?{html.escape(trash_note)}\')">'
+                     f'<button class="kill" type="submit" title="delete">&#x1F5D1;</button></form></td>')
+        if name.lower().endswith(".md"):
             file_count += 1
             lines = fmt_count(count_lines(full))
             h1 = extract_h1(full)
@@ -781,7 +911,7 @@ def render_listing(root_name, rel):
                      f'<small style="color:#888;display:block;margin-top:4px">{html.escape(name)}</small>'
                      if h1 else html.escape(name))
             rows.append(f'<tr><td><a class="file-link" href="/view/{root_name}/{quoted}">{label}</a></td><td>md</td>'
-                        f'<td>{lines}</td>{mtime_td}</tr>')
+                        f'<td>{lines}</td>{mtime_td}{delete_td}</tr>')
         elif name.lower().endswith(".py"):
             file_count += 1
             lines = fmt_count(count_lines(full))
@@ -790,31 +920,36 @@ def render_listing(root_name, rel):
                      f'<small style="color:#888;display:block;margin-top:4px">{html.escape(name)}</small>'
                      if summary else html.escape(name))
             rows.append(f'<tr><td><a class="file-link" href="/view/{root_name}/{quoted}">{label}</a></td><td>text</td>'
-                        f'<td>{lines}</td>{mtime_td}</tr>')
+                        f'<td>{lines}</td>{mtime_td}{delete_td}</tr>')
         elif os.path.splitext(name)[1].lower() in IMAGE_EXTS:
             file_count += 1
             src = f"/file/{root_name}/{quoted}"
             label = (f'<img class="thumb" src="{src}" loading="lazy" onclick="openImagePopup(this.src)">'
                      f'<small style="color:#888;display:block;margin-top:4px">{html.escape(name)}</small>')
             rows.append(f'<tr><td>{label}</td><td>img</td>'
-                        f'<td>{human_size(file_size(full))}</td>{mtime_td}</tr>')
+                        f'<td>{human_size(file_size(full))}</td>{mtime_td}{delete_td}</tr>')
+        elif name.lower().endswith(".pdf"):
+            file_count += 1
+            src = f"/file/{root_name}/{quoted}"
+            rows.append(f'<tr><td><a class="file-link" href="{src}" target="_blank" rel="noopener">{html.escape(name)}</a></td><td>pdf</td>'
+                        f'<td>{human_size(file_size(full))}</td>{mtime_td}{delete_td}</tr>')
         elif not is_probably_binary(full):
             file_count += 1
             lines = fmt_count(count_lines(full))
-            rows.append(f'<tr><td><a href="/view/{root_name}/{quoted}">{html.escape(name)}</a></td><td>text</td>'
-                        f'<td>{lines}</td>{mtime_td}</tr>')
+            rows.append(f'<tr><td><a class="file-link" href="/view/{root_name}/{quoted}">{html.escape(name)}</a></td><td>text</td>'
+                        f'<td>{lines}</td>{mtime_td}{delete_td}</tr>')
         else:
             file_count += 1
-            rows.append(f'<tr><td>{html.escape(name)}</td><td>bin</td><td></td>{mtime_td}</tr>')
+            rows.append(f'<tr><td>{html.escape(name)}</td><td>bin</td><td></td>{mtime_td}{delete_td}</tr>')
 
-    heading = f'<h1 class="page-title">&#x1F4C1; {root_name}/{html.escape(rel)}</h1>'
+    heading = f'<h1 class="page-title"><a href="/" style="text-decoration:none">&#x1F4C1;</a> {root_name}/{html.escape(rel)}</h1>'
     parent = os.path.dirname(rel.rstrip("/")) if rel else None
     back_href = f"/browse/{root_name}/{urllib.parse.quote(parent)}" if rel else "/"
-    summary = f'<p class="file-stats">{file_count} files here</p>'
+    summary = f'<p class="file-stats">{file_count} files, {dir_count} folders here</p>'
     ths = "".join(
         f'<th onclick="sortTable({i})">{label}<span class="sort-arrow"></span></th>'
         for i, label in enumerate(("name", "type", "size", "mod"))
-    )
+    ) + "<th></th>"
     upload_modal = f"""
 <div id="upload-modal" class="modal-overlay" onclick="if(event.target===this)hideUploadModal()">
 <div class="modal-box">
@@ -845,8 +980,14 @@ def render_view(root_name, rel):
 
     ext = os.path.splitext(target)[1].lower()
     title_meta = f"--metadata=title=\U0001F4C1 {os.path.basename(target)}"
+    raw = ""
+    content = None
 
-    if ext == ".md":
+    if os.path.getsize(target) == 0:
+        content = (f'<header id="title-block-header"><h1 class="title">'
+                   f'\U0001F4C1 {html.escape(os.path.basename(target))}</h1></header>'
+                   f'<p style="color:#888">(empty file)</p>')
+    elif ext == ".md":
         # No link expansion here (just a plain render) - the
         # /view/<root>/<path> URL scheme mirrors the directory tree, so
         # relative links in the file already resolve to the right /view/
@@ -858,7 +999,7 @@ def render_view(root_name, rel):
         # runs standalone and pulls just the <body> contents (TOC nav + doc)
         # back out rather than using pandoc's own <html>/<head> page shell.
         out = subprocess.run(
-            [PANDOC, "-f", "markdown", "-t", "html", "-s", "--highlight-style", "breezedark",
+            [PANDOC, "-f", "gfm", "-t", "html", "-s", "--highlight-style", "breezedark",
              "--toc", "--toc-depth=3", "--mathjax", title_meta, target],
             capture_output=True, text=True,
         )
@@ -880,20 +1021,26 @@ def render_view(root_name, rel):
         info = f"{{.{lang} .numberLines}}" if ext == ".py" and lang else lang
         wrapped = f"{fence}{info}\n{raw}\n{fence}\n"
         out = subprocess.run(
-            [PANDOC, "-f", "markdown", "-t", "html", "-s", "--highlight-style", "breezedark", title_meta],
+            [PANDOC, "-f", "gfm", "-t", "html", "-s", "--highlight-style", "breezedark", title_meta],
             input=wrapped, capture_output=True, text=True,
         )
 
-    if out.returncode != 0:
-        content = f"<pre>{html.escape(out.stderr)}</pre>"
-    else:
-        m = re.search(r"<body>\n?(.*)</body>", out.stdout, re.DOTALL)
-        content = m.group(1) if m else out.stdout
-        # Wrap each rendered markdown table so only the table scrolls
-        # horizontally on mobile instead of the whole page, or cells
-        # getting squished by the global word-break:break-all rule.
-        content = re.sub(r"(<table>.*?</table>)", r'<div class="doc-table-wrap">\1</div>',
-                          content, flags=re.DOTALL)
+    if content is None:
+        if out.returncode != 0:
+            content = f"<pre>{html.escape(out.stderr)}</pre>"
+        else:
+            m = re.search(r"<body>\n?(.*)</body>", out.stdout, re.DOTALL)
+            content = m.group(1) if m else out.stdout
+            # Wrap each rendered markdown table so only the table scrolls
+            # horizontally on mobile instead of the whole page, or cells
+            # getting squished by the global word-break:break-all rule.
+            content = re.sub(r"(<table>.*?</table>)", r'<div class="doc-table-wrap">\1</div>',
+                              content, flags=re.DOTALL)
+
+    # Make the leading folder emoji in the title a link back to the
+    # explorer root, same as the other list/audit/export page headings.
+    content = re.sub(r'(<h1 class="title">)(\U0001F4C1)',
+                      r'\1<a href="/" style="text-decoration:none">\2</a>', content, count=1)
 
     parent = os.path.dirname(rel)
     quoted = urllib.parse.quote(rel)
@@ -1001,7 +1148,7 @@ def render_export_dir(root_name, rel, target):
             f'<button class="copy" onclick="setAllChecked(false)">none</button>'
             f'</span></div>')
     body = f"""
-<h2 class="page-title">&#x1F4C1; {html.escape(name)}/</h2>
+<h2 class="page-title"><a href="/" style="text-decoration:none">&#x1F4C1;</a> {html.escape(name)}/</h2>
 {menu}
 <p id="export-progress" class="file-stats">loading file list...</p>
 <form id="export-form" data-base-lines="0" data-base-chars="0" data-base-bytes="0" data-size-only="1">
@@ -1047,7 +1194,7 @@ def render_export_file(root_name, rel, target):
             f'<button class="copy" onclick="setAllChecked(false)">none</button>'
             f'</span></div>')
     body = f"""
-<h2 class="page-title">&#x1F4C1; {html.escape(name)}</h2>
+<h2 class="page-title"><a href="/" style="text-decoration:none">&#x1F4C1;</a> {html.escape(name)}</h2>
 {menu}
 <p class="file-stats">this file: {fmt_count(base_lines)} lines, {fmt_count(base_chars)} chars, {human_size(base_bytes)}</p>
 {table}
@@ -1081,6 +1228,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.wfile.write(b"not found")
                 return
             encoded = text.encode()
+            action = "copy" if query.get("action", [""])[0] == "copy" else "export"
+            log_audit(action, root_name, rel)
             self.send_response(200)
             self.send_header("Content-Type", "text/markdown; charset=utf-8")
             self.send_header("Content-Length", str(len(encoded)))
@@ -1144,6 +1293,7 @@ class Handler(BaseHTTPRequestHandler):
                 self.wfile.write(b"not found")
                 return
             name = rel.rstrip("/").split("/")[-1] if rel.rstrip("/") else root_name
+            log_audit("export", root_name, rel)
             self.send_response(200)
             self.send_header("Content-Type", "application/zip")
             self.send_header("Content-Length", str(len(data)))
@@ -1189,6 +1339,8 @@ class Handler(BaseHTTPRequestHandler):
             return
         elif path == "/" or path == "":
             body = render_roots()
+        elif path == "/audit":
+            body = render_audit()
         else:
             body = None
 
@@ -1223,8 +1375,17 @@ class Handler(BaseHTTPRequestHandler):
                     filename, data = result
                     with open(os.path.join(target_dir, filename), "wb") as f:
                         f.write(data)
+                    log_audit("upload", root_name, f"{rel}/{filename}" if rel else filename)
             self.send_response(302)
             self.send_header("Location", f"/browse/{root_name}/" + urllib.parse.quote(rel.rstrip("/")))
+            self.end_headers()
+            return
+        if self.path.startswith("/delete/"):
+            root_name, rel = split_root(urllib.parse.unquote(self.path[len("/delete/"):]))
+            delete_file(root_name, rel)
+            parent = os.path.dirname(rel.rstrip("/"))
+            self.send_response(302)
+            self.send_header("Location", f"/browse/{root_name}/" + urllib.parse.quote(parent))
             self.end_headers()
             return
         if self.path == "/roots/add":

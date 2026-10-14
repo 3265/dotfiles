@@ -17,7 +17,7 @@ PAGE = """<!doctype html>
 table{{border-collapse:collapse;width:100%}}
 td,th{{padding:8px 10px;border-bottom:1px solid #333;text-align:left;word-break:break-all}}
 a{{color:#6cf}}</style></head>
-<body><h1>&#x1F3E0; services</h1><table>
+<body><h1><a href="/" style="text-decoration:none">&#x1F3E0;</a> services</h1><table>
 <tr><th>name</th><th>port</th><th>description</th></tr>
 {rows}
 </table></body></html>"""
