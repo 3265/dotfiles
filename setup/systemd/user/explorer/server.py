@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import ast
 import datetime
 import html
 import io
@@ -669,6 +670,61 @@ def extract_h1(path):
     return None
 
 
+def extract_py_summary(path, limit=100):
+    """First line of the module docstring, truncated - same idea as
+    extract_h1() but for .py files, whose filenames are just as terse."""
+    try:
+        if os.path.getsize(path) > MAX_COUNT_BYTES:
+            return None
+        with open(path, encoding="utf-8", errors="replace") as f:
+            src = f.read()
+        doc = ast.get_docstring(ast.parse(src))
+    except (OSError, SyntaxError, ValueError):
+        return None
+    if not doc:
+        return None
+    first_line = doc.strip().splitlines()[0].strip()
+    if len(first_line) > limit:
+        first_line = first_line[:limit].rstrip() + "..."
+    return first_line
+
+
+def python_toc(source):
+    """Top-level defs/classes (and each class's methods) as (lineno, label,
+    methods) triples, methods being the same (lineno, label) shape one
+    level down - mirrors a markdown TOC's role for a .py file that has no
+    headings of its own to build one from."""
+    try:
+        tree = ast.parse(source)
+    except SyntaxError:
+        return []
+    items = []
+    for node in tree.body:
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            items.append((node.lineno, f"{node.name}()", []))
+        elif isinstance(node, ast.ClassDef):
+            methods = [(n.lineno, f"{n.name}()") for n in node.body
+                       if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))]
+            items.append((node.lineno, node.name, methods))
+    return items
+
+
+def render_python_toc(items, cb_id="cb1"):
+    if not items:
+        return ""
+    parts = ['<nav id="TOC" role="doc-toc"><ul>']
+    for lineno, label, methods in items:
+        parts.append(f'<li><a href="#{cb_id}-{lineno}">{html.escape(label)}</a>')
+        if methods:
+            parts.append("<ul>")
+            parts.extend(f'<li><a href="#{cb_id}-{mline}">{html.escape(mlabel)}</a></li>'
+                         for mline, mlabel in methods)
+            parts.append("</ul>")
+        parts.append("</li>")
+    parts.append("</ul></nav>")
+    return "".join(parts)
+
+
 def render_roots():
     roots = load_roots()
     rows = []
@@ -725,6 +781,15 @@ def render_listing(root_name, rel):
                      f'<small style="color:#888;display:block;margin-top:4px">{html.escape(name)}</small>'
                      if h1 else html.escape(name))
             rows.append(f'<tr><td><a class="file-link" href="/view/{root_name}/{quoted}">{label}</a></td><td>md</td>'
+                        f'<td>{lines}</td>{mtime_td}</tr>')
+        elif name.lower().endswith(".py"):
+            file_count += 1
+            lines = fmt_count(count_lines(full))
+            summary = extract_py_summary(full)
+            label = (f'{html.escape(summary)}'
+                     f'<small style="color:#888;display:block;margin-top:4px">{html.escape(name)}</small>'
+                     if summary else html.escape(name))
+            rows.append(f'<tr><td><a class="file-link" href="/view/{root_name}/{quoted}">{label}</a></td><td>text</td>'
                         f'<td>{lines}</td>{mtime_td}</tr>')
         elif os.path.splitext(name)[1].lower() in IMAGE_EXTS:
             file_count += 1
@@ -809,7 +874,11 @@ def render_view(root_name, rel):
             return render_page(f"&#x1F4C1; explorer: {os.path.basename(target)}", "", f"<pre>{html.escape(str(e))}</pre>")
         lang = LANG_BY_EXT.get(ext, "")
         fence = "````"
-        wrapped = f"{fence}{lang}\n{raw}\n{fence}\n"
+        # numberLines gives each line an id (cb1-N) that a .py TOC's links
+        # can jump to - skipped for other languages so their view doesn't
+        # grow a line-number gutter nobody asked for.
+        info = f"{{.{lang} .numberLines}}" if ext == ".py" and lang else lang
+        wrapped = f"{fence}{info}\n{raw}\n{fence}\n"
         out = subprocess.run(
             [PANDOC, "-f", "markdown", "-t", "html", "-s", "--highlight-style", "breezedark", title_meta],
             input=wrapped, capture_output=True, text=True,
@@ -836,14 +905,15 @@ def render_view(root_name, rel):
             f'<span class="menu-right">'
             f'<a class="copy" href="/export/{root_name}/{quoted}">&#x1F4E4; export</a>'
             f'</span></div>{stats}')
+    toc_html = render_python_toc(python_toc(raw)) if ext == ".py" else ""
     # pandoc's own title block (from --metadata=title=) renders the
     # filename as an <h1>, with the TOC right after it - put the menu
     # between the two instead of above everything, so it reads as
     # filename -> actions -> stats -> table of contents -> body.
     if "</header>" in content:
-        content = content.replace("</header>", f"</header>{menu}", 1)
+        content = content.replace("</header>", f"</header>{menu}{toc_html}", 1)
     else:
-        content = menu + content
+        content = menu + toc_html + content
     extra_head = MATH_MERMAID_HEAD if ext == ".md" else ""
     return render_page(f"&#x1F4C1; explorer: {os.path.basename(target)}", "", f'<div class="doc">{content}</div>', extra_head=extra_head)
 
