@@ -184,6 +184,17 @@ function exportDownload(url,formId,filename,extraQuery){
   a.click();
   a.remove();
 }
+function toggleRowMenu(btn,e){
+  e.stopPropagation();
+  var menu=btn.nextElementSibling;
+  var open=menu.classList.contains('open');
+  closeAllRowMenus();
+  if(!open)menu.classList.add('open');
+}
+function closeAllRowMenus(){
+  document.querySelectorAll('.row-menu.open').forEach(function(m){m.classList.remove('open');});
+}
+document.addEventListener('click',closeAllRowMenus);
 function showFullTime(span,e){
   e.stopPropagation();
   if(!span.dataset.full)return;
@@ -363,6 +374,12 @@ border:1px solid #444;border-radius:4px;max-height:200px;overflow-y:auto;z-index
 img.thumb{{max-height:40px;max-width:120px;cursor:zoom-in;vertical-align:middle;display:block}}
 button.copy,a.copy,button.submit{{box-sizing:border-box;vertical-align:middle;line-height:20px;background:#333;color:#eee;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer;text-decoration:none;display:inline-block}}
 button.kill{{background:#511;color:#fbb;border:1px solid #733;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer}}
+.row-menu-wrap{{position:relative;display:inline-block}}
+.row-menu-btn{{background:none;border:none;color:#888;cursor:pointer;font-size:18px;line-height:1;padding:2px 8px}}
+.row-menu-btn:hover{{color:#eee}}
+.row-menu{{display:none;position:absolute;right:0;top:100%;z-index:50;min-width:120px;background:#1a1a1a;border:1px solid #444;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.4)}}
+.row-menu.open{{display:block}}
+.row-menu button.kill{{width:100%;white-space:nowrap;text-align:left;border:none;border-radius:6px;padding:8px 14px}}
 .export-actions{{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px}}
 .doc{{font-family:sans-serif;line-height:1.6;max-width:900px;margin:0 auto}}
 #title-block-header{{margin-top:0}}
@@ -385,18 +402,18 @@ button.kill{{background:#511;color:#fbb;border:1px solid #733;border-radius:4px;
 .doc blockquote{{border-left:4px solid #555;background:#1a1a1a;margin:1em 0;padding:4px 16px;color:#bbb}}
 .doc hr{{border:none;border-top:2px solid #444;margin:2em 0}}
 .doc pre{{background:#1a1a1a;padding:8px;overflow-x:auto}}
-.doc code{{background:#1a1a1a;padding:2px 4px}}
-.doc pre code{{background:transparent;padding:0}}
+.doc code{{background:#333;color:#f0b86e;padding:2px 6px;border-radius:4px}}
+.doc pre code{{background:transparent;color:inherit;padding:0;border-radius:0}}
 .doc-table-wrap{{overflow-x:auto;margin:1em 0}}
-.doc-table-wrap table{{width:100%;table-layout:fixed;border:1px solid #333}}
-.doc-table-wrap td,.doc-table-wrap th{{word-break:normal;overflow-wrap:break-word;min-width:100px;border:1px solid #333}}
+.doc-table-wrap table{{border-collapse:collapse}}
+.doc-table-wrap td,.doc-table-wrap th{{border:1px solid #333;padding:4px 8px;max-width:400px;overflow-wrap:break-word}}
 .doc-table-wrap th{{background:#1d1d1d;font-weight:bold}}
 .doc-table-wrap tr:nth-child(even) td{{background:#161616}}
 nav:empty{{display:none}}
-nav{{display:flex;flex-wrap:wrap;border-bottom:2px solid #333;margin:0 0 16px}}
-nav a{{padding:8px 16px;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;color:#888;text-decoration:none}}
-nav a.active{{color:#6cf;border-bottom-color:#6cf}}
-nav a:hover{{color:#eee}}
+nav:not(#TOC){{display:flex;flex-wrap:wrap;border-bottom:2px solid #333;margin:0 0 16px}}
+nav:not(#TOC) a{{padding:8px 16px;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;color:#888;text-decoration:none}}
+nav:not(#TOC) a.active{{color:#6cf;border-bottom-color:#6cf}}
+nav:not(#TOC) a:hover{{color:#eee}}
 .menu-bar{{margin-bottom:12px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px}}
 .menu-right{{display:flex;flex-wrap:wrap;gap:8px}}
 .file-stats{{color:#888;font-size:13px;margin:0 0 12px}}
@@ -967,9 +984,13 @@ def render_listing(root_name, rel):
             rows.append(f'<tr><td><a class="dir-link" href="/browse/{root_name}/{quoted}">{html.escape(name)}/</a></td><td>dir</td>'
                         f'<td>{sub_count}</td>{mtime_td}<td></td></tr>')
             continue
-        delete_td = (f'<td><form method="post" action="/delete/{root_name}/{quoted}" style="margin:0" '
+        delete_td = (f'<td><div class="row-menu-wrap">'
+                     f'<button type="button" class="row-menu-btn" onclick="toggleRowMenu(this,event)" title="more">&#x22EE;</button>'
+                     f'<div class="row-menu">'
+                     f'<form method="post" action="/delete/{root_name}/{quoted}" style="margin:0" '
                      f'onsubmit="return confirm(\'{delete_verb} {html.escape(name)}?{html.escape(trash_note)}\')">'
-                     f'<button class="kill" type="submit" title="delete">&#x1F5D1;</button></form></td>')
+                     f'<button class="kill" type="submit">&#x1F5D1; delete</button></form>'
+                     f'</div></div></td>')
         if name.lower().endswith(".md"):
             file_count += 1
             lines = fmt_count(count_lines(full))

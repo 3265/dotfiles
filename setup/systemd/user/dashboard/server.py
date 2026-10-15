@@ -283,10 +283,29 @@ input[type=text]{{background:#1a1a1a;color:#eee;border:1px solid #555;border-rad
 .modal-overlay{{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;align-items:center;justify-content:center}}
 .modal-overlay.open{{display:flex}}
 .modal-box{{box-sizing:border-box;background:#1a1a1a;border:1px solid #444;border-radius:8px;padding:20px;max-width:90%;width:320px}}
-.add-form{{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}}</style>
+.add-form{{display:flex;flex-direction:column;gap:8px;margin-top:8px}}
+.add-form input{{width:100%}}
+.add-form-buttons{{display:flex;gap:8px;justify-content:flex-end}}
+.row-menu-wrap{{position:relative;display:inline-block}}
+.row-menu-btn{{background:none;border:none;color:#888;cursor:pointer;font-size:18px;line-height:1;padding:2px 8px}}
+.row-menu-btn:hover{{color:#eee}}
+.row-menu{{display:none;position:absolute;right:0;top:100%;z-index:50;min-width:120px;background:#1a1a1a;border:1px solid #444;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.4)}}
+.row-menu.open{{display:block}}
+.row-menu button.kill{{width:100%;white-space:nowrap;text-align:left;border:none;border-radius:6px;padding:8px 14px}}</style>
 <script>
 function showAddModal(){{var m=document.getElementById('add-modal');if(m)m.classList.add('open');}}
 function hideAddModal(){{var m=document.getElementById('add-modal');if(m)m.classList.remove('open');}}
+function toggleRowMenu(btn,e){{
+  e.stopPropagation();
+  var menu=btn.nextElementSibling;
+  var open=menu.classList.contains('open');
+  closeAllRowMenus();
+  if(!open)menu.classList.add('open');
+}}
+function closeAllRowMenus(){{
+  document.querySelectorAll('.row-menu.open').forEach(function(m){{m.classList.remove('open');}});
+}}
+document.addEventListener('click',closeAllRowMenus);
 </script></head>
 <body><h1><a href="/" style="text-decoration:none">&#x1F4CA;</a> {heading}</h1><nav>{nav}</nav>{page_actions}{body}</body></html>"""
 
@@ -303,10 +322,14 @@ def render_ttyd(ip):
     for name, port, status, created in ttyd_sessions():
         port_cell = f'<a href="http://{ip}:{port}/" target="_blank" rel="noopener">{port}</a>' if port else "-"
         escaped = html.escape(name)
-        kill_cell = (f'<form method="post" action="/kill" style="margin:0" '
+        kill_cell = (f'<div class="row-menu-wrap">'
+                     f'<button type="button" class="row-menu-btn" onclick="toggleRowMenu(this,event)" title="more">&#x22EE;</button>'
+                     f'<div class="row-menu">'
+                     f'<form method="post" action="/kill" style="margin:0" '
                      f'onsubmit="return confirm(\'kill \\\'{escaped}\\\'?\')">'
                      f'<input type="hidden" name="name" value="{escaped}">'
-                     f'<button class="kill" type="submit" title="kill">&#x1F5D1;</button></form>')
+                     f'<button class="kill" type="submit">&#x1F5D1; kill</button></form>'
+                     f'</div></div>')
         rows.append(f"<tr><td>{escaped}</td><td>{port_cell}</td><td>{status}</td><td>{created}</td><td>{kill_cell}</td></tr>")
     add_modal = """
 <div id="add-modal" class="modal-overlay" onclick="if(event.target===this)hideAddModal()">
@@ -314,8 +337,10 @@ def render_ttyd(ip):
 <h3>new session</h3>
 <form method="post" action="/add-session" class="add-form">
 <input type="text" name="name" placeholder="session name" required autofocus>
-<button class="submit" type="submit">create</button>
+<div class="add-form-buttons">
 <button type="button" class="submit" onclick="hideAddModal()">cancel</button>
+<button class="submit" type="submit">create</button>
+</div>
 </form>
 </div>
 </div>"""
@@ -334,11 +359,15 @@ def render_services(services, ip):
         link = f'<a href="http://{ip}:{port}/" target="_blank" rel="noopener">{port}</a>' if addr in ("0.0.0.0", "*") else str(port)
         protected = port in PROTECTED_PORTS or proc in PROTECTED_PROCS
         if pid and not protected:
-            kill_cell = (f'<form method="post" action="/kill-service" style="margin:0" '
+            kill_cell = (f'<div class="row-menu-wrap">'
+                         f'<button type="button" class="row-menu-btn" onclick="toggleRowMenu(this,event)" title="more">&#x22EE;</button>'
+                         f'<div class="row-menu">'
+                         f'<form method="post" action="/kill-service" style="margin:0" '
                          f'onsubmit="return confirm(\'kill {proc} (port {port})?\')">'
                          f'<input type="hidden" name="port" value="{port}">'
                          f'<input type="hidden" name="pid" value="{pid}">'
-                         f'<button class="kill" type="submit" title="kill">&#x1F5D1;</button></form>')
+                         f'<button class="kill" type="submit">&#x1F5D1; kill</button></form>'
+                         f'</div></div>')
         else:
             kill_cell = ""
         rows.append(f"<tr><td>{link}</td><td>{addr}</td><td>{proc}</td><td>{cwd}</td><td>{kill_cell}</td></tr>")
