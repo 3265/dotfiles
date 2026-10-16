@@ -8,6 +8,7 @@ import mimetypes
 import os
 import re
 import subprocess
+import time
 import urllib.parse
 import zipfile
 from http.server import BaseHTTPRequestHandler, HTTPServer
@@ -353,6 +354,7 @@ a{{color:#6cf}}
 .file-link small{{text-decoration:none}}
 a.dir-link{{color:#6cf;font-weight:bold;text-decoration:none}}
 .unopenable{{color:#666}}
+mark{{background:#e8b339;color:#111;padding:0 2px;border-radius:2px}}
 .badge{{background:#234;color:#8ab4d8;border-radius:10px;padding:1px 8px;font-size:11px;margin-left:4px;vertical-align:middle}}
 .mtime{{cursor:pointer;border-bottom:1px dotted #666;white-space:nowrap}}
 .mtime-popup{{position:fixed;background:#222;border:1px solid #555;border-radius:4px;padding:4px 8px;font-size:13px;z-index:100;white-space:nowrap}}
@@ -416,6 +418,8 @@ nav:not(#TOC) a.active{{color:#6cf;border-bottom-color:#6cf}}
 nav:not(#TOC) a:hover{{color:#eee}}
 .menu-bar{{margin-bottom:12px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px}}
 .menu-right{{display:flex;flex-wrap:wrap;gap:8px}}
+.search-form{{display:flex;gap:8px;flex:1;min-width:160px;max-width:360px}}
+.search-form input{{flex:1;min-width:0}}
 .file-stats{{color:#888;font-size:13px;margin:0 0 12px}}
 #export-total{{margin-top:16px}}
 .menu-label{{color:#888;font-size:13px;align-self:center}}
@@ -1050,8 +1054,12 @@ def render_listing(root_name, rel):
 <p style="font-size:12px;color:#888">max 1GB</p>
 </div>
 </div>"""
+    search_form = (f'<form method="get" action="/search/{root_name}/{urllib.parse.quote(rel)}" class="search-form">'
+                   f'<input type="text" name="q" placeholder="search name/content here down" required>'
+                   f'<button class="submit" type="submit">&#x1F50D;</button></form>')
     menu = (f'<div class="menu-bar">'
             f'<a class="copy" href="{back_href}">&larr; back</a>'
+            f'{search_form}'
             f'<span class="menu-right">'
             f'<a class="copy" onclick="showUploadModal()" style="cursor:pointer">&#x2B06; upload</a>'
             f'<a class="copy" href="/export/{root_name}/{urllib.parse.quote(rel)}">&#x1F4E4; export</a>'
@@ -1060,6 +1068,112 @@ def render_listing(root_name, rel):
     body = (f'{heading}{menu}{summary}<table id="listing-table"><thead><tr>{ths}</tr></thead>'
             f'<tbody>{"".join(rows)}</tbody></table>{note}{upload_modal}')
     return render_page(f"&#x1F4C1; explorer: {root_name}/{rel}", "", body)
+
+
+# Hard caps so a search starting at a huge subtree (e.g. the davinci root's
+# 25M-file render cache) can't block this single-threaded server for every
+# other open tab indefinitely - it just stops early and says so, same idea
+# as count_files() being non-recursive for the same reason.
+SEARCH_MAX_ENTRIES = 200_000
+SEARCH_MAX_SECONDS = 4.0
+SEARCH_MAX_CONTENT_BYTES = 2_000_000
+
+
+def highlight(text, q):
+    """html.escape(text) with every case-insensitive occurrence of q wrapped
+    in <mark> - escaping has to happen per-segment so a match that straddles
+    a '<'/'&' doesn't get corrupted by escaping the whole string first."""
+    if not q:
+        return html.escape(text)
+    out = []
+    text_lower, q_lower, n = text.lower(), q.lower(), len(q)
+    i = 0
+    while True:
+        idx = text_lower.find(q_lower, i)
+        if idx == -1:
+            out.append(html.escape(text[i:]))
+            break
+        out.append(html.escape(text[i:idx]))
+        out.append(f"<mark>{html.escape(text[idx:idx + n])}</mark>")
+        i = idx + n
+    return "".join(out)
+
+
+def render_search(root_name, rel, q):
+    target = safe_path(root_name, rel)
+    if not target or not os.path.isdir(target) or not q.strip():
+        return None
+    q_lower = q.lower()
+
+    start = time.monotonic()
+    scanned = 0
+    truncated = False
+    rows = []
+    for dirpath, dirnames, filenames in os.walk(target):
+        dirnames[:] = sorted(d for d in dirnames if not d.startswith("."))
+        if scanned > SEARCH_MAX_ENTRIES or time.monotonic() - start > SEARCH_MAX_SECONDS:
+            truncated = True
+            break
+        for name in dirnames + sorted(n for n in filenames if not n.startswith(".")):
+            scanned += 1
+            if scanned > SEARCH_MAX_ENTRIES or time.monotonic() - start > SEARCH_MAX_SECONDS:
+                truncated = True
+                break
+            full = os.path.join(dirpath, name)
+            is_dir = os.path.isdir(full)
+            name_hit = q_lower in name.lower()
+            snippet = None
+            if not is_dir and not name_hit and not is_probably_binary(full) and file_size(full) <= SEARCH_MAX_CONTENT_BYTES:
+                try:
+                    with open(full, encoding="utf-8", errors="replace") as f:
+                        for lineno, line in enumerate(f, 1):
+                            if q_lower in line.lower():
+                                snippet = (lineno, line.strip()[:200])
+                                break
+                except OSError:
+                    pass
+            if name_hit or snippet:
+                relpath = os.path.relpath(full, target).replace(os.sep, "/")
+                full_rel = f"{rel}/{relpath}" if rel else relpath
+                rows.append((is_dir, full_rel, name, snippet))
+        if truncated:
+            break
+
+    result_rows = []
+    for is_dir, full_rel, name, snippet in rows:
+        quoted = urllib.parse.quote(full_rel)
+        if is_dir:
+            link = f'<a class="dir-link" href="/browse/{root_name}/{quoted}">{highlight(full_rel, q)}/</a>'
+            detail = '<span style="color:#888">folder name match</span>'
+        else:
+            ext = os.path.splitext(name)[1].lower()
+            if ext in IMAGE_EXTS or ext == ".pdf":
+                href = f"/file/{root_name}/{quoted}"
+            else:
+                href = f"/view/{root_name}/{quoted}"
+            link = f'<a class="file-link" href="{href}">{highlight(full_rel, q)}</a>'
+            if snippet:
+                lineno, text = snippet
+                detail = f'<span style="color:#888">line {lineno}:</span> {highlight(text, q)}'
+            else:
+                detail = '<span style="color:#888">name match</span>'
+        result_rows.append(f"<tr><td>{link}</td><td>{detail}</td></tr>")
+
+    heading = f'<h1 class="page-title"><a href="/" style="text-decoration:none">&#x1F4C1;</a> search: {html.escape(q)}</h1>'
+    back_href = f"/browse/{root_name}/{urllib.parse.quote(rel)}" if rel else "/"
+    menu = f'<div class="menu-bar"><a class="copy" href="{back_href}">&larr; back</a></div>'
+    summary = f'<p class="file-stats">{len(result_rows)} matches under {root_name}/{rel}</p>'
+    note = ""
+    if truncated:
+        note = (f'<p style="color:#888;font-size:12px;text-align:right">search stopped early '
+                 f'(scanned {scanned} entries) - results may be incomplete, try searching from a narrower folder</p>')
+    if result_rows:
+        table = (f'<table id="search-table"><thead><tr><th>path</th><th>match</th></tr></thead>'
+                 f'<tbody>{"".join(result_rows)}</tbody></table>')
+    else:
+        table = '<p style="color:#888">no matches</p>'
+    body = f'{heading}{menu}{summary}{table}{note}'
+    return render_page(f"&#x1F4C1; explorer: search {html.escape(q)}", "", body)
 
 
 def render_view(root_name, rel):
@@ -1409,6 +1523,10 @@ class Handler(BaseHTTPRequestHandler):
         elif path.startswith("/browse/"):
             root_name, rel = split_root(path[len("/browse/"):])
             body = render_listing(root_name, rel)
+        elif path.startswith("/search/"):
+            root_name, rel = split_root(path[len("/search/"):])
+            q = query.get("q", [""])[0]
+            body = render_search(root_name, rel, q)
         elif path == "/roots/suggest":
             partial = query.get("q", [""])[0]
             data = json.dumps(suggest_paths(partial)).encode()

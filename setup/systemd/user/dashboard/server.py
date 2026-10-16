@@ -349,7 +349,7 @@ def render_ttyd(ip):
 <tr><th>name</th><th>ttyd</th><th>status</th><th>created</th><th></th></tr>
 {''.join(rows)}
 </table>{add_modal}"""
-    return PAGE.format(title="&#x1F4CA; dashboard: ttyd", heading="dashboard: ttyd", extra_head="", nav=render_nav("/"),
+    return PAGE.format(title="&#x1F4CA; dashboard: ttyd", heading="dashboard", extra_head="", nav=render_nav("/"),
                         page_actions=page_actions, body=body)
 
 
@@ -375,7 +375,7 @@ def render_services(services, ip):
 <tr><th>port</th><th>addr</th><th>process</th><th>cwd</th><th></th></tr>
 {''.join(rows)}
 </table>"""
-    return PAGE.format(title="&#x1F4CA; dashboard: services", heading="dashboard: services", extra_head="", nav=render_nav("/services"),
+    return PAGE.format(title="&#x1F4CA; dashboard: services", heading="dashboard", extra_head="", nav=render_nav("/services"),
                         page_actions="", body=body)
 
 
@@ -404,7 +404,7 @@ def render_stats():
         rows += "<p>GPU: not available</p>"
 
     extra_head = '<meta http-equiv="refresh" content="3">'
-    return PAGE.format(title="&#x1F4CA; dashboard: stats", heading="dashboard: stats", extra_head=extra_head, nav=render_nav("/stats"),
+    return PAGE.format(title="&#x1F4CA; dashboard: stats", heading="dashboard", extra_head=extra_head, nav=render_nav("/stats"),
                         page_actions="", body=rows)
 
 
@@ -415,7 +415,7 @@ def render_disk():
 <tr><th>mount</th><th>used / size</th><th>avail</th><th>use%</th></tr>
 {''.join(rows)}
 </table>"""
-    return PAGE.format(title="&#x1F4CA; dashboard: disk", heading="dashboard: disk", extra_head="", nav=render_nav("/disk"),
+    return PAGE.format(title="&#x1F4CA; dashboard: disk", heading="dashboard", extra_head="", nav=render_nav("/disk"),
                         page_actions="", body=body)
 
 
