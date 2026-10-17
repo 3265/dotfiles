@@ -1029,7 +1029,8 @@ def render_listing(root_name, rel):
         elif not is_probably_binary(full):
             file_count += 1
             lines = fmt_count(count_lines(full))
-            rows.append(f'<tr><td><a class="file-link" href="/view/{root_name}/{quoted}">{html.escape(name)}</a></td><td>text</td>'
+            type_label = os.path.splitext(name)[1].lower().lstrip(".") or "text"
+            rows.append(f'<tr><td><a class="file-link" href="/view/{root_name}/{quoted}">{html.escape(name)}</a></td><td>{html.escape(type_label)}</td>'
                         f'<td>{lines}</td>{mtime_td}{delete_td}</tr>')
         else:
             file_count += 1
