@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import ast
+import csv
 import datetime
 import html
 import io
@@ -407,8 +408,8 @@ button.kill{{background:#511;color:#fbb;border:1px solid #733;border-radius:4px;
 .doc code{{background:#333;color:#f0b86e;padding:2px 6px;border-radius:4px}}
 .doc pre code{{background:transparent;color:inherit;padding:0;border-radius:0}}
 .doc-table-wrap{{overflow-x:auto;margin:1em 0}}
-.doc-table-wrap table{{border-collapse:collapse}}
-.doc-table-wrap td,.doc-table-wrap th{{border:1px solid #333;padding:4px 8px;max-width:400px;overflow-wrap:break-word}}
+.doc-table-wrap table{{width:auto;border-collapse:collapse}}
+.doc-table-wrap td,.doc-table-wrap th{{border:1px solid #333;padding:4px 8px;min-width:80px;max-width:400px;overflow-wrap:break-word}}
 .doc-table-wrap th{{background:#1d1d1d;font-weight:bold}}
 .doc-table-wrap tr:nth-child(even) td{{background:#161616}}
 nav:empty{{display:none}}
@@ -1190,6 +1191,29 @@ def render_view(root_name, rel):
         content = (f'<header id="title-block-header"><h1 class="title">'
                    f'\U0001F4C1 {html.escape(os.path.basename(target))}</h1></header>'
                    f'<p style="color:#888">(empty file)</p>')
+    elif ext == ".csv":
+        # Rendered as an actual table (reusing the same .doc-table-wrap
+        # styling as a markdown table) instead of one long unreadable
+        # comma-joined line per row inside a code block.
+        CSV_MAX_ROWS = 2000
+        try:
+            with open(target, encoding="utf-8", errors="replace", newline="") as f:
+                all_rows = list(csv.reader(f))
+        except OSError as e:
+            return render_page(f"&#x1F4C1; explorer: {os.path.basename(target)}", "", f"<pre>{html.escape(str(e))}</pre>")
+        truncated = len(all_rows) > CSV_MAX_ROWS
+        rows = all_rows[:CSV_MAX_ROWS]
+        header, body_rows = (rows[0], rows[1:]) if rows else ([], [])
+        thead = "<tr>" + "".join(f"<th>{html.escape(c)}</th>" for c in header) + "</tr>"
+        tbody = "".join(
+            "<tr>" + "".join(f"<td>{html.escape(c)}</td>" for c in r) + "</tr>" for r in body_rows
+        )
+        note = (f'<p style="color:#888;font-size:12px">showing first {CSV_MAX_ROWS} of {len(all_rows)} rows</p>'
+                if truncated else "")
+        content = (f'<header id="title-block-header"><h1 class="title">'
+                   f'\U0001F4C1 {html.escape(os.path.basename(target))}</h1></header>'
+                   f'<div class="doc-table-wrap"><table><thead>{thead}</thead>'
+                   f'<tbody>{tbody}</tbody></table></div>{note}')
     elif ext == ".md":
         # No link expansion here (just a plain render) - the
         # /view/<root>/<path> URL scheme mirrors the directory tree, so
