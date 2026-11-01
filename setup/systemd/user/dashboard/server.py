@@ -157,6 +157,23 @@ def ttyd_sessions():
     return rows
 
 
+AGE_UNIT_SECONDS = {"month": 30 * 86400, "day": 86400, "days": 86400, "h": 3600, "m": 60, "s": 1}
+
+
+def parse_age_seconds(text):
+    """zellij's "created" column is a relative-age string like "1month
+    25days 10h 54m 26s ago" or "1h 29m 52s ago" - not a plain number, so a
+    naive parseFloat() on it in JS just grabs the leading digit (e.g. the
+    "1" of "1month...") and sorts nonsense. This turns it into real total
+    seconds so the dash-table sort has something sane to compare."""
+    total = 0
+    for tok in text.replace("ago", "").split():
+        m = re.match(r"^(\d+)(month|days|day|h|m|s)$", tok)
+        if m:
+            total += int(m.group(1)) * AGE_UNIT_SECONDS[m.group(2)]
+    return total
+
+
 def kill_session(name):
     """Best-effort teardown of one ttyd/zellij session - these otherwise
     just pile up: a zellij session left running after its ttyd tab was
@@ -277,7 +294,7 @@ nav a:hover{{color:#eee}}
 .page-actions a{{background:#333;color:#eee;border:1px solid #555;border-radius:4px;padding:6px 12px;
 text-decoration:none;cursor:pointer;font-family:monospace}}
 .page-actions a:hover{{background:#444}}
-button.kill{{background:#511;color:#fbb;border:1px solid #733;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer}}
+button.kill{{background:#333;color:#f66;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer}}
 button.submit{{background:#333;color:#eee;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer}}
 input[type=text]{{background:#1a1a1a;color:#eee;border:1px solid #555;border-radius:4px;padding:6px 8px;font-family:monospace;box-sizing:border-box}}
 .modal-overlay{{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;align-items:center;justify-content:center}}
@@ -289,9 +306,12 @@ input[type=text]{{background:#1a1a1a;color:#eee;border:1px solid #555;border-rad
 .row-menu-wrap{{position:relative;display:inline-block}}
 .row-menu-btn{{background:none;border:none;color:#888;cursor:pointer;font-size:18px;line-height:1;padding:2px 8px}}
 .row-menu-btn:hover{{color:#eee}}
-.row-menu{{display:none;position:absolute;right:0;top:100%;z-index:50;min-width:120px;background:#1a1a1a;border:1px solid #444;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.4)}}
+.row-menu{{display:none;position:absolute;right:0;top:100%;z-index:50;min-width:120px;background:#1a1a1a;border:1px solid #444;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.4);overflow:hidden}}
 .row-menu.open{{display:block}}
-.row-menu button.kill{{width:100%;white-space:nowrap;text-align:left;border:none;border-radius:6px;padding:8px 14px}}</style>
+.row-menu button.kill{{display:block;width:100%;white-space:nowrap;text-align:left;background:transparent;border:none;border-radius:0;padding:8px 14px}}
+.row-menu button.kill:hover{{background:#2a2a2a}}
+#dash-table th{{cursor:pointer}}
+.sort-arrow{{color:#6cf}}</style>
 <script>
 function showAddModal(){{var m=document.getElementById('add-modal');if(m)m.classList.add('open');}}
 function hideAddModal(){{var m=document.getElementById('add-modal');if(m)m.classList.remove('open');}}
@@ -306,8 +326,58 @@ function closeAllRowMenus(){{
   document.querySelectorAll('.row-menu.open').forEach(function(m){{m.classList.remove('open');}});
 }}
 document.addEventListener('click',closeAllRowMenus);
+function dashSortKey(row,col){{
+  var cell=row.cells[col];
+  var age=cell.querySelector('.age');
+  if(age)return parseFloat(age.dataset.secs)||0;
+  var text=cell.textContent.trim();
+  var num=parseFloat(text.replace(/,/g,''));
+  return isNaN(num)?text.toLowerCase():num;
+}}
+function dashApplySort(table,col,dir){{
+  var tbody=table.tBodies[0];
+  var rows=Array.prototype.slice.call(tbody.rows);
+  rows.sort(function(a,b){{
+    var ka=dashSortKey(a,col),kb=dashSortKey(b,col);
+    if(ka<kb)return dir==='asc'?-1:1;
+    if(ka>kb)return dir==='asc'?1:-1;
+    return 0;
+  }});
+  rows.forEach(function(r){{tbody.appendChild(r);}});
+  var arrows=table.querySelectorAll('th .sort-arrow');
+  Array.prototype.forEach.call(arrows,function(s){{s.textContent='';}});
+  if(arrows[col])arrows[col].textContent=dir==='asc'?' ↑':' ↓';
+}}
+function dashSortTable(col){{
+  var table=document.getElementById('dash-table');
+  if(!table)return;
+  var key='dashboard-sort-'+window.location.pathname;
+  var saved=null;
+  try{{saved=JSON.parse(localStorage.getItem(key)||'null');}}catch(e){{}}
+  var dir=(saved&&saved.col===col&&saved.dir==='asc')?'desc':'asc';
+  try{{localStorage.setItem(key,JSON.stringify({{col:col,dir:dir}}));}}catch(e){{}}
+  dashApplySort(table,col,dir);
+}}
+function dashInitSort(){{
+  var table=document.getElementById('dash-table');
+  if(!table)return;
+  var key='dashboard-sort-'+window.location.pathname;
+  var saved=null;
+  try{{saved=JSON.parse(localStorage.getItem(key)||'null');}}catch(e){{}}
+  if(saved)dashApplySort(table,saved.col,saved.dir);
+}}
+window.addEventListener('DOMContentLoaded',dashInitSort);
 </script></head>
 <body><h1><a href="/" style="text-decoration:none">&#x1F4CA;</a> {heading}</h1><nav>{nav}</nav>{page_actions}{body}</body></html>"""
+
+
+def sortable_ths(labels):
+    """<th>s for a #dash-table header row - a blank label (the trailing
+    actions column) renders as a plain, unsortable header."""
+    return "".join(
+        f'<th onclick="dashSortTable({i})">{label}<span class="sort-arrow"></span></th>' if label else "<th></th>"
+        for i, label in enumerate(labels)
+    )
 
 
 def render_nav(active):
@@ -330,7 +400,9 @@ def render_ttyd(ip):
                      f'<input type="hidden" name="name" value="{escaped}">'
                      f'<button class="kill" type="submit">&#x1F5D1; kill</button></form>'
                      f'</div></div>')
-        rows.append(f"<tr><td>{escaped}</td><td>{port_cell}</td><td>{status}</td><td>{created}</td><td>{kill_cell}</td></tr>")
+        created_html = (f'<span class="age" data-secs="{parse_age_seconds(created)}">{html.escape(created)}</span>'
+                        if created != "-" else "-")
+        rows.append(f"<tr><td>{escaped}</td><td>{port_cell}</td><td>{status}</td><td>{created_html}</td><td>{kill_cell}</td></tr>")
     add_modal = """
 <div id="add-modal" class="modal-overlay" onclick="if(event.target===this)hideAddModal()">
 <div class="modal-box">
@@ -345,9 +417,8 @@ def render_ttyd(ip):
 </div>
 </div>"""
     page_actions = '<div class="page-actions"><a onclick="showAddModal()">+ add</a></div>'
-    body = f"""<table>
-<tr><th>name</th><th>ttyd</th><th>status</th><th>created</th><th></th></tr>
-{''.join(rows)}
+    body = f"""<table id="dash-table"><thead><tr>{sortable_ths(["name", "ttyd", "status", "created", ""])}</tr></thead>
+<tbody>{''.join(rows)}</tbody>
 </table>{add_modal}"""
     return PAGE.format(title="&#x1F4CA; dashboard: ttyd", heading="dashboard", extra_head="", nav=render_nav("/"),
                         page_actions=page_actions, body=body)
@@ -371,9 +442,8 @@ def render_services(services, ip):
         else:
             kill_cell = ""
         rows.append(f"<tr><td>{link}</td><td>{addr}</td><td>{proc}</td><td>{cwd}</td><td>{kill_cell}</td></tr>")
-    body = f"""<table>
-<tr><th>port</th><th>addr</th><th>process</th><th>cwd</th><th></th></tr>
-{''.join(rows)}
+    body = f"""<table id="dash-table"><thead><tr>{sortable_ths(["port", "addr", "process", "cwd", ""])}</tr></thead>
+<tbody>{''.join(rows)}</tbody>
 </table>"""
     return PAGE.format(title="&#x1F4CA; dashboard: services", heading="dashboard", extra_head="", nav=render_nav("/services"),
                         page_actions="", body=body)
@@ -411,9 +481,8 @@ def render_stats():
 def render_disk():
     rows = [f"<tr><td>{mount}</td><td>{used} / {size}</td><td>{avail} free</td><td>{pct}</td></tr>"
             for mount, size, used, avail, pct in disk_stats()]
-    body = f"""<table>
-<tr><th>mount</th><th>used / size</th><th>avail</th><th>use%</th></tr>
-{''.join(rows)}
+    body = f"""<table id="dash-table"><thead><tr>{sortable_ths(["mount", "used / size", "avail", "use%"])}</tr></thead>
+<tbody>{''.join(rows)}</tbody>
 </table>"""
     return PAGE.format(title="&#x1F4CA; dashboard: disk", heading="dashboard", extra_head="", nav=render_nav("/disk"),
                         page_actions="", body=body)

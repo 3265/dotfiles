@@ -261,6 +261,25 @@ function hideUploadModal(){
   var m=document.getElementById('upload-modal');
   if(m)m.classList.remove('open');
 }
+function showRenameModal(root,quotedRel,name){
+  var form=document.getElementById('rename-form');
+  var input=document.getElementById('rename-input');
+  form.action='/rename/'+root+'/'+quotedRel;
+  input.value=name;
+  updateRenameSubmit();
+  document.getElementById('rename-modal').classList.add('open');
+  input.focus();
+  input.select();
+}
+function hideRenameModal(){
+  var m=document.getElementById('rename-modal');
+  if(m)m.classList.remove('open');
+}
+function updateRenameSubmit(){
+  var input=document.getElementById('rename-input');
+  var btn=document.getElementById('rename-submit');
+  if(input&&btn)btn.disabled=!input.value.trim();
+}
 function openImagePopup(src){
   document.getElementById('image-modal-img').src=src;
   document.getElementById('image-modal').classList.add('open');
@@ -368,6 +387,9 @@ border:1px solid #444;border-radius:4px;max-height:200px;overflow-y:auto;z-index
 .suggest-list div{{padding:6px 10px;cursor:pointer;word-break:break-all}}
 .suggest-list div:hover{{background:#333}}
 .upload-form{{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}}
+.rename-form{{display:flex;flex-direction:column;gap:8px;margin-top:8px}}
+.rename-form input{{width:100%}}
+.rename-form-buttons{{display:flex;gap:8px;justify-content:flex-end}}
 .upload-form input[type=file]{{max-width:100%}}
 .modal-overlay{{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;align-items:center;justify-content:center}}
 .modal-overlay.open{{display:flex}}
@@ -376,13 +398,15 @@ border:1px solid #444;border-radius:4px;max-height:200px;overflow-y:auto;z-index
 .doc img{{cursor:zoom-in}}
 img.thumb{{max-height:40px;max-width:120px;cursor:zoom-in;vertical-align:middle;display:block}}
 button.copy,a.copy,button.submit{{box-sizing:border-box;vertical-align:middle;line-height:20px;background:#333;color:#eee;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer;text-decoration:none;display:inline-block}}
-button.kill{{background:#511;color:#fbb;border:1px solid #733;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer}}
+button.submit:disabled{{opacity:.4;cursor:not-allowed}}
+button.kill{{background:#333;color:#f66;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer}}
 .row-menu-wrap{{position:relative;display:inline-block}}
 .row-menu-btn{{background:none;border:none;color:#888;cursor:pointer;font-size:18px;line-height:1;padding:2px 8px}}
 .row-menu-btn:hover{{color:#eee}}
-.row-menu{{display:none;position:absolute;right:0;top:100%;z-index:50;min-width:120px;background:#1a1a1a;border:1px solid #444;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.4)}}
+.row-menu{{display:none;position:absolute;right:0;top:100%;z-index:50;min-width:120px;background:#1a1a1a;border:1px solid #444;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.4);overflow:hidden}}
 .row-menu.open{{display:block}}
-.row-menu button.kill{{width:100%;white-space:nowrap;text-align:left;border:none;border-radius:6px;padding:8px 14px}}
+.row-menu button.kill,.row-menu button.copy{{display:block;width:100%;white-space:nowrap;text-align:left;background:transparent;border:none;border-radius:0;padding:8px 14px}}
+.row-menu button.kill:hover,.row-menu button.copy:hover{{background:#2a2a2a}}
 .export-actions{{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px}}
 .doc{{font-family:sans-serif;line-height:1.6;max-width:900px;margin:0 auto}}
 #title-block-header{{margin-top:0}}
@@ -605,6 +629,34 @@ def delete_file(root_name, rel):
         log_audit("delete", root_name, rel)
         return True
     return False
+
+
+def rename_file(root_name, rel, new_name):
+    """Renames exactly one file or directory in place (same parent
+    directory, no moving across folders) - refuses path separators in
+    new_name (that would move the entry, not rename it) and overwriting an
+    existing entry. Returns an error message string on failure, or None on
+    success."""
+    target = safe_path(root_name, rel)
+    if not target or not os.path.exists(target):
+        return "not found"
+    new_name = new_name.strip()
+    if not new_name:
+        return "name cannot be empty"
+    if "/" in new_name or "\\" in new_name:
+        return "name cannot contain a path separator"
+    if new_name.startswith("."):
+        return "name cannot start with a dot"
+    new_target = os.path.join(os.path.dirname(target), new_name)
+    if os.path.exists(new_target):
+        return "a file or folder with that name already exists"
+    try:
+        os.rename(target, new_target)
+    except OSError as e:
+        return str(e)
+    new_rel = f"{os.path.dirname(rel)}/{new_name}" if "/" in rel else new_name
+    log_audit("rename", root_name, f"{rel} -> {new_rel}")
+    return None
 
 
 # Plain markdown links to a local file, e.g. [text](other.md) or
@@ -955,7 +1007,7 @@ def render_roots():
     return render_page("&#x1F4C1; explorer", "", f"{heading}{nav}{form}{table}")
 
 
-def render_listing(root_name, rel):
+def render_listing(root_name, rel, rename_error=None):
     target = safe_path(root_name, rel)
     if not target or not os.path.isdir(target):
         return None
@@ -983,15 +1035,20 @@ def render_listing(root_name, rel):
         mtime_disp, mtime_iso = deleted if deleted else mtime_info(full)
         mtime_td = (f'<td><span class="mtime" data-full="{mtime_iso}" '
                     f'onclick="showFullTime(this,event)">{mtime_disp}</span></td>')
+        rename_btn = (f'<button type="button" class="copy" '
+                      f'onclick="showRenameModal(\'{root_name}\',\'{quoted}\',\'{html.escape(name, quote=True)}\')">&#x270F; rename</button>')
         if os.path.isdir(full):
             dir_count += 1
             sub_count = count_files(full)
+            dir_menu_td = (f'<td><div class="row-menu-wrap">'
+                           f'<button type="button" class="row-menu-btn" onclick="toggleRowMenu(this,event)" title="more">&#x22EE;</button>'
+                           f'<div class="row-menu">{rename_btn}</div></div></td>')
             rows.append(f'<tr><td><a class="dir-link" href="/browse/{root_name}/{quoted}">{html.escape(name)}/</a></td><td>dir</td>'
-                        f'<td>{sub_count}</td>{mtime_td}<td></td></tr>')
+                        f'<td>{sub_count}</td>{mtime_td}{dir_menu_td}</tr>')
             continue
         delete_td = (f'<td><div class="row-menu-wrap">'
                      f'<button type="button" class="row-menu-btn" onclick="toggleRowMenu(this,event)" title="more">&#x22EE;</button>'
-                     f'<div class="row-menu">'
+                     f'<div class="row-menu">{rename_btn}'
                      f'<form method="post" action="/delete/{root_name}/{quoted}" style="margin:0" '
                      f'onsubmit="return confirm(\'{delete_verb} {html.escape(name)}?{html.escape(trash_note)}\')">'
                      f'<button class="kill" type="submit">&#x1F5D1; delete</button></form>'
@@ -1034,7 +1091,9 @@ def render_listing(root_name, rel):
                         f'<td>{lines}</td>{mtime_td}{delete_td}</tr>')
         else:
             file_count += 1
-            rows.append(f'<tr><td><span class="unopenable">{html.escape(name)}</span></td><td>bin</td><td></td>{mtime_td}{delete_td}</tr>')
+            bin_type = os.path.splitext(name)[1].lower().lstrip(".") or "bin"
+            rows.append(f'<tr><td><span class="unopenable">{html.escape(name)}</span></td><td>{html.escape(bin_type)}</td>'
+                        f'<td>{human_size(file_size(full))}</td>{mtime_td}{delete_td}</tr>')
 
     heading = f'<h1 class="page-title"><a href="/" style="text-decoration:none">&#x1F4C1;</a> {root_name}/{html.escape(rel)}</h1>'
     parent = os.path.dirname(rel.rstrip("/")) if rel else None
@@ -1056,6 +1115,19 @@ def render_listing(root_name, rel):
 <p style="font-size:12px;color:#888">max 1GB</p>
 </div>
 </div>"""
+    rename_modal = f"""
+<div id="rename-modal" class="modal-overlay" onclick="if(event.target===this)hideRenameModal()">
+<div class="modal-box">
+<h3>rename file</h3>
+<form method="post" id="rename-form" action="" class="rename-form">
+<input type="text" name="new_name" id="rename-input" required oninput="updateRenameSubmit()">
+<div class="rename-form-buttons">
+<button type="button" class="submit" onclick="hideRenameModal()">cancel</button>
+<button class="submit" type="submit" id="rename-submit">rename</button>
+</div>
+</form>
+</div>
+</div>"""
     search_form = (f'<form method="get" action="/search/{root_name}/{urllib.parse.quote(rel)}" class="search-form">'
                    f'<input type="text" name="q" placeholder="search name/content here down" required>'
                    f'<button class="submit" type="submit">&#x1F50D;</button></form>')
@@ -1067,8 +1139,10 @@ def render_listing(root_name, rel):
             f'<a class="copy" href="/export/{root_name}/{urllib.parse.quote(rel)}">&#x1F4E4; export</a>'
             f'</span></div>')
     note = '<p style="color:#888;font-size:12px;text-align:right">folder size shows immediate children only, not recursive</p>'
+    error_script = (f'<script>alert({json.dumps("rename failed: " + rename_error)});'
+                     f'history.replaceState(null,"",location.pathname);</script>' if rename_error else "")
     body = (f'{heading}{menu}{summary}<table id="listing-table"><thead><tr>{ths}</tr></thead>'
-            f'<tbody>{"".join(rows)}</tbody></table>{note}{upload_modal}')
+            f'<tbody>{"".join(rows)}</tbody></table>{note}{upload_modal}{rename_modal}{error_script}')
     return render_page(f"&#x1F4C1; explorer: {root_name}/{rel}", "", body)
 
 
@@ -1278,7 +1352,7 @@ def render_view(root_name, rel):
     menu = (f'<div class="menu-bar">'
             f'<a class="copy" href="/browse/{root_name}/{urllib.parse.quote(parent)}">&larr; back</a>'
             f'<span class="menu-right">'
-            f'<button class="copy" onclick="copyRaw(\'/raw/{root_name}/{quoted}\',this)">\U0001F4CB copy</button>'
+            f'<button class="copy" onclick="copyRaw(\'/raw/{root_name}/{quoted}?include=\',this)">\U0001F4CB copy</button>'
             f'<a class="copy" href="/export/{root_name}/{quoted}">&#x1F4E4; export</a>'
             f'</span></div>{stats}')
     toc_html = render_python_toc(python_toc(raw)) if ext == ".py" else ""
@@ -1547,7 +1621,8 @@ class Handler(BaseHTTPRequestHandler):
             body = render_export(root_name, rel)
         elif path.startswith("/browse/"):
             root_name, rel = split_root(path[len("/browse/"):])
-            body = render_listing(root_name, rel)
+            rename_error = query.get("rename_error", [None])[0]
+            body = render_listing(root_name, rel, rename_error=rename_error)
         elif path.startswith("/search/"):
             root_name, rel = split_root(path[len("/search/"):])
             q = query.get("q", [""])[0]
@@ -1620,6 +1695,21 @@ class Handler(BaseHTTPRequestHandler):
             parent = os.path.dirname(rel.rstrip("/"))
             self.send_response(302)
             self.send_header("Location", f"/browse/{root_name}/" + urllib.parse.quote(parent))
+            self.end_headers()
+            return
+        if self.path.startswith("/rename/"):
+            root_name, rel = split_root(urllib.parse.unquote(self.path[len("/rename/"):]))
+            length = int(self.headers.get("Content-Length", 0))
+            data = self.rfile.read(length).decode()
+            form = urllib.parse.parse_qs(data)
+            new_name = form.get("new_name", [""])[0]
+            error = rename_file(root_name, rel, new_name)
+            parent = os.path.dirname(rel.rstrip("/"))
+            location = f"/browse/{root_name}/" + urllib.parse.quote(parent)
+            if error:
+                location += "?rename_error=" + urllib.parse.quote(error)
+            self.send_response(302)
+            self.send_header("Location", location)
             self.end_headers()
             return
         if self.path == "/roots/add":

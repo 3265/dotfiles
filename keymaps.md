@@ -34,6 +34,9 @@ This is a quick reference extracted from the current dotfiles.
 - Prefix: `Ctrl-z` then `z` (escape key is `^Z` with `z` as the escape char)
 - Window next: `Ctrl-z` then `n`
 - Window previous: `Ctrl-z` then `p`
+- Window jump by number: `Ctrl-z` then `0`-`9` (windows are numbered from 1; `0` jumps to window 10)
+- Window jump by number/name prompt: `Ctrl-z` then `'` (useful for window 11+)
+- Window list (select from list): `Ctrl-z` then `"`
 - Window title: `Ctrl-z` then `Shift-a`
 - Window switch (double prefix): `Ctrl-z` then `Ctrl-z` (prev)
 
