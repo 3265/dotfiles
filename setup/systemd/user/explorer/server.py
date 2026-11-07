@@ -18,6 +18,7 @@ PORT = 6003
 MAX_UPLOAD_BYTES = 1024 ** 3  # 1GB
 
 IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".bmp"}
+VIDEO_EXTS = {".mp4", ".webm", ".mov", ".m4v"}
 
 # Extension -> pandoc/skylighting language name, for viewing non-.md text
 # files with the same syntax highlighting as code blocks inside a .md file.
@@ -261,6 +262,16 @@ function hideUploadModal(){
   var m=document.getElementById('upload-modal');
   if(m)m.classList.remove('open');
 }
+function showNewFileModal(){
+  var m=document.getElementById('newfile-modal');
+  if(m)m.classList.add('open');
+  var input=document.getElementById('newfile-input');
+  if(input){input.value='';input.focus();}
+}
+function hideNewFileModal(){
+  var m=document.getElementById('newfile-modal');
+  if(m)m.classList.remove('open');
+}
 function showRenameModal(root,quotedRel,name){
   var form=document.getElementById('rename-form');
   var input=document.getElementById('rename-input');
@@ -286,6 +297,19 @@ function openImagePopup(src){
 }
 function closeImagePopup(){
   document.getElementById('image-modal').classList.remove('open');
+}
+function openVideoPopup(src){
+  var video=document.getElementById('video-modal-video');
+  video.src=src;
+  document.getElementById('video-modal').classList.add('open');
+  video.play();
+}
+function closeVideoPopup(){
+  var video=document.getElementById('video-modal-video');
+  video.pause();
+  video.removeAttribute('src');
+  video.load();
+  document.getElementById('video-modal').classList.remove('open');
 }
 function bindDocImages(){
   document.querySelectorAll('.doc img').forEach(function(img){
@@ -395,8 +419,10 @@ border:1px solid #444;border-radius:4px;max-height:200px;overflow-y:auto;z-index
 .modal-overlay.open{{display:flex}}
 .modal-box{{box-sizing:border-box;background:#1a1a1a;border:1px solid #444;border-radius:8px;padding:20px;max-width:90%;width:320px}}
 #image-modal img{{max-width:95vw;max-height:95vh;object-fit:contain}}
+#video-modal video{{max-width:95vw;max-height:95vh}}
 .doc img{{cursor:zoom-in}}
 img.thumb{{max-height:40px;max-width:120px;cursor:zoom-in;vertical-align:middle;display:block}}
+video.thumb{{max-height:40px;max-width:120px;cursor:zoom-in;vertical-align:middle;display:block}}
 button.copy,a.copy,button.submit{{box-sizing:border-box;vertical-align:middle;line-height:20px;background:#333;color:#eee;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer;text-decoration:none;display:inline-block}}
 button.submit:disabled{{opacity:.4;cursor:not-allowed}}
 button.kill{{background:#333;color:#f66;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer}}
@@ -405,12 +431,13 @@ button.kill{{background:#333;color:#f66;border:1px solid #555;border-radius:4px;
 .row-menu-btn:hover{{color:#eee}}
 .row-menu{{display:none;position:absolute;right:0;top:100%;z-index:50;min-width:120px;background:#1a1a1a;border:1px solid #444;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.4);overflow:hidden}}
 .row-menu.open{{display:block}}
-.row-menu button.kill,.row-menu button.copy{{display:block;width:100%;white-space:nowrap;text-align:left;background:transparent;border:none;border-radius:0;padding:8px 14px}}
-.row-menu button.kill:hover,.row-menu button.copy:hover{{background:#2a2a2a}}
+.row-menu button.kill,.row-menu button.copy,.row-menu a.copy{{display:block;width:100%;white-space:nowrap;text-align:left;background:transparent;border:none;border-radius:0;padding:8px 14px;box-sizing:border-box}}
+.row-menu button.kill:hover,.row-menu button.copy:hover,.row-menu a.copy:hover{{background:#2a2a2a}}
 .export-actions{{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px}}
 .doc{{font-family:sans-serif;line-height:1.6;max-width:900px;margin:0 auto}}
 #title-block-header{{margin-top:0}}
-#title-block-header h1{{margin:16px 0 20px;border-left:none;padding-left:0;font-family:monospace;font-size:1.6em;font-weight:bold;line-height:normal}}
+#title-block-header h1{{margin:16px 0 20px;border-left:none;padding-left:0;padding-right:0;font-family:monospace;font-size:1.6em;font-weight:bold;line-height:normal}}
+#title-block-header h1::after{{content:none}}
 .page-title{{font-family:monospace;font-size:1.6em;font-weight:bold;margin:16px 0 20px;line-height:normal}}
 .doc h1,.doc h2,.doc h3,.doc h4,.doc h5,.doc h6{{position:relative;padding-right:32px;box-sizing:border-box}}
 .doc h1::after,.doc h2::after,.doc h3::after,.doc h4::after,.doc h5::after,.doc h6::after{{position:absolute;top:2px;right:0;font-weight:normal;font-family:monospace;font-size:0.6em;color:#666}}
@@ -437,7 +464,7 @@ button.kill{{background:#333;color:#f66;border:1px solid #555;border-radius:4px;
 .doc-table-wrap th{{background:#1d1d1d;font-weight:bold}}
 .doc-table-wrap tr:nth-child(even) td{{background:#161616}}
 nav:empty{{display:none}}
-nav:not(#TOC){{display:flex;flex-wrap:wrap;border-bottom:2px solid #333;margin:0 0 16px}}
+nav:not(#TOC):not(:empty){{display:flex;flex-wrap:wrap;border-bottom:2px solid #333;margin:0 0 16px}}
 nav:not(#TOC) a{{padding:8px 16px;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;color:#888;text-decoration:none}}
 nav:not(#TOC) a.active{{color:#6cf;border-bottom-color:#6cf}}
 nav:not(#TOC) a:hover{{color:#eee}}
@@ -454,6 +481,7 @@ nav:not(#TOC) a:hover{{color:#eee}}
 <script>{copy_js}</script>{extra_head}</head>
 <body><nav>{nav}</nav>{body}
 <div id="image-modal" class="modal-overlay" onclick="closeImagePopup()"><img id="image-modal-img" src=""></div>
+<div id="video-modal" class="modal-overlay" onclick="if(event.target===this)closeVideoPopup()"><video id="video-modal-video" src="" controls autoplay></video></div>
 </body></html>"""
 
 # Pinned CDN versions - only loaded on pages that actually need them (math
@@ -656,6 +684,37 @@ def rename_file(root_name, rel, new_name):
         return str(e)
     new_rel = f"{os.path.dirname(rel)}/{new_name}" if "/" in rel else new_name
     log_audit("rename", root_name, f"{rel} -> {new_rel}")
+    return None
+
+
+def create_file(root_name, rel, name):
+    """Creates a new empty .md file inside the directory at rel - refuses
+    path separators in name, overwriting an existing entry, and names that
+    don't end in .md (this is specifically a "new markdown file" action,
+    not a generic blank-file creator). Returns an error message string on
+    failure, or None on success."""
+    target_dir = safe_path(root_name, rel)
+    if not target_dir or not os.path.isdir(target_dir):
+        return "folder not found"
+    name = name.strip()
+    if not name:
+        return "name cannot be empty"
+    if "/" in name or "\\" in name:
+        return "name cannot contain a path separator"
+    if name.startswith("."):
+        return "name cannot start with a dot"
+    if not name.lower().endswith(".md"):
+        name += ".md"
+    new_target = os.path.join(target_dir, name)
+    if os.path.exists(new_target):
+        return "a file with that name already exists"
+    try:
+        with open(new_target, "w", encoding="utf-8") as f:
+            f.write(f"# {os.path.splitext(name)[0]}\n")
+    except OSError as e:
+        return str(e)
+    new_rel = f"{rel}/{name}" if rel else name
+    log_audit("create", root_name, new_rel)
     return None
 
 
@@ -1007,7 +1066,7 @@ def render_roots():
     return render_page("&#x1F4C1; explorer", "", f"{heading}{nav}{form}{table}")
 
 
-def render_listing(root_name, rel, rename_error=None):
+def render_listing(root_name, rel, op_error=None):
     target = safe_path(root_name, rel)
     if not target or not os.path.isdir(target):
         return None
@@ -1078,6 +1137,13 @@ def render_listing(root_name, rel, rename_error=None):
                      f'<small style="color:#888;display:block;margin-top:4px">{html.escape(name)}</small>')
             rows.append(f'<tr><td>{label}</td><td>img</td>'
                         f'<td>{human_size(file_size(full))}</td>{mtime_td}{delete_td}</tr>')
+        elif os.path.splitext(name)[1].lower() in VIDEO_EXTS:
+            file_count += 1
+            src = f"/file/{root_name}/{quoted}"
+            label = (f'<video class="thumb" src="{src}" preload="metadata" onclick="openVideoPopup(this.src)"></video>'
+                     f'<small style="color:#888;display:block;margin-top:4px">{html.escape(name)}</small>')
+            rows.append(f'<tr><td>{label}</td><td>video</td>'
+                        f'<td>{human_size(file_size(full))}</td>{mtime_td}{delete_td}</tr>')
         elif name.lower().endswith(".pdf"):
             file_count += 1
             src = f"/file/{root_name}/{quoted}"
@@ -1128,21 +1194,38 @@ def render_listing(root_name, rel, rename_error=None):
 </form>
 </div>
 </div>"""
+    newfile_modal = f"""
+<div id="newfile-modal" class="modal-overlay" onclick="if(event.target===this)hideNewFileModal()">
+<div class="modal-box">
+<h3>new markdown file</h3>
+<form method="post" action="/newfile/{root_name}/{urllib.parse.quote(rel)}" class="rename-form">
+<input type="text" name="name" id="newfile-input" placeholder="name (.md added if omitted)" required autofocus>
+<div class="rename-form-buttons">
+<button type="button" class="submit" onclick="hideNewFileModal()">cancel</button>
+<button class="submit" type="submit">create</button>
+</div>
+</form>
+</div>
+</div>"""
     search_form = (f'<form method="get" action="/search/{root_name}/{urllib.parse.quote(rel)}" class="search-form">'
                    f'<input type="text" name="q" placeholder="search name/content here down" required>'
                    f'<button class="submit" type="submit">&#x1F50D;</button></form>')
+    menu_dropdown = (f'<div class="row-menu-wrap">'
+                     f'<button type="button" class="row-menu-btn" onclick="toggleRowMenu(this,event)" title="more">&#x22EE;</button>'
+                     f'<div class="row-menu">'
+                     f'<button type="button" class="copy" onclick="showNewFileModal()">&#x1F4DD; new md</button>'
+                     f'<button type="button" class="copy" onclick="showUploadModal()">&#x2B06; upload</button>'
+                     f'<a class="copy" href="/export/{root_name}/{urllib.parse.quote(rel)}">&#x1F4E4; export</a>'
+                     f'</div></div>')
     menu = (f'<div class="menu-bar">'
             f'<a class="copy" href="{back_href}">&larr; back</a>'
             f'{search_form}'
-            f'<span class="menu-right">'
-            f'<a class="copy" onclick="showUploadModal()" style="cursor:pointer">&#x2B06; upload</a>'
-            f'<a class="copy" href="/export/{root_name}/{urllib.parse.quote(rel)}">&#x1F4E4; export</a>'
-            f'</span></div>')
+            f'<span class="menu-right">{menu_dropdown}</span></div>')
     note = '<p style="color:#888;font-size:12px;text-align:right">folder size shows immediate children only, not recursive</p>'
-    error_script = (f'<script>alert({json.dumps("rename failed: " + rename_error)});'
-                     f'history.replaceState(null,"",location.pathname);</script>' if rename_error else "")
+    error_script = (f'<script>alert({json.dumps(op_error)});'
+                     f'history.replaceState(null,"",location.pathname);</script>' if op_error else "")
     body = (f'{heading}{menu}{summary}<table id="listing-table"><thead><tr>{ths}</tr></thead>'
-            f'<tbody>{"".join(rows)}</tbody></table>{note}{upload_modal}{rename_modal}{error_script}')
+            f'<tbody>{"".join(rows)}</tbody></table>{note}{upload_modal}{rename_modal}{newfile_modal}{error_script}')
     return render_page(f"&#x1F4C1; explorer: {root_name}/{rel}", "", body)
 
 
@@ -1548,10 +1631,26 @@ class Handler(BaseHTTPRequestHandler):
                 self.wfile.write(b"not found")
                 return
             ctype = mimetypes.guess_type(target)[0] or "application/octet-stream"
-            with open(target, "rb") as f:
-                data = f.read()
-            self.send_response(200)
+            file_len = os.path.getsize(target)
+            range_header = self.headers.get("Range")
+            if range_header:
+                # <video> needs Range/206 support to seek - without it,
+                # scrubbing past the already-buffered portion silently fails.
+                m = re.match(r"bytes=(\d*)-(\d*)", range_header)
+                start = int(m.group(1)) if m and m.group(1) else 0
+                end = int(m.group(2)) if m and m.group(2) else file_len - 1
+                end = min(end, file_len - 1)
+                with open(target, "rb") as f:
+                    f.seek(start)
+                    data = f.read(end - start + 1)
+                self.send_response(206)
+                self.send_header("Content-Range", f"bytes {start}-{end}/{file_len}")
+            else:
+                with open(target, "rb") as f:
+                    data = f.read()
+                self.send_response(200)
             self.send_header("Content-Type", ctype)
+            self.send_header("Accept-Ranges", "bytes")
             self.send_header("Content-Length", str(len(data)))
             self.end_headers()
             self.wfile.write(data)
@@ -1621,8 +1720,8 @@ class Handler(BaseHTTPRequestHandler):
             body = render_export(root_name, rel)
         elif path.startswith("/browse/"):
             root_name, rel = split_root(path[len("/browse/"):])
-            rename_error = query.get("rename_error", [None])[0]
-            body = render_listing(root_name, rel, rename_error=rename_error)
+            op_error = query.get("op_error", [None])[0]
+            body = render_listing(root_name, rel, op_error=op_error)
         elif path.startswith("/search/"):
             root_name, rel = split_root(path[len("/search/"):])
             q = query.get("q", [""])[0]
@@ -1707,7 +1806,21 @@ class Handler(BaseHTTPRequestHandler):
             parent = os.path.dirname(rel.rstrip("/"))
             location = f"/browse/{root_name}/" + urllib.parse.quote(parent)
             if error:
-                location += "?rename_error=" + urllib.parse.quote(error)
+                location += "?op_error=" + urllib.parse.quote("rename failed: " + error)
+            self.send_response(302)
+            self.send_header("Location", location)
+            self.end_headers()
+            return
+        if self.path.startswith("/newfile/"):
+            root_name, rel = split_root(urllib.parse.unquote(self.path[len("/newfile/"):]))
+            length = int(self.headers.get("Content-Length", 0))
+            data = self.rfile.read(length).decode()
+            form = urllib.parse.parse_qs(data)
+            name = form.get("name", [""])[0]
+            error = create_file(root_name, rel, name)
+            location = f"/browse/{root_name}/" + urllib.parse.quote(rel.rstrip("/"))
+            if error:
+                location += "?op_error=" + urllib.parse.quote("create failed: " + error)
             self.send_response(302)
             self.send_header("Location", location)
             self.end_headers()
