@@ -198,19 +198,23 @@ function closeAllRowMenus(){
   document.querySelectorAll('.row-menu.open').forEach(function(m){m.classList.remove('open');});
 }
 document.addEventListener('click',closeAllRowMenus);
+function closeMtimePopup(){
+  var old=document.querySelector('.mtime-popup');
+  if(old)old.remove();
+}
+document.addEventListener('click',closeMtimePopup);
 function showFullTime(span,e){
   e.stopPropagation();
   if(!span.dataset.full)return;
-  var old=document.querySelector('.mtime-popup');
-  if(old)old.remove();
+  closeMtimePopup();
   var rect=span.getBoundingClientRect();
   var pop=document.createElement('div');
   pop.className='mtime-popup';
   pop.textContent=span.dataset.full;
-  pop.style.left=rect.left+'px';
-  pop.style.top=(rect.bottom+4)+'px';
   document.body.appendChild(pop);
-  setTimeout(function(){pop.remove();},2000);
+  var left=Math.min(rect.left,window.innerWidth-pop.offsetWidth-8);
+  pop.style.left=Math.max(left,8)+'px';
+  pop.style.top=(rect.bottom+4)+'px';
 }
 function sortKey(row,col){
   var cell=row.cells[col];
@@ -423,7 +427,7 @@ border:1px solid #444;border-radius:4px;max-height:200px;overflow-y:auto;z-index
 .doc img{{cursor:zoom-in}}
 img.thumb{{max-height:40px;max-width:120px;cursor:zoom-in;vertical-align:middle;display:block}}
 video.thumb{{max-height:40px;max-width:120px;cursor:zoom-in;vertical-align:middle;display:block}}
-button.copy,a.copy,button.submit{{box-sizing:border-box;vertical-align:middle;line-height:20px;background:#333;color:#eee;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer;text-decoration:none;display:inline-block}}
+button.copy,a.copy,button.submit{{box-sizing:border-box;vertical-align:middle;line-height:20px;background:#333;color:#eee;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;font-size:16px;cursor:pointer;text-decoration:none;display:inline-block}}
 button.submit:disabled{{opacity:.4;cursor:not-allowed}}
 button.kill{{background:#333;color:#f66;border:1px solid #555;border-radius:4px;padding:4px 10px;font-family:monospace;cursor:pointer}}
 .row-menu-wrap{{position:relative;display:inline-block}}
