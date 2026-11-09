@@ -261,10 +261,32 @@ window.addEventListener('DOMContentLoaded',initSort);
 function showUploadModal(){
   var m=document.getElementById('upload-modal');
   if(m)m.classList.add('open');
+  var input=document.getElementById('upload-input');
+  if(input)input.value='';
+  updateUploadFileList();
 }
 function hideUploadModal(){
   var m=document.getElementById('upload-modal');
   if(m)m.classList.remove('open');
+}
+function updateUploadFileList(){
+  var input=document.getElementById('upload-input');
+  var list=document.getElementById('upload-filelist');
+  if(!input||!list)return;
+  list.innerHTML='';
+  for(var i=0;i<input.files.length;i++){
+    var li=document.createElement('li');
+    li.textContent=input.files[i].name;
+    list.appendChild(li);
+  }
+}
+function validateUploadFiles(form){
+  var input=form.querySelector('#upload-input');
+  if(input&&input.files.length>10){
+    alert('up to 10 files at a time (selected: '+input.files.length+')');
+    return false;
+  }
+  return true;
 }
 function showNewFileModal(){
   var m=document.getElementById('newfile-modal');
@@ -274,6 +296,16 @@ function showNewFileModal(){
 }
 function hideNewFileModal(){
   var m=document.getElementById('newfile-modal');
+  if(m)m.classList.remove('open');
+}
+function showNewFolderModal(){
+  var m=document.getElementById('newfolder-modal');
+  if(m)m.classList.add('open');
+  var input=document.getElementById('newfolder-input');
+  if(input){input.value='';input.focus();}
+}
+function hideNewFolderModal(){
+  var m=document.getElementById('newfolder-modal');
   if(m)m.classList.remove('open');
 }
 function showRenameModal(root,quotedRel,name){
@@ -400,6 +432,7 @@ td,th{{padding:8px 10px;border-bottom:1px solid #333;text-align:left;word-break:
 a{{color:#6cf}}
 .file-link{{color:#eee;text-decoration:none}}
 .file-link small{{text-decoration:none}}
+.md-link{{color:#9cdb8f}}
 a.dir-link{{color:#6cf;font-weight:bold;text-decoration:none}}
 .unopenable{{color:#666}}
 mark{{background:#e8b339;color:#111;padding:0 2px;border-radius:2px}}
@@ -419,6 +452,9 @@ border:1px solid #444;border-radius:4px;max-height:200px;overflow-y:auto;z-index
 .rename-form input{{width:100%}}
 .rename-form-buttons{{display:flex;gap:8px;justify-content:flex-end}}
 .upload-form input[type=file]{{max-width:100%}}
+#upload-filelist{{width:100%;margin:0;padding:0 0 0 18px;max-height:120px;overflow-y:auto;font-size:13px;color:#aaa}}
+#upload-filelist:empty{{display:none}}
+#upload-filelist li{{word-break:break-all}}
 .modal-overlay{{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;align-items:center;justify-content:center}}
 .modal-overlay.open{{display:flex}}
 .modal-box{{box-sizing:border-box;background:#1a1a1a;border:1px solid #444;border-radius:8px;padding:20px;max-width:90%;width:320px}}
@@ -528,10 +564,12 @@ def save_roots(roots):
         json.dump(roots, f, ensure_ascii=False, indent=2)
 
 
-def parse_multipart_file(body, boundary):
-    """(filename, data) for the "file" field of a single-file
-    multipart/form-data upload, or None if not present. Doesn't use the
+def parse_multipart_files(body, boundary):
+    """[(filename, data), ...] for every "file" field of a (possibly
+    multi-file) multipart/form-data upload - a <input multiple> submits one
+    part per selected file, all under the same field name. Doesn't use the
     stdlib cgi module since it's deprecated/removed from Python 3.13."""
+    files = []
     for part in body.split(b"--" + boundary.encode()):
         if b'name="file"' not in part:
             continue
@@ -544,8 +582,8 @@ def parse_multipart_file(body, boundary):
             content = content[:-2]
         m = re.search(r'filename="([^"]*)"', headers)
         if m and m.group(1):
-            return os.path.basename(m.group(1)), content
-    return None
+            files.append((os.path.basename(m.group(1)), content))
+    return files
 
 
 def suggest_paths(partial):
@@ -719,6 +757,32 @@ def create_file(root_name, rel, name):
         return str(e)
     new_rel = f"{rel}/{name}" if rel else name
     log_audit("create", root_name, new_rel)
+    return None
+
+
+def create_folder(root_name, rel, name):
+    """Creates a new empty subfolder inside the directory at rel - refuses
+    path separators in name and overwriting an existing entry. Returns an
+    error message string on failure, or None on success."""
+    target_dir = safe_path(root_name, rel)
+    if not target_dir or not os.path.isdir(target_dir):
+        return "folder not found"
+    name = name.strip()
+    if not name:
+        return "name cannot be empty"
+    if "/" in name or "\\" in name:
+        return "name cannot contain a path separator"
+    if name.startswith("."):
+        return "name cannot start with a dot"
+    new_target = os.path.join(target_dir, name)
+    if os.path.exists(new_target):
+        return "a file or folder with that name already exists"
+    try:
+        os.mkdir(new_target)
+    except OSError as e:
+        return str(e)
+    new_rel = f"{rel}/{name}" if rel else name
+    log_audit("mkdir", root_name, new_rel)
     return None
 
 
@@ -1123,7 +1187,7 @@ def render_listing(root_name, rel, op_error=None):
             label = (f'{html.escape(h1)}'
                      f'<small style="color:#888;display:block;margin-top:4px">{html.escape(name)}</small>'
                      if h1 else html.escape(name))
-            rows.append(f'<tr><td><a class="file-link" href="/view/{root_name}/{quoted}">{label}</a></td><td>md</td>'
+            rows.append(f'<tr><td><a class="file-link md-link" href="/view/{root_name}/{quoted}">{label}</a></td><td>md</td>'
                         f'<td>{lines}</td>{mtime_td}{delete_td}</tr>')
         elif name.lower().endswith(".py"):
             file_count += 1
@@ -1177,12 +1241,13 @@ def render_listing(root_name, rel, op_error=None):
 <div id="upload-modal" class="modal-overlay" onclick="if(event.target===this)hideUploadModal()">
 <div class="modal-box">
 <h3>upload file</h3>
-<form method="post" action="/upload/{root_name}/{urllib.parse.quote(rel)}" enctype="multipart/form-data" class="upload-form">
-<input type="file" name="file" required>
+<form method="post" action="/upload/{root_name}/{urllib.parse.quote(rel)}" enctype="multipart/form-data" class="upload-form" onsubmit="return validateUploadFiles(this)">
+<input type="file" name="file" id="upload-input" multiple required oninput="updateUploadFileList()">
+<ul id="upload-filelist"></ul>
 <button class="submit" type="submit">upload</button>
 <button type="button" class="submit" onclick="hideUploadModal()">cancel</button>
 </form>
-<p style="font-size:12px;color:#888">max 1GB</p>
+<p style="font-size:12px;color:#888">max 10 files, 1GB total</p>
 </div>
 </div>"""
     rename_modal = f"""
@@ -1211,6 +1276,19 @@ def render_listing(root_name, rel, op_error=None):
 </form>
 </div>
 </div>"""
+    newfolder_modal = f"""
+<div id="newfolder-modal" class="modal-overlay" onclick="if(event.target===this)hideNewFolderModal()">
+<div class="modal-box">
+<h3>new folder</h3>
+<form method="post" action="/newfolder/{root_name}/{urllib.parse.quote(rel)}" class="rename-form">
+<input type="text" name="name" id="newfolder-input" placeholder="folder name" required autofocus>
+<div class="rename-form-buttons">
+<button type="button" class="submit" onclick="hideNewFolderModal()">cancel</button>
+<button class="submit" type="submit">create</button>
+</div>
+</form>
+</div>
+</div>"""
     search_form = (f'<form method="get" action="/search/{root_name}/{urllib.parse.quote(rel)}" class="search-form">'
                    f'<input type="text" name="q" placeholder="search name/content here down" required>'
                    f'<button class="submit" type="submit">&#x1F50D;</button></form>')
@@ -1218,6 +1296,7 @@ def render_listing(root_name, rel, op_error=None):
                      f'<button type="button" class="row-menu-btn" onclick="toggleRowMenu(this,event)" title="more">&#x22EE;</button>'
                      f'<div class="row-menu">'
                      f'<button type="button" class="copy" onclick="showNewFileModal()">&#x1F4DD; new md</button>'
+                     f'<button type="button" class="copy" onclick="showNewFolderModal()">&#x1F4C1; new folder</button>'
                      f'<button type="button" class="copy" onclick="showUploadModal()">&#x2B06; upload</button>'
                      f'<a class="copy" href="/export/{root_name}/{urllib.parse.quote(rel)}">&#x1F4E4; export</a>'
                      f'</div></div>')
@@ -1229,7 +1308,7 @@ def render_listing(root_name, rel, op_error=None):
     error_script = (f'<script>alert({json.dumps(op_error)});'
                      f'history.replaceState(null,"",location.pathname);</script>' if op_error else "")
     body = (f'{heading}{menu}{summary}<table id="listing-table"><thead><tr>{ths}</tr></thead>'
-            f'<tbody>{"".join(rows)}</tbody></table>{note}{upload_modal}{rename_modal}{newfile_modal}{error_script}')
+            f'<tbody>{"".join(rows)}</tbody></table>{note}{upload_modal}{rename_modal}{newfile_modal}{newfolder_modal}{error_script}')
     return render_page(f"&#x1F4C1; explorer: {root_name}/{rel}", "", body)
 
 
@@ -1782,9 +1861,7 @@ class Handler(BaseHTTPRequestHandler):
             body = self.rfile.read(length)
             m = re.search(r'boundary=([^;]+)', self.headers.get("Content-Type", ""))
             if target_dir and os.path.isdir(target_dir) and m:
-                result = parse_multipart_file(body, m.group(1).strip('"'))
-                if result and result[0]:
-                    filename, data = result
+                for filename, data in parse_multipart_files(body, m.group(1).strip('"'))[:10]:
                     with open(os.path.join(target_dir, filename), "wb") as f:
                         f.write(data)
                     log_audit("upload", root_name, f"{rel}/{filename}" if rel else filename)
@@ -1825,6 +1902,20 @@ class Handler(BaseHTTPRequestHandler):
             location = f"/browse/{root_name}/" + urllib.parse.quote(rel.rstrip("/"))
             if error:
                 location += "?op_error=" + urllib.parse.quote("create failed: " + error)
+            self.send_response(302)
+            self.send_header("Location", location)
+            self.end_headers()
+            return
+        if self.path.startswith("/newfolder/"):
+            root_name, rel = split_root(urllib.parse.unquote(self.path[len("/newfolder/"):]))
+            length = int(self.headers.get("Content-Length", 0))
+            data = self.rfile.read(length).decode()
+            form = urllib.parse.parse_qs(data)
+            name = form.get("name", [""])[0]
+            error = create_folder(root_name, rel, name)
+            location = f"/browse/{root_name}/" + urllib.parse.quote(rel.rstrip("/"))
+            if error:
+                location += "?op_error=" + urllib.parse.quote("create folder failed: " + error)
             self.send_response(302)
             self.send_header("Location", location)
             self.end_headers()
