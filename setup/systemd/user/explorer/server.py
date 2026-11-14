@@ -1106,9 +1106,15 @@ def render_roots():
     roots = load_roots()
     rows = []
     for name, path in sorted(roots.items()):
-        trash_hint = trash_location(path)
-        trash_note = (f'<br><small style="color:#888">deleted files go to {html.escape(trash_hint)}</small>'
-                      if trash_hint != TRASH_DIR else "")
+        if not os.path.isdir(path):
+            # The path may have been deleted/renamed/unmounted out from under
+            # us - trash_location() below does an os.stat() that would raise
+            # and take the whole roots page down with it, so skip it.
+            trash_note = '<br><small style="color:#f66">path not found (deleted, renamed, or not mounted?)</small>'
+        else:
+            trash_hint = trash_location(path)
+            trash_note = (f'<br><small style="color:#888">deleted files go to {html.escape(trash_hint)}</small>'
+                          if trash_hint != TRASH_DIR else "")
         badge = ' <span class="badge">default</span>' if name == "trash" else ""
         remove_td = ('<span style="color:#555">remove</span>' if name == "trash" else
                      f'<a href="/roots/remove/{urllib.parse.quote(name)}">remove</a>')
