@@ -12,7 +12,7 @@ import subprocess
 import time
 import urllib.parse
 import zipfile
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 PORT = 6003
 MAX_UPLOAD_BYTES = 1024 ** 3  # 1GB
@@ -287,6 +287,45 @@ function validateUploadFiles(form){
     return false;
   }
   return true;
+}
+// Sends each selected file as its own raw request body (not one big
+// multipart form submit) so the server can stream it straight to disk,
+// and so upload.onprogress can drive a progress bar instead of the page
+// sitting frozen until the whole body has gone out.
+function startUpload(form){
+  if(!validateUploadFiles(form))return false;
+  var files=Array.prototype.slice.call(form.querySelector('#upload-input').files);
+  var url=form.getAttribute('data-raw-url');
+  var bar=document.getElementById('upload-progress');
+  var status=document.getElementById('upload-status');
+  var btns=form.querySelectorAll('button');
+  for(var b=0;b<btns.length;b++)btns[b].disabled=true;
+  bar.style.display='block';
+  var total=files.reduce(function(s,f){return s+f.size;},0)||1;
+  var doneBytes=0;
+  function fmt(n){return n<1048576?(n/1024).toFixed(0)+'KB':(n/1048576).toFixed(1)+'MB';}
+  function next(i){
+    if(i>=files.length){location.reload();return;}
+    var f=files[i];
+    var xhr=new XMLHttpRequest();
+    xhr.open('POST',url+'?name='+encodeURIComponent(f.name));
+    xhr.upload.onprogress=function(e){
+      var sent=doneBytes+e.loaded;
+      bar.value=sent/total*100;
+      status.textContent=(i+1)+'/'+files.length+' '+f.name+' — '+fmt(sent)+' / '+fmt(total);
+    };
+    xhr.onload=function(){
+      if(xhr.status!==200){
+        alert('upload failed: '+f.name+' ('+xhr.status+' '+xhr.responseText+')');
+        location.reload();return;
+      }
+      doneBytes+=f.size;next(i+1);
+    };
+    xhr.onerror=function(){alert('upload failed: '+f.name+' (network error)');location.reload();};
+    xhr.send(f);
+  }
+  next(0);
+  return false;
 }
 function showNewFileModal(){
   var m=document.getElementById('newfile-modal');
@@ -1247,13 +1286,15 @@ def render_listing(root_name, rel, op_error=None):
 <div id="upload-modal" class="modal-overlay" onclick="if(event.target===this)hideUploadModal()">
 <div class="modal-box">
 <h3>upload file</h3>
-<form method="post" action="/upload/{root_name}/{urllib.parse.quote(rel)}" enctype="multipart/form-data" class="upload-form" onsubmit="return validateUploadFiles(this)">
+<form method="post" action="/upload/{root_name}/{urllib.parse.quote(rel)}" enctype="multipart/form-data" class="upload-form" data-raw-url="/upload-raw/{root_name}/{urllib.parse.quote(rel)}" onsubmit="return startUpload(this)">
 <input type="file" name="file" id="upload-input" multiple required oninput="updateUploadFileList()">
 <ul id="upload-filelist"></ul>
+<progress id="upload-progress" max="100" value="0" style="display:none;width:100%"></progress>
+<div id="upload-status" style="width:100%;font-size:12px;color:#aaa;word-break:break-all"></div>
 <button class="submit" type="submit">upload</button>
 <button type="button" class="submit" onclick="hideUploadModal()">cancel</button>
 </form>
-<p style="font-size:12px;color:#888">max 10 files, 1GB total</p>
+<p style="font-size:12px;color:#888">max 10 files, 1GB each</p>
 </div>
 </div>"""
     rename_modal = f"""
@@ -1855,6 +1896,53 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(encoded)
 
     def do_POST(self):
+        if self.path.startswith("/upload-raw/"):
+            # One file per request, body = the raw file bytes (sent by
+            # startUpload() in the page JS). Streamed to a temp file in 1MB
+            # chunks rather than read into memory whole, then renamed into
+            # place so an aborted upload never leaves a truncated file.
+            parsed = urllib.parse.urlsplit(self.path)
+            root_name, rel = split_root(urllib.parse.unquote(parsed.path[len("/upload-raw/"):]))
+            name = os.path.basename(urllib.parse.parse_qs(parsed.query).get("name", [""])[0])
+            target_dir = safe_path(root_name, rel)
+            length = int(self.headers.get("Content-Length", 0))
+
+            def reply(code, msg):
+                self.send_response(code)
+                self.send_header("Content-Type", "text/plain; charset=utf-8")
+                self.send_header("Connection", "close")
+                self.end_headers()
+                self.wfile.write(msg.encode())
+                self.close_connection = True
+
+            if length > MAX_UPLOAD_BYTES:
+                return reply(413, "file too large (max 1GB)")
+            if not name or name in (".", "..") or not target_dir or not os.path.isdir(target_dir):
+                return reply(400, "bad target")
+            dest = os.path.join(target_dir, name)
+            tmp = os.path.join(target_dir, f".{name}.uploading")
+            remaining = length
+            try:
+                with open(tmp, "wb") as f:
+                    while remaining > 0:
+                        chunk = self.rfile.read(min(1024 * 1024, remaining))
+                        if not chunk:
+                            raise ConnectionError("client disconnected")
+                        f.write(chunk)
+                        remaining -= len(chunk)
+                os.replace(tmp, dest)
+            except (OSError, ConnectionError) as e:
+                try:
+                    os.remove(tmp)
+                except OSError:
+                    pass
+                try:
+                    reply(500, str(e))
+                except OSError:
+                    pass
+                return
+            log_audit("upload", root_name, f"{rel}/{name}" if rel else name)
+            return reply(200, "ok")
         if self.path.startswith("/upload/"):
             root_name, rel = split_root(urllib.parse.unquote(self.path[len("/upload/"):]))
             target_dir = safe_path(root_name, rel)
@@ -1945,4 +2033,4 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    HTTPServer(("0.0.0.0", PORT), Handler).serve_forever()
+    ThreadingHTTPServer(("0.0.0.0", PORT), Handler).serve_forever()

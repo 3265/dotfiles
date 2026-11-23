@@ -143,6 +143,13 @@ sudo chmod 777 ~/.config/fish/settings/basic.fish
 sudo chmod 777 ~/.config/fish/settings/env.fish
 
 ########################
+#  WirePlumber (Bluetooth codec settings)
+########################
+
+mkdir -p ~/.config/wireplumber/bluetooth.lua.d
+ln -s -f ~/dotfiles/config/wireplumber/bluetooth.lua.d/* ~/.config/wireplumber/bluetooth.lua.d/
+
+########################
 #  fusuma
 ########################
 
